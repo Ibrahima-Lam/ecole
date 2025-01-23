@@ -1,0 +1,129 @@
+
+* {
+    margin: 0;
+    padding: 0;
+   
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table tr {
+    font-size: 12px;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 5px;
+    font-size: 12px;
+}
+.table.mini th,
+.table.mini td {
+    padding: 2px;
+    font-size: 10px;
+}
+.table th.right,
+.table td.right {
+    text-align: right;
+}
+
+.table th.left,
+.table td.left {
+    text-align: left;
+}
+
+.table th.center,
+.table td.center {
+    text-align: center;
+}
+
+
+.table-bordered th,
+.table-bordered td {
+    padding: 5px;
+    text-align: left;
+    border: 0.5px solid grey;
+    font-size: 12px;
+}
+
+.table-striped thead tr {
+    background-color: grey;
+}
+
+.table-striped tr {
+    background-color: whitesmoke;
+}
+
+.table-striped tr:nth-child(even) {
+    background-color: gainsboro;
+}
+
+.table a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.table a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.space-between {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.space-around {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.space-evenly {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.text-center {
+    width: 100%;
+    text-align: center;
+}
+
+.text-right {
+    width: 100%;
+    text-align: right;
+}
+
+.my-10 {
+    margin: 10px 0;
+}
+
+.my-5 {
+    margin: 5px 0;
+}
+
+.mx-10 {
+    margin: 0 10px;
+}
+.mx-20 {
+    margin: 0 20px;
+}
+.mx-30 {
+    margin: 0 30px;
+}

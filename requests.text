@@ -1,0 +1,393 @@
+
+create table eleve(
+    matricule varchar(10) not null,
+    nom varchar(100) not null,
+    isme varchar(100),
+    sexe varchar(1) not null,
+    dateNaissance date not null,
+    adresse varchar(50) not null,
+    nni varchar(100) not null,
+    lieuNaissance varchar(100),
+    Constraint eleve_pkey Primary Key (matricule),
+    Constraint eleve_nni_unique Unique (nni)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,adresse,nni) values('123456789','Moussa lamine','موسى المن','M','1990-01-01','123 main street','123456789');
+alter table eleve add column lieuNaissance varchar(100);
+alter table eleve modify column dateNaissance date ;
+alter table eleve modify column adresse varchar(100) ;
+alter table eleve modify column isme varchar(100) ;
+alter table eleve modify column sexe varchar(1) ;
+
+DELIMITER //
+CREATE TRIGGER eleve_matricule_trigger
+AFTER UPDATE ON eleve
+FOR EACH ROW
+BEGIN
+    if (NEW.matricule != OLD.matricule) then
+        UPDATE inscrit 
+        SET matricule = NEW.matricule 
+        WHERE matricule = OLD.matricule;
+        update note 
+        set matricule = NEW.matricule 
+        where matricule = OLD.matricule;
+    end if;
+END//
+DELIMITER ;
+
+
+create table serie(
+    codeSerie varchar(10) not null,
+    nomSerie varchar(20) not null,
+    cycle Enum('college','lycee') not null,
+    Constraint serie_pkey Primary Key (codeSerie)
+);
+insert into serie(codeSerie,nomSerie,cycle) values('belingue','Belingue','college');
+insert into serie(codeSerie,nomSerie,cycle) values('C','Mathematiques','lycee');
+insert into serie(codeSerie,nomSerie,cycle) values('D','Sciences','lycee');
+insert into serie(codeSerie,nomSerie,cycle) values('LM','Lettres Modernes','lycee');
+insert into serie(codeSerie,nomSerie,cycle) values('LO','Religion','lycee');
+
+create table classe(
+    codeClasse varchar(10) not null,
+    nomClasse varchar(100) not null,
+    niveau enum('1','2','3','4','5','6','7') not null,
+    codeSerie varchar(10) not null,
+    Constraint classe_pkey Primary Key (codeClasse),
+    Constraint classe_serie_fkey Foreign Key (codeSerie) References serie(codeSerie)
+);
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('1AS','1 Année Secondaire','1','belingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('2AS','2 Année Secondaire','2','belingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('3AS','3 Année Secondaire','3','belingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('4AS','4 Année Secondaire','4','belingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5D','5 Année Secondaire SN','5','D');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6D','6 Année Secondaire SN','6','D');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7D','7 Année Secondaire SN','7','D');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5C','5 Année Secondaire Mathematiques','5','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6C','6 Année Secondaire Mathematiques','6','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7C','7 Année Secondaire Mathematiques','7','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5LM','5 Année Secondaire LM','5','LM');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6LM','6 Année Secondaire LM','6','LM');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7LM','7 Année Secondaire LM','7','LM');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5LO','5 Année Secondaire LO','5','LO');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6LO','6 Année Secondaire LO','6','LO');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7LO','7 Année Secondaire LO','7','LO');
+
+
+create table anneeScolaire(
+    codeAnnee varchar(10) not null,
+    nomAnnee varchar(20) not null,
+    debutAnneeScolaire date not null,
+    finAnneeScolaire date not null,
+    Constraint annee_pkey Primary Key (codeAnnee)
+);
+
+insert into anneeScolaire(codeAnnee,nomAnnee,debutAnneeScolaire,finAnneeScolaire) values('2223','2022-2023','2022-10-01','2023-07-31');
+insert into anneeScolaire(codeAnnee,nomAnnee,debutAnneeScolaire,finAnneeScolaire) values('2324','2023-2024','2023-10-01','2024-07-31');
+insert into anneeScolaire(codeAnnee,nomAnnee,debutAnneeScolaire,finAnneeScolaire) values('2425','2024-2025','2024-10-01','2025-07-31');
+
+
+
+create table salle(
+    codeSalle varchar(10) not null,
+    nomSalle varchar(20) not null,
+    Constraint salle_pkey Primary Key (codeSalle)
+);
+insert into salle(codeSalle,nomSalle) values('Salle1','Salle 1');
+insert into salle(codeSalle,nomSalle) values('Salle2','Salle 2');
+insert into salle(codeSalle,nomSalle) values('Salle3','Salle 3');
+insert into salle(codeSalle,nomSalle) values('Salle4','Salle 4');
+insert into salle(codeSalle,nomSalle) values('Salle5','Salle 5');
+insert into salle(codeSalle,nomSalle) values('Salle6','Salle 6');
+insert into salle(codeSalle,nomSalle) values('Salle7','Salle 7');
+insert into salle(codeSalle,nomSalle) values('Salle8','Salle 8');
+insert into salle(codeSalle,nomSalle) values('Salle9','Salle 9');
+insert into salle(codeSalle,nomSalle) values('Salle10','Salle 10');
+insert into salle(codeSalle,nomSalle) values('Salle11','Salle 11');
+insert into salle(codeSalle,nomSalle) values('Salle12','Salle 12');
+insert into salle(codeSalle,nomSalle) values('Salle13','Salle 13');
+insert into salle(codeSalle,nomSalle) values('Salle14','Salle 14');
+insert into salle(codeSalle,nomSalle) values('Salle15','Salle 15');
+insert into salle(codeSalle,nomSalle) values('Salle16','Salle 16');
+insert into salle(codeSalle,nomSalle) values('Salle17','Salle 17');
+insert into salle(codeSalle,nomSalle) values('Salle18','Salle 18');
+insert into salle(codeSalle,nomSalle) values('Salle19','Salle 19');
+insert into salle(codeSalle,nomSalle) values('Salle20','Salle 20');
+insert into salle(codeSalle,nomSalle) values('Salle21','Salle 21');
+insert into salle(codeSalle,nomSalle) values('Salle22','Salle 22');
+insert into salle(codeSalle,nomSalle) values('Salle23','Salle 23');
+
+create table salle_classe(
+    codeSalleClasse varchar(10) not null,
+    codeSalle varchar(10) not null,
+    codeClasse varchar(10) not null,
+    codeAnnee varchar(10) not null,
+    indiceSalleClasse int(2),
+    Constraint salle_classe_pkey Primary Key (codeSalleClasse),
+    Constraint salle_classe_unique Unique (codeSalle,codeClasse,codeAnnee,indiceSalleClasse),
+    Constraint salle_classe_salle_fkey Foreign Key (codeSalle) References salle(codeSalle),
+    Constraint salle_classe_classe_fkey Foreign Key (codeClasse) References classe(codeClasse),
+    Constraint salle_classe_annee_fkey Foreign Key (codeAnnee) References anneeScolaire(codeAnnee)
+);
+
+insert into salle_classe(codeSalleClasse,codeSalle,codeClasse,codeAnnee,indiceSalleClasse) values('A24255D1','Salle8','5D','2425',1);
+insert into salle_classe(codeSalleClasse,codeSalle,codeClasse,codeAnnee,indiceSalleClasse) values('A24255D2','Salle9','5D','2425',2);
+insert into salle_classe(codeSalleClasse,codeSalle,codeClasse,codeAnnee,indiceSalleClasse) values('A24255D3','Salle10','5D','2425',3);
+insert into salle_classe(codeSalleClasse,codeSalle,codeClasse,codeAnnee,indiceSalleClasse) values('A24255LM','Salle7','5LM','2425',null);
+
+create view salle_classe_view as select
+  sc.codeSalleClasse as codeSalleClasse, sc.indiceSalleClasse,
+  s.codeSalle as codeSalle, s.nomSalle as nomSalle,
+  c.codeClasse as codeClasse, c.nomClasse as nomClasse,
+  a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
+  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie
+  from salle_classe sc 
+join salle s on s.codeSalle=sc.codeSalle 
+join classe c on c.codeClasse=sc.codeClasse 
+join anneeScolaire a on a.codeAnnee=sc.codeAnnee
+join serie sr on sr.codeSerie=c.codeSerie
+;
+
+create table inscrit(
+    idInscrit int(6) AUTO_INCREMENT,
+    matricule varchar(10) not null,
+    codeSalleClasse varchar(10) not null,
+    numeroInscrit int(3) not null,
+     typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null,
+    dateInscription date not null,
+    Constraint inscrit_unique Unique (matricule,codeSalleClasse),
+    Constraint inscrit_pkey Primary Key (idInscrit),
+    Constraint inscrit_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse),
+   
+);
+alter table inscrit add column  typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null;
+alter table inscrit add column  dateInscription date not null;
+alter table inscrit modify column numeroInscrit int(3) not null;
+
+insert into inscrit(matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('123456789','A24255LM',1,'passant','2023-10-01');
+
+create view inscrit_view as select
+  i.idInscrit as idInscrit, i.matricule as matricule,i.numeroInscrit as numeroInscrit,i.typeInscrit as typeInscrit,i.dateInscription as dateInscription,
+  e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,
+  sc.codeSalleClasse as codeSalleClasse, sc.indiceSalleClasse as indiceSalleClasse,
+  s.codeSalle as codeSalle, s.nomSalle as nomSalle,
+  c.codeClasse as codeClasse, c.nomClasse as nomClasse,
+  a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
+  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie
+  from inscrit i 
+  join eleve e on e.matricule=i.matricule
+join salle_classe sc on sc.codeSalleClasse=i.codeSalleClasse
+join salle s on s.codeSalle=sc.codeSalle 
+join classe c on c.codeClasse=sc.codeClasse 
+join anneeScolaire a on a.codeAnnee=sc.codeAnnee
+join serie sr on sr.codeSerie=c.codeSerie
+;
+
+create table specialite(
+    codeSpecialite varchar(10) not null,
+    nomSpecialite varchar(100) not null,
+    ismeSpecialite varchar(100),
+    Constraint specialite_pkey Primary Key (codeSpecialite),
+    Constraint specialite_unique Unique (nomSpecialite)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create table professeur(
+    matriculeProfesseur varchar(10) not null,
+    nomProfesseur varchar(100) not null,
+    ismeProfesseur varchar(100),
+    sexeProfesseur varchar(1) ,
+    adresseProfesseur varchar(50) ,
+    nniProfesseur varchar(100) not null,
+    telProfesseur varchar(8),
+    codeSpecialite varchar(10) not null,
+    Constraint professeur_pkey Primary Key (matriculeProfesseur),
+    Constraint professeur_nni_unique Unique (nniProfesseur),
+    Constraint professeur_specialite_fkey Foreign Key (codeSpecialite) References specialite(codeSpecialite)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create table matiere(
+    codeMatiere varchar(5) not null,
+    nomMatiere varchar(100) not null,
+    ismeMatiere varchar(100),
+    langueMatiere enum('AR','FR','EN'),
+    Constraint matiere_pkey Primary Key (codeMatiere),
+    Constraint matiere_isme_unique Unique (nomMatiere)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere) values('math','Mathematiques','الرياضيات','FR');
+insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere) 
+values('pc','Physique Chimie','الفيزياء و الكيمياء','FR'),
+('fr','Français','الفراسية','FR'),
+('en','Anglais','الانجليزية','EN'),
+('ar','Arabe','اللغة العربية','AR'),
+('sn','Science Naturelle','العلوم الطبية','FR'),
+('philo','Philosophie','الفلسفة','AR'),
+('ic','Education civique','التربية المدينة','AR'),
+('ir','Education Islamique','التربية الإسلامية','AR'),
+('info','Technologie et Informatique','التكنولوجيا','FR'),
+('hg','Histoire et Geographie','التاريخ و الجغرافية','AR'),
+('eps','Education Physique et Sportive','الفيزياء و الرياضيات','FR'),
+('leg','legislation','القانون','AR')
+;
+
+
+create table classe_matiere(
+    codeClasseMatiere varchar(10) not null,
+    codeClasse varchar(10) not null,
+    codeMatiere varchar(5) not null,
+    horaireClasseMatiere int(2) not null,
+    coefficientClasseMatiere int(2) not null,
+    dateClasseMatiere date not null,
+    Constraint classe_matiere_pkey Primary Key (codeClasseMatiere),
+    Constraint classe_matiere_unique Unique (codeClasse,codeMatiere,dateClasseMatiere),
+    Constraint fk_classe_matiere_classe_code FOREIGN KEY (codeClasse) REFERENCES classe(codeClasse)
+);
+LOAD DATA INFILE 'c:/Users/MULTI MEDIA/Desktop/ecole/classe-matiere.csv'
+INTO TABLE classe_matiere
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 5 LINES
+(codeClasseMatiere, codeClasse, codeMatiere, horaireClasseMatiere, coefficientClasseMatiere, dateClasseMatiere);
+
+create view classe_matiere_view as select
+  cm.codeClasse as codeClasse,cm.codeClasseMatiere as codeClasseMatiere,cm.horaireClasseMatiere,cm.coefficientClasseMatiere,dateClasseMatiere,
+  m.codeMatiere as codeMatiere, m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
+ c.nomClasse as nomClasse,c.niveau as niveauClasse,
+ s.codeSerie as codeSerie,s.nomSerie as nomSerie, s.cycle as cycle
+  from classe_matiere cm 
+join matiere m on m.codeMatiere=cm.codeMatiere 
+join classe c on c.codeClasse=cm.codeClasse
+join serie s on s.codeSerie=c.codeSerie;
+
+
+create table professeur_matiere(
+    matricule varchar(10) not null,
+    codeMatiere varchar(10) not null,
+    Constraint professeur_matiere_pkey Primary Key (matricule,codeMatiere),
+    Constraint professeur_matiere_professeur_fkey Foreign Key (matricule) References professeur(matricule),
+    Constraint professeur_matiere_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere)
+);
+
+
+   
+create table enseigne(
+    matriculeProfesseur varchar(10) not null,
+    codeMatiere varchar(10) not null,
+    codeSalleClasse varchar(10) not null,
+    Constraint enseigne_pkey Primary Key (matriculeProfesseur,codeMatiere,codeSalleClasse),
+    Constraint enseigne_professeur_fkey Foreign Key (matriculeProfesseur) References professeur(matriculeProfesseur),
+    Constraint enseigne_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere),
+    Constraint enseigne_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse)
+    
+);
+
+
+create table evaluation(
+    codeEvaluation varchar(10) not null,
+    nomEvaluation varchar(100) not null,
+    indiceEvaluation int(2) not null,
+    coefficientEvaluation int(2) not null,
+    Constraint evaluation_pkey Primary Key (codeEvaluation),
+    Constraint evaluation_unique Unique (nomEvaluation,indiceEvaluation,coefficientEvaluation),
+    typeEvaluation enum('composition','devoir') not null
+);
+
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir1','1er devoir',1,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir2','2eme devoir',2,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir3','3eme devoir',3,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos1','1er composition',1,1,'composition');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos2','2eme composition',2,2,'composition');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos3','3eme composition',3,3,'composition');
+
+create table examen(
+    codeExamen varchar(20) not null,
+    codeClasseMatiere varchar(10) not null,
+    codeSalleClasse varchar(10) not null,
+    codeEvaluation varchar(10) not null,
+    dateExamen date not null,
+    heureDebutExamen time not null,
+    heureFinExamen time not null,
+    statutExamen enum(0,1) not null default 1,
+    Constraint salle_classe_examen_pkey Primary Key (codeExamen),
+    Constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen),
+    Constraint salle_classe_examen_classe_fkey Foreign Key (codeClasseMatiere) References classe_matiere(codeClasseMatiere),
+    Constraint salle_classe_examen_examen_fkey Foreign Key (codeEvaluation) References evaluation(codeEvaluation)
+);
+alter table examen  modify column codeExamen varchar(20) not null ;
+alter table examen add column codeSalleClasse varchar(10) not null after dateExamen;
+alter table examen add statutExamen enum('0','1') default '1' not null after heureFinExamen;
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1C1','PC5D','A24255D1','compos1','2024-10-01','10:00:00','12:00:00');
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1D1','PC5D','A24255D1','devoir1','2024-10-01','10:00:00','12:00:00');
+
+create view examen_view as select
+  e.codeExamen as codeExamen, e.codeClasseMatiere as codeClasseMatiere, e.codeSalleClasse as codeSalleClasse, e.codeEvaluation as codeEvaluation,
+  e.dateExamen as dateExamen, e.heureDebutExamen as heureDebutExamen, e.heureFinExamen as heureFinExamen, e.statutExamen as statutExamen,
+ ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
+  ev.typeEvaluation as typeEvaluation,
+  cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
+   m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
+   sc.indiceSalleClasse as indiceSalleClasse,sc.codeAnnee as codeAnnee
+  from examen e join evaluation ev on e.codeEvaluation = ev.codeEvaluation
+  join classe_matiere cm on cm.codeClasseMatiere=e.codeClasseMatiere
+  join matiere m on m.codeMatiere=cm.codeMatiere
+  join classe c on c.codeClasse=cm.codeClasse
+  join salle_classe sc on sc.codeSalleClasse=e.codeSalleClasse;
+
+create table note(
+    idNote int(10) AUTO_INCREMENT,
+    matricule varchar(10) not null,
+    codeExamen varchar(20) not null,
+    note float(4,2) not null,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    Constraint note_pkey Primary Key (idNote),
+    Constraint note_check Check (note>=0 and note<=20),
+    Constraint note_unique Unique (matricule,codeExamen),
+    Constraint note_inscrit_fkey Foreign Key (matricule) References inscrit(matricule),
+    Constraint note_examen_fkey Foreign Key (codeExamen) References examen(codeExamen)
+);  
+
+alter table note  modify column codeExamen varchar(20) not null ;
+
+
+insert into note (matricule,codeExamen,note) values('Mat5d101','2425PC5D1C1',15.75);
+insert into note (matricule,codeExamen,note) values('Mat5d101','2425PC5D1D1',14.25);
+
+create  view note_view as select
+  n.idNote as idNote, n.matricule as matricule,n.note as note,n.createdAt as createdAt,n.updatedAt as updatedAt,
+  e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,
+  cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
+  ex.codeExamen as codeExamen,ex.codeClasseMatiere as codeClasseMatiere,ex.dateExamen as dateExamen,ex.heureDebutExamen as heureDebutExamen,ex.heureFinExamen as heureFinExamen,ex.codeSalleClasse as codeSalleClasse,ex.statutExamen as statutExamen,
+  ev.codeEvaluation as codeEvaluation, ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
+  ev.typeEvaluation as typeEvaluation,
+  a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee
+  from note n 
+  join eleve e on e.matricule=n.matricule
+  join examen ex on ex.codeExamen=n.codeExamen
+  join classe_matiere cm on cm.codeClasseMatiere=ex.codeClasseMatiere
+  join salle_classe sc on sc.codeSalleClasse=ex.codeSalleClasse
+  join anneescolaire a on a.codeAnnee=sc.codeAnnee
+  join evaluation ev on ev.codeEvaluation=ex.codeEvaluation;
+
+
+create table cours(
+    idCours int(6) AUTO_INCREMENT,
+    matricule varchar(10) not null,
+    codeSalleClasse varchar(10) not null,
+    codeMatiere varchar(10) not null,
+    jourCours enum('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi') not null,
+    heureDebutCours time not null,
+    heureFinCours time not null,
+    Constraint cours_pkey Primary Key (idCours),
+    Constraint cours_unique Unique (matricule,codeSalleClasse,codeMatiere,jourCours,heureDebutCours,heureFinCours),
+)
+
+create table absence(
+    idAbsence int(6) AUTO_INCREMENT;
+    listeAbsence text not null,
+   idCours int not null,
+    Constraint absence_pkey Primary Key (idAbsence),
+)
+
+
+

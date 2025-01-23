@@ -1,0 +1,29 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.2",
+        "phpoffice/phpspreadsheet": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Src\\": "Src/",
+            "Controllers\\": "Controllers/",
+            "Models\\": "Models/",
+            "Services\\": "Services/",
+            "Core\\": "Core/",
+            "Repositories\\": "Repositories/",
+            "Repository\\": "Repository/",
+            "Providers\\": "Providers/",
+            "Entities\\": "Entities/",
+            "Entity\\": "Entity/",
+            "https\\": "https/",
+            "http\\": "http/",
+            "Api\\": "Api/",
+            "Apis\\": "Apis/",
+            "Pdf\\": "Pdf/",
+            "Pdfs\\": "Pdfs/",
+            "Paramettres\\": "Paramettres/",
+            "Paramettre\\": "Paramettre/"
+        }
+    }
+}
