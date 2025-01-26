@@ -307,7 +307,6 @@ class TableData {
         <td >${sexe}</td>
         <td >${dateNaissance}</td>
         <td>${lieuNaissance}</td>
-        <td>${adresse}</td>
         <td class="seachable">${nni}</td><td>
         <div class="center">
          <a href="?p=eleve/profil/${matricule}"><i class="bi-eye"></i></a>

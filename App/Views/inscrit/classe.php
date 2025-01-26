@@ -71,7 +71,7 @@
 <div class="fixed-action">
     <a title="Imprimer" href="?p=pdf/inscrit/classe/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="bi-filetype-pdf"></i></a>
     <button id="paramettre" title="paramettre d'affichage" class="btn btn-primary circle"><i class="bi-gear"></i></button>
-    <a title="Exporter en excel" id="export" href="?p=inscrit/export/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="bi-filetype-xls"></i></a>
+    <a id="export" title="Exporter en excel" id="export" href="?p=inscrit/export/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="bi-filetype-xls"></i></a>
 </div>
 
 <dialog id="dialog" class="dialog">
@@ -160,7 +160,8 @@
         });
     });
 
-    document.getElementById('export').addEventListener('click',function () {
-        window.open(`?p=inscrit/export/<?= $classe->codeSalleClasse ?>`,'_blank')
+    document.getElementById('export').addEventListener('click',function (e) {
+        e.preventDefault();
+        window.open(`?p=inscrit/export/<?= $classe->codeSalleClasse ?>`)
     })
 </script>
