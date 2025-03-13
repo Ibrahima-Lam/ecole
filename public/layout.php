@@ -96,6 +96,11 @@
                     <div class="element">
                         <div>Examens</div><i class="bi-star"></i>
                     </div>
+                </a></li> 
+                <li><a href="?p=note/liste"><i class="bi-list"></i>
+                    <div class="element">
+                        <div>Notes</div><i class="bi-star"></i>
+                    </div>
                 </a></li>
             <li><a href="?p=paramettre/index"><i class="bi-gear"></i>
                     <div class="element">Paramètres</div>

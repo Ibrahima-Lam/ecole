@@ -49,7 +49,7 @@ class ExamenApiController extends Controller
         try {
             
             extract($_REQUEST);
-            $codeExamen=$codeSalleClasse.$codeClasseMatiere;
+            $codeExamen=$codeSalleClasse.$codeClasseMatiere.$codeEvaluation;
             $res = $this->examenRepository->insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen);
             if ($res) {
                 $data=$this->examenRepository->findOne($codeExamen);

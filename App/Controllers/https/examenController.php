@@ -5,25 +5,36 @@ use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\ExamenFactory;
 use Core\Controllers\Controller;
 use App\Models\Repositories\ExamenRepository;
+use App\Models\Repositories\MatiereRepository;
+use App\Models\Repositories\EvaluationRepository;
  class ExamenController extends Controller 
 {
     private $examenRepository;
+    private $salleClasseRepository;
+    private $matiereRepository;
+    private $evaluationRepository;
     public function __construct()
     {
         $this->examenRepository = new ExamenRepository();
+        $this->salleClasseRepository = new SalleClasseRepository();
+        $this->matiereRepository = new MatiereRepository();
+        $this->evaluationRepository = new EvaluationRepository();
     }
 
     public function liste():void
     {
         $annee=$this->getCodeAnnee();
         $data = $this->examenRepository->findAllByAnnee($annee);
-        $this->render("examen/liste", ["data" => $data]);
+        $classes=$this->salleClasseRepository->findAll();
+        $matieres=$this->matiereRepository->findAll();
+        $evaluations=$this->evaluationRepository->findAll();
+        $this->render("examen/liste", ["data" => $data,"classes"=>$classes,"matieres"=>$matieres,"evaluations"=>$evaluations]);
     }
     public function classe($codeSalleClasse):void
     {
        $data=ExamenFactory::getExamen($codeSalleClasse);
        $classe=$data->salleClasse;
-        $this->render("examen/liste", ["data" => $data,"classe"=> $classe]);
+        $this->render("examen/classe", ["data" => $data,"classe"=> $classe]);
     }
 }
 

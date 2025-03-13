@@ -1,38 +1,16 @@
 <?php
-$classes??=[];
-$matieres??=[];
-$evaluations??=[];
+$classe??=null;
 ?>
+<input type="hidden" id="classe" name="classe" value="<?=$classe ? $classe->codeSalleClasse ?? null : null ?>">
 
-<script type="module" src="js/examen/liste.js" defer></script>
-<h2 class="title text-center my-10">Les Examens </h2>
+<script type="module" src="js/examen/classe.js" defer></script>
+<h2 class="title text-center my-10">Les Examens <?=$classe ? 'de la classe '.$classe->codeClasse.$classe->indiceSalleClasse:'' ?></h2>
 
-    <div class="space-between">
-      <select name="classe" id="classe" class="field">
-        <option value="">Toutes les classes</option>
-        <?php foreach ($classes as $classe): ?>
-          <option value="<?= $classe->codeSalleClasse ?>"><?= $classe->codeClasse ?><?= $classe->indiceSalleClasse ?></option>
-        <?php endforeach ?>
-      </select>
+<?php foreach($data->getMatiereExamen() as $matiere):?>
 
-      <select name="matiere" id="matiere" class="field">
-        <option value="">Toutes les matières</option>
-        <?php foreach ($matieres as $matiere): ?>
-          <option value="<?= $matiere->codeMatiere ?>"><?= $matiere->codeMatiere ?></option>
-        <?php endforeach ?>
-      </select>
-      
-      <select name="evaluation" id="evaluation" class="field">
-        <option value="">Toutes les évaluations</option>
-        <?php foreach ($evaluations as $evaluation): ?>
-          <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->codeEvaluation ?></option>
-        <?php endforeach ?>
-      </select>
-  
-    </div>
-
+<h3 class="title text-center my-10"><u><?=$matiere->matiere->nomMatiere?></u></h3>
 <div class="table-container">
-    <table class="table table-striped my-10" id="table">
+    <table class="table table-striped my-10">
         <thead>
             <tr>
                 <th>Code</th>
@@ -46,7 +24,7 @@ $evaluations??=[];
         <tbody>
             <?php
            
-            foreach ($data as $examen): ?>
+            foreach ($matiere->examens as $examen): ?>
                 <tr>
                     <td><?= $examen->codeExamen ?></td>
                     <td><?= $examen->codeClasse ?><?= $examen->indiceSalleClasse ?></td>
@@ -64,6 +42,7 @@ $evaluations??=[];
         </tbody>
     </table>
 </div>
+<?php endforeach?>
 
 <div class="fixed-action">
     <button class="btn btn-primary circle" id="add">

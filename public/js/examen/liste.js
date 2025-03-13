@@ -1,38 +1,97 @@
 
 import {fetchJson,fetchText} from '../src/fetch.js'
+let data=[]
 
-const dialog=document.getElementById('dialog');
-const add=document.getElementById('add');
-const classe=document.getElementById('classe');
+let params={
+    codeClasse: null,
+    codeMatiere: null,
+    codeEvaluation: null
+}
 
-add.addEventListener('click',function (e) {
-    new FormDialog(dialog,{
-        codeClasse:classe.value
-    });
-    dialog.showModal();
-});
+const table=document.getElementById('table')
+const tbody=table.querySelector('tbody')
+
+async function getData() {
+    await fetchJson('?p=api/examen/liste').then(res => {
+        data=res
+    })
+   
+}
+
+window.addEventListener('load',async function () {
+    await getData()
+    renderTable()
+})
 
 const close=document.getElementById('close');
 close.addEventListener('click',function () {
     dialog.close();
 })
 
-document.querySelectorAll(".edit").forEach(function (element) {
-    element.addEventListener("click", function (e) {
-        let codeExamen = element.dataset.code;
-        new FormDialog(dialog,{
-            codeExamen:codeExamen
-        });
-        dialog.showModal();
-    });
-});
+const classe=document.getElementById('classe');
+const matiere=document.getElementById('matiere');
+const evaluation=document.getElementById('evaluation');
 
-document.querySelectorAll(".delete").forEach(function (element) {
-    element.addEventListener("click", function (e) {
-        let codeExamen = element.dataset.code;
-        FormDialog.onDelete(codeExamen);
+classe.addEventListener('change',async function () {
+    params.codeClasse=this.value
+    await getData()
+    renderTable()
+})
+
+matiere.addEventListener('change',async function () {
+    params.codeMatiere=this.value
+    await getData()
+    renderTable()
+})
+
+evaluation.addEventListener('change',async function () {
+    params.codeEvaluation=this.value
+    await getData()
+    renderTable()
+})
+
+function renderTable() {
+    let elements=data
+    if (params.codeClasse) elements=elements.filter(examen => examen.codeSalleClasse===params.codeClasse)
+    if (params.codeMatiere) elements=elements.filter(examen => examen.codeMatiere===params.codeMatiere)
+    if (params.codeEvaluation) elements=elements.filter(examen => examen.codeEvaluation===params.codeEvaluation)
+    tbody.innerHTML=''
+    elements.forEach(examen => {
+        const row=document.createElement('tr')
+        row.innerHTML=`
+            <td>${examen.codeExamen}</td>
+            <td>${examen.codeClasse}${examen.indiceSalleClasse}</td>
+            <td>${examen.codeMatiere}</td>
+            <td>${examen.nomEvaluation}</td>
+            <td>${examen.dateExamen}</td>
+            <td>
+                <div class="center">
+                    <a class="edit" data-code="${examen.codeExamen}"><i class="bi-pencil"></i></a>
+                    <a class="delete" data-code="${examen.codeExamen}"><i class="bi-trash text-danger"></i></a>
+                </div>
+            </td>
+        `
+        tbody.appendChild(row)
+    })
+    document.querySelectorAll(".edit").forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            let codeExamen = element.dataset.code;
+            new FormDialog(dialog,{
+                codeExamen:codeExamen
+            });
+            dialog.showModal();
+        });
     });
-});
+    document.querySelectorAll(".delete").forEach(function (element) {
+        element.addEventListener("click", function (e) {
+            let codeExamen = element.dataset.code;
+            FormDialog.onDelete(codeExamen);
+        });
+    });
+}
+
+
+
 
 class FormDialog {
     constructor(dialog,params={}) {
@@ -92,3 +151,5 @@ class FormDialog {
         }
     }
 }
+
+

@@ -61,7 +61,7 @@ class inscritController extends Controller
     $cols=array_map(function ($a){
         return ucwords($a);
     }, $cols);
-    $labels=[  'Code',  'Numero', 'Nom', 'Nom en Arabe'  /*, 'Date de Naissance' , 'Classe', 'NNI', 'Date d\'Inscription' */ ];
+    $labels=[  /* 'Code', */  'Numero', 'Nom', 'Nom en Arabe'  /*, 'Date de Naissance' , 'Classe', 'NNI', 'Date d\'Inscription' */ ];
     $row = 5;
     // Définir les en-têtes
    foreach ($labels as $key => $value) {
@@ -74,16 +74,18 @@ class inscritController extends Controller
         $model = new SalleClasseRepository();
         $classe = $model->findOneByCode($codeSalleClasse);
         $model = new AnneeScolaireRepository();
+        $anneescolaire = $model->findOneByCodeAnnee($this->annee);
     foreach ($inscrits as $inscrit) {
         $row++;
-      if(in_array('Code',$labels))  $sheet->setCellValue($cols[0] . $row, $inscrit->matricule);
-         if(in_array('Numero',$labels))  $sheet->setCellValue($cols[1] . $row, $inscrit->numeroInscrit);
-         if(in_array('Nom',$labels))  $sheet->setCellValue($cols[2] . $row, $inscrit->nom);
-         if(in_array('Nom en Arabe',$labels))  $sheet->setCellValue($cols[3] . $row, $inscrit->isme);
-         if(in_array('Date de Naissance',$labels))  $sheet->setCellValue($cols[4] . $row, $inscrit->dateNaissance);
-         if(in_array('Classe',$labels))  $sheet->setCellValue($cols[5] . $row, $inscrit->codeClasse.$inscrit->indiceSalleClasse);
-         if(in_array('NNI',$labels))  $sheet->setCellValue($cols[6] . $row, $inscrit->nni);
-         if(in_array('Date d\'Inscription',$labels))  $sheet->setCellValue($cols[7] . $row, $inscrit->dateInscription);
+        $i=0;
+      if(in_array('Code',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->matricule);
+         if(in_array('Numero',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->numeroInscrit);
+         if(in_array('Nom',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->nom);
+         if(in_array('Nom en Arabe',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->isme);
+         if(in_array('Date de Naissance',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->dateNaissance);
+         if(in_array('Classe',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->codeClasse.$inscrit->indiceSalleClasse);
+         if(in_array('NNI',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->nni);
+         if(in_array('Date d\'Inscription',$labels))  $sheet->setCellValue($cols[$i++] . $row, $inscrit->dateInscription);
       
     }
     // Créer le fichier Excel

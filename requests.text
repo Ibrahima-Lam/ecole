@@ -1,4 +1,4 @@
-
+mysqldump -u root --databases school > sauvegarde.sql
 create table eleve(
     matricule varchar(10) not null,
     nom varchar(100) not null,
@@ -152,11 +152,11 @@ create table inscrit(
     matricule varchar(10) not null,
     codeSalleClasse varchar(10) not null,
     numeroInscrit int(3) not null,
-     typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null,
+    typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null,
     dateInscription date not null,
     Constraint inscrit_unique Unique (matricule,codeSalleClasse),
     Constraint inscrit_pkey Primary Key (idInscrit),
-    Constraint inscrit_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse),
+    Constraint inscrit_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse)
    
 );
 alter table inscrit add column  typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null;
@@ -213,9 +213,9 @@ create table matiere(
     Constraint matiere_isme_unique Unique (nomMatiere)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere) values('math','Mathematiques','الرياضيات','FR');
-insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere) 
-values('pc','Physique Chimie','الفيزياء و الكيمياء','FR'),
+insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere)
+ values('math','Mathematiques','الرياضيات','FR'),
+('pc','Physique Chimie','الفيزياء و الكيمياء','FR'),
 ('fr','Français','الفراسية','FR'),
 ('en','Anglais','الانجليزية','EN'),
 ('ar','Arabe','اللغة العربية','AR'),
@@ -246,7 +246,7 @@ INTO TABLE classe_matiere
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 5 LINES
+IGNORE 1     LINES
 (codeClasseMatiere, codeClasse, codeMatiere, horaireClasseMatiere, coefficientClasseMatiere, dateClasseMatiere);
 
 create view classe_matiere_view as select
@@ -261,11 +261,9 @@ join serie s on s.codeSerie=c.codeSerie;
 
 
 create table professeur_matiere(
-    matricule varchar(10) not null,
+    matriculeProfesseur varchar(10) not null,
     codeMatiere varchar(10) not null,
-    Constraint professeur_matiere_pkey Primary Key (matricule,codeMatiere),
-    Constraint professeur_matiere_professeur_fkey Foreign Key (matricule) References professeur(matricule),
-    Constraint professeur_matiere_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere)
+    Constraint professeur_matiere_pkey Primary Key (matriculeProfesseur,codeMatiere)
 );
 
 
@@ -307,7 +305,7 @@ create table examen(
     dateExamen date not null,
     heureDebutExamen time not null,
     heureFinExamen time not null,
-    statutExamen enum(0,1) not null default 1,
+    statutExamen enum('0','1') default '1',
     Constraint salle_classe_examen_pkey Primary Key (codeExamen),
     Constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen),
     Constraint salle_classe_examen_classe_fkey Foreign Key (codeClasseMatiere) References classe_matiere(codeClasseMatiere),

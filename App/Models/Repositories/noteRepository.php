@@ -18,6 +18,12 @@ class NoteRepository extends Repository
         $sql = "select * from note_view";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
+    } 
+    public function findAllByAnnee($annee):array
+    {
+        $sql = "select * from note_view where codeAnnee='$annee'";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
     }
     
     public function findAllByMatriculeAndAnnee($matricule, $annee):array

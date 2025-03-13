@@ -73,7 +73,7 @@ $title = 'Les eleves'
             <input type="hidden" name="edit">
             <div class="form-group">
                 <label for="matricule">Matricule</label>
-                <input type="text" class="form-control" id="matricule" name="matricule" placeholder="matricule" value="Mat5d3" required>
+                <input type="text" class="form-control" id="matricule" name="matricule" placeholder="matricule" value="Mat5LM" required>
             </div>
             <div class="form-group">
                 <label for="nom">Nom et Prénom</label>
@@ -111,7 +111,7 @@ $title = 'Les eleves'
             </div>
             <div class="form-group">
                 <label for="nni">NNI</label>
-                <input type="text" class="form-control" id="nni" value="00000003" name="nni" placeholder="nni" required>
+                <input type="text" class="form-control" id="nni" value="00000004" name="nni" placeholder="nni" required>
             </div>
             <div class="form-action">
                 <button type="reset" class="btn btn-default">Annuler</button>
