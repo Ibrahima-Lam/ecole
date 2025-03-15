@@ -1,5 +1,6 @@
 
 import {fetchJson,fetchText} from '../src/fetch.js'
+import {NoteFormDialog} from './note_module.js'
 let data = [];
 const dialog=document.getElementById('dialog');
 const add=document.getElementById('add');
@@ -89,7 +90,7 @@ function renderTable(){
        
         element.addEventListener("click", function (e) {
             let idNote = element.dataset.id;
-            new FormDialog(dialog,{
+            new NoteFormDialog(dialog,{
                 idNote:idNote
             });
             dialog.showModal();
@@ -98,13 +99,13 @@ function renderTable(){
     tbody.querySelectorAll(".delete").forEach(function (element) {
         element.addEventListener("click", function (e) {
             let idNote = element.dataset.id;
-            FormDialog.onDelete(idNote);
+            NoteFormDialog.onDelete(idNote);
         });
     })
 }
 
 add.addEventListener('click',function (e) {
-    new FormDialog(dialog);
+    new NoteFormDialog(dialog);
     dialog.showModal();
 });
 
@@ -116,7 +117,7 @@ close.addEventListener('click',function () {
 document.querySelectorAll(".edit").forEach(function (element) {
     element.addEventListener("click", function (e) {
         let idNote = element.dataset.id;
-        new FormDialog(dialog,{
+        new NoteFormDialog(dialog,{
             idNote:idNote
         });
         dialog.showModal();
@@ -126,62 +127,6 @@ document.querySelectorAll(".edit").forEach(function (element) {
 document.querySelectorAll(".delete").forEach(function (element) {
     element.addEventListener("click", function (e) {
         let idNote = element.dataset.id;
-        FormDialog.onDelete(idNote);
+        NoteFormDialog.onDelete(idNote);
     });
 });
-
-class FormDialog {
-    constructor(dialog,params={}) {
-        this.dialog = dialog;
-        this.form = null;
-        this.params = {
-            idNote: null,
-            codeExamen: null,
-            ...params
-        };
-        this.init();
-    }
-
-  async  init() {
-        await this.formHtml().then(html => {
-            this.dialog.querySelector('.dialog-body').innerHTML = html;
-            this.form = this.dialog.querySelector('form')
-            this.form.addEventListener('submit', (e) => this.onSubmit(e));
-         })
-    }
-
-    async formHtml() {
-        let url = `?p=api/note/form`;
-        if (this.params.idNote) url += `/${this.params.idNote}`;
-        return await fetchText(url).then(html => html);
-    }
-
-    onSubmit(e) {
-        e.preventDefault();
-        const data = new FormData(e.target);
-        const dataString = (new URLSearchParams(data)).toString();
-        let url = e.target.edit.value ? `?p=api/note/update/${this.params.codeExamen}&${dataString}` : `?p=api/note/insert&${dataString}`;
-        fetchJson(url).then(data => {
-            this.dialog.close();
-            if (data?.status) {
-                alert(data?.message ?? 'Enregistrement effectué');
-                window.location.reload();
-            } else {
-                alert(data?.message ?? 'Erreur lors de l\'enregistrement');
-            }
-        }); 
-    
-    }
-   static onDelete(id) {
-        if (confirm('Voulez-vous vraiment supprimer cette note ?')) {
-            fetchJson(`?p=api/note/delete/${id}`).then(data => {
-                if (data?.status) {
-                    alert(data?.message ?? 'Note supprimée');
-                    window.location.reload();
-                } else {
-                    alert(data?.message ?? 'Erreur lors de la suppression');
-                }
-            });
-        }
-    }
-}

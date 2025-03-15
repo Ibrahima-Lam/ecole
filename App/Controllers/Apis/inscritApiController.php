@@ -31,6 +31,21 @@ class inscritApiController extends Controller
         $this->response($data);
     }
 
+    public function eleve($matricule)
+    {
+        $model = new InscritRepository();
+        $data = $model->findOneByCodeAndAnnee($matricule, $this->annee);
+        if (!$data) {
+            $this->response([
+                'response' => "ko",
+                'message' => "L'élève n'a pas été trouvé",
+                'status' => 0
+            ]);
+            return;
+        }
+        $this->response($data);
+    }
+
     public function last($classe)
     {
         $model = new InscritRepository();

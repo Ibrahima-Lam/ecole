@@ -801,6 +801,31 @@ dd {
     background-color: blue;
   }
 
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+  }
+
+  .card-header {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
 @media screen and (max-width: 800px) {
     
   .nav-bar,[dir='rtl'] .nav-bar {
@@ -997,3 +1022,4 @@ dd {
 
    
 }
+

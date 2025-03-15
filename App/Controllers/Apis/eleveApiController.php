@@ -44,6 +44,14 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
     {
         $model = new EleveRepository();
         $data = $model->findOneByMatricule($matricule);
+        if (!$data) {
+            $this->response([
+                'response' => "ko",
+                'message' => "L'élève n'a pas été trouvé",
+                'status' => 0
+            ]);
+            return;
+        }
         $this->response($data);
     }
     public function insert(): void
