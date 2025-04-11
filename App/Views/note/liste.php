@@ -23,7 +23,7 @@ $notes = $notes ?? [];
     <select name="evaluation" id="evaluation" class="field">
         <option value="">Toutes les évaluations</option>
         <?php foreach ($evaluations as $evaluation): ?>
-            <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->codeEvaluation ?></option>
+            <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->nomEvaluation ?></option>
         <?php endforeach ?>
     </select>
     <input type="text" name="matricule" id="matricule" class="field" placeholder="Matricule ou NNI">
@@ -54,11 +54,11 @@ $notes = $notes ?? [];
                 <td><?= $note->createdAt; ?></td>
                 <td><?= $note->updatedAt; ?></td>
                 <td>
-                    <button class="btn btn-primary circle edit" data-id="<?= $note->idNote; ?>">
-                        <i class="bi-pencil"></i>
+                    <button class="btn circle edit" data-id="<?= $note->idNote; ?>">
+                        <i class="bi-pencil text-primary"></i>
                     </button>
-                    <button class="btn btn-danger circle delete" data-id="<?= $note->idNote; ?>">
-                        <i class="bi-trash"></i>
+                    <button class="btn  circle delete" data-id="<?= $note->idNote; ?>">
+                        <i class="bi-trash text-danger"></i>
                     </button>
                 </td>
             </tr>

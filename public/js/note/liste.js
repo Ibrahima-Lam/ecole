@@ -77,12 +77,15 @@ function renderTable(){
             <td>${note.createdAt}</td>
             <td>${note.updatedAt}</td>
             <td>
-                <button class="btn btn-primary circle edit" data-id="${note.idNote}">
-                    <i class="bi-pencil"></i>
-                </button>
-                <button class="btn btn-danger circle delete" data-id="${note.idNote}">
-                    <i class="bi-trash"></i>
-                </button>
+                
+               <div class="center">
+                 <div class="edit" data-id="${note.idNote}">
+                     <i class="bi-pencil text-primary"></i>
+                 </div>
+                 <div class="delete" data-id="${note.idNote}">
+                     <i class="bi-trash text-danger"></i>
+                 </div>
+               </div>
             </td>
         </tr>
     `).join('');

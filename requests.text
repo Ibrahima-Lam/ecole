@@ -8,6 +8,7 @@ create table eleve(
     adresse varchar(50) not null,
     nni varchar(100) not null,
     lieuNaissance varchar(100),
+    statutEleve enum('actif','inactif','exclu','abandonne') default 'actif',
     Constraint eleve_pkey Primary Key (matricule),
     Constraint eleve_nni_unique Unique (nni)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -17,6 +18,7 @@ alter table eleve modify column dateNaissance date ;
 alter table eleve modify column adresse varchar(100) ;
 alter table eleve modify column isme varchar(100) ;
 alter table eleve modify column sexe varchar(1) ;
+alter table eleve add column statutEleve enum('actif','inactif','exclu','abandonne') default 'actif' ;
 
 DELIMITER //
 CREATE TRIGGER eleve_matricule_trigger
@@ -215,18 +217,18 @@ create table matiere(
 
 insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere)
  values('math','Mathematiques','الرياضيات','FR'),
-('pc','Physique Chimie','الفيزياء و الكيمياء','FR'),
-('fr','Français','الفراسية','FR'),
-('en','Anglais','الانجليزية','EN'),
-('ar','Arabe','اللغة العربية','AR'),
-('sn','Science Naturelle','العلوم الطبية','FR'),
-('philo','Philosophie','الفلسفة','AR'),
-('ic','Education civique','التربية المدينة','AR'),
-('ir','Education Islamique','التربية الإسلامية','AR'),
-('info','Technologie et Informatique','التكنولوجيا','FR'),
-('hg','Histoire et Geographie','التاريخ و الجغرافية','AR'),
-('eps','Education Physique et Sportive','الفيزياء و الرياضيات','FR'),
-('leg','legislation','القانون','AR')
+('PC','Physique Chimie','الفيزياء و الكيمياء','FR'),
+('FR','Français','الفراسية','FR'),
+('EN','Anglais','الانجليزية','EN'),
+('AR','Arabe','اللغة العربية','AR'),
+('SN','Science Naturelle','العلوم الطبية','FR'),
+('PHILO','Philosophie','الفلسفة','AR'),
+('IC','Education civique','التربية المدينة','AR'),
+('IR','Education Islamique','التربية الإسلامية','AR'),
+('INFO','Technologie et Informatique','التكنولوجيا','FR'),
+('HG','Histoire et Geographie','التاريخ و الجغرافية','AR'),
+('EPS','Education Physique et Sportive','الفيزياء و الرياضيات','FR'),
+('LEG','legislation','القانون','AR')
 ;
 
 
@@ -358,9 +360,11 @@ create  view note_view as select
   ex.codeExamen as codeExamen,ex.codeClasseMatiere as codeClasseMatiere,ex.dateExamen as dateExamen,ex.heureDebutExamen as heureDebutExamen,ex.heureFinExamen as heureFinExamen,ex.codeSalleClasse as codeSalleClasse,ex.statutExamen as statutExamen,
   ev.codeEvaluation as codeEvaluation, ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
   ev.typeEvaluation as typeEvaluation,
-  a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee
+  a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
+  i.numeroInscrit as numeroInscrit
   from note n 
   join eleve e on e.matricule=n.matricule
+  join inscrit i on i.matricule=e.matricule
   join examen ex on ex.codeExamen=n.codeExamen
   join classe_matiere cm on cm.codeClasseMatiere=ex.codeClasseMatiere
   join salle_classe sc on sc.codeSalleClasse=ex.codeSalleClasse

@@ -45,6 +45,12 @@ class inscritRepository extends Repository
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
     }
+    function findOneByMatriculeAndAnnee(string $id, string $annee): false|stdClass
+    {
+        $sql = "select * from inscrit_view where matricule='$id' and codeAnnee='$annee'";
+        $result = $this->db->selectOne($sql, stdClass::class);
+        return $result;
+    }
     function findOneByid($id): false|stdClass
     {
         $sql = "select * from inscrit_view where idInscrit='$id'";

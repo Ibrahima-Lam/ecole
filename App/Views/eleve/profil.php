@@ -32,7 +32,12 @@
                     
                 </tr>
             </tbody>
-            
+            <tfoot>
+                <tr>
+                    <td colspan="5"></td>
+                    <td><button id="edit" class="btn btn-primary circle" title="Modifier"><i class="bi bi-pencil"></i></button></td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 <?php else: ?>
@@ -89,8 +94,74 @@
 <input type="hidden" id="id" value="<?= $inscription->idInscrit ?? null ?>">
 <input type="hidden" id="matricule" value="<?= $eleve->matricule ?? null ?>">
 
+
+<dialog id="dialog-eleve" class="dialog">
+    <div class="dialod-head">
+        <h3 class="text-center title">Formulaire</h3>
+    </div>
+    <div class="dialog-body">
+        <form class="form" action="?p=eleve/traitement" method="post">
+            <input type="hidden" name="edit">
+            <div class="form-group">
+                <label for="matricule">Matricule</label>
+                <input type="text" class="form-control" id="matricule" name="matricule" placeholder="matricule" value="Mat5LM" required>
+            </div>
+            <div class="form-group">
+                <label for="nom">Nom et Prénom</label>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder=" Entrer le nom et prénom" required>
+            </div>
+            <div class="form-group" lang="ar">
+                <!-- Nom en Arabe -->
+                <label for="isme">
+
+                    <span>Nom en Arabe</span> <span>الاسم</span>
+
+                </label>
+                <input type="text" dir="rtl" class="form-control" id="isme" name="isme" placeholder="Nom en Arabe الاسم">
+            </div>
+            <div class="form-group">
+                <label for="sexe">Sexe</label>
+                <div class="form-radio">
+                    <input type="radio" id="sexeM" name="sexe" value="M" required>
+                    <label for="sexeM">Masculin</label>
+                    <input type="radio" id="sexeF" name="sexe" value="F">
+                    <label for="sexeF">Feminin</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dateNaissance">Date de naissance</label>
+                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" value='2000-01-01' placeholder="Entrer la date de naissance" >
+            </div>
+            <div class="form-group">
+                <label for="lieuNaissance">Lieu de naissance</label>
+                <input type="text" class="form-control" id="lieuNaissance" value="Boghe" name="lieuNaissance" placeholder="Entrer le lieu de naissance">
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" class="form-control" id="adresse" value="Boghe" name="adresse" placeholder="adresse" >
+            </div>
+            <div class="form-group">
+                <label for="nni">NNI</label>
+                <input type="text" class="form-control" id="nni" value="00000004" name="nni" placeholder="nni" required>
+            </div>
+            <div class="form-action">
+                <button type="reset" class="btn btn-default">Annuler</button>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="dialog-foot">
+        <button class="btn btn-danger" id="close">Fermer</button>
+    </div>
+</dialog>
+
+
+
 <script type="module" defer>
     import FormModule from './js/inscrit/formModule.js';
+    import EleveForm from "./js/eleve/eleve_form_module.js";
+
     let idInscrit = document.querySelector('#id').value;
     let matricule = document.querySelector('#matricule').value;
 
@@ -101,4 +172,14 @@
     });
     form.create();
     document.querySelector('#supprimer')?.addEventListener('click', e => FormModule.delete(idInscrit));
+
+    function editEleve(matricule) {
+    let dialog = new EleveForm(document.querySelector("#dialog-eleve"), matricule);
+    dialog.setEditable('true');
+    dialog.show();
+    }
+
+   
+
+    document.querySelector('#edit')?.addEventListener('click', e => editEleve(matricule));
 </script>

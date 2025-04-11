@@ -7,16 +7,19 @@ use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
 use Core\Services\Sql\SqlErreurMessage;
 use Core\Services\html\htmlService;
+use App\Models\Repositories\inscritRepository;
 
 class NoteApiController extends Controller
 {
     private NoteRepository $noteRepository;
     private ExamenRepository $examenRepository;
+    private inscritRepository $inscritRepository;
 
     public function __construct()
     {
         $this->noteRepository = new NoteRepository();
         $this->examenRepository = new ExamenRepository();
+        $this->inscritRepository = new inscritRepository();
     }
 
     public function liste()
@@ -34,6 +37,7 @@ class NoteApiController extends Controller
     public function insert(){
         try {
             extract($_REQUEST);
+            $note=str_replace(',', '.', $note);
             $res = $this->noteRepository->insert($matricule, $codeExamen, $note);
             if($res){
                 $data= $this->noteRepository->findLastInserted();
@@ -63,6 +67,7 @@ class NoteApiController extends Controller
     public function update($id){
         try {
             extract($_REQUEST);
+            $note=str_replace(',', '.', $note);
             $res = $this->noteRepository->update($id, $note);
             if($res){
                 $data= $this->noteRepository->findOneById($id);
@@ -119,14 +124,59 @@ class NoteApiController extends Controller
         $annee = $this->getCodeAnnee();
         $matricule=$_GET['matricule'] ?? null;
         $codeExamen=$_GET['codeExamen'] ?? null;
+        $idInscrit=$_GET['idInscrit'] ?? null;
+        $codeSalleClasse=$_GET['codeSalleClasse'] ?? null;
+        $codeMatiere=$_GET['codeMatiere'] ?? null;
         $note=null;
+        $inscrit = null;
         $noteElement = $this->noteRepository->findOneById($id);
+        $notes = $this->noteRepository->findAllByMatriculeAndAnnee($matricule, $annee);
         if ($noteElement) {
             $matricule=$noteElement->matricule;
             $codeExamen=$noteElement->codeExamen;
             $note=$noteElement->note;
+        }elseif($idInscrit){
+            $inscrit = $this->inscritRepository->findOneById($idInscrit);
+            if ($inscrit) {
+                $matricule=$inscrit->matricule;
+            }
+        }elseif($matricule){
+            $inscrit = $this->inscritRepository->findOneByMatriculeAndAnnee($matricule, $annee);
+            if ($inscrit) {
+                $idInscrit=$inscrit->idInscrit;
+            }
         }
        $examens = $this->examenRepository->findAllByAnnee($annee);
+       if($inscrit){
+           $examens = array_filter($examens, function($examen) use ($inscrit) {
+               return $examen->codeSalleClasse == $inscrit->codeSalleClasse;
+           });
+       }
+       if($codeSalleClasse){
+           $examens = array_filter($examens, function($examen) use ($codeSalleClasse) {
+               return $examen->codeSalleClasse == $codeSalleClasse;
+           });
+       }
+       if($codeMatiere){
+           $examens = array_filter($examens, function($examen) use ($codeMatiere) {
+               return $examen->codeMatiere == $codeMatiere;
+           });
+       }
+       if (sizeof($notes) > 0&&$codeMatiere) {
+        $matieres=array_map(function($note) {
+            return $note->codeMatiere;
+        }, $notes);
+        $matieres = array_unique($matieres);
+        $evaluations=array_map(function($note) {
+            return $note->codeEvaluation;
+        }, $notes);
+        $evaluations = array_unique($evaluations);
+           $examens = array_filter($examens, function($examen) use ($matieres, $evaluations) {
+               return !in_array($examen->codeMatiere, $matieres) || !in_array($examen->codeEvaluation, $evaluations);
+           });
+       }
+
+
        $examens=array_map(function($examen){
            $examen->label=$examen->codeClasse.$examen->indiceSalleClasse." - ". $examen->codeMatiere." - ". $examen->nomEvaluation;
            return $examen;
@@ -147,7 +197,7 @@ class NoteApiController extends Controller
             </div>
             <div class='form-group'>
                 <label for='note'>Note</label>
-                <input type='number' id='note' name='note' class='form-control' value='{$note}' placeholder='Note'>
+                <input type='text' id='note' name='note' class='form-control' value='$note' placeholder='Note'>
             </div>
             <div class='form-action'>
                 <button type='submit' class='btn btn-primary'>Enregistrer</button>

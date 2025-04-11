@@ -25,7 +25,7 @@ $evaluations??=[];
       <select name="evaluation" id="evaluation" class="field">
         <option value="">Toutes les évaluations</option>
         <?php foreach ($evaluations as $evaluation): ?>
-          <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->codeEvaluation ?></option>
+          <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->nomEvaluation ?></option>
         <?php endforeach ?>
       </select>
   
@@ -55,8 +55,10 @@ $evaluations??=[];
                     <td><?= $examen->dateExamen ?></td>
                     <td>
                         <div class="center">
-                        <a class="edit" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil"></i></a>
-                        <a class="delete" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                        <a href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="bi-list"></i></a>
+                        <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
+                        <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
+                        <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -65,11 +67,6 @@ $evaluations??=[];
     </table>
 </div>
 
-<div class="fixed-action">
-    <button class="btn btn-primary circle" id="add">
-        <i class="bi-plus"></i>
-    </button>
-</div>
 
 <dialog id="dialog" class="dialog">
     <div class="dialod-head">
@@ -80,5 +77,16 @@ $evaluations??=[];
     </div>
     <div class="dialog-foot">
         <button class="btn btn-danger" id="close">Fermer</button>
+    </div>
+</dialog>
+<dialog id="noteDialog" class="dialog">
+    <div class="dialod-head">
+        <h3 class="text-center title">Formulaire</h3>
+    </div>
+    <div class="dialog-body">
+        
+    </div>
+    <div class="dialog-foot">
+        <button class="btn btn-danger" id="closeNote">Fermer</button>
     </div>
 </dialog>

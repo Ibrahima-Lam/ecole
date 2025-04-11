@@ -1,26 +1,16 @@
 import {fetchJson,fetchText} from '../src/fetch.js'
-export class NoteFormDialog {
+
+export default class FormExamen {
     constructor(dialog,params={}) {
         this.dialog = dialog;
         this.form = null;
         this.params = {
-            idNote: null,
             codeExamen: null,
-            matricule: null,
-            idInscrit: null,
-            codeSalleClasse: null,
             codeMatiere: null,
+            codeClasse: null,
             ...params
         };
         this.init();
-    }
-
-    show() {
-        this.dialog.showModal();
-    }
-
-    close() {
-        this.dialog.close();
     }
 
   async  init() {
@@ -32,13 +22,10 @@ export class NoteFormDialog {
     }
 
     async formHtml() {
-        let url = `?p=api/note/form`;
-        if (this.params.idNote) url += `/${this.params.idNote}`;
-        if (this.params.idInscrit) url += `&idInscrit=${this.params.idInscrit}`;
-        if (this.params.matricule) url += `&matricule=${this.params.matricule}`;
-        if (this.params.codeSalleClasse) url += `&codeSalleClasse=${this.params.codeSalleClasse}`;
-        if (this.params.codeMatiere) url += `&codeMatiere=${this.params.codeMatiere}`;
-        if (this.params.codeExamen) url += `&codeExamen=${this.params.codeExamen}`;
+        let url = `?p=api/examen/form`;
+        if (this.params.codeExamen) url += `/${this.params.codeExamen}`;
+        if (this.params.codeMatiere) url += `&matiere=${this.params.codeMatiere}`;
+        if (this.params.codeClasse) url += `&classe=${this.params.codeClasse}`;
         return await fetchText(url).then(html => html);
     }
 
@@ -46,7 +33,7 @@ export class NoteFormDialog {
         e.preventDefault();
         const data = new FormData(e.target);
         const dataString = (new URLSearchParams(data)).toString();
-        let url = e.target.edit.value ? `?p=api/note/update/${this.params.idNote}&${dataString}` : `?p=api/note/insert&${dataString}`;
+        let url = e.target.edit.value ? `?p=api/examen/update/${this.params.codeExamen}&${dataString}` : `?p=api/examen/insert&${dataString}`;
         fetchJson(url).then(data => {
             this.dialog.close();
             if (data?.status) {
@@ -59,10 +46,10 @@ export class NoteFormDialog {
     
     }
    static onDelete(id) {
-        if (confirm('Voulez-vous vraiment supprimer cette note ?')) {
-            fetchJson(`?p=api/note/delete/${id}`).then(data => {
+        if (confirm('Voulez-vous vraiment supprimer cet examen ?')) {
+            fetchJson(`?p=api/examen/delete/${id}`).then(data => {
                 if (data?.status) {
-                    alert(data?.message ?? 'Note supprimée');
+                    alert(data?.message ?? 'Examen supprimée');
                     window.location.reload();
                 } else {
                     alert(data?.message ?? 'Erreur lors de la suppression');
@@ -71,3 +58,5 @@ export class NoteFormDialog {
         }
     }
 }
+
+

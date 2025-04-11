@@ -12,7 +12,6 @@ use Core\Controllers\Controller;
 use  App\Models\Repositories\EleveRepository;
 use App\Models\Repositories\inscritRepository;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 
 class EleveController extends Controller implements EleveControllerInterfaces

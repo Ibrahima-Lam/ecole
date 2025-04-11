@@ -99,7 +99,7 @@ $title = 'Les eleves'
             </div>
             <div class="form-group">
                 <label for="dateNaissance">Date de naissance</label>
-                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" value='2000-01-01' placeholder="Entrer la date de naissance" required>
+                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" value='2000-01-01' placeholder="Entrer la date de naissance" >
             </div>
             <div class="form-group">
                 <label for="lieuNaissance">Lieu de naissance</label>
@@ -107,7 +107,7 @@ $title = 'Les eleves'
             </div>
             <div class="form-group">
                 <label for="adresse">Adresse</label>
-                <input type="text" class="form-control" id="adresse" value="Boghe" name="adresse" placeholder="adresse" required>
+                <input type="text" class="form-control" id="adresse" value="Boghe" name="adresse" placeholder="adresse" >
             </div>
             <div class="form-group">
                 <label for="nni">NNI</label>
