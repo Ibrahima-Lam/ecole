@@ -19,10 +19,10 @@ class BulletinProvider extends ResultatProvider{
             $matiereWithNotesAndMoyenne->examen=(float) 0;
             $coeff=$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
             foreach($matiereWithNotesAndMoyenne->notes as $note){
-                if($note->codeEvaluation=='compos1'){
+                if($note->codeEvaluation=='C1'){
                     $matiereWithNotesAndMoyenne->moyenne+=(float) $note->note*$coeff;
                     $matiereWithNotesAndMoyenne->examen=(float) $note->note;
-                }elseif($note->codeEvaluation== 'devoir1'){
+                }elseif($note->codeEvaluation== 'D1'){
                     $matiereWithNotesAndMoyenne->interrogation=(float) $note->note;
                 }
 
@@ -46,7 +46,7 @@ class BulletinProvider extends ResultatProvider{
         foreach($this->matieres as $matiere){
             $coeff=$matiere->coefficientClasseMatiere;
             foreach($this->notes as $note){
-                if($matiere->codeMatiere==$note->codeMatiere && $note->codeEvaluation=='compos1'){
+                if($matiere->codeMatiere==$note->codeMatiere && $note->codeEvaluation=='C1'){
                     $somme+=$note->note*$coeff;
                     break;
                 }
@@ -77,7 +77,7 @@ class BulletinProvider extends ResultatProvider{
         }elseif($moyenne<16){
             return "Assez Bien";
         }else{
-            return "Tres Bien";
+            return "Trés Bien";
         }
 
     }

@@ -75,8 +75,8 @@
 .space-between {
     width: 100%;
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .space-around {

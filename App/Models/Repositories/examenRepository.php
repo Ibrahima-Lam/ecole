@@ -22,10 +22,15 @@ class ExamenRepository extends Repository
     }
     
     public function findAllByClasse($classe): array{
-        $sql = "select * from examen_view where codeSalleClasse='$classe'";
-        $result = $this->db->selectAll($sql, stdClass::class);
-        return $result;
-    }
+       $sql = "select * from examen_view where codeSalleClasse='$classe'";
+       $result = $this->db->selectAll($sql, stdClass::class);
+       return $result;
+   }
+   public function findAllByClasseAndMatiere($classe,$matiere): array{
+       $sql = "select * from examen_view where codeSalleClasse='$classe' and codeMatiere='$matiere'";
+       $result = $this->db->selectAll($sql, stdClass::class);
+       return $result;
+   }
      public function findAllByMatiereAndAnnee ($matiere,$annee): array{
         $sql = "select * from examen_view where codeMatiere='$matiere' and codeAnnee='$annee'";
         $result = $this->db->selectAll($sql, stdClass::class);

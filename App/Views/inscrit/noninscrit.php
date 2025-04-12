@@ -5,7 +5,7 @@
 <?php if (sizeof($eleves) > 0): ?>
     <table class="table table-striped">
         <thead>
-            <tr>                
+            <tr >                
                 <th>Matricule</th>
                 <th>Nom</th>
                 <th>الاسم</th>
@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             <?php foreach ($eleves as $eleve): ?>
-                <tr>
+                <tr class="inscritRow" data-matricule="<?= $eleve->matricule ?>">
                     <td><?= $eleve->matricule ?></td>
                     <td><?= $eleve->nom ?></td>
                     <td dir="rtl"><?= $eleve->isme ?></td>
@@ -53,6 +53,11 @@
  
      new FormModuleArray(document.querySelector('.form-contain'), inscrires);
     
-
+const inscritRows = document.querySelectorAll('.inscritRow');
+    inscritRows.forEach(row => {
+        row.addEventListener('click', function () {
+            window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
+        });
+    });
 
 </script>

@@ -33,7 +33,7 @@
         </thead>
         <tbody>
             <?php foreach ($inscrits as $inscrit): ?>
-                <tr>
+                <tr class="inscritRow" data-matricule="<?= $inscrit->matricule ?>">
                     <?php if($paramettre->matricule):?>
                         <td><?= $inscrit->matricule ?></td>
                     <?php endif?>
@@ -164,4 +164,11 @@
         e.preventDefault();
         window.open(`?p=inscrit/export/<?= $classe->codeSalleClasse ?>`)
     })
+
+    const inscritRows = document.querySelectorAll('.inscritRow');
+    inscritRows.forEach(row => {
+        row.addEventListener('click', function () {
+            window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
+        });
+    });
 </script>

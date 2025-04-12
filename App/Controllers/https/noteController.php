@@ -8,8 +8,12 @@ use App\Models\Repositories\ExamenRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\MatiereRepository;
 use App\Models\Repositories\EvaluationRepository;
+use App\Services\Providers\ClasseResultatProvider;
 use Core\Controllers\Controller;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Src\Paramettres\NoteParamettre;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 class NoteController extends Controller
@@ -40,12 +44,62 @@ class NoteController extends Controller
     }
 
     public function examen($codeExamen)
-{
-    $examen = $this->examenRepository->findOne($codeExamen);
-    $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
-    $this->render("note/examen", compact("examen", "notes"));
+    {
+        $examen = $this->examenRepository->findOne($codeExamen);
+        $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
+        $this->render("note/examen", compact("examen", "notes"));
+    } 
+    public function examenExcel($codeExamen)
+    {
+        $examen = $this->examenRepository->findOne($codeExamen);
+        $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
+
+
+        $paramettre = new NoteParamettre();
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        $cols = array_map('strtoupper', range('a', 'z'));
+        $labels=[];
+        if($paramettre->matricule) $labels[]='Matricule';
+        if($paramettre->numero) $labels[]='Numero';
+        if($paramettre->nom) $labels[]='Nom';
+        if($paramettre->isme) $labels[]='Nom en Arabe';
+        $labels[]='Note';
+        $row = 5;
+
+        $sheet->setCellValue('B2', 'Classe : ');
+        $sheet->setCellValue('C2',  $examen->codeClasse . $examen->indiceSalleClasse);
+        $sheet->setCellValue('E2', 'Matière : ' );
+        $sheet->setCellValue('F2', $examen->codeMatiere );
+        $sheet->setCellValue('H2', 'Examen : ' );
+        $sheet->setCellValue('I2', $examen->nomEvaluation );
+        // Définir les en-têtes
+        foreach ($labels as $key => $value) {
+            $sheet->setCellValue($cols[$key].$row, $value);
+        }
+        foreach ($notes as $key => $value) {
+            $row++;
+            $i=0;
+            if($paramettre->matricule) $sheet->setCellValue($cols[$i++].$row, $value->matricule);
+            if($paramettre->numero) $sheet->setCellValue($cols[$i++].$row, $value->numeroInscrit);
+            if($paramettre->nom) $sheet->setCellValue($cols[$i++].$row, $value->nom);
+            if($paramettre->isme) $sheet->setCellValue($cols[$i++].$row, $value->isme);
+
+            $sheet->setCellValue($cols[$i++].$row, $value->note);
+        }
+
+        $writer = new Xlsx($spreadsheet);
+    $filename = "Releve_{$examen->codeExamen}.xlsx";
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+
+// Sauvegarder le fichier
+$writer->save('php://output');
 }
-    public function formulaire($codeExamen=null)
+
+    public function formulaire($codeExamen = null)
     {
         $cols = array_map('strtoupper', range('a', 'z'));
         $rows = range(1, 100);
@@ -65,12 +119,12 @@ class NoteController extends Controller
         $data = $worksheet->toArray();
 
         $examen = $this->examenRepository->findOne($codeExamen);
-$notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
-$eleves = $this->inscritRepository->findAllByClasse($examen->codeSalleClasse);
-$cols = array_map('strtoupper', range('a', 'z'));
-$numColonne = array_search($numColonne, $cols);
-$nomColonne = array_search($nomColonne, $cols);
-$noteColonne = array_search($noteColonne, $cols);
+        $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
+        $eleves = $this->inscritRepository->findAllByClasse($examen->codeSalleClasse);
+        $cols = array_map('strtoupper', range('a', 'z'));
+        $numColonne = array_search($numColonne, $cols);
+        $nomColonne = array_search($nomColonne, $cols);
+        $noteColonne = array_search($noteColonne, $cols);
         $data = array_slice($data, $premierLigne - 1, $dernierLigne - $premierLigne + 1);
         $tab = [];
 
@@ -80,9 +134,9 @@ $noteColonne = array_search($noteColonne, $cols);
             $note = $row[$noteColonne];
             $matricule = null;
             $eleve = null;
-            $note2=null;
-            $statut=false;
-            $id=null;
+            $note2 = null;
+            $statut = false;
+            $id = null;
             foreach ($eleves as $eleve) {
                 if ($eleve->numeroInscrit == $row[$numColonne]) {
                     $matricule = $eleve->matricule;
@@ -93,8 +147,8 @@ $noteColonne = array_search($noteColonne, $cols);
             foreach ($notes as $nt) {
                 if ($nt->matricule == $matricule) {
                     $note2 = $nt->note;
-                    $id=$nt->idNote;
-                    $statut=true;
+                    $id = $nt->idNote;
+                    $statut = true;
                     break;
                 }
             }
@@ -106,8 +160,101 @@ $noteColonne = array_search($noteColonne, $cols);
 
     }
 
+    public function releve($codeSalleClasse, $codeMatiere)
+    {
+        $model = new SalleClasseRepository();
+        $salleClasse = $model->findOneByCode($codeSalleClasse);
 
-}
+        $model1 = new inscritRepository();
+        $inscrits = $model1->findAllByClasse($codeSalleClasse);
+        $model2 = new MatiereRepository();
+        $matiere = $model2->findOne($codeMatiere);
+        $notes = $this->noteRepository->findAllByClasse($codeSalleClasse);
+        $model3 = new ExamenRepository();
+        $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+        usort($examens, function ($a, $b) {
+            if ($a->typeEvaluation != $b->typeEvaluation) {
+                return $a->typeEvaluation == 'composition' ? 1 : -1;
+            }
+            return $a->indiceEvaluation - $b->indiceEvaluation;
+        });
+        $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
+    
+        $paramettre = new NoteParamettre();
+    
+        $this->render("note/releve", compact("data", "paramettre", "salleClasse"));
+    }
+    public function releveExcel($codeSalleClasse, $codeMatiere)
+    {
+        $model = new SalleClasseRepository();
+        $salleClasse = $model->findOneByCode($codeSalleClasse);
+
+        $model1 = new inscritRepository();
+        $inscrits = $model1->findAllByClasse($codeSalleClasse);
+        $model2 = new MatiereRepository();
+        $matiere = $model2->findOne($codeMatiere);
+        $notes = $this->noteRepository->findAllByClasse($codeSalleClasse);
+        $model3 = new ExamenRepository();
+        $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+        usort($examens, function ($a, $b) {
+            if ($a->typeEvaluation != $b->typeEvaluation) {
+                return $a->typeEvaluation == 'composition' ? 1 : -1;
+            }
+            return $a->indiceEvaluation - $b->indiceEvaluation;
+        });
+        $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
+        $paramettre = new NoteParamettre();
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+    
+        $cols=range('a','z');
+        $cols=array_map('strtoupper', $cols);
+        $labels=[];
+        if($paramettre->matricule) $labels[]='Matricule';
+        if($paramettre->numero) $labels[]='Numero';
+        if($paramettre->nom) $labels[]='Nom';
+        if($paramettre->isme) $labels[]='Nom en Arabe';
+        foreach ($data->examens as $examen) {
+            $labels[] = $examen->codeEvaluation;
+        }
+
+        $sheet->setCellValue('B2', 'Classe : ');
+        $sheet->setCellValue('C2',  $salleClasse->codeClasse . $salleClasse->indiceSalleClasse);
+        $sheet->setCellValue('E2', 'Matière : ' );
+        $sheet->setCellValue('F2', $matiere->nomMatiere );
+        
+        $row = 5;
+        // Définir les en-têtes
+        foreach ($labels as $key => $value) {
+            $sheet->setCellValue($cols[$key].$row, $value);
+        }
+
+        foreach ($data->getClasseResultat() as $key => $value) {
+            $row++;
+            $i=0;
+            if($paramettre->matricule) $sheet->setCellValue($cols[$i++].$row, $value->matricule);
+            if($paramettre->numero) $sheet->setCellValue($cols[$i++].$row, $value->numeroInscrit);
+            if($paramettre->nom) $sheet->setCellValue($cols[$i++].$row, $value->nom);
+            if($paramettre->isme) $sheet->setCellValue($cols[$i++].$row, $value->isme);
+
+            foreach ($data->examens as $examen) {
+                $sheet->setCellValue($cols[$i++].$row, $value->notes[$examen->codeEvaluation]->note??0);
+            }
+        }
+        // Créer le fichier Excel
+    $writer = new Xlsx($spreadsheet);
+    $filename = "Releve_{$salleClasse->codeClasse}{$salleClasse->indiceSalleClasse}_{$matiere->codeMatiere}.xlsx";
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="' . $filename . '"');
+    header('Cache-Control: max-age=0');
+    
+    // Sauvegarder le fichier
+    $writer->save('php://output');
+    
+   
+    }
+    }
 
 
 

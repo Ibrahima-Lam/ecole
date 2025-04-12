@@ -13,7 +13,7 @@
     </thead>
     <tbody>
         <?php foreach ($inscrits as $inscrit): ?>
-            <tr>
+            <tr class="inscritRow" data-matricule="<?= $inscrit->matricule ?>">
                 <td><?= $inscrit->matricule ?></td>
                 <td><?= $inscrit->numeroInscrit ?></td>
                 <td><?= $inscrit->nom ?><br><span><?= $inscrit->isme ?></span></td>
@@ -35,3 +35,13 @@
         <a href="?p=inscrit/form" class="btn btn-success circle"><i class="bi-plus"></i> </a>
     </div>
 <?php endif ?>
+
+<script type="module">
+    const inscritRows = document.querySelectorAll('.inscritRow');
+    inscritRows.forEach(row => {
+        row.addEventListener('click', function () {
+            window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
+        });
+    });
+</script>
+
