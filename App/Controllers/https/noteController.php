@@ -11,6 +11,7 @@ use App\Models\Repositories\EvaluationRepository;
 use App\Services\Providers\ClasseResultatProvider;
 use Core\Controllers\Controller;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Src\Factories\NoteParamettreFactory;
 use Src\Paramettres\NoteParamettre;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -44,18 +45,27 @@ class NoteController extends Controller
     }
 
     public function examen($codeExamen)
-    {
-        $examen = $this->examenRepository->findOne($codeExamen);
-        $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
-        $this->render("note/examen", compact("examen", "notes"));
-    } 
+{
+    $examen = $this->examenRepository->findOne($codeExamen);
+    $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
+    $noteParam = NoteParamettreFactory::getNoteParam();
+    
+    usort($notes, function ($a, $b)use($noteParam) {
+        return $a->{$noteParam->sort} - $b->{$noteParam->sort};
+    });
+
+    if ($noteParam->order == 'DESC') {
+        $notes = array_reverse($notes);
+    }
+    $this->render("note/examen", compact("examen", "notes", "noteParam"));
+}
     public function examenExcel($codeExamen)
     {
         $examen = $this->examenRepository->findOne($codeExamen);
         $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
 
 
-        $paramettre = new NoteParamettre();
+        $paramettre = NoteParamettreFactory::getNoteParam();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
@@ -180,7 +190,7 @@ $writer->save('php://output');
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
     
-        $paramettre = new NoteParamettre();
+        $paramettre =NoteParamettreFactory::getNoteParam();
     
         $this->render("note/releve", compact("data", "paramettre", "salleClasse"));
     }
@@ -203,7 +213,7 @@ $writer->save('php://output');
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
-        $paramettre = new NoteParamettre();
+        $paramettre = NoteParamettreFactory::getNoteParam();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();

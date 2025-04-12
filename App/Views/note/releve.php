@@ -73,8 +73,87 @@ $title = "Relevé de notes";
         <i class="bi-gear"></i>
     </button>
 </div>
-<script>
+
+
+<dialog class="dialog" id="parametreDialog">
+    <div class="dialog-content">
+        <div class="dialog-header">
+            <h3 class="title text-center">Paraméttre</h3>
+        </div>
+        <div class="dialog-body">
+            <form id="parametreForm">
+                <div class="form-group">
+                    <label for="matricule">Matricule</label>
+                    <input type="checkbox" id="matricule" name="matricule" <?= $paramettre->matricule ? 'checked' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label for="numero">Numero</label>
+                    <input type="checkbox" id="numero" name="numero" <?= $paramettre->numero ? 'checked' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="checkbox" id="nom" name="nom" <?= $paramettre->nom ? 'checked' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label for="isme">Nom en Arabe</label>
+                    <input type="checkbox" id="isme" name="isme" <?= $paramettre->isme ? 'checked' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label for="nom_isme">Nom en Français et Arabe</label>
+                    <input type="checkbox" id="nom_isme" name="nom_isme" <?= $paramettre->nom_isme ? 'checked' : '' ?>>
+                </div>
+                <div class="form-group">
+                    <label for="sort">Tri</label>
+                    <select id="sort" name="sort" class="form-control">
+                        <option value="numeroInscrit" <?= $paramettre->sort == 'numero' ? 'selected' : '' ?>>Numero</option>
+                        <option value="note" <?= $paramettre->sort == 'note' ? 'selected' : '' ?>>Note</option>
+                        <option value="createdAt" <?= $paramettre->sort == 'createdAt' ? 'selected' : '' ?>>Crée le</option>
+                        <option value="updatedAt" <?= $paramettre->sort == 'updatedAt' ? 'selected' : '' ?>>Modifiée le</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="order">Ordre</label>
+                    <select id="order" name="order" class="form-control">
+                    <option value="ASC" <?= $paramettre->order == 'ASC' ? 'selected' : '' ?>>Ascendant</option>
+                    <option value="DESC" <?= $paramettre->order == 'DESC' ? 'selected' : '' ?>>Descendant</option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success" >Enregistrer</button>
+            </div>
+            </form>
+        </div>
+        <div class="dialog-footer">
+            <div class="right my-10 mx-10">
+                <button class="btn btn-danger" id="closeParametreDialog">Fermer</button>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<script type="module" defer>
+    import {fetchJson} from './js/src/fetch.js'
     document.getElementById('excel').addEventListener('click', function() {
         window.location.href = "?p=note/releveExcel/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>";
     });
+
+    document.getElementById('parametre').addEventListener('click', function() {
+        document.getElementById('parametreDialog').showModal();
+    });
+
+    document.getElementById('closeParametreDialog').addEventListener('click', function() {
+        document.getElementById('parametreDialog').close();
+    });
+    const form = document.getElementById('parametreForm');
+    const dialogParametre = document.getElementById('parametreDialog');
+    form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    const params = Object.fromEntries(data.entries());
+    const dataString = (new URLSearchParams(params)).toString();
+     await fetchJson('?p=api/note/changeParametre&' + dataString);
+
+    dialogParametre.close();
+    window.location.reload();
+});
 </script>

@@ -4,6 +4,7 @@ namespace App\Controllers\pdfs;
 use Core\Controllers\Controller;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
+use Src\Factories\NoteParamettreFactory;
 use Src\Paramettres\NoteParamettre;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\inscritRepository;
@@ -23,7 +24,7 @@ class NotePdfController extends Controller
 
     public function examen($codeExamen)
     {
-        $noteParam = new NoteParamettre();
+        $noteParam = NoteParamettreFactory::getNoteParam();
         $examen = $this->examenRepository->findOne($codeExamen);
         $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
         if ($noteParam->sort == 'note') {
@@ -59,7 +60,7 @@ class NotePdfController extends Controller
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
-        $paramettre = new NoteParamettre();
+        $paramettre =NoteParamettreFactory::getNoteParam();
         $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"));
     }
 }

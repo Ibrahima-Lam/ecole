@@ -30,7 +30,8 @@ form.addEventListener('submit',async function(e){
     const data = new FormData(form);
     const params = Object.fromEntries(data.entries());
     const dataString = (new URLSearchParams(params)).toString();
-    await fetchJson('?p=api/note/changeParametre&' + dataString);
+     await fetchJson('?p=api/note/changeParametre&' + dataString);
+
     dialogParametre.close();
     window.location.reload();
 });
@@ -64,26 +65,14 @@ const note = document.querySelectorAll('.note');
     });
 
 
-/* 
+
 parametre.addEventListener('click',async function(){
     const data = await fetchJson('?p=api/note/parametre');
+    console.log(data);
+
     const dialog = document.getElementById('parametreDialog');
-    const matricule = document.getElementById('matricule');
-    const numero = document.getElementById('numero');
-    const nom = document.getElementById('nom');
-    const isme = document.getElementById('isme');
-    const nom_isme = document.getElementById('nom_isme');
-    const sort = document.getElementById('sort');
-    const order = document.getElementById('order');
-    matricule.checked = data.matricule.checked;
-    numero.checked = data.numero.checked;
-    nom.checked = data.nom.checked;
-    isme.checked = data.isme.checked;
-    nom_isme.checked = data.nom_isme.checked;
-    sort.value = data.sort;
-    order.value = data.order;
     dialog.showModal();
-}); */
+}); 
 
 
 

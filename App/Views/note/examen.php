@@ -71,43 +71,44 @@ $title = "Relevé de notes";
 <dialog class="dialog" id="parametreDialog">
     <div class="dialog-content">
         <div class="dialog-header">
-            <h3>Paramétre</h3>
+            <h3 class="title text-center">Paraméttre</h3>
         </div>
         <div class="dialog-body">
             <form id="parametreForm">
                 <div class="form-group">
                     <label for="matricule">Matricule</label>
-                    <input type="checkbox" id="matricule" name="matricule" checked>
+                    <input type="checkbox" id="matricule" name="matricule" <?= $noteParam->matricule ? 'checked' : '' ?>>
                 </div>
                 <div class="form-group">
                     <label for="numero">Numero</label>
-                    <input type="checkbox" id="numero" name="numero" checked>
+                    <input type="checkbox" id="numero" name="numero" <?= $noteParam->numero ? 'checked' : '' ?>>
                 </div>
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="checkbox" id="nom" name="nom" checked>
+                    <input type="checkbox" id="nom" name="nom" <?= $noteParam->nom ? 'checked' : '' ?>>
                 </div>
                 <div class="form-group">
-                    <label for="isme">Isme</label>
-                    <input type="checkbox" id="isme" name="isme" checked>
+                    <label for="isme">Nom en Arabe</label>
+                    <input type="checkbox" id="isme" name="isme" <?= $noteParam->isme ? 'checked' : '' ?>>
                 </div>
                 <div class="form-group">
-                    <label for="nom_isme">Nom en Arabe</label>
-                    <input type="checkbox" id="nom_isme" name="nom_isme">
+                    <label for="nom_isme">Nom en Français et Arabe</label>
+                    <input type="checkbox" id="nom_isme" name="nom_isme" <?= $noteParam->nom_isme ? 'checked' : '' ?>>
                 </div>
                 <div class="form-group">
                     <label for="sort">Tri</label>
-                    <select id="sort" class="form-control">
-                        <option value="note">Note</option>
-                        <option value="createdAt">Crée le</option>
-                    <option value="updatedAt">Modifiée le</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="order">Ordre</label>
-                <select id="order" class="form-control">
-                    <option value="ASC">Ascendant</option>
-                    <option value="DESC">Descendant</option>
+                    <select id="sort" name="sort" class="form-control">
+                        <option value="numeroInscrit" <?= $noteParam->sort == 'numero' ? 'selected' : '' ?>>Numero</option>
+                        <option value="note" <?= $noteParam->sort == 'note' ? 'selected' : '' ?>>Note</option>
+                        <option value="createdAt" <?= $noteParam->sort == 'createdAt' ? 'selected' : '' ?>>Crée le</option>
+                        <option value="updatedAt" <?= $noteParam->sort == 'updatedAt' ? 'selected' : '' ?>>Modifiée le</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="order">Ordre</label>
+                    <select id="order" name="order" class="form-control">
+                    <option value="ASC" <?= $noteParam->order == 'ASC' ? 'selected' : '' ?>>Ascendant</option>
+                    <option value="DESC" <?= $noteParam->order == 'DESC' ? 'selected' : '' ?>>Descendant</option>
                 </select>
             </div>
             <div class="form-actions">

@@ -9,6 +9,7 @@ use Core\Services\Sql\SqlErreurMessage;
 use Core\Services\html\htmlService;
 use App\Models\Repositories\inscritRepository;
 use Src\Paramettres\NoteParamettre;
+use Src\Factories\NoteParamettreFactory;
 
 class NoteApiController extends Controller
 {
@@ -122,25 +123,15 @@ class NoteApiController extends Controller
     }
 
     public function changeParametre(){
-        $file='res/note/paramettre.json';
-    $param=new NoteParamettre();
-    $param->setFromArray($_REQUEST);
-    
-    file_put_contents($file,$param->getArray(),);
-    $this->response(
-        json_encode($param->getArray())
-    );
+        NoteParamettreFactory::setNoteParam($_REQUEST);
+        $this->response(
+            NoteParamettreFactory::getNoteParam()->getArray()
+        );
     }
 
     public function parametre(){
-        $data='';
-        $file='res/note/paramettre.json';
-        
-          if(file_exists($file))  $data=file_get_contents($file);
-        $param=new NoteParamettre();
-        $param->setFromArray(json_decode($data)??[]);
         $this->response(
-            $param->getArray()
+            NoteParamettreFactory::getNoteParam()->getArray()
         );
     }
     
