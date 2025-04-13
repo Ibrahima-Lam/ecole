@@ -2,10 +2,12 @@
     Les eleves non inscrits de l'annee scolaire <?= $anneescolaire->nomAnnee ?>
 </h2>
 
+
 <?php if (sizeof($eleves) > 0): ?>
+ <div class="table-container">
     <table class="table table-striped">
         <thead>
-            <tr >                
+            <tr>
                 <th>Matricule</th>
                 <th>Nom</th>
                 <th>الاسم</th>
@@ -30,30 +32,36 @@
                         <div class="center">
 
                             <a href="?p=eleve/profil/<?= $eleve->matricule ?>"><i class="bi-eye"></i></a>
-                            <?php if($_admin):?>
-                                <button class="btn  inscrire" title="Inscrire en <?= $anneescolaire->nomAnnee ?>" data-module="FormModule" data-matricule="<?= $eleve->matricule ?>"><i class="bi-person-plus text-success"></i></button>  
-                                <?php endif?>
+                            <?php if ($_admin): ?>
+                                <button class="btn  inscrire" title="Inscrire en <?= $anneescolaire->nomAnnee ?>"
+                                    data-module="FormModule" data-matricule="<?= $eleve->matricule ?>"><i
+                                        class="bi-person-plus text-success"></i></button>
+                            <?php endif ?>
                         </div>
                     </td>
                 </tr>
             <?php endforeach ?>
-        </tbody>        
+        </tbody>
     </table>
+
+</div>
+<div class="center">
+    <a class="link" href="?p=eleve/inscrire/true">Inscrire</a>
 </div>
 <?php else: ?>
     <p class="text-center">Aucun eleve non inscrit</p>
-<?php endif ?>
+<?php endif; ?>
 
 <div class="form-contain"></div>
 
 <script type="module" defer>
- import {FormModuleArray} from './js/inscrit/formModule.js';
+    import { FormModuleArray } from './js/inscrit/formModule.js';
 
- const inscrires = document.querySelectorAll('.inscrire');
- 
-     new FormModuleArray(document.querySelector('.form-contain'), inscrires);
-    
-const inscritRows = document.querySelectorAll('.inscritRow');
+    const inscrires = document.querySelectorAll('.inscrire');
+
+    new FormModuleArray(document.querySelector('.form-contain'), inscrires);
+
+    const inscritRows = document.querySelectorAll('.inscritRow');
     inscritRows.forEach(row => {
         row.addEventListener('click', function () {
             window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;

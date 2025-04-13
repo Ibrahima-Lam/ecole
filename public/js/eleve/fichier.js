@@ -1,4 +1,4 @@
-import { fetchJson, fetchText } from "../../js/src/fetch.js";
+import { fetchJson } from "../../js/src/fetch.js";
 const forms = document.querySelectorAll('form')
 const checkAll=document.getElementById('checkAll');
 const send = document.getElementById('send');
@@ -10,6 +10,7 @@ forms.forEach(form => {
         new FormElement(form)
     })
 });
+
 
 checkAll.addEventListener('change', function (e) {
     let checked = e.target.checked
@@ -61,6 +62,26 @@ trs.forEach(tr => {
         tr.remove()
     })
 });
+
+const inscrire=document.getElementById('inscrire');
+inscrire.addEventListener('click',async function (e) {
+    trs.forEach(async tr  => {
+        if (tr.dataset.statut == true) {
+            const form = tr.querySelector('form')
+          const data = new FormData(form)
+          const dtString = new URLSearchParams(data).toString()
+          await fetchJson('?p=api/eleve/clearNoninscrit')
+          const url = "?p=api/eleve/enregistrer&" + dtString
+          await fetchJson(url).then((data) => {
+            console.log(data);
+        });
+        }
+    })
+    setTimeout(() => {
+        window.location.assign("?p=eleve/inscrire")
+    }, 1000);
+})
+
 
 
 class FormElement {

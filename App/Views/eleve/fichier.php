@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             <?php foreach ($data as $eleve): ?>
-                <tr>
+                <tr data-statut="<?= $eleve['statut'] ?>">
                     <form action="" class="form">
                        
                         <td>
@@ -52,6 +52,9 @@
     </table>
     <div class="center my-10">
         <button id="send" class="btn btn-success">Enregistrer Tous</button>
+        <?php if(count(array_filter($data, fn($eleve) => !$eleve['statut']))): ?>
+            <button id="inscrire" class="btn btn-primary">Inscrire Tous</button>
+        <?php endif; ?>
     </div>
 
 <?php else: ?>

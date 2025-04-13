@@ -3,12 +3,14 @@
 namespace App\Controllers\apis;
 
 use App\Models\Repositories\EleveRepository;
+use App\Services\factories\NoninscritFactory;
 use Core\Controllers\Controller;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;
 
 class EleveApiController extends Controller implements EleveControllerInterfaces
 {
+    private const KEY="noninscrit";
     public function liste(): void
     {
         $model = new EleveRepository();
@@ -36,8 +38,19 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         $this->response($tab);
 
     }
+    public function enregistrer(): void {
+        unset($_REQUEST['p']);
+      if (!empty($_REQUEST))  NoninscritFactory::add($_REQUEST);
+        $this->response(NoninscritFactory::get());
+    }
+    public function noninscrit(): void {
+        $this->response(NoninscritFactory::get());
+    }
 
-   
+    public function clearNoninscrit(): void {
+        NoninscritFactory::clear();
+        $this->response(NoninscritFactory::get());
+    }
 
 
     public function matricule($matricule): void
