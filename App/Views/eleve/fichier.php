@@ -17,8 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($data as $key => $eleve): ?>
-                <?php if ($key == 0) continue; ?>
+            <?php foreach ($data as $eleve): ?>
                 <tr>
                     <form action="" class="form">
                        

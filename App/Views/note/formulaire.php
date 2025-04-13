@@ -1,7 +1,6 @@
 <?php
 $title="Formulaire";
 ?>
-notes
 <form class="form" id="form" action="?p=note/imported" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="codeNote">Code Examen</label>

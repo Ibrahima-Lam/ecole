@@ -102,8 +102,10 @@ class EleveController extends Controller implements EleveControllerInterfaces
 
     public function import(): void
     {
-
-        $this->render("eleve/import");
+        $cols=range('a','z');
+        $cols=array_map('strtoupper', $cols);
+        $rows=range(1,100);
+        $this->render("eleve/import", compact("cols", "rows"));
     }
     public function traitementExcel(): void
     {
@@ -113,23 +115,43 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $data = $worksheet->toArray();
         $model = new EleveRepository();
         $eleves = $model->findAll();
-        $data = array_map(function ($eleve) use ($eleves) {
+
+        $cols=range('a','z');
+        $cols=array_map('strtoupper', $cols);
+        $tab=[
+          
+                'matricule' =>array_search( $_POST['matriculeColonne'],$cols),
+                'nom' =>array_search( $_POST['nomColonne'],$cols),
+                'isme' =>array_search( $_POST['ismeColonne'],$cols),
+                'sexe' =>array_search( $_POST['sexeColonne'],$cols),
+                'dateNaissance' =>array_search( $_POST['dateNaissanceColonne'],$cols),
+                'lieuNaissance' =>array_search( $_POST['lieuNaissanceColonne'],$cols),
+                'adresse' =>array_search( $_POST['adresseColonne'],$cols),
+                'nni' =>array_search( $_POST['nniColonne']??null,$cols),
+            ];
+            $tab = array_map(function ($value) { return $value?$value : null; }, $tab);
+           
+            $premierLigne = $_POST['premierLigne']-1 ?? 1;
+            $dernierLigne = $_POST['dernierLigne'] ?? 100;
+            $data = array_slice($data, $premierLigne, $dernierLigne - $premierLigne + 1);
+
+            $data = array_map(function ($eleve) use ($eleves,$tab) {
             $matricules = array_column($eleves, 'matricule');
             $nnis = array_column($eleves, 'nni');
 
             $element = [];
-            $element['matricule'] = $eleve[0] ?? null;
-            $element['nom'] = $eleve[1] ?? null;
-            $element['isme'] = $eleve[2] ?? null;
-            $element['sexe'] = $eleve[3]?? null;
-            $element['dateNaissance'] = $eleve[4]?? null;
-            $element['lieuNaissance'] = $eleve[5]?? null;
-            $element['adresse'] = $eleve[6]?? null;
-            $element['nni'] = $eleve[7]?? null;
-            $element['statut'] = in_array($element['matricule'], $matricules)|| in_array($element['nni'], $nnis);
+            $element['matricule'] = $eleve[$tab['matricule']] ?? null;
+            $element['nom'] = $eleve[$tab['nom']] ?? null;
+            $element['isme'] = $eleve[$tab['isme']] ?? null;
+            $element['sexe'] = $eleve[$tab['sexe']] ?? null;
+            $element['dateNaissance'] = $eleve[$tab['dateNaissance']] ?? null;
+            $element['lieuNaissance'] = $eleve[$tab['lieuNaissance']] ?? null;
+            $element['adresse'] = $eleve[$tab['adresse']] ?? null;
+            $element['nni'] = $eleve[$tab['nni']] ?? null;
+            $element['statut'] =!empty($element['matricule']) && in_array($element['matricule'], $matricules)||!empty($element['nni']) && in_array($element['nni'], $nnis);
             return $element;
         }, $data);
-
+       
         $this->render("eleve/fichier", ["data" => $data]);
     }
 }
