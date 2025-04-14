@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\https;
+use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\ExamenFactory;
 use Core\Controllers\Controller;
@@ -36,6 +37,14 @@ use App\Models\Repositories\EvaluationRepository;
        $classe=$data->salleClasse;
         $this->render("examen/classe", ["data" => $data,"classe"=> $classe]);
     }
-}
 
-?>
+    public function forms($codeSalleClasse):void{
+    $model = new SalleClasseRepository();
+    $salleClasse = $model->findOneByCode($codeSalleClasse);
+    $model = new ClasseMatiereRepository();
+    $matieres = $model->findByClasse($salleClasse->codeClasse);
+    $model=new EvaluationRepository();
+    $evaluations = $model->findAll();
+    $this->render("examen/forms", compact('salleClasse', 'matieres', 'evaluations'));
+}
+}

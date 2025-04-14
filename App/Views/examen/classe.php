@@ -45,9 +45,10 @@ $classe??=null;
 <?php endforeach?>
 
 <div class="fixed-action">
-    <button class="btn btn-primary circle" id="add">
+    <button title="ajouter un examen" class="btn btn-success circle" id="add">
         <i class="bi-plus"></i>
     </button>
+    <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="bi-briefcase"></i></a>
 </div>
 
 <dialog id="dialog" class="dialog">
