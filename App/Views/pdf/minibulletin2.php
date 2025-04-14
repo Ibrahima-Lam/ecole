@@ -28,8 +28,7 @@
 <div class="text-center">
     <u>
         <small>
-
-            Composition du 1er Trimestre
+            Composition du 2ème Trimestre
         </small>
     </u>
 </div>
@@ -62,10 +61,12 @@
                 <th>Matiere</th>
                 <th></th>
                 
-                <th>Interro.</th>
-                <th>Compos.</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th>C1</th>
+                <th>C2</th>
                 <th>Coeff.</th>
-                <th>Compos*Coeff</th>
+                <th>C2*Coeff</th>
                 <th >Observations</th>
                 
             </tr>
@@ -79,7 +80,9 @@
                      <td class="right"> <span  dir="rtl"><?=$matiere->matiere->ismeMatiere?></span></td>
                     
                     <td><?=$matiere->d1?></td>
+                    <td><?=$matiere->d2?></td>
                     <td><?=$matiere->c1?></td>
+                    <td><?=$matiere->c2?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td ></td>
@@ -88,6 +91,8 @@
             <?php } ?>
             <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

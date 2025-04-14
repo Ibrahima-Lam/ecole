@@ -33,16 +33,27 @@ class salleClasseController extends Controller
             $html .= "<li><a href='?p=eleve/profil/$code'class='$class'>Profil</a></li>";
             $class = $active == 2 ? "active" : "";
             $html .= "<li><a href='?p=inscrit/classe/$code'class='$class'>Eleves</a></li>";
-            $class = $active == 3 ? "active" : "";
-            $html .= "<li><a href='?p=pdf/salleclasse/bulletin/$code'class='$class'>Bulletins</a></li>";
-            $class = $active == 3 ? "active" : "";
-            $html .= "<li><a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>Bulletins2</a></li>";
-            $class = $active == 4 ? "active" : "";
-            $html .= "<li><a href='?p=pdf/salleclasse/minibulletin/$code'class='$class'>Mini Bulletins</a></li>";
             $class = $active == 5 ? "active" : "";
             $html .= "<li><a href='?p=examen/classe/$code'class='$class'>Les Examens</a></li>";
             $class = $active == 6 ? "active" : "";
             $html .= "<li><a href='?p=salleclasse/releves/$code'class='$class'>Les relevés</a></li>";
+            $html .= "<li>
+            <a href='#'class='$class'>Resultat </a>&nbsp;
+            <a href='?p=pdf/salleclasse/resultat1/$code'class='$class'>C1</a>
+            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class'>C2</a>
+            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class'>C3</a>
+            </li>";
+             $html .= "<li>
+             <a href='#'class='$class'>Bulletins</a>&nbsp;
+             <a href='?p=pdf/salleclasse/bulletin/$code'class='$class'><span>C1</span></a>
+             <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C2</a>
+             <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C3</a>
+             </li>";
+            $html .= "<li>
+            <a href='#'class='$class'>MiniBulletins </a>&nbsp;
+            <a href='?p=pdf/salleclasse/minibulletin/$code'class='$class'>C1</a>
+            <a href='?p=pdf/salleclasse/minibulletin2/$code'class='$class'>C2</a>
+            </li>";
 
         }
         $class = $active == 10 ? "active" : "";

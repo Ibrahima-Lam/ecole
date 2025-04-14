@@ -3,15 +3,11 @@ namespace App\Services\Providers;
 
 
 class Bulletin2Provider extends BulletinProviderParent{
-    private $moyennes=[];
     public function __construct(\stdClass $eleve, array $matieres, array $notes, array $moyennes=[]){
         parent::__construct($eleve, $matieres, $notes);
         $this->moyennes=$moyennes;
     }
-    public function setMoyennes($moyennes){
-        $this->moyennes=$moyennes;
-    }
-
+    
     public function getMatieresWithNotesAndMoyenne():array{
         $matieresWithNotesAndMoyenne=$this->getMatieresWithNotes();
        
@@ -45,14 +41,7 @@ class Bulletin2Provider extends BulletinProviderParent{
         return $matieresWithNotesAndMoyenne;
     }
 
-    public function getTotalCoeff():float{
-        $totalCoeff=0;
-        foreach($this->matieres as $matiere){
-            $coeff=$matiere->coefficientClasseMatiere;
-            $totalCoeff+=$coeff;
-        }
-        return $totalCoeff;
-    }
+  
 
     public function getSommeMoyenne():float{
         $somme=0;
@@ -68,31 +57,11 @@ class Bulletin2Provider extends BulletinProviderParent{
         return $somme;
     }
 
-    public function getMoyenne(?int $precision=null):float{
-        $somme=$this->getSommeMoyenne();
-        $totalCoeff=$this->getTotalCoeff();
-        if($totalCoeff==0){
-            return 0;
-        }else{
-            return round($somme/$totalCoeff,$precision);
-        }
-    }
+   
    
     
 
-    public function getRang():?int{
-        $moyennes=$this->moyennes;
-        sort($moyennes);
-        $moyennes=array_reverse($moyennes);
-        $rang=1;
-        foreach($moyennes as $moyenne){
-            if($moyenne<=$this->getMoyenne()){
-                return $rang;
-            }
-            $rang++;
-        }
-        return null;
-    }
+    
 
 }
 ?>

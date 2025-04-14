@@ -109,8 +109,8 @@
                      </td>
                      <td class="right"> <span  dir="rtl"><?=$matiere->matiere->ismeMatiere?></span></td>
                     
-                    <td><?=$matiere->interrogation?></td>
-                    <td><?=$matiere->examen?></td>
+                    <td><?=$matiere->d1?></td>
+                    <td><?=$matiere->c1?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td ></td>

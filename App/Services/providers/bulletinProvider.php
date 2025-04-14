@@ -3,28 +3,26 @@ namespace App\Services\Providers;
 
 
 class BulletinProvider extends BulletinProviderParent{
-    private $moyennes=[];
+    private $somme;
     public function __construct(\stdClass $eleve, array $matieres, array $notes, array $moyennes=[]){
         parent::__construct($eleve, $matieres, $notes);
         $this->moyennes=$moyennes;
     }
-    public function setMoyennes($moyennes){
-        $this->moyennes=$moyennes;
-    }
+   
 
     public function getMatieresWithNotesAndMoyenne():array{
         $matieresWithNotesAndMoyenne=$this->getMatieresWithNotes();
         foreach($matieresWithNotesAndMoyenne as $matiereWithNotesAndMoyenne){
             $matiereWithNotesAndMoyenne->moyenne=(float) 0;
-            $matiereWithNotesAndMoyenne->interrogation=null;
-            $matiereWithNotesAndMoyenne->examen=(float) 0;
+            $matiereWithNotesAndMoyenne->d1=null;
+            $matiereWithNotesAndMoyenne->c1=(float) 0;
             $coeff=$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
             foreach($matiereWithNotesAndMoyenne->notes as $note){
                 if($note->codeEvaluation=='C1'){
                     $matiereWithNotesAndMoyenne->moyenne+=(float) $note->note*$coeff;
-                    $matiereWithNotesAndMoyenne->examen=(float) $note->note;
+                    $matiereWithNotesAndMoyenne->c1=(float) $note->note;
                 }elseif($note->codeEvaluation== 'D1'){
-                    $matiereWithNotesAndMoyenne->interrogation=(float) $note->note;
+                    $matiereWithNotesAndMoyenne->d1=(float) $note->note;
                 }
 
             }
@@ -32,16 +30,10 @@ class BulletinProvider extends BulletinProviderParent{
         return $matieresWithNotesAndMoyenne;
     }
 
-    public function getTotalCoeff():float{
-        $totalCoeff=0;
-        foreach($this->matieres as $matiere){
-            $coeff=$matiere->coefficientClasseMatiere;
-            $totalCoeff+=$coeff;
-        }
-        return $totalCoeff;
-    }
+   
 
     public function getSommeMoyenne():float{
+        if(!empty($this->somme))return $this->somme;
         $somme=0;
         foreach($this->matieres as $matiere){
             $coeff=$matiere->coefficientClasseMatiere;
@@ -52,34 +44,16 @@ class BulletinProvider extends BulletinProviderParent{
                 }
             }
         }
+        $this->somme=$somme;
         return $somme;
     }
 
-    public function getMoyenne(?int $precision=null):float{
-        $somme=$this->getSommeMoyenne();
-        $totalCoeff=$this->getTotalCoeff();
-        if($totalCoeff==0){
-            return 0;
-        }else{
-            return round($somme/$totalCoeff,$precision);
-        }
-    }
+  
    
     
 
-    public function getRang():?int{
-        $moyennes=$this->moyennes;
-        sort($moyennes);
-        $moyennes=array_reverse($moyennes);
-        $rang=1;
-        foreach($moyennes as $moyenne){
-            if($moyenne<=$this->getMoyenne()){
-                return $rang;
-            }
-            $rang++;
-        }
-        return null;
-    }
+   
+   
 
 }
 ?>

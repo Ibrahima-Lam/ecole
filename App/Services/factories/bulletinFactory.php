@@ -35,7 +35,7 @@ class BulletinFactory
         $bulletins=array_map(function ($inscrit) use ($codeAnnee) {
             return BulletinFactory::getBulletin($inscrit->matricule,$codeAnnee);
         }, $inscrits);
-        return array_map(function ($bulletin) {return $bulletin->getMoyenne();}, $bulletins);
+        return array_map(function ($bulletin) {return $bulletin->getMoyenne(8);}, $bulletins);
 
         }
 

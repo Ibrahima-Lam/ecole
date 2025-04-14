@@ -68,7 +68,7 @@ class Controller
         require_once 'layout.php';
     }
 
-    public function renderPDF(string $file, array $data = array())
+    public function renderPDF(string $file, array $data = array(), array $options = array())
     {
         ob_start();
         extract($data);
@@ -79,7 +79,8 @@ class Controller
             'format' => 'A4',
             'default_font' => 'xbriyaz',
             'useOTL' => 0xFF,
-            'useKashida' => 75
+            'useKashida' => 75,
+            ...$options,
         ]);
 
         $mpdf->WriteHTML($content);
