@@ -35,6 +35,8 @@ class salleClasseController extends Controller
             $html .= "<li><a href='?p=inscrit/classe/$code'class='$class'>Eleves</a></li>";
             $class = $active == 3 ? "active" : "";
             $html .= "<li><a href='?p=pdf/salleclasse/bulletin/$code'class='$class'>Bulletins</a></li>";
+            $class = $active == 3 ? "active" : "";
+            $html .= "<li><a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>Bulletins2</a></li>";
             $class = $active == 4 ? "active" : "";
             $html .= "<li><a href='?p=pdf/salleclasse/minibulletin/$code'class='$class'>Mini Bulletins</a></li>";
             $class = $active == 5 ? "active" : "";

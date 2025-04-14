@@ -7,6 +7,7 @@ use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\BulletinFactory;
+use App\Services\Factories\Bulletin2Factory;
 use App\Services\factories\NoninscritFactory;
 use App\Services\Providers\ResultatProvider;
 use Core\Controllers\Controller;
@@ -29,6 +30,8 @@ class EleveController extends Controller implements EleveControllerInterfaces
             $html .= "<li><a href='?p=eleve/resultat/$matricule'class='$class'>Resultat</a></li>";
             $class = $active == 3 ? "active" : "";
             $html .= "<li><a href='?p=eleve/bulletin/$matricule'class='$class'>Bulletin</a></li>";
+            $class = $active == 4 ? "active" : "";
+            $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>Bulletin 2</a></li>";
 
         }
         $class = $active == 10 ? "active" : "";
@@ -69,6 +72,18 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $moyennes = BulletinFactory::getMoyennes($matricule, $annee);
         $notematieres->setMoyennes($moyennes);
         $this->render("eleve/bulletin", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
+    }
+    public function bulletin2(string $matricule): void
+    {
+        $annee = $this->getCodeAnnee();
+        $model = new inscritRepository();
+        $eleve = $model->findOne($matricule);
+        (!$eleve) && $this->redirect("?p=eleve/liste");
+        $notematieres = Bulletin2Factory::getBulletin($matricule, $annee);
+
+        $moyennes = Bulletin2Factory::getMoyennes($matricule, $annee);
+        $notematieres->setMoyennes($moyennes);
+        $this->render("eleve/bulletin2", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
     }
 
     public function resultat(string $matricule): void

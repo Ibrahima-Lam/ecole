@@ -1,14 +1,14 @@
 <?php
 namespace App\Services\Factories;
 
-use App\Services\Providers\BulletinProvider;
+use App\Services\Providers\Bulletin2Provider;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 
-class BulletinFactory 
+class Bulletin2Factory 
 {
-   public static function getBulletin($matricule,$codeAnnee):?BulletinProvider {
+   public static function getBulletin($matricule,$codeAnnee):?Bulletin2Provider {
         $annee = $codeAnnee;
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
@@ -22,7 +22,7 @@ class BulletinFactory
             $notes=$model->findAllByMatriculeAndAnnee($eleve->matricule,$annee);
             
         }else return null;
-        return new BulletinProvider($eleve,$matieres,$notes);
+        return new Bulletin2Provider($eleve,$matieres,$notes);
        
     }
 
@@ -33,10 +33,10 @@ class BulletinFactory
         $salleclasse = $eleve->codeSalleClasse;
         $inscrits=$inscritRepository->findAllByClasse($salleclasse);
         $bulletins=array_map(function ($inscrit) use ($codeAnnee) {
-            return BulletinFactory::getBulletin($inscrit->matricule,$codeAnnee);
+            return Bulletin2Factory::getBulletin($inscrit->matricule,$codeAnnee);
         }, $inscrits);
         return array_map(function ($bulletin) {return $bulletin->getMoyenne();}, $bulletins);
 
-        }
+     }
 
 }

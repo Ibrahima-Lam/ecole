@@ -5,6 +5,7 @@ namespace App\Controllers\pdfs;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use App\Models\Repositories\EleveRepository;
 use App\Services\Factories\BulletinFactory;
+use App\Services\Factories\Bulletin2Factory;
 use Core\Controllers\Controller;
 
 class ElevePdfController extends Controller implements EleveControllerInterfaces
@@ -24,5 +25,13 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
         $moyennes= BulletinFactory::getMoyennes($matricule,$annee);
         $bulletin->setMoyennes($moyennes);
         $this->renderPDF("pdf/bulletin", ['bulletin'=>$bulletin]);
+    } 
+     public function bulletin2(string $matricule): void
+    {
+        $annee = $this->getCodeAnnee();
+        $bulletin= Bulletin2Factory::getBulletin($matricule,$annee);
+        $moyennes= Bulletin2Factory::getMoyennes($matricule,$annee);
+        $bulletin->setMoyennes($moyennes);
+        $this->renderPDF("pdf/bulletin2", ['bulletin'=>$bulletin]);
     }
 }

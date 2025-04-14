@@ -14,7 +14,9 @@ class ResultatProvider{
     }
 
     public function getMatieresWithNotes():array{
+        
         $matieresWithNotes=[];
+       
         foreach($this->matieres as $matiere){
             $matiereNote=new \stdClass();
             $matiereNote->matiere=$matiere;
@@ -24,6 +26,7 @@ class ResultatProvider{
                     $matiereNote->notes[]=$note;
                 }
             }
+           
             usort($matiereNote->notes,function($a,$b){
                 $sort=($a->indiceEvaluation??0)-($b->indiceEvaluation??0);
                 if($sort==0){
@@ -36,6 +39,9 @@ class ResultatProvider{
             });
             $matieresWithNotes[]=$matiereNote;
         }
-        return $matieresWithNotes;
-    }
+    
+    return $matieresWithNotes;
 }
+}
+?>
+      

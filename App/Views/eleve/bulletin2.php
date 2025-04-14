@@ -26,9 +26,8 @@
                 <th dir="rtl" class="right">الاسم</th>
             </tr>
             <tr>
-                <th>Classe</th>
-                <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->codeClasse.$notematieres->eleve->indiceSalleClasse?></a></center></td>
-
+                <th>Classe</th>      
+                      <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->codeClasse.$notematieres->eleve->indiceSalleClasse?></a></center></td>
                 <th dir="rtl" class="right">القسم</th>
             </tr>
         </tbody>
@@ -40,11 +39,13 @@
         <thead>
             <tr>
                 <th>Matiere</th>
-                <th>Interrogations</th>
-                <th>Composition</th>
-                <th>Coefficient</th>
-                <th>Note*Coeff</th>
-                <th colspan="2">Observations et discipline</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th>C1</th>
+                <th>C2</th>
+                <th>Coeff.</th>
+                <th>C2*Coeff</th>
+                <th colspan="2">Obs. disc.</th>
             </tr>
         </thead>
         <tbody>
@@ -59,8 +60,10 @@
                             </div>
                         
                      </td>
-                    <td><?=$matiere->interrogation?></td>
-                    <td><?=$matiere->examen?></td>
+                    <td><?=$matiere->d1?></td>
+                    <td><?=$matiere->d2?></td>
+                    <td><?=$matiere->c1?></td>
+                    <td><?=$matiere->c2?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td colspan="2"></td>
@@ -68,6 +71,8 @@
             <?php } ?>
             <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td><strong><?=$notematieres->getTotalCoeff() ?></strong></td>
@@ -103,5 +108,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a href="?p=pdf/eleve/bulletin/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a href="?p=pdf/eleve/bulletin2/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
 </div>

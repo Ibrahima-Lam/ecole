@@ -2,7 +2,7 @@
 namespace App\Services\Providers;
 
 
-class BulletinProvider extends BulletinProviderParent{
+class Bulletin2Provider extends BulletinProviderParent{
     private $moyennes=[];
     public function __construct(\stdClass $eleve, array $matieres, array $notes, array $moyennes=[]){
         parent::__construct($eleve, $matieres, $notes);
@@ -14,19 +14,32 @@ class BulletinProvider extends BulletinProviderParent{
 
     public function getMatieresWithNotesAndMoyenne():array{
         $matieresWithNotesAndMoyenne=$this->getMatieresWithNotes();
+       
         foreach($matieresWithNotesAndMoyenne as $matiereWithNotesAndMoyenne){
             $matiereWithNotesAndMoyenne->moyenne=(float) 0;
-            $matiereWithNotesAndMoyenne->interrogation=null;
+            $matiereWithNotesAndMoyenne->d1=null;
+            $matiereWithNotesAndMoyenne->d2=null;
+            $matiereWithNotesAndMoyenne->c1=null;
+            $matiereWithNotesAndMoyenne->c2=null;
+
             $matiereWithNotesAndMoyenne->examen=(float) 0;
             $coeff=$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
             foreach($matiereWithNotesAndMoyenne->notes as $note){
-                if($note->codeEvaluation=='C1'){
-                    $matiereWithNotesAndMoyenne->moyenne+=(float) $note->note*$coeff;
-                    $matiereWithNotesAndMoyenne->examen=(float) $note->note;
-                }elseif($note->codeEvaluation== 'D1'){
-                    $matiereWithNotesAndMoyenne->interrogation=(float) $note->note;
+                switch ($note->codeEvaluation) {
+                    case 'C2':
+                        $matiereWithNotesAndMoyenne->moyenne+=(float) $note->note*$coeff;
+                        $matiereWithNotesAndMoyenne->c2=(float) $note->note;
+                        break;
+                    case 'D1':
+                        $matiereWithNotesAndMoyenne->d1=(float) $note->note;
+                        break;
+                    case 'D2':
+                        $matiereWithNotesAndMoyenne->d2=(float) $note->note;
+                        break;
+                    case 'C1':
+                        $matiereWithNotesAndMoyenne->c1=(float) $note->note;
+                        break;
                 }
-
             }
         }
         return $matieresWithNotesAndMoyenne;
@@ -46,7 +59,7 @@ class BulletinProvider extends BulletinProviderParent{
         foreach($this->matieres as $matiere){
             $coeff=$matiere->coefficientClasseMatiere;
             foreach($this->notes as $note){
-                if($matiere->codeMatiere==$note->codeMatiere && $note->codeEvaluation=='C1'){
+                if($matiere->codeMatiere==$note->codeMatiere && $note->codeEvaluation=='C2'){
                     $somme+=$note->note*$coeff;
                     break;
                 }
