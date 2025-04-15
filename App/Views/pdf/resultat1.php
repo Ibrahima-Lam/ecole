@@ -11,10 +11,15 @@
 <body>
 
     <h2 class="title-center my-10 text-center">Résultat du 1er Trimestre de la <?=$salleclasse->codeClasse.$salleclasse->indiceSalleClasse ?></h2>
-    <table class="table table-bordered table-striped">
+    <table class="table <?= $paramettre->striped ? 'table-striped' : '' ?> table-bordered">
         <thead>
             <tr>
-                <th>Numero</th>
+                <?php if($paramettre->matricule):?>
+                    <th>Matricule</th>
+                <?php endif?>
+                <?php if($paramettre->numero):?>
+                    <th>Numero</th>
+                <?php endif?>
                 <th>Nom et Prenom</th>
 
                 <?php foreach ($matieres as $matiere) { ?>
@@ -29,8 +34,14 @@
                 <th>Mension</th>
             </tr>
             <tr>
-                <th></th>
-                <th></th>
+                <?php if($paramettre->matricule):?>
+                    <th></th>
+                <?php endif?>
+                <?php if($paramettre->numero):?>
+                    <th></th>
+                <?php endif?>
+                    
+                    <th></th>
                 <?php foreach ($matieres as $matiere) { ?>
                     <th><span><?= $matiere->coefficientClasseMatiere ?? 0 ?></span></th>
                 <?php } ?>
@@ -50,14 +61,31 @@
         <tbody>
             <?php foreach ($data as $bulletin): ?>
                 <tr>
+                    <?php if($paramettre->matricule):?>
+                        <td>
+                            <center><?= $bulletin->eleve->matricule ?></center>
+                        </td>
+                    <?php endif?>
+                    <?php if($paramettre->numero):?>
+                        <td>
+                            <center><?= $bulletin->eleve->numeroInscrit ?></center>
+                        </td>
+                    <?php endif?>
                     <td>
-                        <center><?= $bulletin->eleve->numeroInscrit ?></center>
-                    </td>
-                    <td><span>
-                            <?= $bulletin->eleve->nom ?>
-                        </span> <br> <span>
+                       <?php if($paramettre->nom):?>
+                         <span>
+                             <?= $bulletin->eleve->nom ?>
+                         </span> 
+                       <?php endif?>
+                       <?php if($paramettre->nom && $paramettre->isme):?>
+                         <br>
+                       <?php endif?>
+                        <?php if($paramettre->isme):?>
+                         <span>
                             <?= $bulletin->eleve->isme ?>
-                        </span></td>
+                        </span>
+                        <?php endif?>
+                    </td>
 
                     <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
                         <td><span>

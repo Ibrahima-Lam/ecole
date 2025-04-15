@@ -4,6 +4,7 @@ namespace App\Controllers\Apis;
 use Core\Controllers\Controller;
 
 use Src\Paramettres\ClasseParamettre;
+use Src\Factories\BulletinParamettreFactory;
 
 class ParamettreApiController extends Controller
 {
@@ -32,6 +33,19 @@ class ParamettreApiController extends Controller
        $p->setClasse($p);
        $paramettre=$p->getClasse();
         $this->response($paramettre);
+    }
+
+    public function setBulletin(){
+        BulletinParamettreFactory::setBulletinParam($_REQUEST);
+        $this->response(
+            BulletinParamettreFactory::getBulletinParam()->getArray()
+        );
+    }
+
+    public function bulletin(){
+        $this->response(
+            BulletinParamettreFactory::getBulletinParam()->getArray()
+        );
     }
 }
 ?>

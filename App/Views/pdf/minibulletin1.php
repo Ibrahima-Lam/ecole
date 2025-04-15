@@ -56,7 +56,7 @@
     </table>
 </div>
 <div class="table-container">
-    <table class="table mini table-striped">
+    <table class="table mini <?= $paramettre->striped ? 'table-striped' : '' ?> <?= $paramettre->bordered ? 'table-bordered' : '' ?>">
         <thead>
             <tr>
                 <th>Matiere</th>

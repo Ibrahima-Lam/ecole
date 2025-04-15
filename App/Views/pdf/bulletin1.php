@@ -61,16 +61,20 @@
                 <td colspan="2"><center><?=$bulletin->eleve->numeroInscrit?></center></td>
                 <th dir="rtl" class="right" scope="row">الرقم</th>
             </tr>
-            <tr>
-                <th>Matricule</th>
-                <td colspan="2"><center><?=$bulletin->eleve->matricule?></center></td>
-                <th dir="rtl" class="right">المتريكول</th>
-            </tr>
-            <tr>
-                <th>NNI</th>
-                <td colspan="2"><center><?=$bulletin->eleve->nni?></center></td>
-                <th dir="rtl" class="right">الرقم الوطني</th>
-            </tr>
+           <?php if($paramettre->matricule):?>
+             <tr>
+                 <th>Matricule</th>
+                 <td colspan="2"><center><?=$bulletin->eleve->matricule?></center></td>
+                 <th dir="rtl" class="right">المتريكول</th>
+             </tr>
+           <?php endif?>
+          <?php if($paramettre->nni):?>
+              <tr>
+                  <th>NNI</th>
+                  <td colspan="2"><center><?=$bulletin->eleve->nni?></center></td>
+                  <th dir="rtl" class="right">الرقم الوطني</th>
+              </tr>
+          <?php endif?>
             <tr>
                 <th>Nom et Prenom</th>
                 <td><?=$bulletin->eleve->nom?></td>
@@ -87,7 +91,8 @@
 </div>
 <br>
 <div class="table-container">
-    <table class="table table-striped">
+<table class="table <?= $paramettre->striped ? 'table-striped' : '' ?> <?= $paramettre->bordered ? 'table-bordered' : '' ?>">
+
         <thead>
             <tr>
                 <th>Matiere</th>
