@@ -1,4 +1,5 @@
 <h2 class="title text-center my-10">Bulletin de Notes</h2>
+<p class="text-center"><u> Composition du 3ème trimestre </u></p>
 <?= $subsidebar ?>
 
 <div class="table-container">
@@ -26,9 +27,8 @@
                 <th dir="rtl" class="right">الاسم</th>
             </tr>
             <tr>
-                <th>Classe</th>
-                <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->codeClasse.$notematieres->eleve->indiceSalleClasse?></a></center></td>
-
+                <th>Classe</th>      
+                      <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->codeClasse.$notematieres->eleve->indiceSalleClasse?></a></center></td>
                 <th dir="rtl" class="right">القسم</th>
             </tr>
         </tbody>
@@ -40,11 +40,34 @@
         <thead>
             <tr>
                 <th>Matiere</th>
-                <th>Interrogations</th>
-                <th>Composition</th>
-                <th>Coefficient</th>
-                <th>Note*Coeff</th>
-                <th colspan="2">Observations et discipline</th>
+                <th>D1</th>
+                <th>D2</th>
+                <th>D3</th>
+                <th>
+                    <span>Interro.</span>
+                    <br>
+                    <span>Interro*3</span>
+                </th>
+                <th>
+                    <span>C1</span>
+                    <br>
+                    <span>C1*1</span>
+                </th>
+                <th>
+                    <span>C2</span>
+                    <br>
+                    <span>C2*2</span>
+                </th>
+                <th>
+                    <span>C3</span>
+                    <br>
+                    <span>C3*3</span>
+                </th>
+                <th>Total</th>
+                <th>Moy.</th>
+                <th>Coeff.</th>
+                <th>Points</th>
+                <th colspan="2">Obs. disc.</th>
             </tr>
         </thead>
         <tbody>
@@ -60,9 +83,17 @@
                         
                      </td>
                     <td><?=$matiere->d1?></td>
-                    <td><?=$matiere->c1?></td>
+                    <td><?=$matiere->d2?></td>
+                    <td><?=$matiere->d3?></td>
+                   
+                    <td> <span> <?=$matiere->interrogation?> </span> <br> <span> <?=$matiere->totalInterrogation?> </span> </td>
+                    <td> <span> <?=$matiere->c1?> </span> <br> <span> <?=$matiere->c1x1?> </span> </td>
+                    <td> <span> <?=$matiere->c2?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
+                    <td> <span> <?=$matiere->c3?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
+                    <td><?=$matiere->total?></td>
+                    <td><?=$matiere->moy?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
-                    <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->moyenne ?></td>
                     <td colspan="2"></td>
                 </tr>
             <?php } ?>
@@ -70,8 +101,16 @@
                 <td><strong>Total</strong></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td><strong><?=$notematieres->getTotalCoeff() ?></strong></td>
                 <td><strong><?=$notematieres->getSommeMoyenne()?></strong></td>
+                <td></td>
                 <td></td>
             </tr>
         </tbody>
@@ -103,5 +142,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a href="?p=pdf/eleve/bulletin/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a href="?p=pdf/eleve/bulletin3/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
 </div>

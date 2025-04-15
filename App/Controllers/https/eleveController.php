@@ -8,6 +8,7 @@ use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\Bulletin1Factory;
 use App\Services\Factories\Bulletin2Factory;
+use App\Services\Factories\Bulletin3Factory;
 use App\Services\factories\NoninscritFactory;
 use App\Services\Providers\ResultatProvider;
 use Core\Controllers\Controller;
@@ -29,10 +30,11 @@ class EleveController extends Controller implements EleveControllerInterfaces
             $class = $active == 2 ? "active" : "";
             $html .= "<li><a href='?p=eleve/resultat/$matricule'class='$class'>Resultat</a></li>";
             $class = $active == 3 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/bulletin/$matricule'class='$class'>Bulletin</a></li>";
+            $html .= "<li><a href='?p=eleve/bulletin1/$matricule'class='$class'>Bulletin C1</a></li>";
             $class = $active == 4 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>Bulletin 2</a></li>";
-
+            $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>Bulletin C2</a></li>";
+            $class = $active == 5 ? "active" : "";
+            $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>Bulletin C3</a></li>";
         }
         $class = $active == 10 ? "active" : "";
         $html .= "<li><a href='?p=eleve/liste' class='$class'>Eleves</a></li>";
@@ -61,7 +63,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $this->render("eleve/profil", ["data" => $data, 'inscription' => $inscription, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 1)]);
     }
 
-    public function bulletin(string $matricule): void
+    public function bulletin1(string $matricule): void
     {
         $annee = $this->getCodeAnnee();
         $model = new inscritRepository();
@@ -71,7 +73,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
 
         $moyennes = Bulletin1Factory::getMoyennes($matricule, $annee);
         $notematieres->setMoyennes($moyennes);
-        $this->render("eleve/bulletin", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
+        $this->render("eleve/bulletin1", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
     }
     public function bulletin2(string $matricule): void
     {
@@ -84,6 +86,18 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $moyennes = Bulletin2Factory::getMoyennes($matricule, $annee);
         $notematieres->setMoyennes($moyennes);
         $this->render("eleve/bulletin2", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
+    }
+    public function bulletin3(string $matricule): void
+    {
+        $annee = $this->getCodeAnnee();
+        $model = new inscritRepository();
+        $eleve = $model->findOne($matricule);
+        (!$eleve) && $this->redirect("?p=eleve/liste");
+        $notematieres = Bulletin3Factory::getBulletin($matricule, $annee);
+
+        $moyennes = Bulletin3Factory::getMoyennes($matricule, $annee);
+        $notematieres->setMoyennes($moyennes);
+        $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }
 
     public function resultat(string $matricule): void
