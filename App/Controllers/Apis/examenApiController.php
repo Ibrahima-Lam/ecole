@@ -148,7 +148,7 @@ class ExamenApiController extends Controller
         $salleClasse=$salleclasseRepository->findOneByCode($examen->codeSalleClasse??$cl);
         $salleclasses =$salleClasse ? [$salleClasse] : [];
         $salleclasses=array_map(function ($salleClasse) {
-            $salleClasse->libelleSalleClasse=$salleClasse->codeClasse.$salleClasse->indiceSalleClasse;
+            $salleClasse->libelleSalleClasse=$salleClasse->pseudoSalleClasse;
             return $salleClasse;
         }, $salleclasses);
         $classeHtml=htmlService::options($salleclasses, 'codeSalleClasse', 'libelleSalleClasse', $examen->codeSalleClasse ?? null,[],!empty($cl));

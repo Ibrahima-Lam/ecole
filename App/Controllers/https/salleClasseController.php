@@ -45,13 +45,13 @@ class salleClasseController extends Controller
             </li>";
              $html .= "<li>
              <a href='#'class='$class'>Bulletins</a>&nbsp;
-             <a href='?p=pdf/salleclasse/bulletin/$code'class='$class'><span>C1</span></a>
+             <a href='?p=pdf/salleclasse/bulletin1/$code'class='$class'><span>C1</span></a>
              <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C2</a>
              <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C3</a>
              </li>";
             $html .= "<li>
             <a href='#'class='$class'>MiniBulletins </a>&nbsp;
-            <a href='?p=pdf/salleclasse/minibulletin/$code'class='$class'>C1</a>
+            <a href='?p=pdf/salleclasse/minibulletin1/$code'class='$class'>C1</a>
             <a href='?p=pdf/salleclasse/minibulletin2/$code'class='$class'>C2</a>
             </li>";
 

@@ -274,8 +274,7 @@ SET character_set_client = utf8;
   1 AS `langueMatiere`,
   1 AS `ismeMatiere`,
   1 AS `indiceSalleClasse`,
-  1 AS `codeAnnee`,
-  1 AS `pseudoSalleClasse` */;
+  1 AS `codeAnnee` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -338,8 +337,7 @@ SET character_set_client = utf8;
   1 AS `codeAnnee`,
   1 AS `nomAnnee`,
   1 AS `codeSerie`,
-  1 AS `nomSerie`,
-  1 AS `pseudoSalleClasse` */;
+  1 AS `nomSerie` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -573,8 +571,7 @@ SET character_set_client = utf8;
   1 AS `codeAnnee`,
   1 AS `nomAnnee`,
   1 AS `codeSerie`,
-  1 AS `nomSerie`,
-  1 AS `pseudoSalleClasse` */;
+  1 AS `nomSerie` */;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -658,7 +655,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = cp850_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `examen_view` AS select `e`.`codeExamen` AS `codeExamen`,`e`.`codeClasseMatiere` AS `codeClasseMatiere`,`e`.`codeSalleClasse` AS `codeSalleClasse`,`e`.`codeEvaluation` AS `codeEvaluation`,`e`.`dateExamen` AS `dateExamen`,`e`.`heureDebutExamen` AS `heureDebutExamen`,`e`.`heureFinExamen` AS `heureFinExamen`,`e`.`statutExamen` AS `statutExamen`,`ev`.`nomEvaluation` AS `nomEvaluation`,`ev`.`indiceEvaluation` AS `indiceEvaluation`,`ev`.`coefficientEvaluation` AS `coefficientEvaluation`,`ev`.`typeEvaluation` AS `typeEvaluation`,`cm`.`codeClasse` AS `codeClasse`,`cm`.`codeMatiere` AS `codeMatiere`,`cm`.`horaireClasseMatiere` AS `horaireClasseMatiere`,`cm`.`coefficientClasseMatiere` AS `coefficientClasseMatiere`,`m`.`nomMatiere` AS `nomMatiere`,`m`.`langueMatiere` AS `langueMatiere`,`m`.`ismeMatiere` AS `ismeMatiere`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`sc`.`codeAnnee` AS `codeAnnee`,concat(`c`.`codeClasse`,`sc`.`indiceSalleClasse`) AS `pseudoSalleClasse` from (((((`examen` `e` join `evaluation` `ev` on(`e`.`codeEvaluation` = `ev`.`codeEvaluation`)) join `classe_matiere` `cm` on(`cm`.`codeClasseMatiere` = `e`.`codeClasseMatiere`)) join `matiere` `m` on(`m`.`codeMatiere` = `cm`.`codeMatiere`)) join `classe` `c` on(`c`.`codeClasse` = `cm`.`codeClasse`)) join `salle_classe` `sc` on(`sc`.`codeSalleClasse` = `e`.`codeSalleClasse`)) */;
+/*!50001 VIEW `examen_view` AS select `e`.`codeExamen` AS `codeExamen`,`e`.`codeClasseMatiere` AS `codeClasseMatiere`,`e`.`codeSalleClasse` AS `codeSalleClasse`,`e`.`codeEvaluation` AS `codeEvaluation`,`e`.`dateExamen` AS `dateExamen`,`e`.`heureDebutExamen` AS `heureDebutExamen`,`e`.`heureFinExamen` AS `heureFinExamen`,`e`.`statutExamen` AS `statutExamen`,`ev`.`nomEvaluation` AS `nomEvaluation`,`ev`.`indiceEvaluation` AS `indiceEvaluation`,`ev`.`coefficientEvaluation` AS `coefficientEvaluation`,`ev`.`typeEvaluation` AS `typeEvaluation`,`cm`.`codeClasse` AS `codeClasse`,`cm`.`codeMatiere` AS `codeMatiere`,`cm`.`horaireClasseMatiere` AS `horaireClasseMatiere`,`cm`.`coefficientClasseMatiere` AS `coefficientClasseMatiere`,`m`.`nomMatiere` AS `nomMatiere`,`m`.`langueMatiere` AS `langueMatiere`,`m`.`ismeMatiere` AS `ismeMatiere`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`sc`.`codeAnnee` AS `codeAnnee` from (((((`examen` `e` join `evaluation` `ev` on(`e`.`codeEvaluation` = `ev`.`codeEvaluation`)) join `classe_matiere` `cm` on(`cm`.`codeClasseMatiere` = `e`.`codeClasseMatiere`)) join `matiere` `m` on(`m`.`codeMatiere` = `cm`.`codeMatiere`)) join `classe` `c` on(`c`.`codeClasse` = `cm`.`codeClasse`)) join `salle_classe` `sc` on(`sc`.`codeSalleClasse` = `e`.`codeSalleClasse`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -676,7 +673,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = cp850_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `inscrit_view` AS select `i`.`idInscrit` AS `idInscrit`,`i`.`matricule` AS `matricule`,`i`.`numeroInscrit` AS `numeroInscrit`,`i`.`typeInscrit` AS `typeInscrit`,`i`.`dateInscription` AS `dateInscription`,`e`.`nom` AS `nom`,`e`.`isme` AS `isme`,`e`.`nni` AS `nni`,`e`.`adresse` AS `adresse`,`e`.`dateNaissance` AS `dateNaissance`,`e`.`sexe` AS `sexe`,`sc`.`codeSalleClasse` AS `codeSalleClasse`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`s`.`codeSalle` AS `codeSalle`,`s`.`nomSalle` AS `nomSalle`,`c`.`codeClasse` AS `codeClasse`,`c`.`nomClasse` AS `nomClasse`,`a`.`codeAnnee` AS `codeAnnee`,`a`.`nomAnnee` AS `nomAnnee`,`sr`.`codeSerie` AS `codeSerie`,`sr`.`nomSerie` AS `nomSerie`,concat(`c`.`codeClasse`,`sc`.`indiceSalleClasse`) AS `pseudoSalleClasse` from ((((((`inscrit` `i` join `eleve` `e` on(`e`.`matricule` = `i`.`matricule`)) join `salle_classe` `sc` on(`sc`.`codeSalleClasse` = `i`.`codeSalleClasse`)) join `salle` `s` on(`s`.`codeSalle` = `sc`.`codeSalle`)) join `classe` `c` on(`c`.`codeClasse` = `sc`.`codeClasse`)) join `anneescolaire` `a` on(`a`.`codeAnnee` = `sc`.`codeAnnee`)) join `serie` `sr` on(`sr`.`codeSerie` = `c`.`codeSerie`)) */;
+/*!50001 VIEW `inscrit_view` AS select `i`.`idInscrit` AS `idInscrit`,`i`.`matricule` AS `matricule`,`i`.`numeroInscrit` AS `numeroInscrit`,`i`.`typeInscrit` AS `typeInscrit`,`i`.`dateInscription` AS `dateInscription`,`e`.`nom` AS `nom`,`e`.`isme` AS `isme`,`e`.`nni` AS `nni`,`e`.`adresse` AS `adresse`,`e`.`dateNaissance` AS `dateNaissance`,`e`.`sexe` AS `sexe`,`sc`.`codeSalleClasse` AS `codeSalleClasse`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`s`.`codeSalle` AS `codeSalle`,`s`.`nomSalle` AS `nomSalle`,`c`.`codeClasse` AS `codeClasse`,`c`.`nomClasse` AS `nomClasse`,`a`.`codeAnnee` AS `codeAnnee`,`a`.`nomAnnee` AS `nomAnnee`,`sr`.`codeSerie` AS `codeSerie`,`sr`.`nomSerie` AS `nomSerie` from ((((((`inscrit` `i` join `eleve` `e` on(`e`.`matricule` = `i`.`matricule`)) join `salle_classe` `sc` on(`sc`.`codeSalleClasse` = `i`.`codeSalleClasse`)) join `salle` `s` on(`s`.`codeSalle` = `sc`.`codeSalle`)) join `classe` `c` on(`c`.`codeClasse` = `sc`.`codeClasse`)) join `anneescolaire` `a` on(`a`.`codeAnnee` = `sc`.`codeAnnee`)) join `serie` `sr` on(`sr`.`codeSerie` = `c`.`codeSerie`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -712,7 +709,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = cp850_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `salle_classe_view` AS select `sc`.`codeSalleClasse` AS `codeSalleClasse`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`s`.`codeSalle` AS `codeSalle`,`s`.`nomSalle` AS `nomSalle`,`c`.`codeClasse` AS `codeClasse`,`c`.`nomClasse` AS `nomClasse`,`a`.`codeAnnee` AS `codeAnnee`,`a`.`nomAnnee` AS `nomAnnee`,`sr`.`codeSerie` AS `codeSerie`,`sr`.`nomSerie` AS `nomSerie`,concat(`c`.`codeClasse`,`sc`.`indiceSalleClasse`) AS `pseudoSalleClasse` from ((((`salle_classe` `sc` join `salle` `s` on(`s`.`codeSalle` = `sc`.`codeSalle`)) join `classe` `c` on(`c`.`codeClasse` = `sc`.`codeClasse`)) join `anneescolaire` `a` on(`a`.`codeAnnee` = `sc`.`codeAnnee`)) join `serie` `sr` on(`sr`.`codeSerie` = `c`.`codeSerie`)) */;
+/*!50001 VIEW `salle_classe_view` AS select `sc`.`codeSalleClasse` AS `codeSalleClasse`,`sc`.`indiceSalleClasse` AS `indiceSalleClasse`,`s`.`codeSalle` AS `codeSalle`,`s`.`nomSalle` AS `nomSalle`,`c`.`codeClasse` AS `codeClasse`,`c`.`nomClasse` AS `nomClasse`,`a`.`codeAnnee` AS `codeAnnee`,`a`.`nomAnnee` AS `nomAnnee`,`sr`.`codeSerie` AS `codeSerie`,`sr`.`nomSerie` AS `nomSerie` from ((((`salle_classe` `sc` join `salle` `s` on(`s`.`codeSalle` = `sc`.`codeSalle`)) join `classe` `c` on(`c`.`codeClasse` = `sc`.`codeClasse`)) join `anneescolaire` `a` on(`a`.`codeAnnee` = `sc`.`codeAnnee`)) join `serie` `sr` on(`sr`.`codeSerie` = `c`.`codeSerie`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -726,4 +723,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-14 23:48:27
+-- Dump completed on 2025-04-14 23:21:12

@@ -141,7 +141,8 @@ create view salle_classe_view as select
   s.codeSalle as codeSalle, s.nomSalle as nomSalle,
   c.codeClasse as codeClasse, c.nomClasse as nomClasse,
   a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
-  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie
+  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie,
+  concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
   from salle_classe sc 
 join salle s on s.codeSalle=sc.codeSalle 
 join classe c on c.codeClasse=sc.codeClasse 
@@ -174,7 +175,8 @@ create view inscrit_view as select
   s.codeSalle as codeSalle, s.nomSalle as nomSalle,
   c.codeClasse as codeClasse, c.nomClasse as nomClasse,
   a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
-  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie
+  sr.codeSerie as codeSerie, sr.nomSerie as nomSerie,
+  concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
   from inscrit i 
   join eleve e on e.matricule=i.matricule
 join salle_classe sc on sc.codeSalleClasse=i.codeSalleClasse
@@ -326,7 +328,8 @@ create view examen_view as select
   ev.typeEvaluation as typeEvaluation,
   cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
    m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
-   sc.indiceSalleClasse as indiceSalleClasse,sc.codeAnnee as codeAnnee
+   sc.indiceSalleClasse as indiceSalleClasse,sc.codeAnnee as codeAnnee,
+   concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
   from examen e join evaluation ev on e.codeEvaluation = ev.codeEvaluation
   join classe_matiere cm on cm.codeClasseMatiere=e.codeClasseMatiere
   join matiere m on m.codeMatiere=cm.codeMatiere

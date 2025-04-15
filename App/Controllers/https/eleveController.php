@@ -6,7 +6,7 @@ use App\Controllers\interfaces\EleveControllerInterfaces;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
-use App\Services\Factories\BulletinFactory;
+use App\Services\Factories\Bulletin1Factory;
 use App\Services\Factories\Bulletin2Factory;
 use App\Services\factories\NoninscritFactory;
 use App\Services\Providers\ResultatProvider;
@@ -67,9 +67,9 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
         (!$eleve) && $this->redirect("?p=eleve/liste");
-        $notematieres = BulletinFactory::getBulletin($matricule, $annee);
+        $notematieres = Bulletin1Factory::getBulletin($matricule, $annee);
 
-        $moyennes = BulletinFactory::getMoyennes($matricule, $annee);
+        $moyennes = Bulletin1Factory::getMoyennes($matricule, $annee);
         $notematieres->setMoyennes($moyennes);
         $this->render("eleve/bulletin", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
     }

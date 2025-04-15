@@ -2,7 +2,7 @@
 
 namespace App\Controllers\pdfs;
 
-use App\Services\Factories\BulletinFactory;
+use App\Services\Factories\Bulletin1Factory;
 use App\Services\Factories\Bulletin2Factory;
 use Core\Controllers\Controller;
 use App\Models\Repositories\InscritRepository;
@@ -27,7 +27,7 @@ class salleClassePdfController extends Controller
         $moyennes=[];
         $data=[];
         foreach ($inscrits as $inscrit) {
-            $notematiere=BulletinFactory::getBulletin($inscrit->matricule,$annee);
+            $notematiere=Bulletin1Factory::getBulletin($inscrit->matricule,$annee);
             $moyennes[]=$notematiere->getMoyenne();
             $data[]=$notematiere;
         }
@@ -60,7 +60,7 @@ class salleClassePdfController extends Controller
     
     $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres,'salleclasse'=>$salleClasse], ['orientation' => 'landscape','margin' => [10,10,10,10]],);
 }
-    public function bulletin($codeSalleClasse) : void
+    public function bulletin1($codeSalleClasse) : void
     {
         $annee=$this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
@@ -75,7 +75,7 @@ class salleClassePdfController extends Controller
         $moyennes=[];
         $data=[];
         foreach ($inscrits as $inscrit) {
-            $notematiere=BulletinFactory::getBulletin($inscrit->matricule,$annee);
+            $notematiere=Bulletin1Factory::getBulletin($inscrit->matricule,$annee);
             $moyennes[]=$notematiere->getMoyenne();
             $data[]=$notematiere;
         }
@@ -87,7 +87,7 @@ class salleClassePdfController extends Controller
         foreach ($data as $bulletin) {
             $mpdf->AddPage();
             ob_start();
-            require '../App/Views/pdf/bulletin.php';
+            require '../App/Views/pdf/bulletin1.php';
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         } 
@@ -126,7 +126,7 @@ public function bulletin2($codeSalleClasse) : void
         } 
         $mpdf->Output();
     }
-     public function minibulletin($codeSalleClasse) : void
+     public function minibulletin1($codeSalleClasse) : void
     {
         $annee=$this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
@@ -142,7 +142,7 @@ public function bulletin2($codeSalleClasse) : void
         $moyennes=[];
         $data=[];
         foreach ($inscrits as $inscrit) {
-            $notematiere=BulletinFactory::getBulletin($inscrit->matricule,$annee);
+            $notematiere=Bulletin1Factory::getBulletin($inscrit->matricule,$annee);
             $moyennes[]=$notematiere->getMoyenne();
             $data[]=$notematiere;
         }
@@ -154,7 +154,7 @@ public function bulletin2($codeSalleClasse) : void
         foreach ($data as $key => $bulletin) {
            if($key%2==0) $mpdf->AddPage();
             ob_start();
-            require '../App/Views/pdf/minibulletin.php';
+            require '../App/Views/pdf/minibulletin1.php';
             $html = ob_get_clean();
             if($key%2==1) $mpdf->writeHTML('<br><hr>');
             $mpdf->WriteHTML($html);

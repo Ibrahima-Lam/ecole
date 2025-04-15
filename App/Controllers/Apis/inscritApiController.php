@@ -78,7 +78,7 @@ class inscritApiController extends Controller
         $model = new SalleClasseRepository();
         $classes = $model->findAll($this->annee);
         $classes = array_map(function ($classe) {
-            $classe->libelle = $classe->codeClasse . $classe->indiceSalleClasse;
+            $classe->libelle = $classe->pseudoSalleClasse;
             return $classe;
         }, $classes);
 

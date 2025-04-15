@@ -193,7 +193,7 @@ class NoteApiController extends Controller
 
 
        $examens=array_map(function($examen){
-           $examen->label=$examen->codeClasse.$examen->indiceSalleClasse." - ". $examen->codeMatiere." - ". $examen->nomEvaluation;
+           $examen->label=$examen->pseudoSalleClasse." - ". $examen->codeMatiere." - ". $examen->nomEvaluation;
            return $examen;
        }, $examens);
        $examensHtml = htmlService::options($examens, 'codeExamen', 'label', $codeExamen);
