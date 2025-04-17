@@ -83,7 +83,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && $this->redirect("?p=eleve/liste");
         $notematieres = Bulletin2Factory::getBulletin($matricule, $annee);
 
-        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $tab = Bulletin2Factory::getPoints($matricule, $annee);
         $notematieres->setTabPoints($tab);
         $this->render("eleve/bulletin2", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
     }
@@ -95,7 +95,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && $this->redirect("?p=eleve/liste");
         $notematieres = Bulletin3Factory::getBulletin($matricule, $annee);
 
-        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $tab = Bulletin3Factory::getPoints($matricule, $annee);
         $notematieres->setTabPoints($tab);
         $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }

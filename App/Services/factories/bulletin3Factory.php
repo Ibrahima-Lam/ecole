@@ -29,7 +29,7 @@ class Bulletin3Factory extends BulletinFactory
     
 
  
-   private static  function getBulletins($matricule, $codeAnnee):array {
+   public static  function getBulletins($matricule, $codeAnnee):array {
         $inscritRepository = new inscritRepository();
         $eleve = $inscritRepository->findOne($matricule);
         if(!$eleve) return [];

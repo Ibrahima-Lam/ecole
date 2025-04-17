@@ -84,7 +84,7 @@ class Controller
         ]);
 
         $mpdf->WriteHTML($content);
-        $mpdf->Output();
+        $mpdf->Output($options['name'] ?? 'document.pdf', \Mpdf\Output\Destination::INLINE);
     }
 
     public function response(mixed $data)

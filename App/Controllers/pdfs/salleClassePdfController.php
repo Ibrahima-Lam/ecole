@@ -47,7 +47,7 @@ class salleClassePdfController extends Controller
             });
         }
         $matieres = $model->findByClasse($salleClasse->codeClasse);
-        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'margin' => [10, 10, 10, 10]], );
+        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat1_{$salleClasse->pseudoSalleClasse}.pdf"], );
     }
     public function resultat2($codeSalleClasse)
     {
@@ -74,7 +74,34 @@ class salleClassePdfController extends Controller
 ;
             });
         }
-        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'margin' => [10, 10, 10, 10]], );
+        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat2_{$salleClasse->pseudoSalleClasse}.pdf"], );
+    }
+    public function resultat3($codeSalleClasse)
+    {
+        $salleClasse = $this->classeSalleRepository->findOneByCode($codeSalleClasse);
+        $annee = $this->getCodeAnnee();
+        $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $tab=[];
+        $data = [];
+        foreach ($inscrits as $inscrit) {
+            $notematiere = Bulletin3Factory::getBulletin($inscrit->matricule, $annee);
+            $tab[] = $notematiere->getPoints();
+            $data[] = $notematiere;
+        }
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
+            return $bulletin;
+        }, $data);
+        $model = new ClasseMatiereRepository();
+        $matieres = $model->findByClasse($salleClasse->codeClasse);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+            usort($data, function ($a, $b) {
+                return $a->getRang() - $b->getRang()
+;
+            });
+        }
+        $this->renderPDF("pdf/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'name'=>"Resultat3_{$salleClasse->pseudoSalleClasse}.pdf"], );
     }
     public function bulletin1($codeSalleClasse): void
     {

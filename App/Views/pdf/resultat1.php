@@ -94,7 +94,7 @@
                             <br>
 
                             <span>
-                                <?= $matiere->moyenne ?? 0 ?>
+                                <?= $matiere->points ?? 0 ?>
                             </span>
                         </td>
                     <?php } ?>

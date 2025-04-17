@@ -41,7 +41,7 @@ class salleClasseController extends Controller
             <a href='#'class='$class'>Resultat </a>&nbsp;
             <a href='?p=pdf/salleclasse/resultat1/$code'class='$class' target='_blank'>C1</a>
             <a href='?p=pdf/salleclasse/resultat2/$code'class='$class' target='_blank'>C2</a>
-            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class' target='_blank'>C3</a>
+            <a href='?p=pdf/salleclasse/resultat3/$code'class='$class' target='_blank'>C3</a>
             </li>";
              $html .= "<li>
              <a href='#'class='$class'>Bulletins</a>&nbsp;
