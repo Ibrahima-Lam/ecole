@@ -60,35 +60,32 @@
             <tr>
                 <th>Matiere</th>
                 <th></th>
-                
-                <th>D1</th>
-                <th>D2</th>
+                <th>I1</th>
+                <th>I2</th>
                 <th>C1</th>
                 <th>C2</th>
+                <th>MD</th>
                 <th>Coeff.</th>
-                <th>C2*Coeff</th>
+                <th>MD*Coeff</th>
                 <th >Observations</th>
                 
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
+            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) : ?>
                 <tr>
-                    <td>
-                                <span><?=$matiere->matiere->nomMatiere?></span> 
-                     </td>
+                    <td> <span><?=$matiere->matiere->nomMatiere?></span> </td>
                      <td class="right"> <span  dir="rtl"><?=$matiere->matiere->ismeMatiere?></span></td>
-                    
-                    <td><?=$matiere->d1?></td>
+                     <td><?=$matiere->d1?></td>
                     <td><?=$matiere->d2?></td>
                     <td><?=$matiere->c1?></td>
                     <td><?=$matiere->c2?></td>
-                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
+                    <td><?=$matiere->points?></td>
                     <td ></td>
-                    
                 </tr>
-            <?php } ?>
+            <?php endforeach ?>
             <tr>
                 <td><strong>Total</strong></td>
                 <td></td>
@@ -96,11 +93,15 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td><strong><?=$bulletin->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$bulletin->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$bulletin->getPoints()?></strong></td>
                 <td></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

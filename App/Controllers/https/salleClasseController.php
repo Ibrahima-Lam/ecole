@@ -39,20 +39,21 @@ class salleClasseController extends Controller
             $html .= "<li><a href='?p=salleclasse/releves/$code'class='$class'>Les relevés</a></li>";
             $html .= "<li>
             <a href='#'class='$class'>Resultat </a>&nbsp;
-            <a href='?p=pdf/salleclasse/resultat1/$code'class='$class'>C1</a>
-            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class'>C2</a>
-            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class'>C3</a>
+            <a href='?p=pdf/salleclasse/resultat1/$code'class='$class' target='_blank'>C1</a>
+            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class' target='_blank'>C2</a>
+            <a href='?p=pdf/salleclasse/resultat2/$code'class='$class' target='_blank'>C3</a>
             </li>";
              $html .= "<li>
              <a href='#'class='$class'>Bulletins</a>&nbsp;
-             <a href='?p=pdf/salleclasse/bulletin1/$code'class='$class'><span>C1</span></a>
-             <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C2</a>
-             <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class'>C3</a>
+             <a href='?p=pdf/salleclasse/bulletin1/$code'class='$class' target='_blank'><span>C1</span></a>
+             <a href='?p=pdf/salleclasse/bulletin2/$code'class='$class' target='_blank'>C2</a>
+             <a href='?p=pdf/salleclasse/bulletin3/$code'class='$class' target='_blank'>C3</a>
              </li>";
             $html .= "<li>
             <a href='#'class='$class'>MiniBulletins </a>&nbsp;
-            <a href='?p=pdf/salleclasse/minibulletin1/$code'class='$class'>C1</a>
-            <a href='?p=pdf/salleclasse/minibulletin2/$code'class='$class'>C2</a>
+            <a href='?p=pdf/salleclasse/minibulletin1/$code'class='$class' target='_blank'>C1</a>
+            <a href='?p=pdf/salleclasse/minibulletin2/$code'class='$class' target='_blank'>C2</a>
+            <a href='?p=pdf/salleclasse/minibulletin3/$code'class='$class' target='_blank'>C3</a>
             </li>";
 
         }

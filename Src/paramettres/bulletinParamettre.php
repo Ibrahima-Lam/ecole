@@ -13,6 +13,7 @@ class bulletinParamettre{
     public  $bordered=false;
 
 
+    public  $orientation="portrait";
     public  $sort="numero";
 
     public  $order="ASC";
@@ -31,6 +32,7 @@ class bulletinParamettre{
         $this->striped = $data['striped']??false;
         $this->bordered = $data['bordered']??false;
         $this->sort = $data['sort']??$this->sort;
+        $this->orientation = $data['orientation']??$this->orientation;
     $this->order = $data['order']??$this->order;
 }
     
@@ -46,6 +48,7 @@ class bulletinParamettre{
             'merite' => $this->merite,
             'striped' => $this->striped,
             'bordered' => $this->bordered,
+            'orientation' => $this->orientation,
             'sort' => $this->sort,
             'order' => $this->order
         ];

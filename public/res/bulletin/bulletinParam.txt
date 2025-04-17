@@ -1,1 +1,1 @@
-a:11:{s:9:"matricule";s:4:"true";s:6:"numero";s:4:"true";s:3:"nom";s:4:"true";s:4:"isme";s:4:"true";s:8:"nom_isme";s:4:"true";s:3:"nni";b:0;s:6:"merite";b:0;s:7:"striped";s:4:"true";s:8:"bordered";b:0;s:4:"sort";s:6:"numero";s:5:"order";s:3:"ASC";}
+a:12:{s:9:"matricule";s:4:"true";s:6:"numero";s:4:"true";s:3:"nom";s:4:"true";s:4:"isme";s:4:"true";s:8:"nom_isme";s:4:"true";s:3:"nni";b:0;s:6:"merite";s:4:"true";s:7:"striped";s:4:"true";s:8:"bordered";b:0;s:11:"orientation";s:8:"portrait";s:4:"sort";s:6:"numero";s:5:"order";s:3:"ASC";}

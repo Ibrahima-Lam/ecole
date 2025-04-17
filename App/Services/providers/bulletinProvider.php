@@ -2,25 +2,27 @@
 namespace App\Services\Providers;
 
 abstract class BulletinProvider extends ResultatProvider {
-    protected $moyennes=[];
+    protected $points_tab=[];
     protected $rang;
     protected $moyenne=0;
     protected $totalCoeff=0;
     protected $totalPoints=0;
 
-   abstract public function getSommeMoyenne():float;
+    protected $points;
+    protected $data=[];
+
   abstract public function getMatieresWithNotesAndMoyenne():array;
-    public function setMoyennes($moyennes){
-        $this->moyennes=$moyennes;
+    public function setTabPoints($tab){
+        $this->points_tab=$tab;
     }
     public function getMoyenne(?int $precision=null):float{
         if (!empty($this->moyenne)) return $this->moyenne;
-        $somme=$this->getSommeMoyenne();
+        $points=$this->getPoints();
         $totalCoeff=$this->getTotalCoeff();
         if($totalCoeff==0){
             return 0;
         }else{
-            $this->moyenne=round($somme/$totalCoeff,$precision??2);
+            $this->moyenne=round($points/$totalCoeff,$precision??2);
             return $this->moyenne;
         }
     }
@@ -52,14 +54,14 @@ abstract class BulletinProvider extends ResultatProvider {
     }
     public function getRang():?int{
         if(!empty($this->rang)) return $this->rang;
-        $moyennes=$this->moyennes;
-        sort($moyennes, SORT_NUMERIC);
-        $moyennes=array_reverse($moyennes);
+        $tabs=$this->points_tab;
+        sort($tabs, SORT_NUMERIC);
+        $tabs=array_reverse($tabs);
         $rang=1;
-        $moy=$this->getMoyenne();
+        $points=$this->getPoints();
         
-        foreach($moyennes as $moyenne){
-            if($moyenne<=$moy){
+        foreach($tabs as $value){
+            if($value<=$points){
                 $this->rang=$rang;
                 return $rang;
             }
@@ -88,14 +90,20 @@ abstract class BulletinProvider extends ResultatProvider {
         return $totalCoeff;
     }
 
-    public function getTotalPoints(): float{
+    public function getMatiereTotalPoints(): float{
         if(!empty($this->totalPoints))return $this->totalPoints;
         $total=0;
-        foreach ($this->matieres as $key => $matiere) {
+        foreach ($this->matieres as $matiere) {
             $total+=$matiere->coefficientClasseMatiere*20;
         }
-        $total;
+        $this->totalPoints=$total;
         return $total;
+    }
+    public function getPoints():float{
+        if($this->points===null) {
+          $this->getMatieresWithNotesAndMoyenne();
+        }
+        return $this->points??0;
     }
     
 }

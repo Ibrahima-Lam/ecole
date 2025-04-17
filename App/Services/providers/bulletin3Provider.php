@@ -13,7 +13,6 @@ class Bulletin3Provider extends BulletinProvider{
     public const INTERRO_SOMME3=3;
 
     private int $interro_params;
-    private $somme=0;
     public function __construct(\stdClass $eleve, array $matieres, array $notes, array $moyennes=[], int $interro_params=self::INTERRO_MAX){
         parent::__construct($eleve, $matieres, $notes);
         $this->moyennes=$moyennes;
@@ -21,8 +20,11 @@ class Bulletin3Provider extends BulletinProvider{
     }
     
     public function getMatieresWithNotesAndMoyenne():array{
+        if(!empty($this->data)) {
+            return $this->data;
+        }
         $matieresWithNotesAndMoyenne=$this->getMatieresWithNotes();
-       $somme=0;
+        $points=0;
         foreach($matieresWithNotesAndMoyenne as $matiereWithNotesAndMoyenne){
             
             $matiereWithNotesAndMoyenne->d1=null;
@@ -56,21 +58,22 @@ class Bulletin3Provider extends BulletinProvider{
             $matiereWithNotesAndMoyenne->interrogation=$this->getInterogationMoyenne([$matiereWithNotesAndMoyenne->d1??0,$matiereWithNotesAndMoyenne->d2??0,$matiereWithNotesAndMoyenne->d3??0]);
             $matiereWithNotesAndMoyenne->totalInterrogation=$matiereWithNotesAndMoyenne->interrogation*self::COEFF_INTERRO;
             $matiereWithNotesAndMoyenne->total=($matiereWithNotesAndMoyenne->c1??0)*self::COEFF_C1+($matiereWithNotesAndMoyenne->c2??0)*self::COEFF_C2+($matiereWithNotesAndMoyenne->c3??0)*self::COEFF_C3+$matiereWithNotesAndMoyenne->totalInterrogation;
-            $matiereWithNotesAndMoyenne->moy=$matiereWithNotesAndMoyenne->total/self::COEFF_TOTAL;
-            $matiereWithNotesAndMoyenne->moyenne=$matiereWithNotesAndMoyenne->moy*$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
-            $somme+=$matiereWithNotesAndMoyenne->moyenne;
+            $matiereWithNotesAndMoyenne->moyenne=$matiereWithNotesAndMoyenne->total/self::COEFF_TOTAL;
+            $matiereWithNotesAndMoyenne->points=$matiereWithNotesAndMoyenne->moyenne*$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
+            $points+=$matiereWithNotesAndMoyenne->points;
 
             $matiereWithNotesAndMoyenne->interrogation=round($matiereWithNotesAndMoyenne->interrogation,2);
             $matiereWithNotesAndMoyenne->totalInterrogation=round($matiereWithNotesAndMoyenne->totalInterrogation,2);
-            $matiereWithNotesAndMoyenne->moy=round($matiereWithNotesAndMoyenne->moy,2);
-            $matiereWithNotesAndMoyenne->total=round($matiereWithNotesAndMoyenne->total,2);
             $matiereWithNotesAndMoyenne->moyenne=round($matiereWithNotesAndMoyenne->moyenne,2);
+            $matiereWithNotesAndMoyenne->total=round($matiereWithNotesAndMoyenne->total,2);
+            $matiereWithNotesAndMoyenne->points=round($matiereWithNotesAndMoyenne->points,2);
 
             $matiereWithNotesAndMoyenne->c1x1=!$matiereWithNotesAndMoyenne->c1?null: round($matiereWithNotesAndMoyenne->c1*self::COEFF_C1,2);
             $matiereWithNotesAndMoyenne->c2x2=!$matiereWithNotesAndMoyenne->c2?null: round($matiereWithNotesAndMoyenne->c2*self::COEFF_C2,2);
             $matiereWithNotesAndMoyenne->c3x3=!$matiereWithNotesAndMoyenne->c3?null: round($matiereWithNotesAndMoyenne->c3*self::COEFF_C3,2);
         }
-        $this->somme=round($somme,2);
+        $this->points=round($points,2);
+        $this->data=$matieresWithNotesAndMoyenne;
         return $matieresWithNotesAndMoyenne;
     }
 
@@ -91,15 +94,7 @@ class Bulletin3Provider extends BulletinProvider{
         return array_sum($tab)/$this->interro_params;
     }
     
-    public function getSommeMoyenne():float{
-        return $this->somme;
-    }
-
    
-   
-    
-
-    
 
 }
 ?>

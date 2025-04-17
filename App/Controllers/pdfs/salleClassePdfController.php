@@ -4,6 +4,7 @@ namespace App\Controllers\pdfs;
 
 use App\Services\Factories\Bulletin1Factory;
 use App\Services\Factories\Bulletin2Factory;
+use App\Services\Factories\Bulletin3Factory;
 use Core\Controllers\Controller;
 use App\Models\Repositories\InscritRepository;
 use App\Models\Repositories\SalleClasseRepository;
@@ -26,15 +27,15 @@ class salleClassePdfController extends Controller
         $salleClasse = $this->classeSalleRepository->findOneByCode($codeSalleClasse);
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin1Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $model = new ClasseMatiereRepository();
@@ -53,15 +54,15 @@ class salleClassePdfController extends Controller
         $salleClasse = $this->classeSalleRepository->findOneByCode($codeSalleClasse);
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin2Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $model = new ClasseMatiereRepository();
@@ -79,6 +80,7 @@ class salleClassePdfController extends Controller
     {
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -87,15 +89,15 @@ class salleClassePdfController extends Controller
             'useOTL' => 0xFF,
             'useKashida' => 75
         ]);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin1Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
@@ -112,12 +114,13 @@ class salleClassePdfController extends Controller
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output();
+        $mpdf->Output("bulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
     }
     public function bulletin2($codeSalleClasse): void
     {
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -126,15 +129,15 @@ class salleClassePdfController extends Controller
             'useOTL' => 0xFF,
             'useKashida' => 75
         ]);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin2Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
@@ -151,12 +154,55 @@ class salleClassePdfController extends Controller
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output();
+        $mpdf->Output("bulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+
+    }
+    public function bulletin3($codeSalleClasse): void
+    {
+        $annee = $this->getCodeAnnee();
+        $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
+
+        $mpdf = new Mpdf([
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'default_font' => 'xbriyaz',
+            'useOTL' => 0xFF,
+            'useKashida' => 75,
+            'orientation' => $paramettre->orientation
+        ]);
+        $tab=[];
+        $data = [];
+        foreach ($inscrits as $inscrit) {
+            $notematiere = Bulletin3Factory::getBulletin($inscrit->matricule, $annee);
+            $tab[] = $notematiere->getPoints();
+            $data[] = $notematiere;
+        }
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
+            return $bulletin;
+        }, $data);
+        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+            usort($data, function ($a, $b) {
+                return $a->getRang() - $b->getRang()
+;
+            });
+        }
+        foreach ($data as $bulletin) {
+            $mpdf->AddPage();
+            ob_start();
+            require '../App/Views/pdf/bulletin3.php';
+            $html = ob_get_clean();
+            $mpdf->WriteHTML($html);
+        }
+        $mpdf->Output("bulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
     }
     public function minibulletin1($codeSalleClasse): void
     {
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -166,15 +212,15 @@ class salleClassePdfController extends Controller
             'useKashida' => 75
         ]);
         $mpdf->SetMargins(0, 0, 5);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin1Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
@@ -194,12 +240,15 @@ class salleClassePdfController extends Controller
                 $mpdf->writeHTML('<br><hr>');
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output();
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
+
+        $mpdf->Output("minibulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
     }
     public function minibulletin2($codeSalleClasse): void
     {
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -209,15 +258,15 @@ class salleClassePdfController extends Controller
             'useKashida' => 75
         ]);
         $mpdf->SetMargins(0, 0, 5);
-        $moyennes = [];
+        $tab=[];
         $data = [];
         foreach ($inscrits as $inscrit) {
             $notematiere = Bulletin2Factory::getBulletin($inscrit->matricule, $annee);
-            $moyennes[] = $notematiere->getMoyenne();
+            $tab[] = $notematiere->getPoints();
             $data[] = $notematiere;
         }
-        $data = array_map(function ($bulletin) use ($moyennes) {
-            $bulletin->setMoyennes($moyennes);
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
@@ -237,7 +286,54 @@ class salleClassePdfController extends Controller
                 $mpdf->writeHTML('<br><hr>');
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output();
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
+
+        $mpdf->Output("minibulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+    }
+    public function minibulletin3($codeSalleClasse): void
+    {
+        $annee = $this->getCodeAnnee();
+        $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+
+        $mpdf = new Mpdf([
+            'mode' => 'utf-8',
+            'format' => 'A4',
+            'default_font' => 'xbriyaz',
+            'useOTL' => 0xFF,
+            'useKashida' => 75
+        ]);
+        $mpdf->SetMargins(0, 0, 5);
+        $tab=[];
+        $data = [];
+        foreach ($inscrits as $inscrit) {
+            $notematiere = Bulletin3Factory::getBulletin($inscrit->matricule, $annee);
+            $tab[] = $notematiere->getPoints();
+            $data[] = $notematiere;
+        }
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
+            return $bulletin;
+        }, $data);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+            usort($data, function ($a, $b) {
+                return $a->getRang() - $b->getRang()
+;
+            });
+        }
+        foreach ($data as $key => $bulletin) {
+            if ($key % 2 == 0)
+                $mpdf->AddPage();
+            ob_start();
+            require '../App/Views/pdf/minibulletin3.php';
+            $html = ob_get_clean();
+            if ($key % 2 == 1)
+                $mpdf->writeHTML('<br><hr>');
+            $mpdf->WriteHTML($html);
+        }
+        $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
+
+        $mpdf->Output("minibulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
     }
 }
 

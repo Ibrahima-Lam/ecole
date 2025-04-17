@@ -71,8 +71,8 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && $this->redirect("?p=eleve/liste");
         $notematieres = Bulletin1Factory::getBulletin($matricule, $annee);
 
-        $moyennes = Bulletin1Factory::getMoyennes($matricule, $annee);
-        $notematieres->setMoyennes($moyennes);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $notematieres->setTabPoints($tab);
         $this->render("eleve/bulletin1", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
     }
     public function bulletin2(string $matricule): void
@@ -83,8 +83,8 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && $this->redirect("?p=eleve/liste");
         $notematieres = Bulletin2Factory::getBulletin($matricule, $annee);
 
-        $moyennes = Bulletin2Factory::getMoyennes($matricule, $annee);
-        $notematieres->setMoyennes($moyennes);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $notematieres->setTabPoints($tab);
         $this->render("eleve/bulletin2", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
     }
     public function bulletin3(string $matricule): void
@@ -95,8 +95,8 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && $this->redirect("?p=eleve/liste");
         $notematieres = Bulletin3Factory::getBulletin($matricule, $annee);
 
-        $moyennes = Bulletin3Factory::getMoyennes($matricule, $annee);
-        $notematieres->setMoyennes($moyennes);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $notematieres->setTabPoints($tab);
         $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }
 

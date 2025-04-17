@@ -100,8 +100,9 @@
                 
                 <th>Interro.</th>
                 <th>Compos.</th>
+                <th>MD</th>
                 <th>Coeff.</th>
-                <th>Compos*Coeff</th>
+                <th>MD*Coeff</th>
                 <th >Observations et disc.</th>
                 
             </tr>
@@ -116,8 +117,9 @@
                     
                     <td><?=$matiere->d1?></td>
                     <td><?=$matiere->c1?></td>
-                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
+                    <td><?=$matiere->points?></td>
                     <td ></td>
                     
                 </tr>
@@ -127,8 +129,9 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td><strong><?=$bulletin->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$bulletin->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$bulletin->getPoints()?></strong></td>
                 <td></td>
             </tr>
         </tbody>
@@ -144,7 +147,7 @@
         </tr>
           <tr>
             <th>Rang</th>
-            <td><strong><?=$bulletin->getRang([])?></strong></td>
+            <td><strong><?=$bulletin->getRang()?></strong></td>
             <th dir="rtl">الترتيب</th>
         </tr> 
         <tr>

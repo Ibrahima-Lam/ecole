@@ -42,8 +42,9 @@
                 <th>Matiere</th>
                 <th>Interrogations</th>
                 <th>Composition</th>
+                <th>MD</th>
                 <th>Coefficient</th>
-                <th>Note*Coeff</th>
+                <th>MD*Coeff</th>
                 <th colspan="2">Observations et discipline</th>
             </tr>
         </thead>
@@ -61,20 +62,25 @@
                      </td>
                     <td><?=$matiere->d1?></td>
                     <td><?=$matiere->c1?></td>
-                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
+                    <td><?=$matiere->points?></td>
                     <td colspan="2"></td>
                 </tr>
             <?php } ?>
-            <tr>
+          
+        </tbody>
+        <tfoot>
+        <tr>
                 <td><strong>Total</strong></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td><strong><?=$notematieres->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$notematieres->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$notematieres->getPoints()?></strong></td>
                 <td></td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
 </div>
 <br>
@@ -87,7 +93,7 @@
         </tr>
           <tr>
             <th>Rang</th>
-            <td><strong><?=$notematieres->getRang([])?></strong></td>
+            <td><strong><?=$notematieres->getRang()?></strong></td>
             <th dir="rtl">الترتيب</th>
         </tr> 
         <tr>
@@ -103,5 +109,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a href="?p=pdf/eleve/bulletin1/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a target="_blank" href="?p=pdf/eleve/bulletin1/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
 </div>

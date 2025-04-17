@@ -54,12 +54,21 @@
     background-color: grey;
 }
 
+
+.table-striped thead tr {
+    background-color: grey;
+}
+
 .table-striped tr {
     background-color: whitesmoke;
 }
 
 .table-striped tr:nth-child(even) {
     background-color: gainsboro;
+}
+
+.table-striped tfoot tr {
+    background-color: rgba(128, 128, 128,0.5);
 }
 
 .table a {

@@ -40,9 +40,9 @@
         <thead>
             <tr>
                 <th>Matiere</th>
-                <th>D1</th>
-                <th>D2</th>
-                <th>D3</th>
+                <th>I1</th>
+                <th>I2</th>
+                <th>I3</th>
                 <th>
                     <span>Interro.</span>
                     <br>
@@ -64,9 +64,9 @@
                     <span>C3*3</span>
                 </th>
                 <th>Total</th>
-                <th>Moy.</th>
+                <th>MD</th>
                 <th>Coeff.</th>
-                <th>Points</th>
+                <th>MD*Coeff</th>
                 <th colspan="2">Obs. disc.</th>
             </tr>
         </thead>
@@ -91,9 +91,9 @@
                     <td> <span> <?=$matiere->c2?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
                     <td> <span> <?=$matiere->c3?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
                     <td><?=$matiere->total?></td>
-                    <td><?=$matiere->moy?></td>
+                    <td><?=$matiere->moyenne?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
-                    <td><?=$matiere->moyenne ?></td>
+                    <td><?=$matiere->points ?></td>
                     <td colspan="2"></td>
                 </tr>
             <?php } ?>
@@ -109,7 +109,7 @@
                 <td></td>
                 <td></td>
                 <td><strong><?=$notematieres->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$notematieres->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$notematieres->getPoints()?></strong></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -142,5 +142,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a href="?p=pdf/eleve/bulletin3/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a target="_blank" href="?p=pdf/eleve/bulletin3/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
 </div>

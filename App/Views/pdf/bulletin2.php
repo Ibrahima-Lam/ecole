@@ -102,7 +102,7 @@
                 <th>C1</th>
                 <th>C2</th>
                 <th>Coeff.</th>
-                <th>C2*Coeff</th>
+                <th>MD*Coeff</th>
                 <th >Obs. et disc.</th>
                 
             </tr>
@@ -120,7 +120,7 @@
                     <td><?=$matiere->c1?></td>
                     <td><?=$matiere->c2?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
-                    <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->points?></td>
                     <td ></td>
                     
                 </tr>
@@ -133,7 +133,7 @@
                 <td></td>
                 <td></td>
                 <td><strong><?=$bulletin->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$bulletin->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$bulletin->getPoints()?></strong></td>
                 <td></td>
             </tr>
         </tbody>

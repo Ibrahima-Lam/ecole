@@ -24,16 +24,16 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
     { $paramettre = BulletinParamettreFactory::getBulletinParam();
         $annee = $this->getCodeAnnee();
         $bulletin= Bulletin1Factory::getBulletin($matricule,$annee);
-        $moyennes= Bulletin1Factory::getMoyennes($matricule,$annee);
-        $bulletin->setMoyennes($moyennes);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $bulletin->setTabPoints($tab);
         $this->renderPDF("pdf/bulletin1", ['bulletin'=>$bulletin, 'paramettre' => $paramettre]);
     } 
      public function bulletin2(string $matricule): void
     { $paramettre = BulletinParamettreFactory::getBulletinParam();
         $annee = $this->getCodeAnnee();
         $bulletin= Bulletin2Factory::getBulletin($matricule,$annee);
-        $moyennes= Bulletin2Factory::getMoyennes($matricule,$annee);
-        $bulletin->setMoyennes($moyennes);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $bulletin->setTabPoints($tab);
         $this->renderPDF("pdf/bulletin2", ['bulletin'=>$bulletin, 'paramettre' => $paramettre]);
     }
     public function bulletin3(string $matricule): void
@@ -41,8 +41,8 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $annee = $this->getCodeAnnee();
         $bulletin= Bulletin3Factory::getBulletin($matricule,$annee);
-        $moyennes= Bulletin3Factory::getMoyennes($matricule,$annee);
-        $bulletin->setMoyennes($moyennes);
-        $this->renderPDF("pdf/bulletin3", ['bulletin'=>$bulletin, 'paramettre' => $paramettre]);
+        $tab = Bulletin1Factory::getPoints($matricule, $annee);
+        $bulletin->setTabPoints($tab);
+        $this->renderPDF("pdf/bulletin3", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation]);
     }
 }

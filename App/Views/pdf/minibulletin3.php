@@ -28,8 +28,7 @@
 <div class="text-center">
     <u>
         <small>
-
-            Composition du 1er Trimestre
+            Composition du 2ème Trimestre
         </small>
     </u>
 </div>
@@ -61,32 +60,39 @@
             <tr>
                 <th>Matiere</th>
                 <th></th>
-                
-                <th>Interro.</th>
-                <th>Compos.</th>
-                <th>MD</th>
-                <th>Coeff.</th>
-                <th>MD*Coeff</th>
-                <th >Observations</th>
-                
+                <th><span>Interro*3 &nbsp;</span></th>
+                <th><span> C1*1 &nbsp;</span></th>
+                <th><span> C2*2 &nbsp;</span></th>
+                <th><span> C3*3 &nbsp;</span></th>
+                <th><span>Total</span></th>
+                <th><span>MD</span></th>
+                <th><span>Coeff.</span></th>
+                <th><span>MD*Coeff</span></th>
+                <th><span>Observation. et disc.</span></th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) : ?>
+            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
                 <tr>
                     <td> <span><?=$matiere->matiere->nomMatiere?></span> </td>
                      <td class="right"> <span  dir="rtl"><?=$matiere->matiere->ismeMatiere?></span></td>
-                    <td><?=$matiere->d1?></td>
-                    <td><?=$matiere->c1?></td>
-                    <td><?=$matiere->moyenne?></td>
-                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
-                    <td><?=$matiere->points?></td>
-                    <td ></td>
+                     <td> <span> <?=$matiere->totalInterrogation?> </span> </td>
+                    <td> <span> <?=$matiere->c1x1?> </span> </td>
+                    <td> <span> <?=$matiere->c2x2?> </span> </td>
+                    <td> <span> <?=$matiere->c3x3?> </span> </td>
+                    <td><span> <?=$matiere->total?> </span></td>
+                    <td><span> <?=$matiere->moy?> </span></td>
+                    <td><span> <?=$matiere->matiere->coefficientClasseMatiere ?> </span></td>
+                    <td><span> <?=$matiere->moyenne ?> </span></td>
+                    <td></td>
                     
                 </tr>
-            <?php endforeach ?>
+            <?php } ?>
             <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -96,6 +102,9 @@
                 <td></td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

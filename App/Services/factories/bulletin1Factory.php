@@ -6,9 +6,10 @@ use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 
-class Bulletin1Factory 
+class Bulletin1Factory extends BulletinFactory
 {
-   public static function getBulletin($matricule,$codeAnnee):?Bulletin1Provider {
+    
+    public static function getBulletin($matricule,$codeAnnee):?Bulletin1Provider {
         $annee = $codeAnnee;
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
@@ -26,17 +27,18 @@ class Bulletin1Factory
        
     }
 
-   public static  function getMoyennes($matricule, $codeAnnee):array {
-        $inscritRepository = new inscritRepository();
-        $eleve = $inscritRepository->findOne($matricule);
-        if(!$eleve) return [];
-        $salleclasse = $eleve->codeSalleClasse;
-        $inscrits=$inscritRepository->findAllByClasse($salleclasse);
-        $bulletins=array_map(function ($inscrit) use ($codeAnnee) {
-            return Bulletin1Factory::getBulletin($inscrit->matricule,$codeAnnee);
-        }, $inscrits);
-        return array_map(function ($bulletin) {return $bulletin->getMoyenne(8);}, $bulletins);
+    
 
-        }
-
+        public static  function getBulletins($matricule, $codeAnnee):array {
+             $inscritRepository = new inscritRepository();
+             $eleve = $inscritRepository->findOne($matricule);
+             if(!$eleve) return [];
+             $salleclasse = $eleve->codeSalleClasse;
+             $inscrits=$inscritRepository->findAllByClasse($salleclasse);
+             $bulletins=array_map(function ($inscrit) use ($codeAnnee) {
+                 return Bulletin1Factory::getBulletin($inscrit->matricule,$codeAnnee);
+             }, $inscrits);
+             return $bulletins;
+     
+          }
 }

@@ -40,12 +40,13 @@
         <thead>
             <tr>
                 <th>Matiere</th>
-                <th>D1</th>
-                <th>D2</th>
+                <th>I1</th>
+                <th>I2</th>
                 <th>C1</th>
                 <th>C2</th>
+                <th>MD</th>
                 <th>Coeff.</th>
-                <th>C2*Coeff</th>
+                <th>MD*Coeff</th>
                 <th colspan="2">Obs. disc.</th>
             </tr>
         </thead>
@@ -65,8 +66,9 @@
                     <td><?=$matiere->d2?></td>
                     <td><?=$matiere->c1?></td>
                     <td><?=$matiere->c2?></td>
-                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->moyenne?></td>
+                    <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
+                    <td><?=$matiere->points?></td>
                     <td colspan="2"></td>
                 </tr>
             <?php } ?>
@@ -76,8 +78,9 @@
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td><strong><?=$notematieres->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$notematieres->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$notematieres->getPoints()?></strong></td>
                 <td></td>
             </tr>
         </tbody>
@@ -109,5 +112,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a href="?p=pdf/eleve/bulletin2/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a target="_blank" href="?p=pdf/eleve/bulletin2/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
 </div>

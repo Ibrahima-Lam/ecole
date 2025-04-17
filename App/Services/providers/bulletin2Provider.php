@@ -9,21 +9,21 @@ class Bulletin2Provider extends BulletinProvider{
     }
     
     public function getMatieresWithNotesAndMoyenne():array{
+
+        if(!empty($this->data)) return $this->data;
+        $points=0;
         $matieresWithNotesAndMoyenne=$this->getMatieresWithNotes();
        
         foreach($matieresWithNotesAndMoyenne as $matiereWithNotesAndMoyenne){
-            $matiereWithNotesAndMoyenne->moyenne=(float) 0;
             $matiereWithNotesAndMoyenne->d1=null;
             $matiereWithNotesAndMoyenne->d2=null;
             $matiereWithNotesAndMoyenne->c1=null;
             $matiereWithNotesAndMoyenne->c2=null;
 
-            $matiereWithNotesAndMoyenne->examen=(float) 0;
             $coeff=$matiereWithNotesAndMoyenne->matiere->coefficientClasseMatiere;
             foreach($matiereWithNotesAndMoyenne->notes as $note){
                 switch ($note->codeEvaluation) {
                     case 'C2':
-                        $matiereWithNotesAndMoyenne->moyenne+=(float) $note->note*$coeff;
                         $matiereWithNotesAndMoyenne->c2=(float) $note->note;
                         break;
                     case 'D1':
@@ -37,31 +37,15 @@ class Bulletin2Provider extends BulletinProvider{
                         break;
                 }
             }
+            $matiereWithNotesAndMoyenne->moyenne=$matiereWithNotesAndMoyenne->c2??0;
+            $matiereWithNotesAndMoyenne->points=($matiereWithNotesAndMoyenne->c2??0)*$coeff;
+            $points+=$matiereWithNotesAndMoyenne->points;
         }
+        $this->points=$points;
+        $this->data=$matieresWithNotesAndMoyenne;
         return $matieresWithNotesAndMoyenne;
     }
 
-  
-
-    public function getSommeMoyenne():float{
-        $somme=0;
-        foreach($this->matieres as $matiere){
-            $coeff=$matiere->coefficientClasseMatiere;
-            foreach($this->notes as $note){
-                if($matiere->codeMatiere==$note->codeMatiere && $note->codeEvaluation=='C2'){
-                    $somme+=$note->note*$coeff;
-                    break;
-                }
-            }
-        }
-        return $somme;
-    }
-
-   
-   
-    
-
-    
-
+ 
 }
 ?>

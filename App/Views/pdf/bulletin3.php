@@ -104,14 +104,14 @@
                 <th> <span>C2*2</span> </th>
                 <th> <span>C3*3</span> </th>
                 <th>Total</th>
-                <th>Moy.</th>
+                <th>MD</th>
                 <th>Coeff.</th>
-                <th>Points</th>
+                <th>MD*Coeff</th>
                 <th>Obs. disc.</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
+            <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) : ?>
                 <tr>
                     <td> <span><?=$matiere->matiere->nomMatiere?></span> </td>
                     <td class="right"> <span  dir="rtl"><?=$matiere->matiere->ismeMatiere?></span></td>
@@ -123,13 +123,15 @@
                     <td> <span> <?=$matiere->c2x2?> </span> </td>
                     <td> <span> <?=$matiere->c3x3?> </span> </td>
                     <td><?=$matiere->total?></td>
-                    <td><?=$matiere->moy?></td>
+                    <td><?=$matiere->moyenne?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
-                    <td><?=$matiere->moyenne ?></td>
+                    <td><?=$matiere->points ?></td>
                     <td></td>
                 </tr>
-            <?php } ?>
-            <tr>
+            <?php endforeach ?>
+        </tbody>
+        <tfoot>
+        <tr>
                 <td><strong>Total</strong></td>
                 <td></td>
                 <td></td>
@@ -142,11 +144,11 @@
                 <td></td>
                 <td></td>
                 <td><strong><?=$bulletin->getTotalCoeff() ?></strong></td>
-                <td><strong><?=$bulletin->getSommeMoyenne()?></strong></td>
+                <td><strong><?=$bulletin->getPoints()?></strong></td>
                 <td></td>
                 <td></td>
             </tr>
-        </tbody>
+        </tfoot>
     </table>
 </div>
 <br>

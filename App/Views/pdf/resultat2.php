@@ -100,10 +100,10 @@
 
                     <td>
                         <span>
-                            <?= $bulletin->getSommeMoyenne() ?>
+                            <?= $bulletin->getPoints() ?>
                         </span>
                         /
-                        <span><?= $bulletin->getTotalPoints() ?></span>
+                        <span><?= $bulletin->getMatiereTotalPoints() ?></span>
                     </td>
                     <td><?= $bulletin->getTotalCoeff() ?></td>
                     <td><?= $bulletin->getMoyenne(2) ?></td>

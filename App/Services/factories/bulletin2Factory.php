@@ -6,7 +6,7 @@ use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 
-class Bulletin2Factory 
+class Bulletin2Factory extends BulletinFactory
 {
    public static function getBulletin($matricule,$codeAnnee):?Bulletin2Provider {
         $annee = $codeAnnee;
@@ -25,8 +25,8 @@ class Bulletin2Factory
         return new Bulletin2Provider($eleve,$matieres,$notes);
        
     }
-
-   public static  function getMoyennes($matricule, $codeAnnee):array {
+   
+   public static  function getBulletins($matricule, $codeAnnee):array {
         $inscritRepository = new inscritRepository();
         $eleve = $inscritRepository->findOne($matricule);
         if(!$eleve) return [];
@@ -35,8 +35,9 @@ class Bulletin2Factory
         $bulletins=array_map(function ($inscrit) use ($codeAnnee) {
             return Bulletin2Factory::getBulletin($inscrit->matricule,$codeAnnee);
         }, $inscrits);
-        return array_map(function ($bulletin) {return $bulletin->getMoyenne();}, $bulletins);
+        return $bulletins;
 
      }
+     
 
 }
