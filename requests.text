@@ -394,5 +394,37 @@ create table absence(
     Constraint absence_pkey Primary Key (idAbsence),
 )
 
+DELIMITER //
 
+CREATE TRIGGER UpdateCodeExamen
+AFTER UPDATE ON inscrit
+FOR EACH ROW
+BEGIN
+    DECLARE codeEvalOld VARCHAR(10);
+    DECLARE codeEvalNew VARCHAR(10);
+
+    -- Récupérer le codeEvaluation de l'ancienne classe
+    SELECT e.codeEvaluation INTO codeEvalOld
+    FROM examen e
+    WHERE e.codeSalleClasse = OLD.codeSalleClasse;
+
+    -- Récupérer le codeEvaluation de la nouvelle classe
+    SELECT e.codeEvaluation INTO codeEvalNew
+    FROM examen e
+    WHERE e.codeSalleClasse = NEW.codeSalleClasse;
+
+    -- Comparer les codes d'évaluation et mettre à jour si nécessaire
+    IF codeEvalNew != codeEvalOld THEN
+        UPDATE note
+        SET codeExamen = (
+            SELECT e.codeExamen
+            FROM examen e
+            WHERE e.codeSalleClasse = NEW.codeSalleClasse
+            AND e.codeEvaluation = codeEvalNew
+        )
+        WHERE matricule = NEW.matricule;
+    END IF;
+END//
+
+DELIMITER ;
 

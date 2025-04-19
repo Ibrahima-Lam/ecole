@@ -39,6 +39,7 @@
 .table th.center,
 .table td.center {
     text-align: center;
+    width: 300px;
 }
 
 

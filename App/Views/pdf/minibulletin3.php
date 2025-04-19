@@ -10,8 +10,8 @@
     <table class="table">
         <tbody>
 
-            <tr>
-                <td><h4>Etablissemment</h4></td>
+        <tr>
+                <td><h4><?=$paramettre->getEtablissemment()?></h4></td>
                 <td class="center" ><div >
                     <u>
                         <strong>
@@ -20,7 +20,7 @@
                     </u>
                 </div>
             </td>
-            <td class="right" dir="rtl" ><h4  >المؤسسة</h4></td>
+            <td class="right" dir="rtl" ><h4  ><?=$paramettre->getEtablissemmentArabe()?></h4></td>
         </tr>
     </tbody>
     </table>
@@ -81,9 +81,9 @@
                     <td> <span> <?=$matiere->c2x2?> </span> </td>
                     <td> <span> <?=$matiere->c3x3?> </span> </td>
                     <td><span> <?=$matiere->total?> </span></td>
-                    <td><span> <?=$matiere->moy?> </span></td>
+                    <td><span> <?=$matiere->moyenne?> </span></td>
                     <td><span> <?=$matiere->matiere->coefficientClasseMatiere ?> </span></td>
-                    <td><span> <?=$matiere->moyenne ?> </span></td>
+                    <td><span> <?=$matiere->points ?> </span></td>
                     <td></td>
                     
                 </tr>

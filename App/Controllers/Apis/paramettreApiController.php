@@ -5,6 +5,7 @@ use Core\Controllers\Controller;
 
 use Src\Paramettres\ClasseParamettre;
 use Src\Factories\BulletinParamettreFactory;
+use Src\Factories\ResultatParamettreFactory;
 
 class ParamettreApiController extends Controller
 {
@@ -35,16 +36,23 @@ class ParamettreApiController extends Controller
         $this->response($paramettre);
     }
 
-    public function setBulletin(){
-        BulletinParamettreFactory::setBulletinParam($_REQUEST);
+
+    public function bulletin($set=false){
+        if($set){
+            BulletinParamettreFactory::setBulletinParam($_REQUEST);
+        }
         $this->response(
             BulletinParamettreFactory::getBulletinParam()->getArray()
         );
     }
-
-    public function bulletin(){
+   
+    public function resultat($set=false){
+        if($set){
+            ResultatParamettreFactory::setResultatParam($_REQUEST);
+         
+        }
         $this->response(
-            BulletinParamettreFactory::getBulletinParam()->getArray()
+            ResultatParamettreFactory::getResultatParam()->getArray()
         );
     }
 }

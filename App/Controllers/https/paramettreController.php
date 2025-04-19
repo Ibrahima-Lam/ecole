@@ -5,6 +5,7 @@ use Core\Controllers\Controller;
 use Core\caches\Cookie;
 use Src\Paramettres\ClasseParamettre;
 use Src\Factories\BulletinParamettreFactory;
+use Src\Factories\ResultatParamettreFactory;
 
 class ParamettreController extends Controller
 {
@@ -28,5 +29,11 @@ class ParamettreController extends Controller
         
         $paramettre=BulletinParamettreFactory::getBulletinParam();
         $this->render('paramettre/bulletin',['paramettre'=>$paramettre]);
+    } 
+     public function resultat(): void
+    {
+        
+        $paramettre=ResultatParamettreFactory::getResultatParam();
+        $this->render('paramettre/resultat',['paramettre'=>$paramettre]);
     }
 }

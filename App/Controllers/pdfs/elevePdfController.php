@@ -40,9 +40,11 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $annee = $this->getCodeAnnee();
-        $bulletin= Bulletin3Factory::getBulletin($matricule,$annee);
-        $tab = Bulletin3Factory::getPoints($matricule, $annee);
-        $bulletin->setTabPoints($tab);
-        $this->renderPDF("pdf/bulletin3", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation]);
-    }
+    $bulletin= Bulletin3Factory::getBulletin($matricule,$annee);
+    $tab = Bulletin3Factory::getPoints($matricule, $annee);
+   
+    $bulletin->setTabPoints($tab);
+    $file=$paramettre->orientation=='landscape' ? 'pdf/bulletin3Landscape' : 'pdf/bulletin3';
+    $this->renderPDF($file, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation]);
+}
 }

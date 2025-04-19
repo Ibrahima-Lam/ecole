@@ -11,6 +11,7 @@ use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use Mpdf\Mpdf;
 use Src\Factories\BulletinParamettreFactory;
+use Src\Factories\ResultatParamettreFactory;
 
 class salleClassePdfController extends Controller
 {
@@ -39,7 +40,7 @@ class salleClassePdfController extends Controller
             return $bulletin;
         }, $data);
         $model = new ClasseMatiereRepository();
-        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $paramettre = ResultatParamettreFactory::getResultatParam();
         if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
@@ -67,7 +68,7 @@ class salleClassePdfController extends Controller
         }, $data);
         $model = new ClasseMatiereRepository();
         $matieres = $model->findByClasse($salleClasse->codeClasse);
-        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $paramettre = ResultatParamettreFactory::getResultatParam();
         if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
@@ -94,7 +95,7 @@ class salleClassePdfController extends Controller
         }, $data);
         $model = new ClasseMatiereRepository();
         $matieres = $model->findByClasse($salleClasse->codeClasse);
-        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $paramettre = ResultatParamettreFactory::getResultatParam();
         if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
@@ -276,6 +277,7 @@ class salleClassePdfController extends Controller
         $annee = $this->getCodeAnnee();
         $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
 
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
@@ -296,7 +298,6 @@ class salleClassePdfController extends Controller
             $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
-        $paramettre = BulletinParamettreFactory::getBulletinParam();
         if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()

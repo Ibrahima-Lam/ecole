@@ -61,7 +61,9 @@ class Database
 
     public function exec(string $req): bool
     {
-        return $this->pdo->exec($req);
+        $res= $this->pdo->exec($req);
+        if($res) $this->saveRequest($req);
+        return $res;
     }
 
 
@@ -74,9 +76,10 @@ class Database
 
     public function execute(?array $params = null): bool
     {
-        return   $this->prepare->execute($params);
+        $res= $this->prepare->execute($params);
+        if($res) $this->saveRequest($this->prepare->queryString."=>".serialize($params));
+        return $res;
     }
-
 
     public function getResult($mode = PDO::FETCH_ASSOC, $one = false): mixed
     {
@@ -115,4 +118,14 @@ class Database
     {
         return  $this->pdo->lastInsertId();
     }
-}
+    
+    private function saveRequest($req){
+        $file='..\Configs\db.txt';
+        if (file_exists($file)) {
+            $reqs = file_get_contents($file);
+            file_put_contents($file, $reqs . "\n" . $req);
+        } else {
+            file_put_contents($file, $req);
+        }
+    }
+        }

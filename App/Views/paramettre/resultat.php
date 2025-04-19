@@ -1,4 +1,4 @@
-<h2 class="title-center my-10 text-center">Paramettre des bulletins</h2>
+<h2 class="title-center my-10 text-center">Paramettre des Resultats</h2>
 
 <form class="form" id="form" action="" method="post">
 <ul class="list-group">
@@ -40,13 +40,6 @@
         <input type="checkbox" name="bordered" id="bordered" value="true" <?=$paramettre->bordered?'checked' : ''?>>
     </li>
     <li class="list-group-item">
-        <label for="orientation">Orientation</label>
-        <select name="orientation" id="orientation">
-            <option value="portrait" <?=$paramettre->orientation=='portrait'?'selected' : ''?>>Portrait</option>
-            <option value="landscape" <?=$paramettre->orientation=='landscape'?'selected' : ''?>>Landscape</option>
-        </select>
-    </li>
-    <li class="list-group-item">
         <label for="sort">Sort</label>
         <select name="sort" id="sort">
             <option value="merite" <?=$paramettre->sort=='merite'?'selected' : ''?>>Merite</option>
@@ -74,7 +67,7 @@
         let dtSring = new URLSearchParams(formData).toString()
         console.log(dtSring);
         
-        await fetchText(`?p=api/paramettre/bulletin/true&` + dtSring).then(data => {
+        await fetchText(`?p=api/paramettre/resultat/true&` + dtSring).then(data => {
             console.log(data);
             alert('Paramettre enregistré');
             window.location.reload();

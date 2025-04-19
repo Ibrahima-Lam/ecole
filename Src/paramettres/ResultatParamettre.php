@@ -1,9 +1,7 @@
 <?php
 namespace Src\paramettres;
 
-class bulletinParamettre{
-    public const ETABLISSEMENT='Lycée de Boghé';
-    public const ETABLISSEMENT_ARABE='الثنوية بوكى';
+class ResultatParamettre{
     public  $matricule=false;
     public  $numero=true;
     public  $nom=true;
@@ -54,12 +52,6 @@ class bulletinParamettre{
             'sort' => $this->sort,
             'order' => $this->order
         ];
-    }
-    public function getEtablissemment(){
-        return self::ETABLISSEMENT;
-    }
-    public function getEtablissemmentArabe(){
-        return self::ETABLISSEMENT_ARABE;
     }
 }
      

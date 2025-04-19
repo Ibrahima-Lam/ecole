@@ -1,0 +1,2 @@
+
+update inscrit set matricule=:matricule,codeSalleClasse=:codeSalleClasse,numeroInscrit=:numeroInscrit,typeInscrit=:typeInscrit,dateInscription=:dateInscription where idInscrit=:idInscrit=>a:6:{s:9:"idInscrit";s:1:"1";s:9:"matricule";s:6:"5d1001";s:15:"codeSalleClasse";s:8:"A24255D1";s:13:"numeroInscrit";s:1:"1";s:11:"typeInscrit";s:7:"passant";s:15:"dateInscription";s:10:"2024-10-01";}

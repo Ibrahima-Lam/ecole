@@ -29,9 +29,9 @@
 
 </tr>
 <tr>
-    <td> <span >Etablissement</span></td>
+    <td> <span >Etablissement : </span> <span><?= $paramettre::ETABLISSEMENT?></span></td>
     <td></td>
-    <td class="right"><span dir="rtl">المؤسسة</span></td>
+    <td class="right"><span> المؤسسة</span><span> : <?= $paramettre::ETABLISSEMENT_ARABE?></span> </td>
 </tr>
 </tbody>
 </table>

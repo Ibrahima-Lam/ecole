@@ -3,4 +3,5 @@
 <dl>
     <dt><a class="link" href="?p=paramettre/classe">Classe</a></dt>
     <dt><a class="link" href="?p=paramettre/bulletin">Bulletin</a></dt>
+    <dt><a class="link" href="?p=paramettre/resultat">Resultat</a></dt>
 </dl>
