@@ -18,8 +18,10 @@ class Database
         $dns = "mysql:dbname=$db;host=$host";
         //$dns = "sqlite:../DB/oldfoot.db";
 
-        if ($dtype === "mysql") $dns = "mysql:dbname=$db;host=$host";
-        else if ($dtype === "sqlite") $dns = "sqlite:../DB/$db";
+        if ($dtype === "mysql")
+            $dns = "mysql:dbname=$db;host=$host";
+        else if ($dtype === "sqlite")
+            $dns = "sqlite:../DB/$db";
 
         $this->pdo = new PDO($dns, $params["user"], $params["password"]);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -61,8 +63,9 @@ class Database
 
     public function exec(string $req): bool
     {
-        $res= $this->pdo->exec($req);
-        if($res) $this->saveRequest($req);
+        $res = $this->pdo->exec($req);
+        if ($res)
+            $this->saveRequest($req);
         return $res;
     }
 
@@ -76,16 +79,29 @@ class Database
 
     public function execute(?array $params = null): bool
     {
-        $res= $this->prepare->execute($params);
-        if($res) $this->saveRequest($this->prepare->queryString."=>".serialize($params));
+        $res = $this->prepare->execute($params);
+
+        if ($res) {
+            $query = "-- ";
+            $query .= date("Y-m-d H:i:s");
+            $query .= "\r\n";
+            $query .= $this->prepare->queryString;
+            foreach ($params as $key => $value) {
+                $query = str_replace(":" . $key, "'$value'", $query);
+            }
+            $query .= ";";
+            $this->saveRequest($query);
+        }
         return $res;
+
     }
 
     public function getResult($mode = PDO::FETCH_ASSOC, $one = false): mixed
     {
         if (is_string($mode)) {
             $this->prepare->setFetchMode(PDO::FETCH_CLASS, $mode);
-        } else $this->prepare->setFetchMode($mode);
+        } else
+            $this->prepare->setFetchMode($mode);
 
         if ($one) {
             return $this->prepare->fetch();
@@ -108,7 +124,8 @@ class Database
         if ($check === $size) {
             $this->pdo->commit();
             return true;
-        } else $this->pdo->rollBack();
+        } else
+            $this->pdo->rollBack();
 
         return false;
     }
@@ -116,11 +133,12 @@ class Database
 
     public function lastInsertId(): int
     {
-        return  $this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId();
     }
-    
-    private function saveRequest($req){
-        $file='..\Configs\db.txt';
+
+    private function saveRequest($req)
+    {
+        $file = '..\Configs\db.sql';
         if (file_exists($file)) {
             $reqs = file_get_contents($file);
             file_put_contents($file, $reqs . "\n" . $req);
@@ -128,4 +146,4 @@ class Database
             file_put_contents($file, $req);
         }
     }
-        }
+}
