@@ -20,4 +20,13 @@ class homeController extends Controller
         $salles = $this->salleClasseRepository->findAll($annee);
         $this->render("app/home", compact('salles'));
     }
+
+    public function login()
+{
+    $path = "../App/Views/app/login.php";
+    if (!file_exists($path)) {
+        echo '<p> Cette vue est introuvable! veuillez verifier le chemin du fichier dans les vues!</p>';
+        return;
+    } else require $path;
+}
 }

@@ -15,8 +15,8 @@ export default class EleveForm {
         this.matricule = matricule;
         this.dl = dl;
         this.form = dl.querySelector("form");
-        this.form.addEventListener("submit", (e) => this.submit(e));
-        this.dl.querySelector('#close').addEventListener("click", () => this.dl.close());
+        this.form?.addEventListener("submit", (e) => this.submit(e));
+        this.dl.querySelector('#close')?.addEventListener("click", () => this.dl.close());
 
     }
     #addData() {

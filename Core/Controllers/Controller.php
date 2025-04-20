@@ -2,12 +2,15 @@
 
 namespace Core\Controllers;
 
+use App\Models\Entities\UserEntity;
 use App\Models\Repositories\AnneeScolaireRepository;
+use App\Services\factories\UserFactory;
 use Core\Caches\Session;
 use Core\Services\html\htmlService;
 
 class Controller
 {
+   
     protected function getCodeAnnee()
     {
         $session = new Session();
@@ -51,13 +54,16 @@ class Controller
         return
             htmlService::options($annee->findAll(), "codeAnnee", "nomAnnee", $codeAnnee);
     }
-    public function render(string $file, array $data = array())
+    public function render(string $file, array $data = [])
     {
+        $user=UserFactory::getUser();
+         if (!$user) $this->redirect("?p=home/login");
+        
         ob_start();
         extract($data);
         $_annee = $this->getAnneeScolaire();
         $_langue = $this->getLangue();
-        $_admin = true;
+        $_admin = $user->roleUser=="admin";
         $path = "../App/Views/$file.php";
         if (!file_exists($path)) {
             echo '<p> Cette vue est introuvable! veuillez verifier le chemin du fichier dans les vues!</p>';
@@ -70,6 +76,8 @@ class Controller
 
     public function renderPDF(string $file, array $data = array(), array $options = array())
     {
+        $user=UserFactory::getUser();
+         if (!$user) $this->redirect("?p=home/login");
         ob_start();
         extract($data);
         require "../App/views/$file.php";
@@ -89,6 +97,8 @@ class Controller
 
     public function response(mixed $data)
     {
+        $user=UserFactory::getUser();
+         if (!$user)  $this->response("Unauthorized");
         if (is_scalar($data)) echo $data;
         else echo json_encode($data, true);
         exit();

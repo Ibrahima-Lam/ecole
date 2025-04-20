@@ -6,15 +6,20 @@ async function fetchData(url) {
     return response.json();
 }
 
-document.getElementById("anneescolaire").addEventListener("change", async function (e) {
+document.getElementById("anneescolaire")?.addEventListener("change", async function (e) {
     let annee = e.target.value;
-    let data = await fetchData("?p=api/home/session/anneescolaire/" + annee);
-    console.log(data);
-    window.location.reload();
-
+     await fetch("?p=api/home/session/anneescolaire/" + annee)
+     .then(data=>{
+      console.log(data);
+      window.location.reload();
+     })
+     .catch(error=>{
+      window.location.reload();
+      console.error('Error:', error)});
+    
 });
 
-document.getElementById('langue').addEventListener('change', function (e) {
+document.getElementById('langue')?.addEventListener('change', function (e) {
     let langue = e.target.value;
     fetchData("?p=api/home/session/langue/" + langue);
     window.location.reload();
@@ -22,12 +27,12 @@ document.getElementById('langue').addEventListener('change', function (e) {
 });
 
 const menu=document.getElementById('menu');
-menu.addEventListener('click', function (e) {
+menu?.addEventListener('click', function (e) {
     document.querySelector('.sidebar').classList.toggle('show-menu');
 });
 
 const dropdown=document.getElementById('dropdown');
-dropdown.addEventListener('click', function (e) {
+dropdown?.addEventListener('click', function (e) {
   const nav=  document.querySelector('.nav-bar .subnavbar');
   if (nav.style.top == "60px") {
     nav.style.top = "-600px";
@@ -37,7 +42,7 @@ dropdown.addEventListener('click', function (e) {
   }
 });
 const submenu=document.getElementById('submenu');
-submenu.addEventListener('click', function (e) {
+submenu?.addEventListener('click', function (e) {
     if(document.body.dir=='rtl'){
         const nav=  document.querySelector( '.subsidebar');
         if(!nav) return;
@@ -60,4 +65,13 @@ submenu.addEventListener('click', function (e) {
  
 
 });
+
+const account=document.getElementById('account');
+account?.addEventListener('click', async function (e) {
+    if(confirm('Voulez-vous vous déconnecter ?')) {
+      window.location.assign('?p=home/login')
+      fetchData("?p=api/home/logout");
+    }
+});
+
 

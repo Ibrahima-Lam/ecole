@@ -5,7 +5,7 @@ const checkAll= document.getElementById('checkAll');
 const save = document.getElementById('save');
 const checkboxes = document.querySelectorAll('.check');
 
-checkAll.addEventListener('change', function() {
+checkAll?.addEventListener('change', function() {
     checkboxes.forEach(checkbox => {
         checkbox.checked = this.checked;
     });
@@ -13,7 +13,7 @@ checkAll.addEventListener('change', function() {
 });
 
 checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', () => {
+    checkbox?.addEventListener('change', () => {
         updateSaveButton();
     });
 });
@@ -28,12 +28,12 @@ function updateSaveButton() {
         checkAll.checked=allChecked;
 }
 
-window.addEventListener('load',function(e){
+window?.addEventListener('load',function(e){
     checkAll.checked=true
     updateSaveButton();
 })
 
-save.addEventListener('click', async function (e) {
+save?.addEventListener('click', async function (e) {
     let count=0;
    Array.from(forms).filter(form => form.check.checked).forEach(async form => { e.preventDefault();
     const data = new FormData(form);

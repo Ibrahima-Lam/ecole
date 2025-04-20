@@ -57,7 +57,7 @@ const evaluations = document.querySelectorAll('.evaluation');
 const statuts = document.querySelectorAll('.statut');
 
 evaluations.forEach(evaluation => {
-    evaluation.addEventListener('change', () => {
+    evaluation?.addEventListener('change', () => {
         evaluations.forEach(e => {
             e.value=evaluation.value;
         })
@@ -65,7 +65,7 @@ evaluations.forEach(evaluation => {
 })
 
 statuts.forEach(statut => {
-    statut.addEventListener('change', () => {
+    statut?.addEventListener('change', () => {
         statuts.forEach(s => {
             s.value=statut.value;
         })
@@ -75,7 +75,7 @@ statuts.forEach(statut => {
 const save = document.getElementById('save');
 const forms = document.querySelectorAll('form');
 
-save.addEventListener('click', async () => {
+save?.addEventListener('click', async () => {
     forms.forEach(async (form) => {
         const data = new FormData(form);
         const dataString = new URLSearchParams(data).toString();

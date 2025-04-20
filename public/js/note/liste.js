@@ -17,41 +17,41 @@ const params={
     matricule:matricule.value
 }
 
-window.addEventListener('load',async function () {
+window?.addEventListener('load',async function () {
     await getData()
     renderTable()
 })
 
-classe.addEventListener('change',function () {
+classe?.addEventListener('change',function () {
     params.classe=this.value
     renderTable()
 })
-matiere.addEventListener('change',function () {
+matiere?.addEventListener('change',function () {
     params.matiere=this.value
     renderTable()
 })
-evaluation.addEventListener('change',function () {
+evaluation?.addEventListener('change',function () {
     params.evaluation=this.value
     renderTable()
 })
-matricule.addEventListener('change',function () {
+matricule?.addEventListener('change',function () {
     params.matricule=this.value
     renderTable()
 })
 
 
 
-matiere.addEventListener('change',function () {
+matiere?.addEventListener('change',function () {
     params.matiere=this.value
     renderTable()
 })
 
-evaluation.addEventListener('change',function () {
+evaluation?.addEventListener('change',function () {
     params.evaluation=this.value
     renderTable()
 })
 
-matricule.addEventListener('input',function () {
+matricule?.addEventListener('input',function () {
     params.matricule=this.value
     renderTable()
 })
@@ -91,7 +91,7 @@ function renderTable(){
     `).join('');
     tbody.querySelectorAll(".edit").forEach(function (element) {
        
-        element.addEventListener("click", function (e) {
+        element?.addEventListener("click", function (e) {
             let idNote = element.dataset.id;
             new NoteFormDialog(dialog,{
                 idNote:idNote
@@ -100,25 +100,25 @@ function renderTable(){
         });
     })
     tbody.querySelectorAll(".delete").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element?.addEventListener("click", function (e) {
             let idNote = element.dataset.id;
             NoteFormDialog.onDelete(idNote);
         });
     })
 }
 
-add.addEventListener('click',function (e) {
+add?.addEventListener('click',function (e) {
     new NoteFormDialog(dialog);
     dialog.showModal();
 });
 
 const close=document.getElementById('close');
-close.addEventListener('click',function () {
+close?.addEventListener('click',function () {
     dialog.close();
 })
 
 document.querySelectorAll(".edit").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let idNote = element.dataset.id;
         new NoteFormDialog(dialog,{
             idNote:idNote
@@ -128,7 +128,7 @@ document.querySelectorAll(".edit").forEach(function (element) {
 });
 
 document.querySelectorAll(".delete").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let idNote = element.dataset.id;
         NoteFormDialog.onDelete(idNote);
     });

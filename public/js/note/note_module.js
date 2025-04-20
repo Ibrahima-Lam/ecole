@@ -27,7 +27,7 @@ export class NoteFormDialog {
         await this.formHtml().then(html => {
             this.dialog.querySelector('.dialog-body').innerHTML = html;
             this.form = this.dialog.querySelector('form')
-            this.form.addEventListener('submit', (e) => this.onSubmit(e));
+            this.form?.addEventListener('submit', (e) => this.onSubmit(e));
          })
     }
 

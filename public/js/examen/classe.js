@@ -5,7 +5,7 @@ const dialog=document.getElementById('dialog');
 const add=document.getElementById('add');
 const classe=document.getElementById('classe');
 
-add.addEventListener('click',function (e) {
+add?.addEventListener('click',function (e) {
     new FormDialog(dialog,{
         codeClasse:classe.value
     });
@@ -13,12 +13,12 @@ add.addEventListener('click',function (e) {
 });
 
 const close=document.getElementById('close');
-close.addEventListener('click',function () {
+close?.addEventListener('click',function () {
     dialog.close();
 })
 
 document.querySelectorAll(".edit").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let codeExamen = element.dataset.code;
         new FormDialog(dialog,{
             codeExamen:codeExamen
@@ -28,7 +28,7 @@ document.querySelectorAll(".edit").forEach(function (element) {
 });
 
 document.querySelectorAll(".delete").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let codeExamen = element.dataset.code;
         FormDialog.onDelete(codeExamen);
     });
@@ -51,7 +51,7 @@ class FormDialog {
         await this.formHtml().then(html => {
             this.dialog.querySelector('.dialog-body').innerHTML = html;
             this.form = this.dialog.querySelector('form')
-            this.form.addEventListener('submit', (e) => this.onSubmit(e));
+            this.form?.addEventListener('submit', (e) => this.onSubmit(e));
          })
     }
 

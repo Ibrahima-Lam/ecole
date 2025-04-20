@@ -22,13 +22,13 @@ async function getData() {
    
 }
 
-window.addEventListener('load',async function () {
+window?.addEventListener('load',async function () {
     await getData()
     renderTable()
 })
 
 const close=document.getElementById('close');
-close.addEventListener('click',function () {
+close?.addEventListener('click',function () {
     dialog.close();
 })
 
@@ -36,19 +36,19 @@ const classe=document.getElementById('classe');
 const matiere=document.getElementById('matiere');
 const evaluation=document.getElementById('evaluation');
 
-classe.addEventListener('change',async function () {
+classe?.addEventListener('change',async function () {
     params.codeClasse=this.value
     await getData()
     renderTable()
 })
 
-matiere.addEventListener('change',async function () {
+matiere?.addEventListener('change',async function () {
     params.codeMatiere=this.value
     await getData()
     renderTable()
 })
 
-evaluation.addEventListener('change',async function () {
+evaluation?.addEventListener('change',async function () {
     params.codeEvaluation=this.value
     await getData()
     renderTable()
@@ -81,7 +81,7 @@ function renderTable() {
         tbody.appendChild(row)
     })
     document.querySelectorAll(".edit").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element?.addEventListener("click", function (e) {
             let codeExamen = element.dataset.code;
             new FormExamen(dialog,{
                 codeExamen:codeExamen
@@ -90,13 +90,13 @@ function renderTable() {
         });
     });
     document.querySelectorAll(".delete").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element?.addEventListener("click", function (e) {
             let codeExamen = element.dataset.code;
             FormExamen.onDelete(codeExamen);
         });
     });
     document.querySelectorAll(".addnote").forEach(function (element) {
-        element.addEventListener("click", function (e) {
+        element?.addEventListener("click", function (e) {
             let codeExamen = element.dataset.code;
             new NoteFormDialog(noteDialog,{
                 codeExamen:codeExamen
@@ -107,7 +107,7 @@ function renderTable() {
 }
 
 const closeNote=document.getElementById('closeNote');
-closeNote.addEventListener('click',function () {
+closeNote?.addEventListener('click',function () {
     noteDialog.close();
 })
 

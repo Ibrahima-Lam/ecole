@@ -31,12 +31,12 @@ $salles = $salles??[];
     import {fetchJson,fetchText} from './js/src/fetch.js'
     const cls=document.querySelectorAll('.cls')
     cls.forEach(cl=>{
-        cl.addEventListener('click',()=>{
+        cl?.addEventListener('click',()=>{
             window.location.assign('?p=salleclasse/profil/'+cl.getAttribute('data-code'))
         })
     })
 
-    document.getElementById('srchbtn').addEventListener('click',async()=>{
+    document.getElementById('srchbtn')?.addEventListener('click',async()=>{
         const search = document.getElementById('srchfield').value
         let url = `?p=api/inscrit/eleve/${search}`
         let url2 = `?p=api/eleve/matricule/${search}`
@@ -72,7 +72,7 @@ $salles = $salles??[];
                 </div>
             </div>
         `
-        result.addEventListener('click',()=>{
+        result?.addEventListener('click',()=>{
             window.location.assign('?p=eleve/profil/'+data.matricule)
         })
     })

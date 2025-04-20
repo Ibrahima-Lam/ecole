@@ -133,20 +133,20 @@ $title = "Relevé de notes";
 
 <script type="module" defer>
     import {fetchJson} from './js/src/fetch.js'
-    document.getElementById('excel').addEventListener('click', function() {
+    document.getElementById('excel')?.addEventListener('click', function() {
         window.location.href = "?p=note/releveExcel/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>";
     });
 
-    document.getElementById('parametre').addEventListener('click', function() {
+    document.getElementById('parametre')?.addEventListener('click', function() {
         document.getElementById('parametreDialog').showModal();
     });
 
-    document.getElementById('closeParametreDialog').addEventListener('click', function() {
+    document.getElementById('closeParametreDialog')?.addEventListener('click', function() {
         document.getElementById('parametreDialog').close();
     });
     const form = document.getElementById('parametreForm');
     const dialogParametre = document.getElementById('parametreDialog');
-    form.addEventListener('submit',async function(e){
+    form?.addEventListener('submit',async function(e){
     e.preventDefault();
     const data = new FormData(form);
     const params = Object.fromEntries(data.entries());

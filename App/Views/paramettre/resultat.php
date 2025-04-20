@@ -61,7 +61,7 @@
 
 <script type="module">
     import {fetchText} from "./js/src/fetch.js";
-    document.getElementById('form').addEventListener('submit',async function (e) {
+    document.getElementById('form')?.addEventListener('submit',async function (e) {
         e.preventDefault();
         let formData = new FormData(e.target);
         let dtSring = new URLSearchParams(formData).toString()

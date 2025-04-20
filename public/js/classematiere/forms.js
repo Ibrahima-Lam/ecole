@@ -2,7 +2,7 @@ import { fetchJson, fetchText } from "../../js/src/fetch.js";
 
  const deletes=document.querySelectorAll('.delete')
  deletes.forEach(element => {
-     element.addEventListener('click',async function (e) {
+     element?.addEventListener('click',async function (e) {
         e.stopImmediatePropagation();
         const code=element.dataset.code
         if (!confirm("Êtes-vous sûr de vouloir supprimer cette matière de cette classe ?"))     {
@@ -25,7 +25,7 @@ import { fetchJson, fetchText } from "../../js/src/fetch.js";
 
 const checks = document.querySelectorAll('.check');
 checks.forEach(element => {
-    element.addEventListener('change', function (e) {
+    element?.addEventListener('change', function (e) {
         let checked = false
         for (const check of checks) {
             if (check.checked) {
@@ -45,7 +45,7 @@ class FormElement{
         this.form = form
         this.envois = this.form.querySelectorAll('.envoi')
         this.send = this.form.querySelector('#send')
-        this.form.addEventListener('submit', (e) => FormElement.submit(this.form,e))
+        this.form?.addEventListener('submit', (e) => FormElement.submit(this.form,e))
     }
 
    static submit(frm,e){
@@ -75,7 +75,7 @@ forms.forEach(element => {
 
 
 const send = document.getElementById('send');
-send.addEventListener('click', function (e) {
+send?.addEventListener('click', function (e) {
     forms.forEach(element => {
         let check=element.check.checked
         if(check){

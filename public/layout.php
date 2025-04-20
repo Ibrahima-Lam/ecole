@@ -46,7 +46,7 @@
                                 <option value="en" <?= $_langue == 'en' ? 'selected' : "" ?>>EN</option>
                             </Select></li>
                             <li><i class="bi-moon"></i></li>
-                            <li><i class="bi-person"></i></li>
+                            <li id="account"><i class="bi-person"></i></li>
                         </ul>
                     </div>
                 </li>

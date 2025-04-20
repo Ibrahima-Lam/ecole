@@ -39,7 +39,7 @@
 <script type="module">
     const inscritRows = document.querySelectorAll('.inscritRow');
     inscritRows.forEach(row => {
-        row.addEventListener('click', function () {
+        row?.addEventListener('click', function () {
             window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
         });
     });

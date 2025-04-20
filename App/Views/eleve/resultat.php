@@ -108,21 +108,21 @@ let matricule = document.querySelector('#matricule').value;
 function editNote(params) {
     let dialog = new NoteFormDialog(document.querySelector("#dialog-note"), params);
     dialog.show();
-    document.querySelector('#close-note').addEventListener('click', e => dialog.close());
+    document.querySelector('#close-note')?.addEventListener('click', e => dialog.close());
     }
 
     document.querySelectorAll('.addnote')?.forEach(elmt =>
     
-     elmt.addEventListener('click', e =>{
+     elmt?.addEventListener('click', e =>{
       editNote({matricule: matricule, idInscrit: idInscrit, codeMatiere: elmt.dataset.matiere})}));
 
     document.querySelectorAll('.editer')?.forEach(elmt =>
     
-     elmt.addEventListener('click', e =>{
+     elmt?.addEventListener('click', e =>{
       editNote({idNote: elmt.dataset.id})}));
 
     document.querySelectorAll('.supprimer')?.forEach(elmt =>
     
-     elmt.addEventListener('click', e =>{
+     elmt?.addEventListener('click', e =>{
       NoteFormDialog.onDelete(elmt.dataset.id)}));
    </script>

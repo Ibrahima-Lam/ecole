@@ -5,7 +5,7 @@ import EleveForm from "./eleve_form_module.js";
  * @type {HTMLInputElement} admin
  */
 let admin = false;
-window.addEventListener('load', function () {
+window?.addEventListener('load', function () {
     admin = document.getElementById('admin').value;
 });
 
@@ -27,7 +27,7 @@ function deleteEleve(matricule) {
 }
 
 document.querySelectorAll(".delete").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let matricule = element.dataset.matricule;
         deleteEleve(matricule);
     });
@@ -40,20 +40,20 @@ function editEleve(matricule) {
 }
 
 document.querySelectorAll(".edit").forEach(function (element) {
-    element.addEventListener("click", function (e) {
+    element?.addEventListener("click", function (e) {
         let matricule = element.dataset.matricule;
         editEleve(matricule);
     });
 });
 
-document.getElementById("add").addEventListener("click", function (e) {
+document.getElementById("add")?.addEventListener("click", function (e) {
     let dialog = new EleveForm(document.querySelector(".dialog"));
     dialog.reset();
     dialog.setEditable('false');
     dialog.show();
 });
 
-document.getElementById("srch").addEventListener("input",async function (e) {
+document.getElementById("srch")?.addEventListener("input",async function (e) {
 if (data.length == 0) {
     let url = "?p=api/eleve/liste";
     data = await fetchJson(url);
@@ -76,7 +76,7 @@ let sort = 'matricule'
 
 let headers = table.querySelectorAll("thead tr th.sortable");
 headers.forEach(header => {
-    header.addEventListener("click", async function (e) {
+    header?.addEventListener("click", async function (e) {
         let srt = header.dataset.sort;
         let ord = order
         if (sort == srt) {
@@ -99,7 +99,7 @@ headers.forEach(header => {
     });
 });
 
-window.addEventListener('load', function (e) {
+window?.addEventListener('load', function (e) {
     let tab = new TableData(
         table,
         data,
@@ -113,7 +113,7 @@ window.addEventListener('load', function (e) {
 
 const trs=document.querySelectorAll('tbody tr')
 trs.forEach(tr => {
-    tr.addEventListener('dblclick',function(e){
+    tr?.addEventListener('dblclick',function(e){
     window.location.assign("?p=eleve/profil/" + tr.dataset.matricule)
     })
 });
@@ -183,21 +183,21 @@ class TableData {
 
 
         tbody.querySelectorAll(".edit").forEach(element => {
-            element.addEventListener("click", async (e) => {
+            element?.addEventListener("click", async (e) => {
                 let matricule = element.dataset.matricule;
                 editEleve(matricule);
             });
         });
 
         tbody.querySelectorAll(".delete").forEach(element => {
-            element.addEventListener("click", async (e) => {
+            element?.addEventListener("click", async (e) => {
                 let matricule = element.dataset.matricule;
                 deleteEleve(matricule);
             });
 
         });
         tbody.querySelectorAll('tr').forEach(element => {
-            element.addEventListener("dblclick", async (e) => {
+            element?.addEventListener("dblclick", async (e) => {
                 let matricule = element.dataset.matricule;
                 window.location.assign('?p=eleve/profil/' + matricule);
             });

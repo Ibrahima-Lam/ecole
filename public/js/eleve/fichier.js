@@ -5,14 +5,14 @@ const send = document.getElementById('send');
 const statuts=document.querySelectorAll('.statut')
 
 forms.forEach(form => {
-    form.addEventListener('submit', function (e) {
+    form?.addEventListener('submit', function (e) {
         e.preventDefault()
         new FormElement(form)
     })
 });
 
 
-checkAll.addEventListener('change', function (e) {
+checkAll?.addEventListener('change', function (e) {
     let checked = e.target.checked
     for (const form of forms) {
         form.statut.checked=checked
@@ -20,7 +20,7 @@ checkAll.addEventListener('change', function (e) {
     document.querySelector('.statut').dispatchEvent(new Event('change'))
 });
 
-window.addEventListener('load',function(e){
+window?.addEventListener('load',function(e){
     checkAll.checked=true
     if (statuts.length==0) {
         send.disabled=true
@@ -29,12 +29,12 @@ window.addEventListener('load',function(e){
     }
 })
 
-send.addEventListener('click', function (e) {
+send?.addEventListener('click', function (e) {
     FormElement.submitAll(forms)
 })
 
 statuts.forEach(element => {
-    element.addEventListener('change', function (e) {
+    element?.addEventListener('change', function (e) {
         let checked=0
         for (const statut of statuts) {
             if(statut.checked){
@@ -58,13 +58,13 @@ statuts.forEach(element => {
 const trs = document.querySelectorAll('table tbody tr');
 trs.forEach(tr => {
     const element = tr.querySelector('.remove')
-    element.addEventListener('click', function (e) {
+    element?.addEventListener('click', function (e) {
         tr.remove()
     })
 });
 
 const inscrire=document.getElementById('inscrire');
-inscrire.addEventListener('click',async function (e) {
+inscrire?.addEventListener('click',async function (e) {
     trs.forEach(async tr  => {
         if (tr.dataset.statut == true) {
             const form = tr.querySelector('form')
@@ -88,7 +88,7 @@ class FormElement {
 
     constructor(form) {
         this.form = form
-        this.form.addEventListener('submit', (e) => this.submit(e))
+        this.form?.addEventListener('submit', (e) => this.submit(e))
     }
 
     submit(e) {

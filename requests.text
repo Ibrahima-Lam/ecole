@@ -428,3 +428,13 @@ END//
 
 DELIMITER ;
 
+create table user(
+    idUser int(6) AUTO_INCREMENT,
+    nameUser varchar(255) not null,
+    emailUser varchar(255) not null,
+    passwordUser varchar(255) not null,
+    roleUser enum('admin','user') not null,
+    Constraint user_pkey Primary Key (idUser)
+);
+insert into user (nameUser,emailUser,passwordUser,roleUser) values('admin','admin@admin.com','admin','admin');
+insert into user (nameUser,emailUser,passwordUser,roleUser) values('user','user@user.com','user','user');

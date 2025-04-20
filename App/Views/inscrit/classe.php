@@ -138,15 +138,15 @@
     const paramettre = document.getElementById('paramettre')
     const close = document.getElementById('close')
     const dialog = document.getElementById('dialog')
-    paramettre.addEventListener('click',function () {
+    paramettre?.addEventListener('click',function () {
         dialog.showModal()
     })
-    close.addEventListener('click',function () {
+    close?.addEventListener('click',function () {
         dialog.close()
     })
     
 
-    document.getElementById('form').addEventListener('submit',async function (e) {
+    document.getElementById('form')?.addEventListener('submit',async function (e) {
         e.preventDefault();
         let formData = new FormData(e.target);
         let dtSring = new URLSearchParams(formData).toString()
@@ -160,14 +160,14 @@
         });
     });
 
-    document.getElementById('export').addEventListener('click',function (e) {
+    document.getElementById('export')?.addEventListener('click',function (e) {
         e.preventDefault();
         window.open(`?p=inscrit/export/<?= $classe->codeSalleClasse ?>`)
     })
 
     const inscritRows = document.querySelectorAll('.inscritRow');
     inscritRows.forEach(row => {
-        row.addEventListener('click', function () {
+        row?.addEventListener('click', function () {
             window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
         });
     });

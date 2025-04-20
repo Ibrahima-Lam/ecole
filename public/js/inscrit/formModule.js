@@ -50,10 +50,10 @@ export default class FormModule {
             this.parent.innerHTML = html;
             this.dialog = this.parent.querySelector('dialog');
             this.form = this.dialog.querySelector('form')
-            this.form.addEventListener('submit', (e) => this.onSubmit(e));
-            this.form.querySelector('#codeSalleClasse').addEventListener('change', (e) => this.onChangeClasses(e));
+            this.form?.addEventListener('submit', (e) => this.onSubmit(e));
+            this.form.querySelector('#codeSalleClasse')?.addEventListener('change', (e) => this.onChangeClasses(e));
             this.form.querySelector('#codeSalleClasse').dispatchEvent(new Event('change'));
-            this.dialog.querySelector('#close').addEventListener('click', () => this.dialog.close());
+            this.dialog.querySelector('#close')?.addEventListener('click', () => this.dialog.close());
 
         })
     }
@@ -103,7 +103,7 @@ export class FormModuleArray extends FormModule {
         this.listButton = listButton;
         this.dialog = null;
         for (let button of this.listButton) {
-            button.addEventListener('click', (e) => {
+            button?.addEventListener('click', (e) => {
                 let matricule = button.dataset.matricule;
                 this.creates(matricule);
             });
@@ -131,10 +131,10 @@ export class FormModuleArray extends FormModule {
             this.parent.innerHTML = html;
             this.dialog = this.parent.querySelector('dialog');
             this.form = this.dialog.querySelector('form')
-            this.form.addEventListener('submit', (e) => this.onSubmit(e));
-            this.form.querySelector('#codeSalleClasse').addEventListener('change', (e) => this.onChangeClasses(e));
+            this.form?.addEventListener('submit', (e) => this.onSubmit(e));
+            this.form.querySelector('#codeSalleClasse')?.addEventListener('change', (e) => this.onChangeClasses(e));
             this.form.querySelector('#codeSalleClasse').dispatchEvent(new Event('change'));
-            this.dialog.querySelector('#close').addEventListener('click', () => this.dialog.close());
+            this.dialog.querySelector('#close')?.addEventListener('click', () => this.dialog.close());
        this.show();
         
     }

@@ -63,7 +63,7 @@
     const inscrire = document.getElementById('inscrire');
     const classes = document.querySelectorAll('.classe');
     classes.forEach(classe => {
-        classe.addEventListener('change', function () {
+        classe?.addEventListener('change', function () {
            classes.forEach(c => {
             c.value=this.value;
            }) 
@@ -71,7 +71,7 @@
 
     })
     const numeros = document.querySelectorAll('.numero');
-    window.addEventListener('load', function () {
+    window?.addEventListener('load', function () {
         numeros.forEach((n ,k)=> {
             n.value = k+1;
         })

@@ -88,7 +88,7 @@ class Autocomplete {
             this.options = data;
         }).catch(e => console.log(e));
         this.filteredOptions = this.options;
-        this.input.addEventListener('input', () => {
+        this.input?.addEventListener('input', () => {
             let t=this.input.value.split(' ');
             let val = t[t.length-1];
             this.filteredOptions = this.options.filter(option => option.fr.toLowerCase().startsWith(val.toLowerCase()));
@@ -96,7 +96,7 @@ class Autocomplete {
         });
         
 
-        document.addEventListener('click', () => {
+        document?.addEventListener('click', () => {
             this.parent.querySelector('.autocomplete')?.remove();
         });
     }
@@ -127,7 +127,7 @@ class Autocomplete {
         
         if(!lis.length) return;
         for(let li of lis){
-            li.addEventListener('click', e => {
+            li?.addEventListener('click', e => {
                 this.input.value = li.innerText;
                 this.parent.querySelector('.autocomplete')?.remove();
                 this.render();
@@ -139,7 +139,7 @@ class Autocomplete {
         activate() {
             const lis = this.parent.querySelectorAll('li');
             lis[0]?.classList.add('active');
-            this.input.addEventListener('keydown', this.handleKeyDown);
+            this.input?.addEventListener('keydown', this.handleKeyDown);
         }
     }
 
