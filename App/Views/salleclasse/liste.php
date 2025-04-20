@@ -27,9 +27,11 @@
                     <td>
                        <div class="center">
                          <a href="?p=salleclasse/profil/<?= $salle->codeSalleClasse ?>">voir</a>
-                         <div data-code="<?= $salle->codeSalleClasse ?>" class="edit"><i class="bi bi-pencil text-primary"></i></div>
-                         <div data-code="<?= $salle->codeSalleClasse ?>" class="delete"><i class="bi bi-trash text-danger"></i></div>
-                     
+                      <?php if($_admin):?>
+                           <div data-code="<?= $salle->codeSalleClasse ?>" class="edit"><i class="bi bi-pencil text-primary"></i></div>
+                           <div data-code="<?= $salle->codeSalleClasse ?>" class="delete"><i class="bi bi-trash text-danger"></i></div>
+                       
+                      <?php endif?>
                        </div></td>
                 </tr>
             <?php endforeach ?>

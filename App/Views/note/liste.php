@@ -54,12 +54,14 @@ $notes = $notes ?? [];
                 <td><?= $note->createdAt; ?></td>
                 <td><?= $note->updatedAt; ?></td>
                 <td>
-                    <button class="btn circle edit" data-id="<?= $note->idNote; ?>">
-                        <i class="bi-pencil text-primary"></i>
-                    </button>
-                    <button class="btn  circle delete" data-id="<?= $note->idNote; ?>">
-                        <i class="bi-trash text-danger"></i>
-                    </button>
+                 <?php if($_admin):?>
+                       <button class="btn circle edit" data-id="<?= $note->idNote; ?>">
+                           <i class="bi-pencil text-primary"></i>
+                       </button>
+                       <button class="btn  circle delete" data-id="<?= $note->idNote; ?>">
+                           <i class="bi-trash text-danger"></i>
+                       </button>
+                 <?php endif?>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -67,9 +69,11 @@ $notes = $notes ?? [];
 </table>
 </div>
 <div class="fixed-action">
+ <?php if($_admin):?>
     <button class="btn btn-primary circle" id="add">
         <i class="bi-plus"></i>
     </button>
+ <?php endif?>
 </div>
 <dialog id="dialog" class="dialog">
     <div class="dialod-head">
@@ -82,3 +86,5 @@ $notes = $notes ?? [];
         <button class="btn btn-danger" id="close">Fermer</button>
     </div>
 </dialog>
+
+<input type="text" id="_admin" value="<?= $_admin; ?>">

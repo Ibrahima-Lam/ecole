@@ -2,6 +2,7 @@
 import {fetchJson,fetchText} from '../src/fetch.js'
 import {NoteFormDialog} from './note_module.js'
 let data = [];
+const _admin = document.getElementById('_admin').value;
 const dialog=document.getElementById('dialog');
 const add=document.getElementById('add');
 const classe=document.getElementById('classe');
@@ -78,14 +79,14 @@ function renderTable(){
             <td>${note.updatedAt}</td>
             <td>
                 
-               <div class="center">
+                ${_admin ? `<div class="center">
                  <div class="edit" data-id="${note.idNote}">
                      <i class="bi-pencil text-primary"></i>
                  </div>
                  <div class="delete" data-id="${note.idNote}">
                      <i class="bi-trash text-danger"></i>
                  </div>
-               </div>
+               </div>` : ''}
             </td>
         </tr>
     `).join('');

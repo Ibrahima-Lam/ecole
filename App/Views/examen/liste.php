@@ -56,10 +56,12 @@ $evaluations??=[];
                     <td>
                         <div class="center">
                         <a href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="bi-list"></i></a>
-                        <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
-                        <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
-                        <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
-                        </div>
+                        <?php if($_admin):?>
+                            <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
+                            <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
+                            <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                           
+                        <?php endif?> </div>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -90,3 +92,4 @@ $evaluations??=[];
         <button class="btn btn-danger" id="closeNote">Fermer</button>
     </div>
 </dialog>
+<input type="hidden" value="<?=$_admin?>" id="_admin">

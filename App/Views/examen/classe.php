@@ -32,10 +32,12 @@ $classe??=null;
                     <td><?= $examen->nomEvaluation ?></td>
                     <td><?= $examen->dateExamen ?></td>
                     <td>
-                        <div class="center">
-                        <a class="edit" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil"></i></a>
-                        <a class="delete" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
-                        </div>
+                       <?php if($_admin):?>
+                         <div class="center">
+                         <a class="edit" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil"></i></a>
+                         <a class="delete" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                         </div>
+                       <?php endif?>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -45,14 +47,16 @@ $classe??=null;
 <?php endforeach?>
 
 <div class="fixed-action">
-    <button title="ajouter un examen" class="btn btn-success circle" id="add">
-        <i class="bi-plus"></i>
-    </button>
+ <?php if($_admin):?>
+       <button title="ajouter un examen" class="btn btn-success circle" id="add">
+           <i class="bi-plus"></i>
+       </button>
+ <?php endif?>
     <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="bi-briefcase"></i></a>
 </div>
 
 <dialog id="dialog" class="dialog">
-    <div class="dialod-head">
+    <div class="dialog-head">
         <h3 class="text-center title">Formulaire</h3>
     </div>
     <div class="dialog-body">
