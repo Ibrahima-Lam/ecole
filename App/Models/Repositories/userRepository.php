@@ -16,7 +16,7 @@ class UserRepository extends Repository
     public function findOneByMail(string $mail): false|UserEntity
     {
         $sql = "select * from user where emailUser ='$mail'";
-        $result = $this->db->select($sql, UserEntity::class);
+        $result = $this->db->selectOne($sql, UserEntity::class);
         return $result;
     }
     public function findOneByNameAndPassWord(string $name, string $password): false|UserEntity

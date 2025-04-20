@@ -229,15 +229,14 @@ class TableData {
     }
 
     #trString({ matricule, nom, isme, sexe, dateNaissance, lieuNaissance, adresse, nni }) {
-
         return `
         <tr data-matricule="${matricule}">
          <td class="seachable">${matricule}</td>
-        <td class="seachable">${nom}</td>
-        <td class="seachable">${isme}</td>
+        <td class="seachable">${nom}<br><span dir="rtl">${isme}</span></td>
         <td >${sexe}</td>
         <td >${dateNaissance}</td>
         <td>${lieuNaissance}</td>
+        <td>${adresse}</td>
         <td class="seachable">${nni}</td><td>
         <div class="center">
          <a href="?p=eleve/profil/${matricule}"><i class="bi-eye"></i></a>

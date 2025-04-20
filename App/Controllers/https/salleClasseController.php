@@ -6,6 +6,8 @@ use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use Core\Controllers\Controller;
 use App\Models\Repositories\AnneeScolaireRepository;
+use App\Models\Repositories\SalleRepository;
+use App\Models\Repositories\ClasseRepository;
 use Core\Caches\Session;
 
 class salleClasseController extends Controller
@@ -67,12 +69,15 @@ class salleClasseController extends Controller
     public function liste(): void
     {
         $model = new SalleClasseRepository();
-        $data = $model->findAll($this->annee);
-        $anneeScolaire = new AnneeScolaireRepository();
-        $annee = $anneeScolaire->findOneByCodeAnnee($this->annee);
-        $this->render("salleclasse/liste", ["data" => $data, "annee" => $annee, 'subsidebar' => $this->subsidebar(null, 10)]);
-    }
-
+    $data = $model->findAll($this->annee);
+    $anneeScolaire = new AnneeScolaireRepository();
+    $annee = $anneeScolaire->findOneByCodeAnnee($this->annee);
+    $classe = new ClasseRepository();
+        $classes=$classe->findAll();
+    $salleRip= new SalleRepository();
+    $salles=$salleRip->findAll();
+    $this->render("salleclasse/liste", ["data" => $data, "annee" => $annee, 'subsidebar' => $this->subsidebar(null, 10),'salles'=>$salles,'classes'=>$classes]);
+}
     public function profil($code): void
     {
         $model = new SalleClasseRepository();

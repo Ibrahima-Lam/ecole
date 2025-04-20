@@ -18,6 +18,9 @@ class homeApiController extends Controller
     public function login() {
         $name=$_REQUEST['name']??null;
     $password=$_REQUEST['password']??null;
+    if ($password) {
+        $password=sha1($password);
+    }
     $res = UserFactory::setUser($name,$password);
     if($res) {
         $this->response(["res" => "ok", "data" => $res]);
