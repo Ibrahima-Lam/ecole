@@ -60,7 +60,7 @@ $title = 'Les eleves'
         <button title="Ajouer un eleve" class="btn btn-success circle" id="add"><i class="bi-plus"></i></button>
         <a href="?p=eleve/import" title="Importer un fichier excel" class="link btn-success circle"><i class="bi-file-earmark-arrow-up"></i></a>
     <?php endif  ?>
-    <a href="?p=pdf/eleve/liste" title="Imprimer" class="link btn-primary circle"><i class="bi-filetype-pdf"></i></a>
+    <a href="?p=pdf/eleve/liste" target="_blank" title="Imprimer" class="link btn-primary circle"><i class="bi-filetype-pdf"></i></a>
 
 </div>
 

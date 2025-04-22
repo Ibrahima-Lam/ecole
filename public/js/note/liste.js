@@ -2,7 +2,6 @@
 import {fetchJson,fetchText} from '../src/fetch.js'
 import {NoteFormDialog} from './note_module.js'
 let data = [];
-const _admin = document.getElementById('_admin').value;
 const dialog=document.getElementById('dialog');
 const add=document.getElementById('add');
 const classe=document.getElementById('classe');

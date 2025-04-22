@@ -51,8 +51,8 @@ $classe??=null;
        <button title="ajouter un examen" class="btn btn-success circle" id="add">
            <i class="bi-plus"></i>
        </button>
- <?php endif?>
-    <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="bi-briefcase"></i></a>
+       <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="bi-briefcase"></i></a>
+       <?php endif?>
 </div>
 
 <dialog id="dialog" class="dialog">

@@ -32,12 +32,14 @@
                     
                 </tr>
             </tbody>
+            <?php if($_admin):?>
             <tfoot>
                 <tr>
                     <td colspan="5"></td>
                     <td><button id="edit" class="btn btn-primary circle" title="Modifier"><i class="bi bi-pencil"></i></button></td>
                 </tr>
             </tfoot>
+            <?php endif?>
         </table>
     </div>
 <?php else: ?>

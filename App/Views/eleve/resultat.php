@@ -66,20 +66,22 @@
                 <?php endforeach?>
                 
             </tr> 
-            <tr>
-                <td scope="row">
-                    <div  data-matiere="<?=$notematiere->matiere->codeMatiere?>" class="my-5 addnote" title="Ajouter une note"><i class="bi bi-plus btn-success circle"></i></div>
-                </td>
-                <?php foreach($notematiere->notes as $note):?>
-                <td>
-                    <div class="left">
-                        <div data-id="<?=$note->idNote?>" class="editer" title="Modifier la note"><i class="bi bi-pencil text-primary"></i></div>
-                        <div data-id="<?=$note->idNote?>" class="supprimer" title="Supprimer la note"><i class="bi bi-trash text-danger"></i></div>
-                    </div>
-                </td>
-                <?php endforeach?>
-                
-            </tr>
+           <?php if($_admin):?>
+             <tr>
+                 <td scope="row">
+                     <div  data-matiere="<?=$notematiere->matiere->codeMatiere?>" class="my-5 addnote" title="Ajouter une note"><i class="bi bi-plus btn-success circle"></i></div>
+                 </td>
+                 <?php foreach($notematiere->notes as $note):?>
+                 <td>
+                     <div class="left">
+                         <div data-id="<?=$note->idNote?>" class="editer" title="Modifier la note"><i class="bi bi-pencil text-primary"></i></div>
+                         <div data-id="<?=$note->idNote?>" class="supprimer" title="Supprimer la note"><i class="bi bi-trash text-danger"></i></div>
+                     </div>
+                 </td>
+                 <?php endforeach?>
+                 
+             </tr>
+           <?php endif?>
         </tbody>
     </table>
     

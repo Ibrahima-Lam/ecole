@@ -86,5 +86,3 @@ $notes = $notes ?? [];
         <button class="btn btn-danger" id="close">Fermer</button>
     </div>
 </dialog>
-
-<input type="text" id="_admin" value="<?= $_admin; ?>">

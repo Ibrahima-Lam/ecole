@@ -114,6 +114,8 @@
 
         <?= $content ?? '' ?>
     </div>
+<input type="text" id="_admin" value="<?= $_admin; ?>">
+
 </body>
 
 </html>

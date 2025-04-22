@@ -74,4 +74,6 @@ account?.addEventListener('click', async function (e) {
     }
 });
 
+const _admin = document.getElementById('_admin').value;
+
 
