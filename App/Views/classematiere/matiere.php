@@ -21,7 +21,6 @@
 
             <th>Coefficient</th>
 
-            <th>Actions</th>
 
         </tr>
 
@@ -47,24 +46,23 @@
 
                 <td><?= $matiere->coefficientClasseMatiere ?></td>
 
-                <td><a href="?p=classematiere/classe/<?= $matiere->codeClasseMatiere ?>"><i class="bi-eye"></i></a></td>
 
             </tr>
 
         <?php endforeach ?>
-        <?php if(isset($codeC)):?>
+        <?php if (isset($codeC)): ?>
 
-        <tr>
+            <tr>
 
-            <td colspan="5">Total</td>
+                <td colspan="5">Total</td>
 
-            <td><?= $horaires ?></td>
+                <td><?= $horaires ?></td>
 
-            <td><?= $coeffients ?></td>
+                <td><?= $coeffients ?></td>
 
-            <td></td>
+                <td></td>
 
-        </tr>
+            </tr>
 
         <?php endif ?>
 
@@ -73,14 +71,13 @@
 </table>
 
 <div class="center">
-         <?php if(isset($codeM)&&$_admin):?>
+    <?php if (isset($codeM) && $_admin): ?>
 
-        <a href="?p=classematiere/matiereform/<?= $codeM?>" class="link">Editer en fonction de la matiere</a>
+        <a href="?p=classematiere/matiereform/<?= $codeM ?>" class="link">Editer en fonction de la matiere</a>
 
-        <?php elseif( isset($codeC)&&$_admin):?>
-        <a href="?p=classematiere/classeform/<?= $codeC?>" class="link">Editer en fonction de la classe</a>
+    <?php elseif (isset($codeC) && $_admin): ?>
+        <a href="?p=classematiere/classeform/<?= $codeC ?>" class="link">Editer en fonction de la classe</a>
 
-        <?php endif?>
+    <?php endif ?>
 
-    </div>
-
+</div>
