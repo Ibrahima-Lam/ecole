@@ -2,10 +2,12 @@
 <?php
 $salles = $salles??[];
 ?>
-<div class="center my-10">
-   <input type="search" id="srchfield" class="field" placeholder="Entrez le matricule ou le NNI">
-   <button class="btn btn-primary" id="srchbtn">Rechercher</button>
-</div>
+<form id="srchform">
+    <div class="center my-10">
+       <input type="search" id="srchfield" class="field width-300" placeholder="Entrez le matricule ou le NNI">
+       <button class="btn btn-primary" id="srchbtn">Rechercher</button>
+    </div>
+</form>
 <div class="result" id="result">
 
 </div>
@@ -36,7 +38,8 @@ $salles = $salles??[];
         })
     })
 
-    document.getElementById('srchbtn')?.addEventListener('click',async()=>{
+    document.getElementById('srchform')?.addEventListener('submit',async(e)=>{
+        e.preventDefault()
         const search = document.getElementById('srchfield').value
         let url = `?p=api/inscrit/eleve/${search}`
         let url2 = `?p=api/eleve/matricule/${search}`

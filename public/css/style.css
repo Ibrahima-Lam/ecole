@@ -540,6 +540,10 @@ td .btn {
   
 }
 
+.width-300 {
+    width: 300px;
+}
+
 td .field {
     min-width: 50px;
     max-width: 100px;
