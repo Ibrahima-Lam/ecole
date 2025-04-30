@@ -52,9 +52,7 @@
     </table>
     <div class="center my-10">
         <button id="send" class="btn btn-success">Enregistrer Tous</button>
-        <?php if(count(array_filter($data, fn($eleve) => !$eleve['statut']))): ?>
-            <button id="inscrire" class="btn btn-primary">Inscrire Tous</button>
-        <?php endif; ?>
+        <button id="inscrire" class="btn btn-primary">Inscrire Tous</button>
     </div>
 
 <?php else: ?>

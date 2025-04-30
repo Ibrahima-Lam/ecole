@@ -1,3 +1,5 @@
+
+<input type="hidden" id="cl">
 <div class="table-container">
     <table class="table table-striped">
         <thead>
@@ -62,31 +64,38 @@
 
     const inscrire = document.getElementById('inscrire');
     const classes = document.querySelectorAll('.classe');
+    const cl=document.getElementById('cl');
     classes.forEach(classe => {
         classe?.addEventListener('change', function () {
            classes.forEach(c => {
             c.value=this.value;
            }) 
+           cl.value=this.value;
+           changeNumber(this.value);
         })
-
     })
     const numeros = document.querySelectorAll('.numero');
-    window?.addEventListener('load', function () {
+    async function changeNumber(classe) {
+        let last =await fetchJson('?p=api/inscrit/last/' + classe)
+        let key=last?.numeroInscrit??0;
         numeros.forEach((n ,k)=> {
-            n.value = k+1;
+            n.value = key+k+1;
         })
+    }
+    window?.addEventListener('load',async function () {
+        changeNumber(cl.value)
     })
     const forms = document.querySelectorAll('form');
     inscrire?.addEventListener('click',async function () {
-       forms.forEach(async form => {
+       for(let form of forms) {
         if(!form?.check?.checked){
-            return;
+            console.log('not checked');
+            continue;
         }
         const formData = new FormData(form);
         const dataString = new URLSearchParams(formData).toString();
          await  fetchJson('?p=api/inscrit/insert&' + dataString)
-       })
-       setTimeout(function () {},1000)
-       window.location.reload()
+       }
+     window.location.reload()
     })
 </script>

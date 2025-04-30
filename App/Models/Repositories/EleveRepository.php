@@ -26,7 +26,7 @@ class EleveRepository extends Repository
 
     public function findAllNonInscritsByAnnee($annee): array //findByAnnee
     {
-        $sql = "select * from eleve where matricule not in (select matricule from inscrit_view where codeAnnee='$annee') order by matricule desc";
+        $sql = "select * from eleve where matricule not in (select matricule from inscrit_view where codeAnnee='$annee') order by matricule asc";
         $result = $this->db->selectAll($sql, \stdClass::class);
         return $result;
     }

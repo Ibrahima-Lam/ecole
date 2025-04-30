@@ -27,7 +27,7 @@ class inscritApiController extends Controller
     public function liste($annee = null)
     {
         $model = new InscritRepository();
-        $data = $annee ? $model->findAll() : $model->findAllByAnnee($annee);
+        $data = !$annee ? $model->findAll() : $model->findAllByAnnee($annee);
         $this->response($data);
     }
 

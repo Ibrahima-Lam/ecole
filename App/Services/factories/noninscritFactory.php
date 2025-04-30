@@ -2,34 +2,29 @@
 
 namespace App\Services\factories;
 
-use Core\Caches\Session;
-
 class NoninscritFactory
 {
-    private const KEY="noninscrit";
+    private const PATH="../res/eleve/noninscrit.json";
     public static function get()
     {
-        $session=new Session();
-        $tab=$session->get(Self::KEY)??[];
-        $session->set(self::KEY, $tab);
+        if(!file_exists(self::PATH)) return [];
+        $tab=file_get_contents(self::PATH);
+        $tab=json_decode($tab,true);
         return $tab;
     }
     public static function add($data)
     {
-        $session=new Session();
-        $tab=$session->get(self::KEY)??[];
+        $tab=self::get();
         $tab[]=$data;
-        $session->set(self::KEY, $tab);
+        file_put_contents(self::PATH, json_encode($tab));
     } 
      public static function set($tab)
     {
-        $session=new Session();
-        $session->set(self::KEY, $tab);
+        file_put_contents(self::PATH, json_encode($tab));
     }
 
     public static function clear()
     {
-        $session=new Session();
-        $session->delete(self::KEY);
+        file_put_contents(self::PATH, "");
     }
 }

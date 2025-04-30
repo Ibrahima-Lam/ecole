@@ -87,7 +87,8 @@ class Database
             $query .= "\r\n";
             $query .= $this->prepare->queryString;
             foreach ($params as $key => $value) {
-                $query = str_replace(":" . $key, "'$value'", $query);
+                $v=str_replace("'", "''", $value);
+                $query = str_replace(":$key"  , "'$v'", $query);
             }
             $query .= ";";
             $this->saveRequest($query);

@@ -65,18 +65,18 @@ trs.forEach(tr => {
 
 const inscrire=document.getElementById('inscrire');
 inscrire?.addEventListener('click',async function (e) {
-    trs.forEach(async tr  => {
+    await fetchJson('?p=api/eleve/clearNoninscrit')
+    for (const tr of trs) {
         if (tr.dataset.statut == true) {
             const form = tr.querySelector('form')
           const data = new FormData(form)
           const dtString = new URLSearchParams(data).toString()
-          await fetchJson('?p=api/eleve/clearNoninscrit')
           const url = "?p=api/eleve/enregistrer&" + dtString
           await fetchJson(url).then((data) => {
             console.log(data);
         });
         }
-    })
+    }
     setTimeout(() => {
         window.location.assign("?p=eleve/inscrire")
     }, 1000);

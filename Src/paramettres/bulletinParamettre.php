@@ -55,11 +55,5 @@ class bulletinParamettre{
             'order' => $this->order
         ];
     }
-    public function getEtablissemment(){
-        return self::ETABLISSEMENT;
-    }
-    public function getEtablissemmentArabe(){
-        return self::ETABLISSEMENT_ARABE;
-    }
 }
      

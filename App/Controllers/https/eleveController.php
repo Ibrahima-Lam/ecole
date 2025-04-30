@@ -163,8 +163,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
             'adresse' => array_search($_POST['adresseColonne'], $cols),
             'nni' => array_search($_POST['nniColonne'] ?? null, $cols),
         ];
-        $tab = array_map(function ($value) {
-            return $value ? $value : null; }, $tab);
+        $tab = array_map(fn($value) => $value !='' ? $value : null, $tab);
 
         $premierLigne = $_POST['premierLigne'] - 1 ?? 1;
         $dernierLigne = $_POST['dernierLigne'] ?? 100;
@@ -191,9 +190,11 @@ class EleveController extends Controller implements EleveControllerInterfaces
     }
     public function inscrire($saved = false): void
     {
+        $eleves=[];
         if ($saved) {
             $ripos = new EleveRepository();
             $eleves = $ripos->findAllNonInscritsByAnnee($this->getCodeAnnee());
+
             $eleves=array_map(function ($e)  {
                 return[
                     'matricule'=>$e->matricule,
