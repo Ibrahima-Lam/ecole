@@ -33,10 +33,15 @@ $classe??=null;
                     <td><?= $examen->dateExamen ?></td>
                     <td>
                        <?php if($_admin):?>
-                         <div class="center">
-                         <a class="edit" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil"></i></a>
-                         <a class="delete" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
-                         </div>
+                        <div class="center">
+                    <a class="show" title="Voir les notes" href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="bi-list"></i></a>
+                    <?php if($_admin):?>
+                    <a class="show" title="importer les notes" href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="bi-file-earmark"></i></a>
+                    <a class="addnote" title="Ajouter une note" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
+                    <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
+                    <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                    <?php endif?>
+                </div>  
                        <?php endif?>
                     </td>
                 </tr>

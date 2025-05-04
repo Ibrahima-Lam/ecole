@@ -76,14 +76,24 @@ const save = document.getElementById('save');
 const forms = document.querySelectorAll('form');
 
 save?.addEventListener('click', async () => {
-    forms.forEach(async (form) => {
+    let count=0;
+    for(const form of forms){
         const data = new FormData(form);
         const dataString = new URLSearchParams(data).toString();
-        await fetchJson('?p=api/examen/insert&'+ dataString);
-    })
-    setTimeout(() => {
+        await fetchJson('?p=api/examen/insert&'+ dataString).then(data => {
+            if(data.response === "ok"){
+               console.log(data.message);
+               count++;
+            }
+        }).catch(error => {
+            console.log(error);
+            
+        });
+    }
+    if(count >0){
         window.history.back();
-    }, 1000);
+    }
+    alert(count);
 })
 
 </script>

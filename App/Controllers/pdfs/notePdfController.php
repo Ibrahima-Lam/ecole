@@ -61,6 +61,7 @@ class NotePdfController extends Controller
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
         $paramettre =NoteParamettreFactory::getNoteParam();
-        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"));
+        $pseudo=$salleClasse->pseudoSalleClasse;
+        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);
     }
 }

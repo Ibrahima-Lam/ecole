@@ -12,7 +12,6 @@ use App\Services\Providers\ClasseResultatProvider;
 use Core\Controllers\Controller;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Src\Factories\NoteParamettreFactory;
-use Src\Paramettres\NoteParamettre;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 

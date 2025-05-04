@@ -105,7 +105,7 @@
             <li><a href="?p=paramettre/index"><i class="bi-gear"></i>
                     <div class="element">Paramètres</div>
                 </a></li>
-            <li><a href="#"><i class="bi-plus"></i>
+            <li><a href="?p=plus/home"><i class="bi-plus"></i>
                     <div class="element">Plus</div>
                 </a></li>
         </ul>

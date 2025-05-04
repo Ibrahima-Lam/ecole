@@ -35,7 +35,8 @@ window?.addEventListener('load',function(e){
 
 save?.addEventListener('click', async function (e) {
     let count=0;
-   Array.from(forms).filter(form => form.check.checked).forEach(async form => { e.preventDefault();
+  let frms= Array.from(forms).filter(form => form.check.checked)
+  for(let form of frms){
     const data = new FormData(form);
     const dataString = (new URLSearchParams(data)).toString();
    
@@ -48,8 +49,7 @@ save?.addEventListener('click', async function (e) {
             console.log(data?.message ?? 'Erreur lors de l\'enregistrement');
         }
     }); 
-
-})
+  }
    
    window.location.reload();
 })

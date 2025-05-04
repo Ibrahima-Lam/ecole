@@ -63,7 +63,7 @@ $title = "Relevé de notes";
 </div>
 
 <div class="fixed-action">
-    <a class="btn btn-success circle" title="Imprimer" href="?p=pdf/note/releve/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>">
+    <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/releve/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>">
         <i class="bi-printer"></i>
     </a>
     <button id="excel" class="btn btn-success circle" title="Excel" >

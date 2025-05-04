@@ -19,7 +19,7 @@
             $salleclasses = $data;
             foreach ($salleclasses as $salle): ?>
 
-                <tr>
+                <tr class="list-element" data-code="<?= $salle->codeSalleClasse ?>">
                     <td><?= $salle->codeSalleClasse ?></td>
                     <td><?= $salle->codeClasse ?><sub><?= $salle->indiceSalleClasse ?? '' ?></sub></td>
                     <td><?= $salle->nomClasse ?>&nbsp;<?= $salle->indiceSalleClasse ?? '' ?></td>
@@ -151,6 +151,13 @@
                 }
             })
             .catch(error => console.error(error));
+    });
+    });
+    const listElements=document.querySelectorAll('.list-element')
+    listElements.forEach(listElement => {
+    listElement.addEventListener("click", function () {
+        const code = this.dataset.code;
+       window.location.href="?p=salleclasse/profil/"+code;
     });
     });
 </script>

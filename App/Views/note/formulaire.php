@@ -25,6 +25,7 @@ $title="Formulaire";
     <div class="form-group">
        <label for="noteColonne">Colonne des notes</label>
        <select class="form-control" id="noteColonne" name="noteColonne" required>
+        <option value="">Sélectionnez une colonne</option>
           <?php foreach ($cols as $col) : ?>
                <option value="<?= $col ?>" ><?= $col ?></option>
            <?php endforeach ?>
@@ -50,7 +51,7 @@ $title="Formulaire";
     </div>
      <div class="form-group">
         <label for="fichier">Fichier</label>
-        <input type="file" class="form-control" id="fichier" name="fichier" accept=".xlsx">
+        <input type="file" class="form-control" id="fichier" name="fichier" accept=".xlsx" required>
     </div>
     <div class="form-action">
         <button type="reset" class="btn btn-default">Annuler</button>

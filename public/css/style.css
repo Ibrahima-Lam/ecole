@@ -779,6 +779,27 @@ dd {
     width: 100%;
     list-style: none;
 }
+.list-group a{
+
+    text-decoration: none;
+    color: cornflowerblue;
+    transition: all 0.3s ease-in-out;
+}
+.list-group a:hover{
+    text-decoration: underline;
+}
+.list-group a:visited{
+    color: blue;
+}
+.list-group a:active{
+    color: red;
+}
+.list-group a:focus{
+    color: green;
+}
+.list-group a:disabled{
+    color: gray;
+}
 
 .list-group-item {
     margin: 5px;

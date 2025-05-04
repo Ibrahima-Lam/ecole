@@ -142,7 +142,7 @@ create view salle_classe_view as select
   c.codeClasse as codeClasse, c.nomClasse as nomClasse,
   a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
   sr.codeSerie as codeSerie, sr.nomSerie as nomSerie,
-  concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
+ case when sc.indiceSalleClasse is null then c.codeClasse else concat(c.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse
   from salle_classe sc 
 join salle s on s.codeSalle=sc.codeSalle 
 join classe c on c.codeClasse=sc.codeClasse 
@@ -176,7 +176,7 @@ create view inscrit_view as select
   c.codeClasse as codeClasse, c.nomClasse as nomClasse,
   a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,
   sr.codeSerie as codeSerie, sr.nomSerie as nomSerie,
-  concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
+ case when sc.indiceSalleClasse is null then c.codeClasse else concat(c.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse
   from inscrit i 
   join eleve e on e.matricule=i.matricule
 join salle_classe sc on sc.codeSalleClasse=i.codeSalleClasse
@@ -306,20 +306,26 @@ create table examen(
     codeClasseMatiere varchar(10) not null,
     codeSalleClasse varchar(10) not null,
     codeEvaluation varchar(10) not null,
-    dateExamen date not null,
-    heureDebutExamen time not null,
-    heureFinExamen time not null,
+    dateExamen date ,
+    heureDebutExamen time ,
+    heureFinExamen time ,
     statutExamen enum('0','1') default '1',
     Constraint salle_classe_examen_pkey Primary Key (codeExamen),
-    Constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen),
+    Constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen),
     Constraint salle_classe_examen_classe_fkey Foreign Key (codeClasseMatiere) References classe_matiere(codeClasseMatiere),
     Constraint salle_classe_examen_examen_fkey Foreign Key (codeEvaluation) References evaluation(codeEvaluation)
 );
 alter table examen  modify column codeExamen varchar(20) not null ;
+alter table examen  modify column dateExamen date ;
+alter table examen  modify column heureDebutExamen time ;
+alter table examen  modify column heureFinExamen time ;
 alter table examen add column codeSalleClasse varchar(10) not null after dateExamen;
 alter table examen add statutExamen enum('0','1') default '1' not null after heureFinExamen;
 insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1C1','PC5D','A24255D1','compos1','2024-10-01','10:00:00','12:00:00');
 insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1D1','PC5D','A24255D1','devoir1','2024-10-01','10:00:00','12:00:00');
+alter table examen drop constraint salle_classe_examen_unique;
+alter table examen add constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen);
+
 
 create view examen_view as select
   e.codeExamen as codeExamen, e.codeClasseMatiere as codeClasseMatiere, e.codeSalleClasse as codeSalleClasse, e.codeEvaluation as codeEvaluation,
@@ -329,7 +335,7 @@ create view examen_view as select
   cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
    m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
    sc.indiceSalleClasse as indiceSalleClasse,sc.codeAnnee as codeAnnee,
-   concat(c.codeClasse,sc.indiceSalleClasse) as pseudoSalleClasse
+   case when sc.indiceSalleClasse is null then c.codeClasse else concat(c.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse
   from examen e join evaluation ev on e.codeEvaluation = ev.codeEvaluation
   join classe_matiere cm on cm.codeClasseMatiere=e.codeClasseMatiere
   join matiere m on m.codeMatiere=cm.codeMatiere

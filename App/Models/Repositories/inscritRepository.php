@@ -24,7 +24,7 @@ class inscritRepository extends Repository
 
     public function findAllByClasse($classe): array
     {
-        $sql = "select * from inscrit_view where codeSalleClasse='$classe'";
+        $sql = "select * from inscrit_view where codeSalleClasse='$classe' order by numeroInscrit asc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
