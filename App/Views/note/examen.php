@@ -59,7 +59,7 @@ $title = "Relevé de notes";
     </table>
 </div>
 <div class="fixed-action">
-    <a class="btn btn-success circle" title="Imprimer" href="?p=pdf/note/examen/<?= $examen->codeExamen ?>"><i
+    <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/examen/<?= $examen->codeExamen ?>"><i
             class="bi-printer"></i></a>
     <button id="excel" class="btn btn-success circle" title="Excel" data-code="<?= $examen->codeExamen ?>" >
         <i class="bi-file-earmark-excel"></i>

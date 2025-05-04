@@ -15,105 +15,105 @@ class salleClasseApiController extends Controller
         $data = $model->findAll($annee);
         echo json_encode($data);
     }
-     public function one($code)
+    public function one($code)
     {
         $model = new SalleClasseRepository();
         $data = $model->findOneByCode($code);
         echo json_encode($data);
     }
 
-    public function insert() {
-    try {
-        
-        extract($_REQUEST);
-        $model=new SalleClasseRepository();
-        $codeSalleClasse="A$codeAnnee$codeClasse{$indiceSalleClasse}";
-        $res = $model->insert($codeSalleClasse,$codeClasse,$codeSalle,$codeAnnee,$indiceSalleClasse);
-        if ($res) {
-            $data=$model->findOneBycode($codeSalleClasse);
-            $this->response([
-                "data" => $data,
-                'response' => "ok",
-                'message' => "La Salle de Classe a ete ajoutee",
-                'status' => 1
-            ]);
-        }else{
-            $this->response([
-                'response' => "error",
-                'message' => "La Salle de Classe n'a pas ete ajoutee",
-                'status' => 0
-            ]);
-        }
-    } catch (\PDOException $th) {
-        $this->response([
-            'response' => "ko",
-            'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
-            'error' => $th->getMessage(),
-            'code' => $th->errorInfo[1],
-            'status' => 0
-        ]);
-    }
-    
-}    public function update() {
-    try {
-        
-        extract($_REQUEST);
-        $model=new SalleClasseRepository();
-        
-        $res = $model->update($codeSalleClasse,$codeClasse,$codeSalle,$codeAnnee,$indiceSalleClasse);
-        if ($res) {
-            $data=$model->findOneBycode($codeSalleClasse);
-            $this->response([
-                "data" => $data,
-                'response' => "ok",
-                'message' => "La Salle de Classe a ete modifiee",
-                'status' => 1
-            ]);
-        }else{
-            $this->response([
-                'response' => "error",
-                'message' => "La Salle de Classe n'a pas ete ajoutee",
-                'status' => 0
-            ]);
-        }
-    } catch (\PDOException $th) {
-        $this->response([
-            'response' => "ko",
-            'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
-            'error' => $th->getMessage(),
-            'code' => $th->errorInfo[1],
-            'status' => 0
-        ]);
-    }
-    
-}
-public function delete($code){
-    try {
-        $model=new SalleClasseRepository();
-        $res = $model->delete($code);
-        if ($res) {
-            $this->response([
-                'response' => "ok",
-                'message' => "L'examens a ete supprimee",
-                'status' => 1
-            ]);
-        }else{
-            $this->response([
-                'response' => "error",
-                'message' => "L'examens n'a pas ete supprimee",
-                'status' => 0
-            ]);
-        }
-    } catch (\PDOException $th) {
-        $this->response([
-            'response' => "ko",
-            'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
-            'error' => $th->getMessage(),
-            'code' => $th->errorInfo[1],
-            'status' => 0
-        ]);
-    }
-}
+    public function insert()
+    {
+        try {
 
+            extract($_REQUEST);
+            $model = new SalleClasseRepository();
+            $codeSalleClasse = "A$codeAnnee$codeClasse{$indiceSalleClasse}";
+            $res = $model->insert($codeSalleClasse, $codeClasse, $codeSalle, $codeAnnee, $indiceSalleClasse);
+            if ($res) {
+                $data = $model->findOneBycode($codeSalleClasse);
+                $this->response([
+                    "data" => $data,
+                    'response' => "ok",
+                    'message' => "La Salle de Classe a ete ajoutee",
+                    'status' => 1
+                ]);
+            } else {
+                $this->response([
+                    'response' => "error",
+                    'message' => "La Salle de Classe n'a pas ete ajoutee",
+                    'status' => 0
+                ]);
+            }
+        } catch (\PDOException $th) {
+            $this->response([
+                'response' => "ko",
+                'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
+                'error' => $th->getMessage(),
+                'code' => $th->errorInfo[1],
+                'status' => 0
+            ]);
+        }
+    }
+    public function update()
+    {
+        try {
+
+            extract($_REQUEST);
+            $model = new SalleClasseRepository();
+
+            $res = $model->update($codeSalleClasse, $codeClasse, $codeSalle, $codeAnnee, $indiceSalleClasse);
+            if ($res) {
+                $data = $model->findOneBycode($codeSalleClasse);
+                $this->response([
+                    "data" => $data,
+                    'response' => "ok",
+                    'message' => "La Salle de Classe a ete modifiee",
+                    'status' => 1
+                ]);
+            } else {
+                $this->response([
+                    'response' => "error",
+                    'message' => "La Salle de Classe n'a pas ete ajoutee",
+                    'status' => 0
+                ]);
+            }
+        } catch (\PDOException $th) {
+            $this->response([
+                'response' => "ko",
+                'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
+                'error' => $th->getMessage(),
+                'code' => $th->errorInfo[1],
+                'status' => 0
+            ]);
+        }
+    }
+    public function delete($code)
+    {
+        try {
+            $model = new SalleClasseRepository();
+            $res = $model->delete($code);
+            if ($res) {
+                $this->response([
+                    'response' => "ok",
+                    'message' => "L'examens a ete supprimee",
+                    'status' => 1
+                ]);
+            } else {
+                $this->response([
+                    'response' => "error",
+                    'message' => "L'examens n'a pas ete supprimee",
+                    'status' => 0
+                ]);
+            }
+        } catch (\PDOException $th) {
+            $this->response([
+                'response' => "ko",
+                'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
+                'error' => $th->getMessage(),
+                'code' => $th->errorInfo[1],
+                'status' => 0
+            ]);
+        }
+    }
 }
-  

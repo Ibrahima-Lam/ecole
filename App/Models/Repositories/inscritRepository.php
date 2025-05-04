@@ -15,9 +15,9 @@ class inscritRepository extends Repository
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
-    public function findAllByAnnee($codeAnnee): array
+    public function findAllByAnnee($codeAnnee,$by="matricule"): array
     {
-        $sql = "select * from inscrit_view where codeAnnee='$codeAnnee'";
+        $sql = "select * from inscrit_view where codeAnnee='$codeAnnee' order by $by asc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }

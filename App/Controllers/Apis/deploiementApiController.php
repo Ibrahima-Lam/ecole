@@ -13,7 +13,7 @@ class deploiementApiController extends Controller
     public function inscrit($annee=null)
     {
        $ripos=new inscritRepository();
-       $data=$annee?$ripos->findAllByAnnee($annee):$ripos->findAll();
+       $data=$annee?$ripos->findAllByAnnee($annee,"numeroInscrit"): $ripos->findAll();
        $data=array_map(function($inscrit){
            return [
                "matricule"=>$inscrit->matricule,

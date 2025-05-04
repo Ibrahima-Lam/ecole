@@ -352,9 +352,11 @@ create table note(
     Constraint note_pkey Primary Key (idNote),
     Constraint note_check Check (note>=0 and note<=20),
     Constraint note_unique Unique (matricule,codeExamen),
-    Constraint note_inscrit_fkey Foreign Key (matricule) References inscrit(matricule),
+    -- Constraint note_inscrit_fkey Foreign Key (matricule) References inscrit(matricule),
     Constraint note_examen_fkey Foreign Key (codeExamen) References examen(codeExamen)
 );  
+alter table note drop constraint note_inscrit_fkey;
+alter table note drop constraint note_examen_fkey;
 
 alter table note  modify column codeExamen varchar(20) not null ;
 

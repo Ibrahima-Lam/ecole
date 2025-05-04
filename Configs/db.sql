@@ -1869,3 +1869,2163 @@ insert into note(matricule,codeExamen,note) values('5d262','A24255D2PC5DC2','6')
 insert into note(matricule,codeExamen,note) values('5d263','A24255D2PC5DC2','9.25');
 -- 2025-05-04 15:02:39
 insert into note(matricule,codeExamen,note) values('5d2064','A24255D2PC5DC2','2');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3SN5DD1','SN5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PC5DD1','PC5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3MATH5DD1','MATH5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3AR5DD1','AR5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3FR5DD1','FR5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EN5DD1','EN5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PHILO5DD1','PHILO5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IR5DD1','IR5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3HG5DD1','HG5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EPS5DD1','EPS5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:02
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IC5DD1','IC5D','A24255D3','D1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3SN5DC1','SN5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PC5DC1','PC5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3MATH5DC1','MATH5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3AR5DC1','AR5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3FR5DC1','FR5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EN5DC1','EN5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PHILO5DC1','PHILO5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IR5DC1','IR5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3HG5DC1','HG5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EPS5DC1','EPS5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:37:43
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IC5DC1','IC5D','A24255D3','C1','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3SN5DD2','SN5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PC5DD2','PC5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3MATH5DD2','MATH5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3AR5DD2','AR5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3FR5DD2','FR5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EN5DD2','EN5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PHILO5DD2','PHILO5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IR5DD2','IR5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3HG5DD2','HG5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EPS5DD2','EPS5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:05
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IC5DD2','IC5D','A24255D3','D2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3SN5DC2','SN5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PC5DC2','PC5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3MATH5DC2','MATH5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3AR5DC2','AR5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3FR5DC2','FR5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EN5DC2','EN5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PHILO5DC2','PHILO5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IR5DC2','IR5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3HG5DC2','HG5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3EPS5DC2','EPS5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:39:54
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3IC5DC2','IC5D','A24255D3','C2','','1','','');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d301','A24255D3PC5DD1','3');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d302','A24255D3PC5DD1','4.5');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d303','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d304','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d305','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d306','A24255D3PC5DD1','6.5');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d307','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d308','A24255D3PC5DD1','7.5');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d309','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d310','A24255D3PC5DD1','4.5');
+-- 2025-05-04 15:41:24
+insert into note(matricule,codeExamen,note) values('5d311','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d312','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d313','A24255D3PC5DD1','8');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d314','A24255D3PC5DD1','9');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d315','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d316','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d317','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d318','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d319','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d320','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d321','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d322','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d323','A24255D3PC5DD1','9');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d324','A24255D3PC5DD1','4.25');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d325','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d326','A24255D3PC5DD1','2');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d327','A24255D3PC5DD1','2');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d328','A24255D3PC5DD1','2.5');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d329','A24255D3PC5DD1','8');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d330','A24255D3PC5DD1','9');
+-- 2025-05-04 15:41:25
+insert into note(matricule,codeExamen,note) values('5d331','A24255D3PC5DD1','10.75');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d332','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d333','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d334','A24255D3PC5DD1','6.4');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d335','A24255D3PC5DD1','8');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d336','A24255D3PC5DD1','8.5');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d337','A24255D3PC5DD1','7');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d338','A24255D3PC5DD1','12.5');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d339','A24255D3PC5DD1','7');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d340','A24255D3PC5DD1','8');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d341','A24255D3PC5DD1','6');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d342','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d343','A24255D3PC5DD1','6');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d344','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d345','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d346','A24255D3PC5DD1','6.75');
+-- 2025-05-04 15:41:26
+insert into note(matricule,codeExamen,note) values('5d347','A24255D3PC5DD1','2.5');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d348','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d349','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d350','A24255D3PC5DD1','3');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d351','A24255D3PC5DD1','3.5');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d352','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d353','A24255D3PC5DD1','6.75');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d354','A24255D3PC5DD1','3');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d355','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d356','A24255D3PC5DD1','0');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d357','A24255D3PC5DD1','5');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d358','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d359','A24255D3PC5DD1','4');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d360','A24255D3PC5DD1','6');
+-- 2025-05-04 15:41:27
+insert into note(matricule,codeExamen,note) values('5d361','A24255D3PC5DD1','3');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d301','A24255D3PC5DD2','7');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d302','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d303','A24255D3PC5DD2','15.25');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d304','A24255D3PC5DD2','8');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d305','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d306','A24255D3PC5DD2','8.5');
+-- 2025-05-04 15:42:34
+insert into note(matricule,codeExamen,note) values('5d307','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d308','A24255D3PC5DD2','6.75');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d309','A24255D3PC5DD2','0');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d310','A24255D3PC5DD2','12.25');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d311','A24255D3PC5DD2','8');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d312','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d313','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d314','A24255D3PC5DD2','13.75');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d315','A24255D3PC5DD2','7.5');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d316','A24255D3PC5DD2','5');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d317','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d318','A24255D3PC5DD2','0');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d319','A24255D3PC5DD2','3.5');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d320','A24255D3PC5DD2','4');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d321','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d322','A24255D3PC5DD2','4.5');
+-- 2025-05-04 15:42:35
+insert into note(matricule,codeExamen,note) values('5d323','A24255D3PC5DD2','16.5');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d324','A24255D3PC5DD2','12');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d325','A24255D3PC5DD2','0');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d326','A24255D3PC5DD2','4.75');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d327','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d328','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d329','A24255D3PC5DD2','14');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d330','A24255D3PC5DD2','5');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d331','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d332','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d333','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d334','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d335','A24255D3PC5DD2','6.5');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d336','A24255D3PC5DD2','12.5');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d337','A24255D3PC5DD2','13');
+-- 2025-05-04 15:42:36
+insert into note(matricule,codeExamen,note) values('5d338','A24255D3PC5DD2','11.5');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d339','A24255D3PC5DD2','9');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d340','A24255D3PC5DD2','7');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d341','A24255D3PC5DD2','10.5');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d342','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d343','A24255D3PC5DD2','8');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d344','A24255D3PC5DD2','6');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d345','A24255D3PC5DD2','4');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d346','A24255D3PC5DD2','8');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d347','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d348','A24255D3PC5DD2','5');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d349','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d350','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d351','A24255D3PC5DD2','0');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d352','A24255D3PC5DD2','5');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d353','A24255D3PC5DD2','8.5');
+-- 2025-05-04 15:42:37
+insert into note(matricule,codeExamen,note) values('5d354','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d355','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d356','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d357','A24255D3PC5DD2','1');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d358','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d359','A24255D3PC5DD2','2');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d360','A24255D3PC5DD2','3');
+-- 2025-05-04 15:42:38
+insert into note(matricule,codeExamen,note) values('5d361','A24255D3PC5DD2','2');
+-- 2025-05-04 15:43:08
+insert into note(matricule,codeExamen,note) values('5d301','A24255D3PC5DC1','9.25');
+-- 2025-05-04 15:43:08
+insert into note(matricule,codeExamen,note) values('5d302','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d303','A24255D3PC5DC1','14.5');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d304','A24255D3PC5DC1','11.25');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d305','A24255D3PC5DC1','9');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d306','A24255D3PC5DC1','9');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d307','A24255D3PC5DC1','0');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d308','A24255D3PC5DC1','10');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d309','A24255D3PC5DC1','8.25');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d310','A24255D3PC5DC1','15.75');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d311','A24255D3PC5DC1','11');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d312','A24255D3PC5DC1','8.25');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d313','A24255D3PC5DC1','13.5');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d314','A24255D3PC5DC1','16.25');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d315','A24255D3PC5DC1','7.75');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d316','A24255D3PC5DC1','10');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d317','A24255D3PC5DC1','4.5');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d318','A24255D3PC5DC1','0');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d319','A24255D3PC5DC1','9.75');
+-- 2025-05-04 15:43:09
+insert into note(matricule,codeExamen,note) values('5d320','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d321','A24255D3PC5DC1','4.75');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d322','A24255D3PC5DC1','10.75');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d323','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d324','A24255D3PC5DC1','11.25');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d325','A24255D3PC5DC1','0');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d326','A24255D3PC5DC1','9.25');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d327','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d328','A24255D3PC5DC1','7');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d329','A24255D3PC5DC1','14');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d330','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d331','A24255D3PC5DC1','6');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d332','A24255D3PC5DC1','9');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d333','A24255D3PC5DC1','6.5');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d334','A24255D3PC5DC1','13');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d335','A24255D3PC5DC1','9.75');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d336','A24255D3PC5DC1','16.25');
+-- 2025-05-04 15:43:10
+insert into note(matricule,codeExamen,note) values('5d337','A24255D3PC5DC1','10.75');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d338','A24255D3PC5DC1','13');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d339','A24255D3PC5DC1','13');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d340','A24255D3PC5DC1','9.25');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d341','A24255D3PC5DC1','9.25');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d342','A24255D3PC5DC1','11.75');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d343','A24255D3PC5DC1','11.25');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d344','A24255D3PC5DC1','10');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d345','A24255D3PC5DC1','5');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d346','A24255D3PC5DC1','12.25');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d347','A24255D3PC5DC1','8.5');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d348','A24255D3PC5DC1','9');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d349','A24255D3PC5DC1','0');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d350','A24255D3PC5DC1','5.5');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d351','A24255D3PC5DC1','6.25');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d352','A24255D3PC5DC1','8');
+-- 2025-05-04 15:43:11
+insert into note(matricule,codeExamen,note) values('5d353','A24255D3PC5DC1','11');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d354','A24255D3PC5DC1','9.25');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d355','A24255D3PC5DC1','9');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d356','A24255D3PC5DC1','14');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d357','A24255D3PC5DC1','7.25');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d358','A24255D3PC5DC1','7.5');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d359','A24255D3PC5DC1','8.5');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d360','A24255D3PC5DC1','12.25');
+-- 2025-05-04 15:43:12
+insert into note(matricule,codeExamen,note) values('5d361','A24255D3PC5DC1','16.25');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d301','A24255D3PC5DC2','4.25');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d302','A24255D3PC5DC2','3.25');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d303','A24255D3PC5DC2','8');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d304','A24255D3PC5DC2','5.5');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d305','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d306','A24255D3PC5DC2','5');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d307','A24255D3PC5DC2','0');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d308','A24255D3PC5DC2','6.25');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d309','A24255D3PC5DC2','0');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d310','A24255D3PC5DC2','8.75');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d311','A24255D3PC5DC2','4.5');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d312','A24255D3PC5DC2','3');
+-- 2025-05-04 15:43:36
+insert into note(matricule,codeExamen,note) values('5d313','A24255D3PC5DC2','8');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d314','A24255D3PC5DC2','7.75');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d315','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d316','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d317','A24255D3PC5DC2','8');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d318','A24255D3PC5DC2','0');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d319','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d320','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d321','A24255D3PC5DC2','2.5');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d322','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d323','A24255D3PC5DC2','8');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d324','A24255D3PC5DC2','8.25');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d325','A24255D3PC5DC2','0');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d326','A24255D3PC5DC2','3');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d327','A24255D3PC5DC2','3');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d328','A24255D3PC5DC2','3.75');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d329','A24255D3PC5DC2','7.25');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d330','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d331','A24255D3PC5DC2','4.75');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d332','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d333','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d334','A24255D3PC5DC2','10.5');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d335','A24255D3PC5DC2','4.5');
+-- 2025-05-04 15:43:37
+insert into note(matricule,codeExamen,note) values('5d336','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d337','A24255D3PC5DC2','11.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d338','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d339','A24255D3PC5DC2','5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d340','A24255D3PC5DC2','11');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d341','A24255D3PC5DC2','5.75');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d342','A24255D3PC5DC2','2.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d343','A24255D3PC5DC2','5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d344','A24255D3PC5DC2','5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d345','A24255D3PC5DC2','3');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d346','A24255D3PC5DC2','13');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d347','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d348','A24255D3PC5DC2','3.75');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d349','A24255D3PC5DC2','2');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d350','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d351','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d352','A24255D3PC5DC2','2.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d353','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d354','A24255D3PC5DC2','4');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d355','A24255D3PC5DC2','3.5');
+-- 2025-05-04 15:43:38
+insert into note(matricule,codeExamen,note) values('5d356','A24255D3PC5DC2','11.5');
+-- 2025-05-04 15:43:39
+insert into note(matricule,codeExamen,note) values('5d357','A24255D3PC5DC2','3.75');
+-- 2025-05-04 15:43:39
+insert into note(matricule,codeExamen,note) values('5d358','A24255D3PC5DC2','3');
+-- 2025-05-04 15:43:39
+insert into note(matricule,codeExamen,note) values('5d359','A24255D3PC5DC2','3.25');
+-- 2025-05-04 15:43:39
+insert into note(matricule,codeExamen,note) values('5d360','A24255D3PC5DC2','8');
+-- 2025-05-04 15:43:39
+insert into note(matricule,codeExamen,note) values('5d361','A24255D3PC5DC2','12');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('AR5LM','5LM','AR','5','5','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EN5LM','5LM','EN','3','3','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EPS5LM','5LM','EPS','2','1','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('FR5LM','5LM','FR','5','5','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('HG5LM','5LM','HG','4','4','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IC5LM','5LM','IC','1','1','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IR5LM','5LM','IR','2','2','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('PC5LM','5LM','PC','2','2','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('PHILO5LM','5LM','PHILO','2','2','2024-10-01');
+-- 2025-05-04 16:05:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('SN5LM','5LM','SN','2','2','2024-10-01');
+-- 2025-05-04 16:05:46
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMAR5LMD1','AR5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMFR5LMD1','FR5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMHG5LMD1','HG5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEN5LMD1','EN5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMMATH5LMD1','MATH5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPHILO5LMD1','PHILO5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPC5LMD1','PC5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIR5LMD1','IR5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMSN5LMD1','SN5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEPS5LMD1','EPS5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:05:47
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIC5LMD1','IC5LM','A24255LM','D1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMAR5LMC1','AR5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMFR5LMC1','FR5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMHG5LMC1','HG5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEN5LMC1','EN5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMMATH5LMC1','MATH5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPHILO5LMC1','PHILO5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPC5LMC1','PC5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIR5LMC1','IR5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMSN5LMC1','SN5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEPS5LMC1','EPS5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:01
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIC5LMC1','IC5LM','A24255LM','C1','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMAR5LMD2','AR5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMFR5LMD2','FR5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMHG5LMD2','HG5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEN5LMD2','EN5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMMATH5LMD2','MATH5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPHILO5LMD2','PHILO5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPC5LMD2','PC5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIR5LMD2','IR5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMSN5LMD2','SN5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEPS5LMD2','EPS5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIC5LMD2','IC5LM','A24255LM','D2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMAR5LMC2','AR5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMFR5LMC2','FR5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMHG5LMC2','HG5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEN5LMC2','EN5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMMATH5LMC2','MATH5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPHILO5LMC2','PHILO5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMPC5LMC2','PC5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIR5LMC2','IR5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:30
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMSN5LMC2','SN5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:30
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMEPS5LMC2','EPS5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:06:30
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255LMIC5LMC2','IC5LM','A24255LM','C2','','1','','');
+-- 2025-05-04 16:10:55
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('5LM056','Inconnu1','','M','2000-01-01','Boghe','Boghe','NNI5LM056');
+-- 2025-05-04 16:11:48
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('5LM057','Inconnu1','','M','2000-01-01','Boghe','Boghe','NNI5LM057');
+-- 2025-05-04 16:12:14
+update eleve set matricule='5LM057',nom='Inconnu2',isme='',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM057' where matricule='5LM057';
+-- 2025-05-04 16:13:24
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','5LM056','A24255LM','56','passant','2025-05-04');
+-- 2025-05-04 16:13:46
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','5LM057','A24255LM','57','passant','2025-05-04');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMMATH5LMD1','1');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMMATH5LMD1','1');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMMATH5LMD1','9');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMMATH5LMD1','5');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMMATH5LMD1','3');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:00
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMMATH5LMD1','3');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMMATH5LMD1','1');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMMATH5LMD1','3');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMMATH5LMD1','3.5');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMMATH5LMD1','6');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMMATH5LMD1','7');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:01
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMMATH5LMD1','5');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMMATH5LMD1','11');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMMATH5LMD1','4');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMMATH5LMD1','11');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMMATH5LMD1','9');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMMATH5LMD1','9');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMMATH5LMD1','8');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMMATH5LMD1','5');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMMATH5LMD1','9');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:02
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMMATH5LMD1','4');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMMATH5LMD1','7');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMMATH5LMD1','4');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMMATH5LMD1','8');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMMATH5LMD1','6');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMMATH5LMD1','9');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMMATH5LMD1','0');
+-- 2025-05-04 16:14:03
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMMATH5LMD1','6');
+-- 2025-05-04 16:14:36
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMMATH5LMD2','13');
+-- 2025-05-04 16:14:36
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:36
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMMATH5LMD2','12');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMMATH5LMD2','7');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:37
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMMATH5LMD2','6');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMMATH5LMD2','7');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMMATH5LMD2','7');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMMATH5LMD2','7');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMMATH5LMD2','8');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMMATH5LMD2','2');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:38
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMMATH5LMD2','12');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMMATH5LMD2','11');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMMATH5LMD2','11');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMMATH5LMD2','10.5');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMMATH5LMD2','11');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMMATH5LMD2','11');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:39
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMMATH5LMD2','6');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMMATH5LMD2','0');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMMATH5LMD2','12');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMMATH5LMD2','10');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMMATH5LMD2','9');
+-- 2025-05-04 16:14:40
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMMATH5LMD2','2');
+-- 2025-05-04 16:14:41
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMMATH5LMD2','7');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMMATH5LMC1','2');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMMATH5LMC1','9');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMMATH5LMC1','5');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMMATH5LMC1','3');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMMATH5LMC1','7');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMMATH5LMC1','3');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMMATH5LMC1','2');
+-- 2025-05-04 16:16:39
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMMATH5LMC1','4');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMMATH5LMC1','7');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMMATH5LMC1','3');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMMATH5LMC1','7');
+-- 2025-05-04 16:16:40
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMMATH5LMC1','11');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMMATH5LMC1','4');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMMATH5LMC1','11');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMMATH5LMC1','9');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMMATH5LMC1','9');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMMATH5LMC1','8');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMMATH5LMC1','8');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:41
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMMATH5LMC1','9');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMMATH5LMC1','0');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMMATH5LMC1','4');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMMATH5LMC1','5');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMMATH5LMC1','5');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMMATH5LMC1','7');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMMATH5LMC1','5');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMMATH5LMC1','8');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMMATH5LMC1','9');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMMATH5LMC1','5.5');
+-- 2025-05-04 16:16:42
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:43
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMMATH5LMC1','6');
+-- 2025-05-04 16:16:43
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMMATH5LMC1','5');
+-- 2025-05-04 16:17:06
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMMATH5LMC2','13');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMMATH5LMC2','13.5');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMMATH5LMC2','13');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMMATH5LMC2','11.5');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMMATH5LMC2','12');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMMATH5LMC2','6');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMMATH5LMC2','9.5');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:07
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMMATH5LMC2','13');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMMATH5LMC2','14');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMMATH5LMC2','13');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMMATH5LMC2','9.5');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:08
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMMATH5LMC2','12');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMMATH5LMC2','15.5');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMMATH5LMC2','17');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMMATH5LMC2','3');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMMATH5LMC2','8');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMMATH5LMC2','10.5');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMMATH5LMC2','13.5');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMMATH5LMC2','12.5');
+-- 2025-05-04 16:17:09
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMMATH5LMC2','5.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMMATH5LMC2','15');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMMATH5LMC2','9.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMMATH5LMC2','13.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMMATH5LMC2','12.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMMATH5LMC2','10.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMMATH5LMC2','10.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMMATH5LMC2','0');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMMATH5LMC2','2');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMMATH5LMC2','13');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMMATH5LMC2','12.5');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMMATH5LMC2','11');
+-- 2025-05-04 16:17:10
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMMATH5LMC2','13.5');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMMATH5LMC2','13.5');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMMATH5LMC2','10');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMMATH5LMC2','11');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMMATH5LMC2','11.5');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMMATH5LMC2','14.5');
+-- 2025-05-04 16:17:11
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMMATH5LMC2','11.5');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMPC5LMD1','10');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMPC5LMD1','9');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:52
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMPC5LMD1','8');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMPC5LMD1','7');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:53
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMPC5LMD1','8');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMPC5LMD1','9');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMPC5LMD1','12');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMPC5LMD1','10');
+-- 2025-05-04 16:18:54
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMPC5LMD1','10');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMPC5LMD1','8');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMPC5LMD1','13');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMPC5LMD1','11');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMPC5LMD1','10');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMPC5LMD1','8');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMPC5LMD1','11');
+-- 2025-05-04 16:18:55
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMPC5LMD1','11');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMPC5LMD1','10');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMPC5LMD1','8');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMPC5LMD1','0');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMPC5LMD1','7');
+-- 2025-05-04 16:18:56
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMPC5LMD1','7');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:30
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMPC5LMD2','8');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:31
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMPC5LMD2','12');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMPC5LMD2','12');
+-- 2025-05-04 16:19:32
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMPC5LMD2','11.5');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMPC5LMD2','11');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMPC5LMD2','11');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMPC5LMD2','9');
+-- 2025-05-04 16:19:33
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:19:34
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMPC5LMD2','8');
+-- 2025-05-04 16:19:34
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMPC5LMD2','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMPC5LMC1','12');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMPC5LMC1','8');
+-- 2025-05-04 16:20:30
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMPC5LMC1','5');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMPC5LMC1','11');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMPC5LMC1','15');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMPC5LMC1','10');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMPC5LMC1','10');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:31
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMPC5LMC1','6');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMPC5LMC1','10');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMPC5LMC1','12.5');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMPC5LMC1','10');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMPC5LMC1','13');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:32
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMPC5LMC1','14');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMPC5LMC1','12');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMPC5LMC1','12');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMPC5LMC1','8');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMPC5LMC1','10');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMPC5LMC1','9.5');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMPC5LMC1','11.5');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMPC5LMC1','12');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMPC5LMC1','12');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMPC5LMC1','4');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMPC5LMC1','4');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMPC5LMC1','6');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMPC5LMC1','9');
+-- 2025-05-04 16:20:33
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMPC5LMC1','3');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMPC5LMC1','3');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMPC5LMC1','9');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMPC5LMC1','9');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMPC5LMC1','0');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMPC5LMC1','13');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMPC5LMC1','5');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMPC5LMC1','9');
+-- 2025-05-04 16:20:34
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMPC5LMC1','8');
+-- 2025-05-04 16:21:05
+insert into note(matricule,codeExamen,note) values('5LM001','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:05
+insert into note(matricule,codeExamen,note) values('5LM002','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:05
+insert into note(matricule,codeExamen,note) values('5LM003','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:05
+insert into note(matricule,codeExamen,note) values('5LM004','A24255LMPC5LMC2','6');
+-- 2025-05-04 16:21:05
+insert into note(matricule,codeExamen,note) values('5LM005','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM006','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM007','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM008','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM009','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM010','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM011','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM012','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM013','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM014','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM015','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM016','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:06
+insert into note(matricule,codeExamen,note) values('5LM017','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM018','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM019','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM020','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM021','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM022','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM023','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM024','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM025','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM026','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM027','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM028','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM029','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM030','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:21:07
+insert into note(matricule,codeExamen,note) values('5LM031','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM032','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM033','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM034','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM035','A24255LMPC5LMC2','13');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM036','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM037','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM038','A24255LMPC5LMC2','5');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM039','A24255LMPC5LMC2','5');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM040','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM041','A24255LMPC5LMC2','8');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM042','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:08
+insert into note(matricule,codeExamen,note) values('5LM043','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM044','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM045','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM046','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM047','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM048','A24255LMPC5LMC2','0');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM049','A24255LMPC5LMC2','5');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM050','A24255LMPC5LMC2','7');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM051','A24255LMPC5LMC2','7');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM052','A24255LMPC5LMC2','11');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM053','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:09
+insert into note(matricule,codeExamen,note) values('5LM054','A24255LMPC5LMC2','5');
+-- 2025-05-04 16:21:10
+insert into note(matricule,codeExamen,note) values('5LM055','A24255LMPC5LMC2','3');
+-- 2025-05-04 16:21:10
+insert into note(matricule,codeExamen,note) values('5LM056','A24255LMPC5LMC2','4');
+-- 2025-05-04 16:21:10
+insert into note(matricule,codeExamen,note) values('5LM057','A24255LMPC5LMC2','2');
+-- 2025-05-04 16:25:46
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('AR2AS','2AS','AR','6','5','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EN2AS','2AS','EN','2','1','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EPS2AS','2AS','EPS','2','1','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('FR2AS','2AS','FR','5','4','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('HG2AS','2AS','HG','2','2','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IC2AS','2AS','IC','1','1','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IR2AS','2AS','IR','4','3','2024-10-01');
+-- 2025-05-04 16:25:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('SN2AS','2AS','SN','2','2','2024-10-01');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2AR2ASD1','AR2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2MATH2ASD1','MATH2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2FR2ASD1','FR2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IR2ASD1','IR2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2SN2ASD1','SN2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2HG2ASD1','HG2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EPS2ASD1','EPS2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EN2ASD1','EN2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:26:55
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IC2ASD1','IC2AS','A24252AS2','D1','','1','','');
+-- 2025-05-04 16:27:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2AR2ASD2','AR2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2MATH2ASD2','MATH2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:18
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2FR2ASD2','FR2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IR2ASD2','IR2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2SN2ASD2','SN2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2HG2ASD2','HG2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EPS2ASD2','EPS2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EN2ASD2','EN2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:19
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IC2ASD2','IC2AS','A24252AS2','D2','','1','','');
+-- 2025-05-04 16:27:31
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2AR2ASC1','AR2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:31
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2MATH2ASC1','MATH2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:31
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2FR2ASC1','FR2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:31
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IR2ASC1','IR2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:32
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2SN2ASC1','SN2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:32
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2HG2ASC1','HG2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:32
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EPS2ASC1','EPS2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:32
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EN2ASC1','EN2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:32
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IC2ASC1','IC2AS','A24252AS2','C1','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2AR2ASC2','AR2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2MATH2ASC2','MATH2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2FR2ASC2','FR2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IR2ASC2','IR2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2SN2ASC2','SN2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2HG2ASC2','HG2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EPS2ASC2','EPS2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2EN2ASC2','EN2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:27:42
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2IC2ASC2','IC2AS','A24252AS2','C2','','1','','');
+-- 2025-05-04 16:34:48
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('2AS2057','Inconnu','','M','2000-01-01','Boghe','Boghe','NNI2AS2057');
+-- 2025-05-04 16:35:13
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','2AS2057','A24252AS2','57','passant','2025-05-04');
+-- 2025-05-04 16:36:55
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:36:55
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:36:55
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:36:55
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2MATH2ASD1','6');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2MATH2ASD1','4.5');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2MATH2ASD1','0.5');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2MATH2ASD1','5');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2MATH2ASD1','10');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2MATH2ASD1','3');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:36:56
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2MATH2ASD1','6');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2MATH2ASD1','5');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2MATH2ASD1','7');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2MATH2ASD1','7');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2MATH2ASD1','5');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:57
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2MATH2ASD1','9');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2MATH2ASD1','10');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2MATH2ASD1','8');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2MATH2ASD1','7');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2MATH2ASD1','8');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2MATH2ASD1','8');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:36:58
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2MATH2ASD1','10');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2MATH2ASD1','7.5');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2MATH2ASD1','4.5');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2MATH2ASD1','9');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2MATH2ASD1','6');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2MATH2ASD1','2');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2MATH2ASD1','14.5');
+-- 2025-05-04 16:36:59
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2MATH2ASD1','3');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2MATH2ASD1','4');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2MATH2ASD1','7');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2MATH2ASD1','3.5');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2MATH2ASD1','1');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2MATH2ASD1','6.5');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2MATH2ASD1','11');
+-- 2025-05-04 16:37:00
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2MATH2ASD1','5');
+-- 2025-05-04 16:37:01
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2MATH2ASD1','4.5');
+-- 2025-05-04 16:37:01
+insert into note(matricule,codeExamen,note) values('2AS2057','A24252AS2MATH2ASD1','0');
+-- 2025-05-04 16:37:48
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2MATH2ASD2','12.50');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2MATH2ASD2','11.00');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2MATH2ASD2','8.00');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2MATH2ASD2','8.00');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2MATH2ASD2','10.50');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2MATH2ASD2','7.50');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2MATH2ASD2','10.00');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2MATH2ASD2','18.00');
+-- 2025-05-04 16:37:49
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2MATH2ASD2','6.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2MATH2ASD2','6.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2MATH2ASD2','11.50');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2MATH2ASD2','13.25');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2MATH2ASD2','16.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2MATH2ASD2','8.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2MATH2ASD2','5.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2MATH2ASD2','10.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2MATH2ASD2','9.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2MATH2ASD2','14.50');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2MATH2ASD2','14.50');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2MATH2ASD2','5.00');
+-- 2025-05-04 16:37:50
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2MATH2ASD2','17.00');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2MATH2ASD2','18.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2MATH2ASD2','10.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2MATH2ASD2','5.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2MATH2ASD2','9.00');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2MATH2ASD2','13.00');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2MATH2ASD2','0');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2MATH2ASD2','13.00');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2MATH2ASD2','17.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2MATH2ASD2','7.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2MATH2ASD2','10.50');
+-- 2025-05-04 16:37:51
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2MATH2ASD2','7.00');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2MATH2ASD2','15.50');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2MATH2ASD2','10.50');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2MATH2ASD2','7.00');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2MATH2ASD2','7.50');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2MATH2ASD2','11.50');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2MATH2ASD2','8.00');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2MATH2ASD2','9.00');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2MATH2ASD2','10.00');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2MATH2ASD2','12.50');
+-- 2025-05-04 16:37:52
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2MATH2ASD2','9.50');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2MATH2ASD2','9.00');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2MATH2ASD2','9.25');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2MATH2ASD2','16.00');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2MATH2ASD2','7.00');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2MATH2ASD2','7.00');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2MATH2ASD2','9.50');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2MATH2ASD2','13.50');
+-- 2025-05-04 16:37:53
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2MATH2ASD2','0');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2MATH2ASD2','0');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2MATH2ASD2','12.50');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2MATH2ASD2','8.50');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2MATH2ASD2','10.00');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2MATH2ASD2','15.50');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2MATH2ASD2','6.00');
+-- 2025-05-04 16:37:54
+insert into note(matricule,codeExamen,note) values('2AS2057','A24252AS2MATH2ASD2','8.50');
+-- 2025-05-04 16:38:58
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2MATH2ASC1','2');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2MATH2ASC1','6');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2MATH2ASC1','1');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2MATH2ASC1','5');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2MATH2ASC1','6.5');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2MATH2ASC1','1.5');
+-- 2025-05-04 16:38:59
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2MATH2ASC1','1.5');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2MATH2ASC1','5.75');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2MATH2ASC1','6.5');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2MATH2ASC1','10');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2MATH2ASC1','4.25');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2MATH2ASC1','4.5');
+-- 2025-05-04 16:39:00
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2MATH2ASC1','7.5');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2MATH2ASC1','12');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2MATH2ASC1','11');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2MATH2ASC1','5');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2MATH2ASC1','1');
+-- 2025-05-04 16:39:01
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2MATH2ASC1','13');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2MATH2ASC1','6');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2MATH2ASC1','6');
+-- 2025-05-04 16:39:02
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2MATH2ASC1','2');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2MATH2ASC1','4');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:03
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2MATH2ASC1','10');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2MATH2ASC1','1');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2MATH2ASC1','2');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2MATH2ASC1','1');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2MATH2ASC1','3');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2MATH2ASC1','8');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2MATH2ASC1','7');
+-- 2025-05-04 16:39:04
+insert into note(matricule,codeExamen,note) values('2AS2057','A24252AS2MATH2ASC1','0');
+-- 2025-05-04 16:39:59
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2MATH2ASC2','11.25');
+-- 2025-05-04 16:39:59
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2MATH2ASC2','10.5');
+-- 2025-05-04 16:39:59
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2MATH2ASC2','10');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2MATH2ASC2','8');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2MATH2ASC2','11');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2MATH2ASC2','10.5');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2MATH2ASC2','6.5');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2MATH2ASC2','17');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2MATH2ASC2','11');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2MATH2ASC2','10.5');
+-- 2025-05-04 16:40:00
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2MATH2ASC2','14');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2MATH2ASC2','14');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2MATH2ASC2','17.5');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2MATH2ASC2','14.5');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2MATH2ASC2','12');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2MATH2ASC2','15');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2MATH2ASC2','15');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2MATH2ASC2','9.5');
+-- 2025-05-04 16:40:01
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2MATH2ASC2','12');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2MATH2ASC2','5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2MATH2ASC2','19.5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2MATH2ASC2','19.5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2MATH2ASC2','14.5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2MATH2ASC2','13.5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2MATH2ASC2','11');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2MATH2ASC2','12');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2MATH2ASC2','0');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2MATH2ASC2','10.5');
+-- 2025-05-04 16:40:02
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2MATH2ASC2','20');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2MATH2ASC2','15.5');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2MATH2ASC2','10');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2MATH2ASC2','8');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2MATH2ASC2','13');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2MATH2ASC2','13');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2MATH2ASC2','9.5');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2MATH2ASC2','11.25');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2MATH2ASC2','16');
+-- 2025-05-04 16:40:03
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2MATH2ASC2','9.5');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2MATH2ASC2','11');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2MATH2ASC2','11');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2MATH2ASC2','13');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2MATH2ASC2','16.25');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2MATH2ASC2','12');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2MATH2ASC2','6.5');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2MATH2ASC2','12.5');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2MATH2ASC2','10');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2MATH2ASC2','8');
+-- 2025-05-04 16:40:04
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2MATH2ASC2','12');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2MATH2ASC2','19.5');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2MATH2ASC2','10');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2MATH2ASC2','0');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2MATH2ASC2','10.5');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2MATH2ASC2','11.5');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2MATH2ASC2','8');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2MATH2ASC2','14');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2MATH2ASC2','13');
+-- 2025-05-04 16:40:05
+insert into note(matricule,codeExamen,note) values('2AS2057','A24252AS2MATH2ASC2','10');
+-- 2025-05-04 16:41:43
+update note set note='11' where idNote='1501' ;
+-- 2025-05-04 17:00:38
+update eleve set matricule='2AS257',nom='Inconnu',isme='',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Boghe',nni='NNI2AS2057' where matricule='2AS2057';
+-- 2025-05-04 17:00:38
+update eleve set matricule='2AS257',nom='Inconnu',isme='',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Boghe',nni='NNI2AS2057' where matricule='2AS2057';
