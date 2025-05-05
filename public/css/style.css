@@ -876,6 +876,63 @@ dd {
     padding: 10px;
   }
 
+  .search-container{
+    position: relative;
+  }
+  .search-container .search-result{
+    position: absolute;
+    top: 100%;
+    margin-top: 10px;
+    left: 0;
+    width: 300px;
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+    z-index: 5;
+    display: none;
+  }
+  .search-container .search-result p{
+    width: 95%;
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    color: gray;
+  }
+
+  .search-container .search-result ul{
+    list-style-type: none;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .search-container .search-result li{
+    width: 95%;
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+.search-container .search-result li a{
+      font-size: 12px;
+    margin: 0;
+    padding: 5px;
+  }
+  .search-container .search-result li span{
+    color: gray;
+    font-size: 14px;
+    padding: 5px;
+  }
 @media screen and (max-width: 800px) {
     
   .nav-bar,[dir='rtl'] .nav-bar {

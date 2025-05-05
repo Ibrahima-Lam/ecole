@@ -53,11 +53,14 @@ document.getElementById("add")?.addEventListener("click", function (e) {
     dialog.show();
 });
 
+
 document.getElementById("srch")?.addEventListener("input",async function (e) {
 if (data.length == 0) {
     let url = "?p=api/eleve/liste";
     data = await fetchJson(url);
 }
+if (e.target.value.length<3&&e.target.value.length>0) return;
+
     let tab = new TableData(table, data, {
         search: e.target.value,
         admin: admin,

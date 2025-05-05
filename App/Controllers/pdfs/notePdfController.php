@@ -5,7 +5,6 @@ use Core\Controllers\Controller;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
 use Src\Factories\NoteParamettreFactory;
-use Src\Paramettres\NoteParamettre;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\MatiereRepository;
@@ -62,6 +61,6 @@ class NotePdfController extends Controller
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
         $paramettre =NoteParamettreFactory::getNoteParam();
         $pseudo=$salleClasse->pseudoSalleClasse;
-        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"relevé_{$pseudo}_{$codeMatiere}.pdf"]);
+        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);
     }
 }

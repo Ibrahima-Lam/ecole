@@ -13,38 +13,41 @@
 
 <body class="<?= $_langue == 'ar' ? 'arabic' : "" ?>" dir="<?= $_langue == 'ar' ? 'rtl' : "ltr" ?>">
     <div class="nav-bar">
-                <div class="nav-bar-left">
-                    <ul>
-                        <li class="menu" id="menu"><i class="bi bi-justify"></i></li>
-                        <li class="infos">
-                            <div class="logo">
-                                <img src="images/ecole.jpg" alt="logo">
-                                <h3>Etablissements</h3>
-                            </div>
-                        </li>
-                        <li class="dropdown" id="dropdown"><i class="bi bi-three-dots-vertical"></i></li>
-                        <li class="submenu" id="submenu"><i class="bi bi-list"></i></li>
-                        
-                    </ul>
-                </div>
-            <div class="subnavbar">
+        <div class="nav-bar-left">
+            <ul>
+                <li class="menu" id="menu"><i class="bi bi-justify"></i></li>
+                <li class="infos">
+                    <div class="logo">
+                        <img src="images/ecole.jpg" alt="logo">
+                        <h3>Etablissements</h3>
+                    </div>
+                </li>
+                <li class="dropdown" id="dropdown"><i class="bi bi-three-dots-vertical"></i></li>
+                <li class="submenu" id="submenu"><i class="bi bi-list"></i></li>
+
+            </ul>
+        </div>
+        <div class="subnavbar">
             <ul>
                 <li>
-                    <input type="search" name="etablissement" id="search" placeholder="Rechercher ...">
+                    <div class="search-container">
+                        <input type="search" name="etablissement" id="search" placeholder="Rechercher ...">
+                        <div class="search-result"></div>
+                    </div>
                 </li>
                 <li><select name="anneescolaire" id="anneescolaire">
-                    <option value="" disabled>Année Scolaire</option>
-                    <?= $_annee ?? '' ?>
+                        <option value="" disabled>Année Scolaire</option>
+                        <?= $_annee ?? '' ?>
                     </select>
-                 </li>
+                </li>
                 <li>
                     <div class="nav-settings">
                         <ul>
                             <li><Select id="langue" name="langue" class="langue">
-                                <option value="fr" <?= $_langue == 'fr' ? 'selected' : "" ?>>FR</option>
-                                <option value="ar" <?= $_langue == 'ar' ? 'selected' : "" ?>>AR</option>
-                                <option value="en" <?= $_langue == 'en' ? 'selected' : "" ?>>EN</option>
-                            </Select></li>
+                                    <option value="fr" <?= $_langue == 'fr' ? 'selected' : "" ?>>FR</option>
+                                    <option value="ar" <?= $_langue == 'ar' ? 'selected' : "" ?>>AR</option>
+                                    <option value="en" <?= $_langue == 'en' ? 'selected' : "" ?>>EN</option>
+                                </Select></li>
                             <li><i class="bi-moon"></i></li>
                             <li id="account"><i class="bi-person"></i></li>
                         </ul>
@@ -96,8 +99,8 @@
                     <div class="element">
                         <div>Examens</div><i class="bi-star"></i>
                     </div>
-                </a></li> 
-                <li><a href="?p=note/liste"><i class="bi-list"></i>
+                </a></li>
+            <li><a href="?p=note/liste"><i class="bi-list"></i>
                     <div class="element">
                         <div>Notes</div><i class="bi-star"></i>
                     </div>
@@ -114,7 +117,7 @@
 
         <?= $content ?? '' ?>
     </div>
-<input type="text" id="_admin" value="<?= $_admin; ?>">
+    <input type="hidden" id="_admin" value="<?= $_admin; ?>">
 
 </body>
 

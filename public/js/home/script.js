@@ -5,6 +5,10 @@ async function fetchData(url) {
     const response = await fetch(url);
     return response.json();
 }
+async function fetchDataText(url) {
+    const response = await fetch(url);
+    return response.text();
+}
 
 document.getElementById("anneescolaire")?.addEventListener("change", async function (e) {
     let annee = e.target.value;
@@ -75,5 +79,31 @@ account?.addEventListener('click', async function (e) {
 });
 
 const _admin = document.getElementById('_admin').value;
+
+
+const search=document.getElementById('search');
+search?.addEventListener('input', function (e) {
+    const value = e.target.value;
+    const result=document.querySelector('.search-result');
+    result.style.display='block';
+    result.innerHTML='';
+    if(value.length<3){
+        result.style.display='none';
+        return;
+    }
+    fetchDataText("?p=api/home/search/" + value)
+    .then(data=>{
+        console.log(data);
+        result.innerHTML=data;
+    })
+    .catch(error=>{
+        console.error('Error:', error)});
+    
+});
+
+document.addEventListener('click',function(e){
+  const result=document.querySelector('.search-result');
+  result.style.display='none';
+})
 
 
