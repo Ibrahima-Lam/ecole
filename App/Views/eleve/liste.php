@@ -73,45 +73,43 @@ $title = 'Les eleves'
             <input type="hidden" name="edit">
             <div class="form-group">
                 <label for="matricule">Matricule</label>
-                <input type="text" class="form-control" id="matricule" name="matricule" placeholder="matricule" value="Mat5LM" required>
+                <input type="text" class="form-control" id="matricule" name="matricule" placeholder="Entrer le matricule"  required>
             </div>
             <div class="form-group">
                 <label for="nom">Nom et Prénom</label>
-                <input type="text" class="form-control" id="nom" name="nom" placeholder=" Entrer le nom et prénom" required>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrer le nom et prénom" required>
             </div>
             <div class="form-group" lang="ar">
                 <!-- Nom en Arabe -->
                 <label for="isme">
-
                     <span>Nom en Arabe</span> <span>الاسم</span>
-
                 </label>
-                <input type="text" dir="rtl" class="form-control" id="isme" name="isme" placeholder="Nom en Arabe الاسم">
+                <input type="text" dir="rtl" class="form-control" id="isme" name="isme" placeholder="الاسم Nom en Arabe">
             </div>
             <div class="form-group">
                 <label for="sexe">Sexe</label>
                 <div class="form-radio">
                     <input type="radio" id="sexeM" name="sexe" value="M" required>
                     <label for="sexeM">Masculin</label>
-                    <input type="radio" id="sexeF" name="sexe" value="F">
+                    <input type="radio" id="sexeF" name="sexe" value="F" required>
                     <label for="sexeF">Feminin</label>
                 </div>
             </div>
             <div class="form-group">
                 <label for="dateNaissance">Date de naissance</label>
-                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" value='2000-01-01' placeholder="Entrer la date de naissance" >
+                <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" value='2000-01-01' placeholder="Entrer la date de naissance" required>
             </div>
             <div class="form-group">
                 <label for="lieuNaissance">Lieu de naissance</label>
-                <input type="text" class="form-control" id="lieuNaissance" value="Boghe" name="lieuNaissance" placeholder="Entrer le lieu de naissance">
+                <input type="text" class="form-control" id="lieuNaissance" name="lieuNaissance" placeholder="Entrer le lieu de naissance">
             </div>
             <div class="form-group">
                 <label for="adresse">Adresse</label>
-                <input type="text" class="form-control" id="adresse" value="Boghe" name="adresse" placeholder="adresse" >
+                <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Entrer l'adresse" >
             </div>
             <div class="form-group">
                 <label for="nni">NNI</label>
-                <input type="text" class="form-control" id="nni" value="00000004" name="nni" placeholder="nni" required>
+                <input type="text" class="form-control" id="nni"  name="nni" placeholder="Entrer le NNI" required>
             </div>
             <div class="form-action">
                 <button type="reset" class="btn btn-default">Annuler</button>

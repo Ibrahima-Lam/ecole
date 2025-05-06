@@ -18,7 +18,7 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         $this->response($data);
     }
 
-    public function autocomplete() : void {
+    public function autocomplete($ar=false) : void {
         $tab=[];
         $checks=[];
         $model = new EleveRepository();
@@ -26,14 +26,16 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         foreach ($data as  $value) {
             $t1=explode(" ",trim($value->nom));
             $t2=explode(" ",trim($value->isme));
+            if ($ar && sizeof($t2)!=sizeof($t1)) continue;
             foreach ($t1 as $k => $v) {
-                if(in_array($v, $checks)) continue;
-                $checks[]=$v;
-                $tab[]=["fr"=>$v,"ar"=>$t2[$k]??''];
+                $val=ucfirst(strtolower($v));
+                if(in_array($val, $checks)) continue;
+                $checks[]=$val;
+                $tab[]=["fr"=>$val,"ar"=>$t2[$k]??''];
             }
         }
         usort($tab, function($a, $b) {
-            return strcmp($a['fr'], $b['fr']);
+            return mb_strtolower($a['fr'])>mb_strtolower($b['fr']) ? 1 : -1;
         });
         $this->response($tab);
 

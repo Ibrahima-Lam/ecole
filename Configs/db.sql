@@ -4029,3 +4029,39 @@ update note set note='11' where idNote='1501' ;
 update eleve set matricule='2AS257',nom='Inconnu',isme='',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Boghe',nni='NNI2AS2057' where matricule='2AS2057';
 -- 2025-05-04 17:00:38
 update eleve set matricule='2AS257',nom='Inconnu',isme='',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Boghe',nni='NNI2AS2057' where matricule='2AS2057';
+-- 2025-05-06 12:36:04
+update eleve set matricule='5d245',nom='Mohamed Abdourahmane Cheick Sidi Mocktar Mahmoude',isme='محمد عبدالرحمن الشيخ سدإ مختار محمد',sexe='M',dateNaissance='',lieuNaissance='',adresse='',nni='00000145' where matricule='5d245';
+-- 2025-05-06 12:37:22
+update eleve set matricule='5d259',nom='Salamata Abdourahmani Sy',isme='سلمتا عبدالرحمن سي',sexe='M',dateNaissance='',lieuNaissance='',adresse='',nni='00000159' where matricule='5d259';
+-- 2025-05-06 12:38:28
+update eleve set matricule='5LM046',nom='Abdallahi Mohamed Vadel',isme='عبدالله محمد فاضل',sexe='M',dateNaissance='',lieuNaissance='',adresse='',nni='NNI5LM046' where matricule='5LM046';
+-- 2025-05-06 16:20:43
+update eleve set matricule='5d356',nom='Aisse Amadou N''gaide',isme='عيستا  أمدو انكيدي',sexe='M',dateNaissance='',lieuNaissance='',adresse='',nni='00000356' where matricule='5d356';
+-- 2025-05-06 17:04:10
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-02',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:04:10
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-02',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:10:40
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:11:17
+update eleve set matricule='5LM055',nom='Boudra / Deyali',isme='بودره \ ديالي',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI5LM055' where matricule='undefined';
+-- 2025-05-06 17:11:17
+update eleve set matricule='5LM055',nom='Boudra / Deyali',isme='بودره \ ديالي',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI5LM055' where matricule='5LM055';
+-- 2025-05-06 17:14:20
+update eleve set matricule='5LM056',nom='Inconnu',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:14:43
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:17:03
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='undefined';
+-- 2025-05-06 17:17:03
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:18:09
+update eleve set matricule='5LM055',nom='Boudra / Deyali',isme='بودره \ ديالي',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI5LM055' where matricule='5LM055';
+-- 2025-05-06 17:24:00
+update eleve set matricule='5LM056',nom='Inconnu1',isme='',sexe='M',dateNaissance='2000-01-03',lieuNaissance='Boghe',adresse='Boghe',nni='NNI5LM056' where matricule='5LM056';
+-- 2025-05-06 17:33:11
+update eleve set matricule='5d1044',nom='Aminata Moussa Diallo',isme='ءمنتا موسي جاو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000044' where matricule='5d1044';
+-- 2025-05-06 17:33:39
+update eleve set matricule='5d1044',nom='Aminata',isme='ءمنتا موسي جاو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000044' where matricule='5d1044';
+-- 2025-05-06 17:35:40
+update eleve set matricule='5d1044',nom='Aminata Moussa Diallo',isme='امينتا موسى جالو ',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000044' where matricule='5d1044';

@@ -1,4 +1,5 @@
 import { fetchJson } from "../src/fetch.js";
+import Autocomplete from "./autocomplete_module.js";
 
 export default class EleveForm {
 
@@ -16,8 +17,10 @@ export default class EleveForm {
         this.dl = dl;
         this.form = dl.querySelector("form");
         this.form?.addEventListener("submit", (e) => this.submit(e));
+       
         this.dl.querySelector('#close')?.addEventListener("click", () => this.dl.close());
 
+       new Autocomplete(dl.querySelector('#nom').parentNode,dl.querySelector('#nom'),dl.querySelector('#isme'));
     }
     #addData() {
         fetchJson("?p=api/eleve/matricule/" + this.matricule).then((data) => {
@@ -25,7 +28,7 @@ export default class EleveForm {
             this.form.nom.value = data.nom;
             this.form.isme.value = data.isme;
             this.form.sexe.value = data.sexe;
-            this.form.dateNaissance.value = data.dateNaissance;
+          if(data.dateNaissance!="0000-00-00"&&data.dateNaissance) this.form.dateNaissance.value = data.dateNaissance;
             this.form.lieuNaissance.value = data.lieuNaissance;
             this.form.adresse.value = data.adresse;
             this.form.nni.value = data.nni;
@@ -48,6 +51,8 @@ export default class EleveForm {
 
     submit(e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
+       
         let edit = this.form.edit.value;
         let url = ''
 
@@ -59,7 +64,7 @@ export default class EleveForm {
             url = "?p=api/eleve/insert" + "&" + dtSring;
         }
         fetchJson(url).then((data) => {
-
+          
             if ((data?.status ?? 0)==1) {
                 alert(data?.message ?? "Success");
                 this.dl.close();
@@ -67,6 +72,9 @@ export default class EleveForm {
             } else {
                 alert(data?.message ?? "Error");
             }
-        })
+        }).catch((error) => {
+            alert("Error " + error);
+            console.log(error);
+        });
     }
 }

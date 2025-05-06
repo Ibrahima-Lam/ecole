@@ -93,7 +93,7 @@ search?.addEventListener('input', function (e) {
     }
     fetchDataText("?p=api/home/search/" + value)
     .then(data=>{
-        console.log(data);
+        
         result.innerHTML=data;
     })
     .catch(error=>{

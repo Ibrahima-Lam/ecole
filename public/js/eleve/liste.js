@@ -28,6 +28,7 @@ function deleteEleve(matricule) {
 
 document.querySelectorAll(".delete").forEach(function (element) {
     element?.addEventListener("click", function (e) {
+        e.stopImmediatePropagation();
         let matricule = element.dataset.matricule;
         deleteEleve(matricule);
     });
@@ -41,6 +42,7 @@ function editEleve(matricule) {
 
 document.querySelectorAll(".edit").forEach(function (element) {
     element?.addEventListener("click", function (e) {
+        e.stopImmediatePropagation();
         let matricule = element.dataset.matricule;
         editEleve(matricule);
     });

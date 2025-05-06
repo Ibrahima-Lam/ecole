@@ -68,7 +68,7 @@
                 
                 <tr>
                     <td><?= $inscription->codeSalleClasse ?></td>
-                    <td><?= $inscription->codeClasse ?><sub><?= $inscription->indiceSalleClasse ?></sub></td>
+                    <td><a href="?p=salleclasse/profil/<?= $inscription->codeSalleClasse ?>"><?= $inscription->pseudoSalleClasse ?></a></td>
                     <td><?= $inscription->nomClasse ?></td>
                     <td><?= $inscription->matricule ?></td>
                     <td><?= $inscription->numeroInscrit ?></td>

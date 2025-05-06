@@ -11,7 +11,7 @@
         <div class="form-group">
             <!-- Nom en Arabe -->
             <label for="isme">Nom en Arabe الاسم</label>
-            <input type="text" dir="rtl" class="form-control" id="isme" name="isme" placeholder="Nom en Arabe الاسم">
+            <input type="text" dir="rtl" class="form-control" id="isme" name="isme" placeholder="الاسم Nom en Arabe">
         </div>
         <div class="form-group">
             <label for="sexe">Sexe</label>
@@ -46,108 +46,19 @@
     </form>
 </div>
 <script type="module" defer>
-import {fetchJson} from './js/src/fetch.js';
 
+import Autocomplete from './js/eleve/autocomplete_module.js';
 
-
-class Autocomplete {
-    constructor(parent,input) {
-        this.input = input;
-        this.options = [];
-        this.filteredOptions = [];
-        this.parent = parent;
-        this.active=0;
-        this.handleKeyDown = (e) => {
-                e.stopImmediatePropagation();
-                let lis = this.parent.querySelectorAll('li');
-                if(e.code == 'ArrowUp'){
-                    this.active--;
-                    if(this.active<0) this.active=lis.length-1;
-                    lis.forEach(li => li.classList.remove('active'));
-                    lis[this.active]?.classList.add('active');
-                }else if(e.code == 'ArrowDown'){
-                    this.active++;
-                    if(this.active>lis.length-1) this.active=0;
-                    lis.forEach(li => li.classList.remove('active'));
-                    lis[this.active]?.classList.add('active');
-                }else if(e.code == 'Enter'){
-                    this.input.value = lis[this.active].innerText;
-                    this.parent.querySelector('.autocomplete')?.remove();
-                    this.render();
-                };
-            }
-           
-
-        this.init();
-    }
-
-    async init() {
-        let url = "?p=api/eleve/autocomplete";
-        await fetchJson(url).then(data => {
-            
-            this.options = data;
-        }).catch(e => console.log(e));
-        this.filteredOptions = this.options;
-        this.input?.addEventListener('input', () => {
-            let t=this.input.value.split(' ');
-            let val = t[t.length-1];
-            this.filteredOptions = this.options.filter(option => option.fr.toLowerCase().startsWith(val.toLowerCase()));
-            this.render(this.filteredOptions);
-        });
-        
-
-        document?.addEventListener('click', () => {
-            this.parent.querySelector('.autocomplete')?.remove();
-        });
-    }
-
-    render(data=[]) {
-       this.input.removeEventListener('keydown', this.handleKeyDown); 
-        if(!data.length||!this.input.value) {
-            this.parent.querySelector('.autocomplete')?.remove();
-            return;
-        };
-       let html=`
-       <div class="autocomplete">
-        <ul>
-        `;
-        let t=this.input.value.split(' ');
-        delete t[t.length-1];
-        let val = t.join(' ');
-        html+=data.map(elemt => `<li>${val+' '+elemt?.fr}</li>`).join('');
-        html+=`</ul>
-        </div>`;
-        let last =this.parent.querySelector('.autocomplete');
-        if(last) last.remove();
-        this.parent.insertAdjacentHTML('beforeend', html);
-        this.input.focus();
-        const ul = this.parent.querySelector('ul');
-        if(!ul) return;
-        const lis = ul.querySelectorAll('li');
-        
-        if(!lis.length) return;
-        for(let li of lis){
-            li?.addEventListener('click', e => {
-                this.input.value = li.innerText;
-                this.parent.querySelector('.autocomplete')?.remove();
-                this.render();
-            });
-        }
-        this.activate();
-       
-        }
-        activate() {
-            const lis = this.parent.querySelectorAll('li');
-            lis[0]?.classList.add('active');
-            this.input?.addEventListener('keydown', this.handleKeyDown);
-        }
-    }
-
-
+const form=document.querySelector('form')
+form.addEventListener('submit',e=>{
+    e.preventDefault();
+    
+})
 
 
 const nom = document.querySelector('#nom');
-new Autocomplete(nom.parentNode,nom);
+const isme = document.querySelector('#isme');
+new Autocomplete(nom.parentNode,nom,isme);
 
 
 
