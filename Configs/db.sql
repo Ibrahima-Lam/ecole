@@ -4065,3 +4065,35 @@ update eleve set matricule='5d1044',nom='Aminata Moussa Diallo',isme='ءمنتا
 update eleve set matricule='5d1044',nom='Aminata',isme='ءمنتا موسي جاو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000044' where matricule='5d1044';
 -- 2025-05-06 17:35:40
 update eleve set matricule='5d1044',nom='Aminata Moussa Diallo',isme='امينتا موسى جالو ',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000044' where matricule='5d1044';
+-- 2025-05-07 14:21:47
+insert into professeur(matriculeProfesseur,nomProfesseur,ismeProfesseur,sexeProfesseur,adresseProfesseur,nniProfesseur,codeSpecialite,dateDebutProfesseur,dateArriveeProfesseur,telProfesseur,emailProfesseur,statutProfesseur) values('64522259','Abdoul Dia','عبدول جا ','M','Boghé','611189656','mpc','2000-01-01','2000-01-01','45622823','abdoul@gmail','actif');
+-- 2025-05-07 14:29:50
+update professeur set matriculeProfesseur='124871D',nomProfesseur='Ibrahima Abou Lam',ismeProfesseur='إبراهيم أبو لام ',sexeProfesseur='M',adresseProfesseur='',nniProfesseur='9872324575',codeSpecialite='mpc',dateDebutProfesseur='2024-10-01',dateArriveeProfesseur='2024-12-01',telProfesseur='',emailProfesseur='',statutProfesseur='actif' where matriculeProfesseur='124871D';
+-- 2025-05-07 14:30:32
+update professeur set matriculeProfesseur='124871D',nomProfesseur='Ibrahima Abou Lam',ismeProfesseur='إبراهيم أبو لام ',sexeProfesseur='M',adresseProfesseur='Boghe',nniProfesseur='9872324575',codeSpecialite='mpc',dateDebutProfesseur='2024-10-01',dateArriveeProfesseur='2024-12-01',telProfesseur='41916418',emailProfesseur='ibrahimaaboulam@gmail.com',statutProfesseur='actif' where matriculeProfesseur='124871D';
+-- 2025-05-07 14:34:21
+update professeur set matriculeProfesseur='64522259',nomProfesseur='Abdoul Dia',ismeProfesseur='عبدول جا ',sexeProfesseur='M',adresseProfesseur='Boghé',nniProfesseur='611189656',codeSpecialite='mpc',dateDebutProfesseur='2000-01-01',dateArriveeProfesseur='2000-01-01',telProfesseur='45622823',emailProfesseur='abdoul@gmail',statutProfesseur='actif' where matriculeProfesseur='64522259';
+-- 2025-05-07 14:34:37
+update professeur set matriculeProfesseur='64522259',nomProfesseur='Abdoul Dia',ismeProfesseur='عبدول جا ',sexeProfesseur='M',adresseProfesseur='Boghé',nniProfesseur='611189656',codeSpecialite='mpc',dateDebutProfesseur='2000-01-01',dateArriveeProfesseur='2000-01-01',telProfesseur='45622823',emailProfesseur='abdoul@gmail.com',statutProfesseur='actif' where matriculeProfesseur='64522259';
+-- 2025-05-07 15:10:46
+update professeur set matriculeProfesseur='124871D',nomProfesseur='Ibrahima Abou Lam',ismeProfesseur='إبراهيم أبو لام ',sexeProfesseur='M',adresseProfesseur='Boghe Thialgou',nniProfesseur='9872324575',codeSpecialite='mpc',dateDebutProfesseur='2024-10-01',dateArriveeProfesseur='2024-12-01',telProfesseur='41916418',emailProfesseur='ibrahimaaboulam@gmail.com',statutProfesseur='actif' where matriculeProfesseur='124871D';
+-- 2025-05-07 18:37:18
+update eleve set matricule='2AS207',nom='Aissé Bassirou Lam',isme='عيسى باسيرو لام',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS207' where matricule='2AS207';
+-- 2025-05-07 18:38:29
+update eleve set matricule='2AS206',nom='Zeinbou Babacar Djibi Sarr',isme='زينبو بابكر جيبي صار',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS206' where matricule='2AS206';
+-- 2025-05-07 18:39:41
+update eleve set matricule='2AS205',nom='Ibrahima Adama Ndongo',isme='ابراهيما آدما اندوكو',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS205' where matricule='2AS205';
+-- 2025-05-07 18:40:52
+update eleve set matricule='2AS214',nom='Houlèye Med Yahya N''gaidé',isme='حولي محمد يحي أنكيدي ',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS214' where matricule='2AS214';
+-- 2025-05-07 18:42:05
+update eleve set matricule='2AS220',nom='Coumba Wagne',isme='كومبا وآني ',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS220' where matricule='2AS220';
+-- 2025-05-07 18:52:31
+update eleve set matricule='5d1036',nom='Mody Ibrahima Thiam',isme='مودي ابراهيم تسام',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000036' where matricule='5d1036';
+-- 2025-05-07 18:53:16
+update eleve set matricule='5d1036',nom='Mody Ibrahima Thiam',isme='مودي إبراهيما اتيام ',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000036' where matricule='5d1036';
+-- 2025-05-07 18:59:13
+update eleve set matricule='2AS203',nom='Houly Allassane N''diaye',isme='هولي الاسان انجاي ',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS203' where matricule='2AS203';
+-- 2025-05-07 19:02:12
+update eleve set matricule='5d232',nom='Aissata Amadou Sao',isme='عائشة أمدو صاو ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='00000132' where matricule='5d232';
+-- 2025-05-07 19:03:49
+update eleve set matricule='5d232',nom='Aissata Amadou Sao',isme='عيستا أمدو صاو ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='00000132' where matricule='5d232';

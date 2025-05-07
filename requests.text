@@ -193,20 +193,29 @@ create table specialite(
     Constraint specialite_pkey Primary Key (codeSpecialite),
     Constraint specialite_unique Unique (nomSpecialite)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-
+insert into specialite values('mpc','math physique chimie','');
 create table professeur(
     matriculeProfesseur varchar(10) not null,
     nomProfesseur varchar(100) not null,
     ismeProfesseur varchar(100),
-    sexeProfesseur varchar(1) ,
-    adresseProfesseur varchar(50) ,
-    nniProfesseur varchar(100) not null,
+    sexeProfesseur enum('M','F'),
+    adresseProfesseur varchar(100) ,
+    nniProfesseur varchar(10) not null,
     telProfesseur varchar(8),
-    codeSpecialite varchar(10) not null,
+    emailProfesseur varchar(100) ,
+    codeSpecialite varchar(10) ,
+    dateDebutProfesseur date,
+    dateArriveeProfesseur date,
+    statutProfesseur enum('actif','inactif','malade','suspendu','exclu','abandonne','autre','retraite') default 'actif',
     Constraint professeur_pkey Primary Key (matriculeProfesseur),
     Constraint professeur_nni_unique Unique (nniProfesseur),
     Constraint professeur_specialite_fkey Foreign Key (codeSpecialite) References specialite(codeSpecialite)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+insert into professeur (matriculeProfesseur,nomProfesseur,nniProfesseur,codeSpecialite) values ('124871D','Ibrahima Abou Lam','9872324575','mpc');
+alter table professeur modify column statutProfesseur enum('actif','inactif','malade','suspendu','exclu','abandonne','autre','retraite') default 'actif';
+alter table professeur modify column sexeProfesseur enum('M','F');
+alter table professeur add column dateArriveeProfesseur date;
+alter table professeur add column dateDebutProfesseur date;
 
 create table matiere(
     codeMatiere varchar(5) not null,

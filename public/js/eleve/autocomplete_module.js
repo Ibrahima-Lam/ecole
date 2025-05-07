@@ -52,7 +52,7 @@ export default class Autocomplete {
                 if(e.code == 'Enter'||e.code == 'Tab') {
                     if(e.code == 'Enter')e.preventDefault();
                     if(e.code == 'Tab'&&this.arabeInput?.value.trim().length!=this.arabeMatch(this.frInput.value).trim().length)e.preventDefault();
-                  if(this.arabeInput) this.arabeInput.value = this.arabeMatch(this.frInput.value);
+                  if(this.arabeInput&&this.arabeMatch(this.frInput.value)) this.arabeInput.value = this.arabeMatch(this.frInput.value);
                    
                 };
            

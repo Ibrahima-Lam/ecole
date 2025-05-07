@@ -1,8 +1,5 @@
-<h2 class="title text-center">Les Professeurs</h2>
+<h2 class="title text-center my-10">Profil du Professeur</h2>
 
-<div class="center my-10">
-    <input type="search" class="field" id="srch" placeholder="Rechercher un professeur" />
-</div>
 <div class="table-container">
     <table class="table table-striped">
         <thead>
@@ -10,42 +7,61 @@
                 <th data-sort="matriculeProfesseur" class="sortable">Matricule</th>
                 <th data-sort="nomProfesseur" class="sortable">Nom</th>
                 <th data-sort="ismeProfesseur" class="sortable">Nom en arabe</th>
+                <th data-sort="statutProfesseur" class="sortable">Code Specialite</th>
                 <th data-sort="codeSpecialite" class="sortable">specialite</th>
                 <th data-sort="statutProfesseur" class="sortable">statut</th>
-                <th data-sort="telProfesseur" class="sortable">Tel</th>
-                <th data-sort="emailProfesseur" class="sortable">Email</th>
-                <th data-sort="nniProfesseur" class="sortable">NNI</th>
+                <th data-sort="dateDebut" class="sortable">date de début</th>
+                <th data-sort="dateArrivee" class="sortable">date d'arrivée</th>
                 <th>action</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach($profs as $prof):?>
-                <tr>
+            <tr>
                     <td><?=$prof->matriculeProfesseur ?></td>
                     <td><?=$prof->nomProfesseur ?></td>
                     <td><?=$prof->ismeProfesseur ?></td>
+                    <td><?=$prof->codeSpecialite ?></td>
                     <td><?=$prof->nomSpecialite ?></td>
                     <td><?=$prof->statutProfesseur ?></td>
-                    <td><?=$prof->telProfesseur ?></td>
-                    <td><?=$prof->emailProfesseur ?></td>
-                    <td><?=$prof->nniProfesseur ?></td>
+                   
+                    <td><?=$prof->dateDebutProfesseur ?></td>
+                    <td><?=$prof->dateArriveeProfesseur ?></td>
                     <td>
                         <?php if($_admin):?>
                             <div class="center">
-                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn edit"><i class="bi bi-pencil text-primary"></i></button>
-                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn delete"><i class="bi bi-trash text-danger"></i></button>
+                                <button type="button" id="edit" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn"><i class="bi bi-pencil text-primary"></i></button>
                             </div>
                         <?php endif?>
                     </td>
 
-                </tr>
-            <?php endforeach?>
+            </tr>
+           
         </tbody>
     </table>
 </div>
-
-<div class="fixed-action">
-    <button type="button" id="add" class="btn btn-primary circle"><i class="bi bi-plus"></i></button>
+<h2 class="title text-center">Contact</h2>
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>NNI</th>
+            </tr>
+           
+        </thead>
+        <tbody>
+            <tr>
+            <td><?=$prof->matriculeProfesseur ?></td>
+            <td><?=$prof->telProfesseur ?></td>
+                    <td><?=$prof->emailProfesseur ?></td>
+                    <td><?=$prof->adresseProfesseur ?></td>
+                    <td><?=$prof->nniProfesseur ?></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 
@@ -138,4 +154,12 @@
     </div>
 </dialog>
 
-<script src="./js/professeur/liste.js" type="module" defer></script>
+<script type="module" defer>
+    import ProfesseurForm from "./js/professeur/professeur_form.js";
+    document.querySelector("#edit").addEventListener("click", () => {
+        let dialog = new ProfesseurForm(document.querySelector(".dialog"), "<?=$prof->matriculeProfesseur ?>");
+        dialog.setEditable('true');
+        dialog.show();
+    });
+    
+</script>

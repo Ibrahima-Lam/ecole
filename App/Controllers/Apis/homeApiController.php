@@ -3,6 +3,7 @@
 namespace App\Controllers\apis;
 
 use App\Models\Repositories\EleveRepository;
+use App\Models\Repositories\ProfesseurRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use Core\Caches\Session;
 use Core\Controllers\Controller;
@@ -42,16 +43,16 @@ public function search($search) {
    foreach ($classes as $class) {
        if (str_contains(strtoupper($class->pseudoSalleClasse), strtoupper($search))) {
         $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($class->pseudoSalleClasse));
-          $class->result="<li>
-          <span>$r</span>
+          $class->result="<li title='Classe'>
+          <span>$r <b>(Classe)</b></span>
           <a class='link' href='?p=salleclasse/profil/$class->codeSalleClasse'>$class->pseudoSalleClasse</a>
           </li>";
            $result[]=$class;
        }
     elseif (str_contains(strtoupper($class->codeSalleClasse), strtoupper($search))) {
        $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($class->codeSalleClasse));
-        $class->result="<li>
-       <span>$r</span>
+        $class->result="<li title='Classe'>
+       <span>$r <b>(Classe)</b></span>
        <a class='link' href='?p=salleclasse/profil/$class->codeSalleClasse'>$class->pseudoSalleClasse</a>
        </li>";
         $result[]=$class;
@@ -68,8 +69,8 @@ $result=[];
 foreach ($eleves as $eleve) {
     if (str_contains(strtoupper($eleve->nom), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->nom));
-       $eleve->result="<li>
-       <span>$r</span>
+       $eleve->result="<li title='Eleve'>
+       <span>$r <b>(Eleve)</b></span>
        <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
        <br>
        $eleve->isme
@@ -79,8 +80,8 @@ foreach ($eleves as $eleve) {
     } 
     elseif (str_contains(strtoupper($eleve->isme), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->isme));
-       $eleve->result="<li>
-       <span>$r</span>
+       $eleve->result="<li title='Eleve'>
+       <span>$r <b>(Eleve)</b></span>
        <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
        <br>
        $eleve->isme
@@ -90,8 +91,8 @@ foreach ($eleves as $eleve) {
     }
  elseif (str_contains(strtoupper($eleve->matricule), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->matricule));
-     $eleve->result="<li>
-    <span>$r</span>
+     $eleve->result="<li title='Eleve'>
+    <span>$r <b>(Eleve)</b></span>
     <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
     <br>
     $eleve->isme
@@ -100,14 +101,88 @@ foreach ($eleves as $eleve) {
      $result[]=$eleve;
  }elseif (str_contains(strtoupper($eleve->nni), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->nni));
-     $eleve->result="<li>
-    <span>$r</span>
+     $eleve->result="<li title='Eleve'>
+    <span>$r <b>(Eleve)</b></span>
     <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
     <br>
     $eleve->isme
     </a>
     </li>";
      $result[]=$eleve;
+ }
+}
+$res.=array_reduce($result, function ($a,$b)  {
+    $v=$b->result;
+    return "$a  $v <hr>";
+    }, '');
+    
+$model=new ProfesseurRepository();
+$profs=$model->findAll();
+
+$result=[];
+foreach ($profs as $prof) {
+    if (str_contains(strtoupper($prof->nomProfesseur), strtoupper($search))) {
+     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->nomProfesseur));
+       $prof->result="<li title='Professeur'>
+       <span>$r <b>(Professeur)</b></span>
+       <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+       <br>
+       $prof->ismeProfesseur
+       </a>
+       </li>";
+        $result[]=$prof;
+    } 
+    elseif (str_contains(strtoupper($prof->ismeProfesseur), strtoupper($search))) {
+     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->ismeProfesseur));
+       $prof->result="<li title='Professeur'>
+       <span>$r <b>(Professeur)</b></span>
+       <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+       <br>
+       $prof->ismeProfesseur
+       </a>
+       </li>";
+        $result[]=$prof;
+    }
+ elseif (str_contains(strtoupper($prof->matriculeProfesseur), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->matriculeProfesseur));
+     $prof->result="<li title='Professeur'>
+    <span>$r <b>(Professeur)</b></span>
+    <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+    <br>
+    $prof->ismeProfesseur
+    </a>
+    </li>";
+     $result[]=$prof;
+ }elseif (str_contains(strtoupper($prof->nniProfesseur), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->nniProfesseur));
+     $prof->result="<li title='Professeur'>
+    <span>$r <b>(Professeur)</b></span>
+    <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+    <br>
+    $prof->ismeProfesseur
+    </a>
+    </li>";
+     $result[]=$prof;
+ }elseif (str_contains(strtoupper($prof->emailProfesseur), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->emailProfesseur));
+     $prof->result="<li title='Professeur'>
+    <span>$r <b>(Professeur)</b></span>
+    <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+    <br>
+    $prof->ismeProfesseur
+    </a>
+    </li>";
+     $result[]=$prof;
+ }elseif (str_contains(strtoupper($prof->telProfesseur), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->telProfesseur));
+     $prof->result="<li title='Professeur'>
+    <span>$r <b>(Professeur)</b></span>
+    <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
+    <br>
+    $prof->ismeProfesseur
+    </a>
+    </li>";
+     $result[]=$prof;
  }
 }
 $res.=array_reduce($result, function ($a,$b)  {
