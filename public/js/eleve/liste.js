@@ -1,5 +1,5 @@
 
-import { fetchJson } from "../src/fetch.js";
+import { fetchJson, fetchText } from "../src/fetch.js";
 import EleveForm from "./eleve_form_module.js";
 /**
  * @type {HTMLInputElement} admin
@@ -146,14 +146,42 @@ class TableData {
         };
 
     }
-    create() {
-        let elements = this.data;
+   async create() {
+       /*  let elements = this.data;
         elements = this.#filterData(this.data, this.params.search);
         elements = this.#sortData(elements);
-        this.#render(elements);
+        this.#render(elements); */
+        let tbody = this.table.querySelector("tbody");
+        tbody.innerHTML = '';
+    let paramStr = Object.entries(this.params).map(([key, value]) => `${key}=${value}`).join("&");
+        let url = "?p=api/eleve/htmlListe&"+paramStr;
+       
+        let html = await fetchText(url);
+        tbody.innerHTML = html;
+        
+        tbody.querySelectorAll(".edit").forEach(element => {
+            element?.addEventListener("click", async (e) => {
+                let matricule = element.dataset.matricule;
+                editEleve(matricule);
+            });
+        });
+
+        tbody.querySelectorAll(".delete").forEach(element => {
+            element?.addEventListener("click", async (e) => {
+                let matricule = element.dataset.matricule;
+                deleteEleve(matricule);
+            });
+
+        });
+        tbody.querySelectorAll('tr').forEach(element => {
+            element?.addEventListener("dblclick", async (e) => {
+                let matricule = element.dataset.matricule;
+                window.location.assign('?p=eleve/profil/' + matricule);
+            });
+        });
     }
 
-    setSorting(th) {
+     setSorting(th) {
         const ths = this.table.querySelectorAll('.sortable')
         ths.forEach(element => {
             let i = element.querySelector('i')
@@ -168,7 +196,7 @@ class TableData {
         i.classList.add('text-primary')
         th.append(i)
     }
-
+/*
     setFiltering(value) {
         const tds = this.table.querySelectorAll('td.seachable')
         const mark = document.createElement('mark')
@@ -255,5 +283,5 @@ class TableData {
                         </div>
         </td>
         </tr>`;
-    }
+    } */
 }

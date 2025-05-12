@@ -65,7 +65,7 @@ function renderTable() {
         const row=document.createElement('tr')
         row.innerHTML=`
             <td>${examen.codeExamen}</td>
-            <td>${examen.codeClasse}${examen.indiceSalleClasse}</td>
+            <td>${examen.pseudoSalleClasse}</td>
             <td>${examen.codeMatiere}</td>
             <td>${examen.nomEvaluation}</td>
             <td>${examen.dateExamen}</td>

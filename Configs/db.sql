@@ -4097,3 +4097,37 @@ update eleve set matricule='2AS203',nom='Houly Allassane N''diaye',isme='هول�
 update eleve set matricule='5d232',nom='Aissata Amadou Sao',isme='عائشة أمدو صاو ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='00000132' where matricule='5d232';
 -- 2025-05-07 19:03:49
 update eleve set matricule='5d232',nom='Aissata Amadou Sao',isme='عيستا أمدو صاو ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='00000132' where matricule='5d232';
+-- 2025-05-08 20:34:11
+update examen set codeExamen='A24255D1PC5DD2',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D2',
+        dateExamen='',statutExamen='0',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD2';
+-- 2025-05-08 20:35:22
+update examen set codeExamen='A24255D1PC5DD2',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D2',
+        dateExamen='',statutExamen='1',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD2';
+-- 2025-05-10 21:25:44
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('64522259', 'SN');
+-- 2025-05-10 21:28:41
+update professeur set matriculeProfesseur='6452225',nomProfesseur='Abdoul Dia',ismeProfesseur='عبدول جا ',sexeProfesseur='M',adresseProfesseur='Boghé',nniProfesseur='611189656',codeSpecialite='mpc',dateDebutProfesseur='2000-01-01',dateArriveeProfesseur='2000-01-01',telProfesseur='45622823',emailProfesseur='abdoul@gmail.com',statutProfesseur='actif' where matriculeProfesseur='64522259';
+-- 2025-05-10 21:29:17
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('6452225', 'SN');
+-- 2025-05-10 21:32:33
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('SN', '6452225');
+-- 2025-05-11 14:17:59
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('SN', '6452225');
+-- 2025-05-11 14:28:54
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('PC', '124871D');
+-- 2025-05-11 14:29:44
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('MATH', '124871D');
+-- 2025-05-11 14:43:14
+UPDATE professeur_matiere SET codeMatiere = 'SN', matriculeProfesseur = '124871D' WHERE codeMatiere = 'PC' AND matriculeProfesseur = '124871D';
+-- 2025-05-11 14:43:30
+UPDATE professeur_matiere SET codeMatiere = 'PC', matriculeProfesseur = '124871D' WHERE codeMatiere = 'SN' AND matriculeProfesseur = '124871D';
+-- 2025-05-11 14:43:44
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('SN', '124871D');
+-- 2025-05-11 14:43:53
+DELETE FROM professeur_matiere WHERE codeMatiere = 'SN' AND matriculeProfesseur = '124871D';
+-- 2025-05-12 19:06:38
+UPDATE enseigner SET matriculeProfesseur = '124871D', codeMatiere = 'PC', codeSalleClasse = 'A24255LM' WHERE idEnseigner = '2';
+-- 2025-05-12 19:07:03
+INSERT INTO enseigner (matriculeProfesseur, codeMatiere, codeSalleClasse) VALUES ('124871D', 'PC', 'A24255D1');
+-- 2025-05-12 19:07:31
+DELETE FROM enseigner WHERE idEnseigner = '3';

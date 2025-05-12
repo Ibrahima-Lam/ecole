@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '0eb56c9882204363669dbb4ade82df0ce4a7ed1b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,11 +11,20 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '0eb56c9882204363669dbb4ade82df0ce4a7ed1b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'fortawesome/font-awesome' => array(
+            'pretty_version' => '6.7.2',
+            'version' => '6.7.2.0',
+            'reference' => 'af620534bfc3c2d4cbefcfeec29603bbe7809e64',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../fortawesome/font-awesome',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

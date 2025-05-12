@@ -1,4 +1,6 @@
-<h2 class="title text-center my-10">Profil du Professeur</h2>
+<?=$subsidebar??'' ?>
+
+<h3 class="title text-center my-10">Profil du Professeur</h3>
 
 <div class="table-container">
     <table class="table table-striped">
@@ -39,7 +41,8 @@
         </tbody>
     </table>
 </div>
-<h2 class="title text-center">Contact</h2>
+<br>
+<h3 class="title text-center">Contact</h3>
 <div class="table-container">
     <table class="table table-striped">
         <thead>
@@ -63,6 +66,33 @@
         </tbody>
     </table>
 </div>
+<br>
+<h3 class="title text-center">Matieres</h3>
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Code Matiere</th>
+                <th>Matiere</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($matieres as $matiere):?>
+            <tr>
+                <td><?=$matiere->matriculeProfesseur ?></td>
+                <td><?=$matiere->codeMatiere ?></td>
+                <td><?=$matiere->nomMatiere ?></td>
+                <td>
+                   
+                </td>
+            </tr>
+        <?php endforeach?>
+        </tbody>
+    </table>
+</div>
+
 
 
 <dialog id="dialog" class="dialog">

@@ -118,7 +118,7 @@ window?.addEventListener('load', function (e) {
 
 const trs=document.querySelectorAll('tbody tr')
 trs.forEach(tr => {
-    tr?.addEventListener('dblclick',function(e){
+    tr?.addEventListener('click',function(e){
     window.location.assign("?p=professeur/profil/" + tr.dataset.matricule)
     })
 });

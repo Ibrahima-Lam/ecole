@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             <?php foreach($profs as $prof):?>
-                <tr>
+                <tr data-matricule="<?=$prof->matriculeProfesseur ?>">
                     <td><?=$prof->matriculeProfesseur ?></td>
                     <td><?=$prof->nomProfesseur ?></td>
                     <td><?=$prof->ismeProfesseur ?></td>

@@ -3,14 +3,12 @@
 namespace App\Controllers\apis;
 
 use App\Models\Repositories\ProfesseurRepository;
-use App\Services\factories\NoninscritFactory;
 use Core\Controllers\Controller;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;
 
 class ProfesseurApiController extends Controller implements EleveControllerInterfaces
 {
-    private const KEY="noninscrit";
     public function liste(): void
     {
         $model = new ProfesseurRepository();

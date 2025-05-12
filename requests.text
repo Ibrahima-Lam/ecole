@@ -275,22 +275,49 @@ join serie s on s.codeSerie=c.codeSerie;
 
 create table professeur_matiere(
     matriculeProfesseur varchar(10) not null,
-    codeMatiere varchar(10) not null,
-    Constraint professeur_matiere_pkey Primary Key (matriculeProfesseur,codeMatiere)
-);
+    codeMatiere varchar(5) not null,
+    Constraint professeur_matiere_pkey Primary Key (matriculeProfesseur,codeMatiere),
+    Constraint professeur_matiere_professeur_fkey Foreign Key (matriculeProfesseur) References professeur(matriculeProfesseur),
+    Constraint professeur_matiere_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+insert into professeur_matiere (matriculeProfesseur,codeMatiere) values('124871D','MATH');
+insert into professeur_matiere (matriculeProfesseur,codeMatiere) values('124871D','PC');
 
+create view professeur_matiere_view as select
+  pm.matriculeProfesseur as matriculeProfesseur,pm.codeMatiere as codeMatiere,
+  p.nomProfesseur as nomProfesseur,p.ismeProfesseur as ismeProfesseur,p.sexeProfesseur as sexeProfesseur,p.nniProfesseur as nniProfesseur,p.telProfesseur as telProfesseur,p.emailProfesseur as emailProfesseur,
+  m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere
+   from professeur_matiere pm 
+join matiere m on m.codeMatiere=pm.codeMatiere 
+join professeur p on p.matriculeProfesseur=pm.matriculeProfesseur;
 
-   
-create table enseigne(
+create table enseigner(
+    idEnseigner int(6) AUTO_INCREMENT,
     matriculeProfesseur varchar(10) not null,
-    codeMatiere varchar(10) not null,
+    codeMatiere varchar(5) not null,
     codeSalleClasse varchar(10) not null,
-    Constraint enseigne_pkey Primary Key (matriculeProfesseur,codeMatiere,codeSalleClasse),
-    Constraint enseigne_professeur_fkey Foreign Key (matriculeProfesseur) References professeur(matriculeProfesseur),
-    Constraint enseigne_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere),
-    Constraint enseigne_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse)
+    Constraint enseigner_pkey Primary Key (idEnseigner),
+    Constraint enseigner_professeur_fkey Foreign Key (matriculeProfesseur) References professeur(matriculeProfesseur),
+    Constraint enseigner_matiere_fkey Foreign Key (codeMatiere) References matiere(codeMatiere),
+    Constraint enseigner_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+insert into enseigner (matriculeProfesseur,codeMatiere,codeSalleClasse) values('124871D','MATH','A24255LM');
+insert into enseigner (matriculeProfesseur,codeMatiere,codeSalleClasse) values('124871D','PC','A24255LM');
+
+
+create view enseigner_view as select
+  e.idEnseigner as idEnseigner,e.matriculeProfesseur as matriculeProfesseur,e.codeMatiere as codeMatiere,
+  p.nomProfesseur as nomProfesseur,p.ismeProfesseur as ismeProfesseur,p.sexeProfesseur as sexeProfesseur,p.nniProfesseur as nniProfesseur,p.telProfesseur as telProfesseur,p.emailProfesseur as emailProfesseur,
+  m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
+  s.codeSalleClasse as codeSalleClasse,s.codeClasse as codeClasse,s.codeSalle as codeSalle,
+  case when s.indiceSalleClasse is null then s.codeClasse else concat(s.codeClasse,s.indiceSalleClasse) end as pseudoSalleClasse
+   from enseigner e 
+join matiere m on m.codeMatiere=e.codeMatiere 
+join professeur p on p.matriculeProfesseur=e.matriculeProfesseur
+join salle_classe s on s.codeSalleClasse=e.codeSalleClasse;  
+
+
     
-);
 
 
 create table evaluation(
@@ -301,7 +328,7 @@ create table evaluation(
     Constraint evaluation_pkey Primary Key (codeEvaluation),
     Constraint evaluation_unique Unique (nomEvaluation,indiceEvaluation,coefficientEvaluation),
     typeEvaluation enum('composition','devoir') not null
-);
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir1','1er devoir',1,1,'devoir');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir2','2eme devoir',2,1,'devoir');
@@ -363,7 +390,7 @@ create table note(
     Constraint note_unique Unique (matricule,codeExamen),
     -- Constraint note_inscrit_fkey Foreign Key (matricule) References inscrit(matricule),
     Constraint note_examen_fkey Foreign Key (codeExamen) References examen(codeExamen)
-);  
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;  
 alter table note drop constraint note_inscrit_fkey;
 alter table note drop constraint note_examen_fkey;
 
@@ -402,14 +429,14 @@ create table cours(
     heureFinCours time not null,
     Constraint cours_pkey Primary Key (idCours),
     Constraint cours_unique Unique (matricule,codeSalleClasse,codeMatiere,jourCours,heureDebutCours,heureFinCours),
-)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 create table absence(
     idAbsence int(6) AUTO_INCREMENT;
     listeAbsence text not null,
    idCours int not null,
     Constraint absence_pkey Primary Key (idAbsence),
-)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 DELIMITER //
 

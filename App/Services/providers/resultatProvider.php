@@ -18,10 +18,12 @@ class ResultatProvider{
         $matieresWithNotes=[];
        
         foreach($this->matieres as $matiere){
+            
             $matiereNote=new \stdClass();
             $matiereNote->matiere=$matiere;
             $matiereNote->notes=[];
             foreach($this->notes as $note){
+                if($note->statutExamen=='0')continue;
                 if($matiere->codeMatiere==$note->codeMatiere){
                     $matiereNote->notes[]=$note;
                 }
