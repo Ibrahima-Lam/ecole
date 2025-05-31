@@ -32,8 +32,8 @@
                     <td>
                         <?php if($_admin):?>
                             <div class="center">
-                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn edit"><i class="bi bi-pencil text-primary"></i></button>
-                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn delete"><i class="bi bi-trash text-danger"></i></button>
+                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn edit"><i class="fa fa-edit text-primary"></i></button>
+                                <button type="button" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn delete"><i class="fa fa-trash text-danger"></i></button>
                             </div>
                         <?php endif?>
                     </td>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="fixed-action">
-    <button type="button" id="add" class="btn btn-primary circle"><i class="bi bi-plus"></i></button>
+    <button type="button" id="add" class="btn btn-primary circle"><i class="fa fa-plus"></i></button>
 </div>
 
 

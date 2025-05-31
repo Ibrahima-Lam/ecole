@@ -5,6 +5,9 @@ namespace App\Controllers\apis;
 use App\Models\Repositories\EleveRepository;
 use App\Models\Repositories\ProfesseurRepository;
 use App\Models\Repositories\SalleClasseRepository;
+use App\Services\factories\DarkFactory;
+use App\Services\factories\LangueFactory;
+use App\Services\factories\AnneeFactory;
 use Core\Caches\Session;
 use Core\Controllers\Controller;
 use App\Services\factories\UserFactory;
@@ -16,6 +19,17 @@ class homeApiController extends Controller
         $session = new Session();
         $session->set($key, $value);
         $this->response(["res" => "ok", "data" => $session->get($key)]);
+    }
+    public function annee($annee): void
+    {
+        AnneeFactory::setAnnee($annee);
+        $this->response(["res" => "ok", "data" => AnneeFactory::getAnnee()]);
+    }
+
+    public function langue($langue): void
+    {
+        LangueFactory::setLangue($langue);
+        $this->response(["res" => "ok", "data" => LangueFactory::getLangue()]);
     }
 
     public function login() {
@@ -34,6 +48,11 @@ class homeApiController extends Controller
 public function logout() {
     UserFactory::unsetUser();
     $this->response(["res" => "ok"]);
+}
+
+public function toggleDark() {
+    DarkFactory::toggleDark();
+    $this->response(["res" => "ok", "data" => DarkFactory::getDark()]);
 }
 
 public function search($search) {

@@ -26,8 +26,16 @@ class salleClasseController extends Controller
 
     private function subsidebar(?string $code, int $active = 1): string
     {
-
+        $salleclasse=null;
+        if($code){
+            $repos=new SalleClasseRepository();
+            $salleclasse=$repos->findOneByCode($code);
+        }
         $html = "<div class='subsidebar'>";
+        if($salleclasse){
+            $html.='<h3>'.$salleclasse->pseudoSalleClasse.'</h3>';
+        }
+
         $html .= "<ul>";
         $class = "";
         if ($code) {

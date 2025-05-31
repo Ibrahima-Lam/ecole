@@ -69,49 +69,49 @@
       classic: {
         fa: "solid",
         fas: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         far: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fal: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fat: "thin",
-        "fa-thin": "thin",
+        "fa fa-thin": "thin",
         fab: "brands",
-        "fa-brands": "brands"
+        "fa fa-brands": "brands"
       },
       duotone: {
         fa: "solid",
         fad: "solid",
-        "fa-solid": "solid",
-        "fa-duotone": "solid",
+        "fa fa-solid": "solid",
+        "fa fa-duotone": "solid",
         fadr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fadl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fadt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       sharp: {
         fa: "solid",
         fass: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fast: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       "sharp-duotone": {
         fa: "solid",
         fasds: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasdr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasdl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fasdt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       }
     };
   var s = "classic";
@@ -172,27 +172,27 @@
   var St = {
       kit: {
         fak: "kit",
-        "fa-kit": "kit"
+        "fa fa-kit": "kit"
       },
       "kit-duotone": {
         fakd: "kit-duotone",
-        "fa-kit-duotone": "kit-duotone"
+        "fa fa-kit-duotone": "kit-duotone"
       }
     };
   var Ct = {
     kit: {
-      "fa-kit": "fak"
+      "fa fa-kit": "fak"
     },
     "kit-duotone": {
-      "fa-kit-duotone": "fakd"
+      "fa fa-kit-duotone": "fakd"
     }
   };
   var Wt = {
       kit: {
-        fak: "fa-kit"
+        fak: "fa fa-kit"
       },
       "kit-duotone": {
-        fakd: "fa-kit-duotone"
+        fakd: "fa fa-kit-duotone"
       }
     };
   var Et = {
@@ -206,56 +206,56 @@
 
   var ua = {
       classic: {
-        "fa-brands": "fab",
-        "fa-duotone": "fad",
-        "fa-light": "fal",
-        "fa-regular": "far",
-        "fa-solid": "fas",
-        "fa-thin": "fat"
+        "fa fa-brands": "fab",
+        "fa fa-duotone": "fad",
+        "fa fa-light": "fal",
+        "fa fa-regular": "far",
+        "fa fa-solid": "fas",
+        "fa fa-thin": "fat"
       },
       duotone: {
-        "fa-regular": "fadr",
-        "fa-light": "fadl",
-        "fa-thin": "fadt"
+        "fa fa-regular": "fadr",
+        "fa fa-light": "fadl",
+        "fa fa-thin": "fadt"
       },
       sharp: {
-        "fa-solid": "fass",
-        "fa-regular": "fasr",
-        "fa-light": "fasl",
-        "fa-thin": "fast"
+        "fa fa-solid": "fass",
+        "fa fa-regular": "fasr",
+        "fa fa-light": "fasl",
+        "fa fa-thin": "fast"
       },
       "sharp-duotone": {
-        "fa-solid": "fasds",
-        "fa-regular": "fasdr",
-        "fa-light": "fasdl",
-        "fa-thin": "fasdt"
+        "fa fa-solid": "fasds",
+        "fa fa-regular": "fasdr",
+        "fa fa-light": "fasdl",
+        "fa fa-thin": "fasdt"
       }
     },
     ga = {
       classic: {
-        fab: "fa-brands",
-        fad: "fa-duotone",
-        fal: "fa-light",
-        far: "fa-regular",
-        fas: "fa-solid",
-        fat: "fa-thin"
+        fab: "fa fa-brands",
+        fad: "fa fa-duotone",
+        fal: "fa fa-light",
+        far: "fa fa-regular",
+        fas: "fa fa-solid",
+        fat: "fa fa-thin"
       },
       duotone: {
-        fadr: "fa-regular",
-        fadl: "fa-light",
-        fadt: "fa-thin"
+        fadr: "fa fa-regular",
+        fadl: "fa fa-light",
+        fadt: "fa fa-thin"
       },
       sharp: {
-        fass: "fa-solid",
-        fasr: "fa-regular",
-        fasl: "fa-light",
-        fast: "fa-thin"
+        fass: "fa fa-solid",
+        fasr: "fa fa-regular",
+        fasl: "fa fa-light",
+        fast: "fa fa-thin"
       },
       "sharp-duotone": {
-        fasds: "fa-solid",
-        fasdr: "fa-regular",
-        fasdl: "fa-light",
-        fasdt: "fa-thin"
+        fasds: "fa fa-solid",
+        fasdr: "fa fa-regular",
+        fasdl: "fa fa-light",
+        fasdt: "fa fa-thin"
       }
     };
 
@@ -926,49 +926,49 @@
       classic: {
         fa: "solid",
         fas: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         far: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fal: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fat: "thin",
-        "fa-thin": "thin",
+        "fa fa-thin": "thin",
         fab: "brands",
-        "fa-brands": "brands"
+        "fa fa-brands": "brands"
       },
       duotone: {
         fa: "solid",
         fad: "solid",
-        "fa-solid": "solid",
-        "fa-duotone": "solid",
+        "fa fa-solid": "solid",
+        "fa fa-duotone": "solid",
         fadr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fadl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fadt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       sharp: {
         fa: "solid",
         fass: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fast: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       "sharp-duotone": {
         fa: "solid",
         fasds: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasdr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasdl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fasdt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       }
     };
   var s = "classic";
@@ -1029,27 +1029,27 @@
   var St = {
       kit: {
         fak: "kit",
-        "fa-kit": "kit"
+        "fa fa-kit": "kit"
       },
       "kit-duotone": {
         fakd: "kit-duotone",
-        "fa-kit-duotone": "kit-duotone"
+        "fa fa-kit-duotone": "kit-duotone"
       }
     };
   var Ct = {
     kit: {
-      "fa-kit": "fak"
+      "fa fa-kit": "fak"
     },
     "kit-duotone": {
-      "fa-kit-duotone": "fakd"
+      "fa fa-kit-duotone": "fakd"
     }
   };
   var Wt = {
       kit: {
-        fak: "fa-kit"
+        fak: "fa fa-kit"
       },
       "kit-duotone": {
-        fakd: "fa-kit-duotone"
+        fakd: "fa fa-kit-duotone"
       }
     };
   var Et = {
@@ -1063,56 +1063,56 @@
 
   var ua = {
       classic: {
-        "fa-brands": "fab",
-        "fa-duotone": "fad",
-        "fa-light": "fal",
-        "fa-regular": "far",
-        "fa-solid": "fas",
-        "fa-thin": "fat"
+        "fa fa-brands": "fab",
+        "fa fa-duotone": "fad",
+        "fa fa-light": "fal",
+        "fa fa-regular": "far",
+        "fa fa-solid": "fas",
+        "fa fa-thin": "fat"
       },
       duotone: {
-        "fa-regular": "fadr",
-        "fa-light": "fadl",
-        "fa-thin": "fadt"
+        "fa fa-regular": "fadr",
+        "fa fa-light": "fadl",
+        "fa fa-thin": "fadt"
       },
       sharp: {
-        "fa-solid": "fass",
-        "fa-regular": "fasr",
-        "fa-light": "fasl",
-        "fa-thin": "fast"
+        "fa fa-solid": "fass",
+        "fa fa-regular": "fasr",
+        "fa fa-light": "fasl",
+        "fa fa-thin": "fast"
       },
       "sharp-duotone": {
-        "fa-solid": "fasds",
-        "fa-regular": "fasdr",
-        "fa-light": "fasdl",
-        "fa-thin": "fasdt"
+        "fa fa-solid": "fasds",
+        "fa fa-regular": "fasdr",
+        "fa fa-light": "fasdl",
+        "fa fa-thin": "fasdt"
       }
     },
     ga = {
       classic: {
-        fab: "fa-brands",
-        fad: "fa-duotone",
-        fal: "fa-light",
-        far: "fa-regular",
-        fas: "fa-solid",
-        fat: "fa-thin"
+        fab: "fa fa-brands",
+        fad: "fa fa-duotone",
+        fal: "fa fa-light",
+        far: "fa fa-regular",
+        fas: "fa fa-solid",
+        fat: "fa fa-thin"
       },
       duotone: {
-        fadr: "fa-regular",
-        fadl: "fa-light",
-        fadt: "fa-thin"
+        fadr: "fa fa-regular",
+        fadl: "fa fa-light",
+        fadt: "fa fa-thin"
       },
       sharp: {
-        fass: "fa-solid",
-        fasr: "fa-regular",
-        fasl: "fa-light",
-        fast: "fa-thin"
+        fass: "fa fa-solid",
+        fasr: "fa fa-regular",
+        fasl: "fa fa-light",
+        fast: "fa fa-thin"
       },
       "sharp-duotone": {
-        fasds: "fa-solid",
-        fasdr: "fa-regular",
-        fasdl: "fa-light",
-        fasdt: "fa-thin"
+        fasds: "fa fa-solid",
+        fasdr: "fa fa-regular",
+        fasdl: "fa fa-light",
+        fasdt: "fa fa-thin"
       }
     };
 
@@ -1451,49 +1451,49 @@
       classic: {
         fa: "solid",
         fas: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         far: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fal: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fat: "thin",
-        "fa-thin": "thin",
+        "fa fa-thin": "thin",
         fab: "brands",
-        "fa-brands": "brands"
+        "fa fa-brands": "brands"
       },
       duotone: {
         fa: "solid",
         fad: "solid",
-        "fa-solid": "solid",
-        "fa-duotone": "solid",
+        "fa fa-solid": "solid",
+        "fa fa-duotone": "solid",
         fadr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fadl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fadt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       sharp: {
         fa: "solid",
         fass: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fast: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       "sharp-duotone": {
         fa: "solid",
         fasds: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasdr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasdl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fasdt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       }
     };
   var s = "classic";
@@ -1554,27 +1554,27 @@
   var St = {
       kit: {
         fak: "kit",
-        "fa-kit": "kit"
+        "fa fa-kit": "kit"
       },
       "kit-duotone": {
         fakd: "kit-duotone",
-        "fa-kit-duotone": "kit-duotone"
+        "fa fa-kit-duotone": "kit-duotone"
       }
     };
   var Ct = {
     kit: {
-      "fa-kit": "fak"
+      "fa fa-kit": "fak"
     },
     "kit-duotone": {
-      "fa-kit-duotone": "fakd"
+      "fa fa-kit-duotone": "fakd"
     }
   };
   var Wt = {
       kit: {
-        fak: "fa-kit"
+        fak: "fa fa-kit"
       },
       "kit-duotone": {
-        fakd: "fa-kit-duotone"
+        fakd: "fa fa-kit-duotone"
       }
     };
   var Et = {
@@ -1588,56 +1588,56 @@
 
   var ua = {
       classic: {
-        "fa-brands": "fab",
-        "fa-duotone": "fad",
-        "fa-light": "fal",
-        "fa-regular": "far",
-        "fa-solid": "fas",
-        "fa-thin": "fat"
+        "fa fa-brands": "fab",
+        "fa fa-duotone": "fad",
+        "fa fa-light": "fal",
+        "fa fa-regular": "far",
+        "fa fa-solid": "fas",
+        "fa fa-thin": "fat"
       },
       duotone: {
-        "fa-regular": "fadr",
-        "fa-light": "fadl",
-        "fa-thin": "fadt"
+        "fa fa-regular": "fadr",
+        "fa fa-light": "fadl",
+        "fa fa-thin": "fadt"
       },
       sharp: {
-        "fa-solid": "fass",
-        "fa-regular": "fasr",
-        "fa-light": "fasl",
-        "fa-thin": "fast"
+        "fa fa-solid": "fass",
+        "fa fa-regular": "fasr",
+        "fa fa-light": "fasl",
+        "fa fa-thin": "fast"
       },
       "sharp-duotone": {
-        "fa-solid": "fasds",
-        "fa-regular": "fasdr",
-        "fa-light": "fasdl",
-        "fa-thin": "fasdt"
+        "fa fa-solid": "fasds",
+        "fa fa-regular": "fasdr",
+        "fa fa-light": "fasdl",
+        "fa fa-thin": "fasdt"
       }
     },
     ga = {
       classic: {
-        fab: "fa-brands",
-        fad: "fa-duotone",
-        fal: "fa-light",
-        far: "fa-regular",
-        fas: "fa-solid",
-        fat: "fa-thin"
+        fab: "fa fa-brands",
+        fad: "fa fa-duotone",
+        fal: "fa fa-light",
+        far: "fa fa-regular",
+        fas: "fa fa-solid",
+        fat: "fa fa-thin"
       },
       duotone: {
-        fadr: "fa-regular",
-        fadl: "fa-light",
-        fadt: "fa-thin"
+        fadr: "fa fa-regular",
+        fadl: "fa fa-light",
+        fadt: "fa fa-thin"
       },
       sharp: {
-        fass: "fa-solid",
-        fasr: "fa-regular",
-        fasl: "fa-light",
-        fast: "fa-thin"
+        fass: "fa fa-solid",
+        fasr: "fa fa-regular",
+        fasl: "fa fa-light",
+        fast: "fa fa-thin"
       },
       "sharp-duotone": {
-        fasds: "fa-solid",
-        fasdr: "fa-regular",
-        fasdl: "fa-light",
-        fasdt: "fa-thin"
+        fasds: "fa fa-solid",
+        fasdr: "fa fa-regular",
+        fasdl: "fa fa-light",
+        fasdt: "fa fa-thin"
       }
     };
 
@@ -3291,49 +3291,49 @@
       classic: {
         fa: "solid",
         fas: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         far: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fal: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fat: "thin",
-        "fa-thin": "thin",
+        "fa fa-thin": "thin",
         fab: "brands",
-        "fa-brands": "brands"
+        "fa fa-brands": "brands"
       },
       duotone: {
         fa: "solid",
         fad: "solid",
-        "fa-solid": "solid",
-        "fa-duotone": "solid",
+        "fa fa-solid": "solid",
+        "fa fa-duotone": "solid",
         fadr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fadl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fadt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       sharp: {
         fa: "solid",
         fass: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fast: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       },
       "sharp-duotone": {
         fa: "solid",
         fasds: "solid",
-        "fa-solid": "solid",
+        "fa fa-solid": "solid",
         fasdr: "regular",
-        "fa-regular": "regular",
+        "fa fa-regular": "regular",
         fasdl: "light",
-        "fa-light": "light",
+        "fa fa-light": "light",
         fasdt: "thin",
-        "fa-thin": "thin"
+        "fa fa-thin": "thin"
       }
     },
     A = {
@@ -3342,7 +3342,7 @@
       PRIMARY: "primary",
       SECONDARY: "secondary"
     },
-    P = ["fa-classic", "fa-duotone", "fa-sharp", "fa-sharp-duotone"];
+    P = ["fa fa-classic", "fa fa-duotone", "fa fa-sharp", "fa fa-sharp-duotone"];
   var s = "classic",
     t = "duotone",
     r = "sharp",
@@ -3465,33 +3465,33 @@
         thin: "fasdt"
       }
     };
-  var Ft = ["fak", "fa-kit", "fakd", "fa-kit-duotone"],
+  var Ft = ["fak", "fa fa-kit", "fakd", "fa fa-kit-duotone"],
     St = {
       kit: {
         fak: "kit",
-        "fa-kit": "kit"
+        "fa fa-kit": "kit"
       },
       "kit-duotone": {
         fakd: "kit-duotone",
-        "fa-kit-duotone": "kit-duotone"
+        "fa fa-kit-duotone": "kit-duotone"
       }
     },
     At = ["kit"];
   var Ct = {
     kit: {
-      "fa-kit": "fak"
+      "fa fa-kit": "fak"
     },
     "kit-duotone": {
-      "fa-kit-duotone": "fakd"
+      "fa fa-kit-duotone": "fakd"
     }
   };
   var Lt = ["fak", "fakd"],
     Wt = {
       kit: {
-        fak: "fa-kit"
+        fak: "fa fa-kit"
       },
       "kit-duotone": {
-        fakd: "fa-kit-duotone"
+        fakd: "fa fa-kit-duotone"
       }
     };
   var Et = {
@@ -3509,8 +3509,8 @@
       PRIMARY: "primary",
       SECONDARY: "secondary"
     },
-    r$1 = ["fa-classic", "fa-duotone", "fa-sharp", "fa-sharp-duotone"];
-  var bt$1 = ["fak", "fa-kit", "fakd", "fa-kit-duotone"];
+    r$1 = ["fa fa-classic", "fa fa-duotone", "fa fa-sharp", "fa fa-sharp-duotone"];
+  var bt$1 = ["fak", "fa fa-kit", "fakd", "fa fa-kit-duotone"];
   var Yt = {
       "Font Awesome Kit": {
         400: "fak",
@@ -3523,29 +3523,29 @@
     };
   var ua = {
       classic: {
-        "fa-brands": "fab",
-        "fa-duotone": "fad",
-        "fa-light": "fal",
-        "fa-regular": "far",
-        "fa-solid": "fas",
-        "fa-thin": "fat"
+        "fa fa-brands": "fab",
+        "fa fa-duotone": "fad",
+        "fa fa-light": "fal",
+        "fa fa-regular": "far",
+        "fa fa-solid": "fas",
+        "fa fa-thin": "fat"
       },
       duotone: {
-        "fa-regular": "fadr",
-        "fa-light": "fadl",
-        "fa-thin": "fadt"
+        "fa fa-regular": "fadr",
+        "fa fa-light": "fadl",
+        "fa fa-thin": "fadt"
       },
       sharp: {
-        "fa-solid": "fass",
-        "fa-regular": "fasr",
-        "fa-light": "fasl",
-        "fa-thin": "fast"
+        "fa fa-solid": "fass",
+        "fa fa-regular": "fasr",
+        "fa fa-light": "fasl",
+        "fa fa-thin": "fast"
       },
       "sharp-duotone": {
-        "fa-solid": "fasds",
-        "fa-regular": "fasdr",
-        "fa-light": "fasdl",
-        "fa-thin": "fasdt"
+        "fa fa-solid": "fasds",
+        "fa fa-regular": "fasdr",
+        "fa fa-light": "fasdl",
+        "fa fa-thin": "fasdt"
       }
     },
     I$1 = {
@@ -3556,32 +3556,32 @@
     },
     ga = {
       classic: {
-        fab: "fa-brands",
-        fad: "fa-duotone",
-        fal: "fa-light",
-        far: "fa-regular",
-        fas: "fa-solid",
-        fat: "fa-thin"
+        fab: "fa fa-brands",
+        fad: "fa fa-duotone",
+        fal: "fa fa-light",
+        far: "fa fa-regular",
+        fas: "fa fa-solid",
+        fat: "fa fa-thin"
       },
       duotone: {
-        fadr: "fa-regular",
-        fadl: "fa-light",
-        fadt: "fa-thin"
+        fadr: "fa fa-regular",
+        fadl: "fa fa-light",
+        fadt: "fa fa-thin"
       },
       sharp: {
-        fass: "fa-solid",
-        fasr: "fa-regular",
-        fasl: "fa-light",
-        fast: "fa-thin"
+        fass: "fa fa-solid",
+        fasr: "fa fa-regular",
+        fasl: "fa fa-light",
+        fast: "fa fa-thin"
       },
       "sharp-duotone": {
-        fasds: "fa-solid",
-        fasdr: "fa-regular",
-        fasdl: "fa-light",
-        fasdt: "fa-thin"
+        fasds: "fa fa-solid",
+        fasdr: "fa fa-regular",
+        fasdl: "fa fa-light",
+        fasdt: "fa fa-thin"
       }
     },
-    x = ["fa-solid", "fa-regular", "fa-light", "fa-thin", "fa-duotone", "fa-brands"],
+    x = ["fa fa-solid", "fa fa-regular", "fa fa-light", "fa fa-thin", "fa fa-duotone", "fa fa-brands"],
     Ia = ["fa", "fas", "far", "fal", "fat", "fad", "fadr", "fadl", "fadt", "fab", "fass", "fasr", "fasl", "fast", "fasds", "fasdr", "fasdl", "fasdt", ...r$1, ...x],
     m$1 = ["solid", "regular", "light", "thin", "duotone", "brands"],
     c$1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],

@@ -5,6 +5,76 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+.dark{
+    background-color: #1F2937;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.dark .nav-bar{
+    background-color: #1F2937;
+    color: white;
+}
+
+.dark .nav-bar ul li h3{
+    color: white;
+}
+
+.dark .nav-bar ul li .logo img{
+    filter: invert(1);
+}
+
+.dark .nav-bar ul li .logo h3{
+    color: white;
+}
+
+.dark .sidebar{
+    background-color: #1F2937;
+    color: white;
+}
+
+.dark .subsidebar{
+    background-color: #1F2937;
+    color: white;
+}
+
+.dark .subsidebar ul li a{
+    color: white;
+}
+
+.dark .table-striped tr{
+    background-color: #1F2937;
+}
+
+.dark .table-striped tr:nth-child(even){
+    background-color: #2d405b;
+}
+
+.dark .table-striped tr:hover{
+    background-color: #769ed6;
+}
+
+.dark .table-striped tr:active{
+    background-color: #1d54a0;
+}
+
+.dark .table-striped tfoot tr{
+    background-color: #161e29;
+}
+
+.dark .table-striped thead tr{
+    background-color: #161e29;
+}
+
+.dark .title{
+    color: white;
+}
+
+
+
+
+
 .nav-bar {
     width: 100vw;
     height: 80px;
@@ -164,7 +234,10 @@
     width: 100%;
     padding: 8px 0;
     display: flex;
+    
     justify-content: space-between;
+    
+    gap: 10px;
     align-items: center;
 }
 
@@ -179,7 +252,7 @@
     width: 100%;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: gray;
     display: flex;
@@ -187,6 +260,14 @@
     gap: 10px;
     align-items: center;
     transition: all 0.3s ease-in-out;
+}
+
+.dark .sidebar ul li a{
+    color: white;
+}
+
+.dark .sidebar ul li .fa{
+    color: white;
 }
 
 .sidebar ul li a:hover {
@@ -269,6 +350,13 @@
     color: blue;
     text-decoration: underline;
     font-weight: bold;
+}
+.dark .subsidebar ul li a.active{
+    color: rgb(103, 169, 244);
+}
+
+.dark .subsidebar ul li .fa{
+    color: white;
 }
 
 i {
@@ -354,6 +442,9 @@ th.left,td.left{
     border: 0.5px solid gray;
 }
 
+.table-striped tr:active{
+    background-color: blue;
+}
 
 .table a {
     text-decoration: none;
@@ -448,6 +539,21 @@ td .btn {
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease-in-out;
+}
+.dark .link{
+    color: white;
+}
+
+.dark .link .active{
+    color: white;
+}
+
+.dark #dark i{
+    color: white;
+}
+
+.dark #account i{
+    color: white;
 }
 
 .link:hover {
@@ -785,6 +891,10 @@ dd {
     color: cornflowerblue;
     transition: all 0.3s ease-in-out;
 }
+
+.dark .list-group li a{
+    color: white;
+}
 .list-group a:hover{
     text-decoration: underline;
 }
@@ -859,6 +969,12 @@ dd {
     background-color: whitesmoke;
     transition: all 0.3s ease-in-out;
   }
+
+.dark .card{
+    background-color: #333;
+    color: white;
+}
+
   .card:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     background-color: lightblue;
@@ -872,6 +988,11 @@ dd {
     border-bottom: 1px solid #ccc;
   }
 
+.dark .card-header{
+    background-color: #333;
+    color: white;
+}
+
   .card-body {
     padding: 10px;
   }
@@ -879,6 +1000,11 @@ dd {
   .search-container{
     position: relative;
   }
+  .dark .search-container{
+    background-color: #333;
+    color: white;
+  }
+
   .search-container .search-result{
     position: absolute;
     top: 100%;
@@ -928,11 +1054,16 @@ dd {
     margin: 0;
     padding: 5px;
   }
+
+   .dark .search-container .search-result li a{
+    color: blue;
+   }
   .search-container .search-result li span{
     color: gray;
     font-size: 14px;
     padding: 5px;
   }
+  
 @media screen and (max-width: 800px) {
     
   .nav-bar,[dir='rtl'] .nav-bar {
@@ -1125,6 +1256,12 @@ dd {
     [dir='rtl'] .fixed-action{
         left: 10px;
         right: auto;
+    }
+
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
     }
 
    

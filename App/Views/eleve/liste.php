@@ -41,10 +41,10 @@ $title = 'Les eleves'
                     <td>
                         <div class="center">
 
-                            <a href="?p=eleve/profil/<?= $eleve->matricule ?>" title="Voir l'eleve"><i class="bi-eye"></i></a>
+                            <a href="?p=eleve/profil/<?= $eleve->matricule ?>" title="Voir l'eleve"><i class="fa fa-eye"></i></a>
                             <?php if ($_admin ?? false): ?>
-                                <div class="edit" title="Editer l'eleve" data-matricule="<?= $eleve->matricule ?>"><i class="bi-pencil"></i></div>
-                                <div class="delete" title="Supprimer l'eleve" data-matricule="<?= $eleve->matricule ?>"><i class="bi-trash  text-danger"></i></div>
+                                <div class="edit" title="Editer l'eleve" data-matricule="<?= $eleve->matricule ?>"><i class="fa fa-edit"></i></div>
+                                <div class="delete" title="Supprimer l'eleve" data-matricule="<?= $eleve->matricule ?>"><i class="fa fa-trash  text-danger"></i></div>
                             <?php endif; ?>
                         </div>
                     </td>
@@ -57,10 +57,10 @@ $title = 'Les eleves'
 </div>
 <div class="fixed-action">
     <?php if ($_admin ?? false): ?>
-        <button title="Ajouer un eleve" class="btn btn-success circle" id="add"><i class="bi-plus"></i></button>
-        <a href="?p=eleve/import" title="Importer un fichier excel" class="link btn-success circle"><i class="bi-file-earmark-arrow-up"></i></a>
+        <button title="Ajouer un eleve" class="btn btn-success circle" id="add"><i class="fa fa-plus"></i></button>
+        <a href="?p=eleve/import" title="Importer un fichier excel" class="link btn-success circle"><i class="fa fa-file-excel"></i></a>
     <?php endif  ?>
-    <a href="?p=pdf/eleve/liste" target="_blank" title="Imprimer" class="link btn-primary circle"><i class="bi-filetype-pdf"></i></a>
+    <a href="?p=pdf/eleve/liste" target="_blank" title="Imprimer" class="link btn-primary circle"><i class="fa fa-file-pdf"></i></a>
 
 </div>
 

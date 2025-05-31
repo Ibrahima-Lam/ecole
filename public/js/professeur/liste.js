@@ -253,8 +253,8 @@ class TableData {
          <a href="?p=professeur/profil/${matriculeProfesseur}"><i class="bi-eye"></i></a>
         ${this.params.admin ? `
 
-                            <div class="edit" data-matricule="${matriculeProfesseur}"><i class="bi-pencil"></i></div>
-                            <div class="delete" data-matricule="${matriculeProfesseur}"><i class="bi-trash  text-danger"></i></div>
+                            <div class="edit" data-matricule="${matriculeProfesseur}"><i class="fa fa-edit"></i></div>
+                            <div class="delete" data-matricule="${matriculeProfesseur}"><i class="fa fa-trash  text-danger"></i></div>
 
                             ` : ''
             }

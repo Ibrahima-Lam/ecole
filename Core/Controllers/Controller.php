@@ -4,6 +4,9 @@ namespace Core\Controllers;
 
 use App\Models\Entities\UserEntity;
 use App\Models\Repositories\AnneeScolaireRepository;
+use App\Services\factories\AnneeFactory;
+use App\Services\factories\DarkFactory;
+use App\Services\factories\LangueFactory;
 use App\Services\factories\UserFactory;
 use Core\Caches\Session;
 use Core\Services\html\htmlService;
@@ -13,26 +16,18 @@ class Controller
    
     protected function getCodeAnnee()
     {
-        $session = new Session();
-        $annee = $session->get("anneescolaire");
-        if (!$annee) {
-            $anneeScolaire = (new AnneeScolaireRepository())->findLastAnneeScolaire();
-            $annee = $anneeScolaire ? $anneeScolaire->codeAnnee : "2425";
-            $session->set("anneescolaire", $annee);
-        }
-        return $annee;
+      return AnneeFactory::getAnnee();
     }
     protected function getNomAnnee()
     {
-        $session = new Session();
         $model = new AnneeScolaireRepository();
-        $annee = $session->get("anneescolaire");
+        $annee = AnneeFactory::getAnnee();
         $anneeScolaire = null;
         if (!$annee) {
 
             $anneeScolaire = $model->findLastAnneeScolaire();
             $annee = $anneeScolaire ? $anneeScolaire->codeAnnee : "2425";
-            $session->set("anneescolaire", $annee);
+            AnneeFactory::setAnnee($annee);
         } else {
             $anneeScolaire = $model->findOneByCodeAnnee($annee);
         }
@@ -40,19 +35,19 @@ class Controller
     }
     private function getLangue()
     {
-        $session = new Session();
-        $langue = $session->get("langue");
-        if (!$langue) {
-            $session->set("langue", "fr");
-        }
-        return $session->get("langue") ?? 'fr';
+      
+        return LangueFactory::getLangue();
     }
     private function getAnneeScolaire()
     {
-        $annee = new AnneeScolaireRepository();
+        $model = new AnneeScolaireRepository();
         $codeAnnee = $this->getCodeAnnee();
         return
-            htmlService::options($annee->findAll(), "codeAnnee", "nomAnnee", $codeAnnee);
+            htmlService::options($model->findAll(), "codeAnnee", "nomAnnee", $codeAnnee);
+    }
+
+    private function isDark(){
+    return  DarkFactory::getDark()??false;
     }
     public function render(string $file, array $data = [])
     {
@@ -64,6 +59,8 @@ class Controller
         $_annee = $this->getAnneeScolaire();
         $_langue = $this->getLangue();
         $_admin = $user->roleUser=="admin";
+        $_user=$user;
+        $_dark = $this->isDark();
         $path = "../App/Views/$file.php";
         if (!file_exists($path)) {
             echo '<p> Cette vue est introuvable! veuillez verifier le chemin du fichier dans les vues!</p>';

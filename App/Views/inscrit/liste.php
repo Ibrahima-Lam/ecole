@@ -1,4 +1,4 @@
-<h3 class="title text-center">Liste des inscrits</h3>
+<h2 class="title text-center">Liste des inscrits</h2>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -22,7 +22,7 @@
                 <td><?= $inscrit->dateInscription ?></td>
                 <td>
                     <?php if ($_admin): ?>
-                        <a href="?p=inscrit/form/<?= $inscrit->idInscrit ?>"><i class="bi-pencil"></i></a>
+                        <a href="?p=inscrit/form/<?= $inscrit->idInscrit ?>"><i class="fa fa-edit"></i></a>
                     <?php endif ?>
                 </td>
             </tr>
@@ -32,7 +32,7 @@
 <?php if ($_admin): ?>
 
     <div class="fixed-action">
-        <a href="?p=inscrit/form" class="btn btn-success circle"><i class="bi-plus"></i> </a>
+        <a href="?p=inscrit/form" class="btn btn-success circle"><i class="fa fa-plus"></i> </a>
     </div>
 <?php endif ?>
 

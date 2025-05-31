@@ -52,8 +52,8 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
                            ";
                            if($admin){
                                 $tr.="
-                                <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"bi-pencil\"></i></div>
-                                <div class=\"delete\" title=\"Supprimer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"bi-trash  text-danger\"></i></div>
+                                <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-edit\"></i></div>
+                                <div class=\"delete\" title=\"Supprimer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-trash  text-danger\"></i></div>
                             ";
                            }    
                            $tr.="</div>

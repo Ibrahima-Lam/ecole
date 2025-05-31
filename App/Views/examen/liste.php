@@ -57,9 +57,9 @@ $evaluations??=[];
                         <div class="center">
                         <a href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="bi-list"></i></a>
                         <?php if($_admin):?>
-                            <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
-                            <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
-                            <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                            <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus text-success"></i></a>
+                            <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-edit text-primary"></i></a>
+                            <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-trash text-danger"></i></a>
                            
                         <?php endif?> </div>
                     </td>

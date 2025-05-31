@@ -1,6 +1,6 @@
 export type IconFamily = "classic" | "duotone" | "sharp" | "sharp-duotone";
 export type IconPrefix = "fas" | "fass" | "far" | "fasr" | "fal" | "fasl" | "fat" | "fast" | "fad" | "fadr" | "fadl" | "fadt" | "fasds" | "fasdr" | "fasdl" | "fasdt" | "fab" | "fak" | "fakd";
-export type CssStyleClass = "fa-solid" | "fa-regular" | "fa-light" | "fa-thin" | "fa-duotone" | "fa-brands";
+export type CssStyleClass = "fa fa-solid" | "fa fa-regular" | "fa fa-light" | "fa fa-thin" | "fa fa-duotone" | "fa fa-brands";
 export type IconStyle = "solid" | "regular" | "light" | "thin" | "duotone" | "brands";
 export type IconPathData = string | string[]
 

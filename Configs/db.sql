@@ -4131,3 +4131,23 @@ UPDATE enseigner SET matriculeProfesseur = '124871D', codeMatiere = 'PC', codeSa
 INSERT INTO enseigner (matriculeProfesseur, codeMatiere, codeSalleClasse) VALUES ('124871D', 'PC', 'A24255D1');
 -- 2025-05-12 19:07:31
 DELETE FROM enseigner WHERE idEnseigner = '3';
+-- 2025-05-13 20:25:45
+update note set note='15.25' where idNote='1028' ;
+-- 2025-05-13 20:31:26
+update note set note='9.5' where idNote='1036' ;
+-- 2025-05-13 20:37:48
+update note set note='9' where idNote='1267' ;
+-- 2025-05-27 17:05:04
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('699878972','Yahya Abdoulaye Lam','يحي عبدالله لام ','M','2000-01-01','Boghe','Boghe','535563839');
+-- 2025-05-27 17:05:44
+update eleve set matricule='699878972',nom='Yahya Abdoulaye Lam',isme='يحي عبدالله لام ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Boghe',adresse='Thialgou',nni='535563839' where matricule='699878972';
+-- 2025-05-27 17:06:18
+delete from eleve where matricule='699878972';
+-- 2025-05-27 17:13:40
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('31413699','Abdou Kane','عبد كاني ','M','2000-01-01','','','3566323263');
+-- 2025-05-27 17:14:08
+update eleve set matricule='31413699',nom='Abdou Kane',isme='عبد كان ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='3566323263' where matricule='31413699';
+-- 2025-05-27 17:16:47
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','31413699','A24252AS2','58','passant','2025-05-27');
+-- 2025-05-28 10:56:06
+update eleve set matricule='2AS202',nom='Coumba Abdou Salam Sy',isme='كمبا عبد السلام سي',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS202' where matricule='2AS202';

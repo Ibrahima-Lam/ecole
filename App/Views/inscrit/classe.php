@@ -69,7 +69,7 @@
     </table>
 </div>
 <div class="fixed-action">
-    <a title="Imprimer" href="?p=pdf/inscrit/classe/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="bi-filetype-pdf"></i></a>
+    <a title="Imprimer" href="?p=pdf/inscrit/classe/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="fa fa-file-pdf"></i></a>
     <button id="paramettre" title="paramettre d'affichage" class="btn btn-primary circle"><i class="bi-gear"></i></button>
     <a id="export" title="Exporter en excel" id="export" href="?p=inscrit/export/<?= $classe->codeSalleClasse ?>" class="btn btn-success circle"><i class="bi-filetype-xls"></i></a>
 </div>

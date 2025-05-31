@@ -73,9 +73,9 @@ function renderTable() {
                 <div class="center">
                     <a class="show" title="Voir les notes" href="?p=note/examen/${examen.codeExamen}"><i class="bi-list"></i></a>
                     ${_admin?`<a class="show" title="importer les notes" href="?p=note/formulaire/${examen.codeExamen}"><i class="bi-file-earmark"></i></a>
-                    <a class="addnote" title="Ajouter une note" data-code="${examen.codeExamen}"><i class="bi-plus text-success"></i></a>
-                    <a class="edit" title="Editer" data-code="${examen.codeExamen}"><i class="bi-pencil text-primary"></i></a>
-                    <a class="delete" title="Supprimer" data-code="${examen.codeExamen}"><i class="bi-trash text-danger"></i></a>`:''}
+                    <a class="addnote" title="Ajouter une note" data-code="${examen.codeExamen}"><i class="fa fa-plus text-success"></i></a>
+                    <a class="edit" title="Editer" data-code="${examen.codeExamen}"><i class="fa fa-edit text-primary"></i></a>
+                    <a class="delete" title="Supprimer" data-code="${examen.codeExamen}"><i class="fa fa-trash text-danger"></i></a>`:''}
                 </div>
             </td>
         `

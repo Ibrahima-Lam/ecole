@@ -24,9 +24,10 @@ class NoteApiController extends Controller
         $this->inscritRepository = new inscritRepository();
     }
 
-    public function liste()
+    public function liste($filter_annee=false)
     {
-        $data = $this->noteRepository->findAll();
+        $annee=$this->getCodeAnnee();
+        $data =$filter_annee ? $this->noteRepository->findAllByAnnee($annee) : $this->noteRepository->findAll();
         $this->response($data);
     }
 

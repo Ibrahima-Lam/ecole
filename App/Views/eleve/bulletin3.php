@@ -142,5 +142,5 @@
     </tbody>
 </table>
 <div class="fixed-action">
-    <a target="_blank" href="?p=pdf/eleve/bulletin3/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="bi-filetype-pdf"> </i></a>
+    <a target="_blank" href="?p=pdf/eleve/bulletin3/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="fa fa-file-pdf"> </i></a>
 </div>

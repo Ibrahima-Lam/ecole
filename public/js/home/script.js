@@ -12,7 +12,7 @@ async function fetchDataText(url) {
 
 document.getElementById("anneescolaire")?.addEventListener("change", async function (e) {
     let annee = e.target.value;
-     await fetch("?p=api/home/session/anneescolaire/" + annee)
+     await fetch("?p=api/home/annee/" + annee)
      .then(data=>{
       console.log(data);
       window.location.reload();
@@ -25,7 +25,7 @@ document.getElementById("anneescolaire")?.addEventListener("change", async funct
 
 document.getElementById('langue')?.addEventListener('change', function (e) {
     let langue = e.target.value;
-    fetchData("?p=api/home/session/langue/" + langue);
+    fetchData("?p=api/home/langue/" + langue);
     window.location.reload();
 
 });
@@ -105,5 +105,14 @@ document.addEventListener('click',function(e){
   const result=document.querySelector('.search-result');
   result.style.display='none';
 })
+
+const dark=document.getElementById('dark');
+dark?.addEventListener('click', function (e) {
+    fetchData("?p=api/home/toggleDark");
+   document.body.classList.toggle('dark');
+   dark.querySelector('i').classList.toggle('fa-moon');
+   dark.querySelector('i').classList.toggle('fa-sun');
+});
+
 
 

@@ -31,7 +31,7 @@
                     <td>
                         <?php if($_admin):?>
                             <div class="center">
-                                <button type="button" id="edit" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn"><i class="bi bi-pencil text-primary"></i></button>
+                                <button type="button" id="edit" data-matricule="<?=$prof->matriculeProfesseur ?>" class="btn"><i class="fa fa-edit text-primary"></i></button>
                             </div>
                         <?php endif?>
                     </td>

@@ -56,10 +56,10 @@ $notes = $notes ?? [];
                 <td>
                  <?php if($_admin):?>
                        <button class="btn circle edit" data-id="<?= $note->idNote; ?>">
-                           <i class="bi-pencil text-primary"></i>
+                           <i class="fa fa-edit text-primary"></i>
                        </button>
                        <button class="btn  circle delete" data-id="<?= $note->idNote; ?>">
-                           <i class="bi-trash text-danger"></i>
+                           <i class="fa fa-trash text-danger"></i>
                        </button>
                  <?php endif?>
                 </td>
@@ -71,7 +71,7 @@ $notes = $notes ?? [];
 <div class="fixed-action">
  <?php if($_admin):?>
     <button class="btn btn-primary circle" id="add">
-        <i class="bi-plus"></i>
+        <i class="fa fa-plus"></i>
     </button>
  <?php endif?>
 </div>

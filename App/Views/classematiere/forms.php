@@ -45,7 +45,7 @@
                     <td>
                     <button type="submit"><i class="bi-send btn btn-success"></i></button>
                     <?php if($checked&&$_admin):?>
-                        <a class='delete' href="#"  data-code="<?= $matiere->codeClasseMatiere ?? '' ?>" ><i class="bi-trash btn btn-danger"></i></button>
+                        <a class='delete' href="#"  data-code="<?= $matiere->codeClasseMatiere ?? '' ?>" ><i class="fa fa-trash btn btn-danger"></i></button>
                     <?php endif?>
                 </td>
                 </form>

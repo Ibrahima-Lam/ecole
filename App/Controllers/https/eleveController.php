@@ -21,7 +21,16 @@ class EleveController extends Controller implements EleveControllerInterfaces
 {
     private function subsidebar(?string $matricule, int $active = 1): string
     {
-        $html = "<div class='subsidebar'>";
+        $eleve=null;
+        if($matricule){
+            $repos=new EleveRepository();
+            $eleve=$repos->findOneByMatricule($matricule);
+        }
+         $html = "<div class='subsidebar'>";
+         if($eleve){
+             $html.='<h4>'.$eleve->nom.'</h4>';
+             $html.='<p class="text-center">'.$eleve->isme.'</p>';
+         }
         $html .= "<ul>";
         $class = "";
         if ($matricule) {

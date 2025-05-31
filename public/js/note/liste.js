@@ -57,7 +57,7 @@ matricule?.addEventListener('input',function () {
 })
 
 async function getData() {
-    return await fetchJson(`?p=api/note/liste`).then(res => data = res);
+    return await fetchJson(`?p=api/note/liste/true`).then(res => data = res);
 }
 
 function renderTable(){
@@ -80,10 +80,10 @@ function renderTable(){
                 
                 ${_admin ? `<div class="center">
                  <div class="edit" data-id="${note.idNote}">
-                     <i class="bi-pencil text-primary"></i>
+                     <i class="fa fa-edit text-primary"></i>
                  </div>
                  <div class="delete" data-id="${note.idNote}">
-                     <i class="bi-trash text-danger"></i>
+                     <i class="fa fa-trash text-danger"></i>
                  </div>
                </div>` : ''}
             </td>

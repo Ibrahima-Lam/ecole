@@ -26,7 +26,7 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
         $bulletin= Bulletin1Factory::getBulletin($matricule,$annee);
         $tab = Bulletin1Factory::getPoints($matricule, $annee);
         $bulletin->setTabPoints($tab);
-        $this->renderPDF("pdf/bulletin1", ['bulletin'=>$bulletin, 'paramettre' => $paramettre]);
+        $this->renderPDF("pdf/bulletin1", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['name'=>"Bulletin1_".$matricule.".pdf"]);
     } 
      public function bulletin2(string $matricule): void
     { $paramettre = BulletinParamettreFactory::getBulletinParam();
@@ -34,7 +34,7 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
         $bulletin= Bulletin2Factory::getBulletin($matricule,$annee);
         $tab = Bulletin3Factory::getPoints($matricule, $annee);
         $bulletin->setTabPoints($tab);
-        $this->renderPDF("pdf/bulletin2", ['bulletin'=>$bulletin, 'paramettre' => $paramettre]);
+        $this->renderPDF("pdf/bulletin2", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['name'=>"Bulletin2_".$matricule.".pdf"]); 
     }
     public function bulletin3(string $matricule): void
     {
@@ -45,6 +45,6 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
    
     $bulletin->setTabPoints($tab);
     $file=$paramettre->orientation=='landscape' ? 'pdf/bulletin3Landscape' : 'pdf/bulletin3';
-    $this->renderPDF($file, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation]);
+    $this->renderPDF($file, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation,'name'=>"Bulletin3_".$matricule.".pdf"]); 
 }
 }

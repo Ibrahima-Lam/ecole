@@ -25,7 +25,7 @@ class inscritController extends Controller
         $this->inscritRepository = new inscritRepository();
         $model = new AnneeScolaireRepository();
         $session = new Session();
-        $this->annee = $session->get('annee') ?? $model->findLastAnneeScolaire()->codeAnnee;
+        $this->annee =$this->getCodeAnnee();
     }
 
     private function subsidebar( int $active = 1): string

@@ -34,12 +34,12 @@ $classe??=null;
                     <td>
                        <?php if($_admin):?>
                         <div class="center">
-                    <a class="show" title="Voir les notes" href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="bi-list"></i></a>
+                    <a class="show" title="Voir les notes" href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="fa fa-list"></i></a>
                     <?php if($_admin):?>
-                    <a class="show" title="importer les notes" href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="bi-file-earmark"></i></a>
-                    <a class="addnote" title="Ajouter une note" data-code="<?= $examen->codeExamen ?>"><i class="bi-plus text-success"></i></a>
-                    <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="bi-pencil text-primary"></i></a>
-                    <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="bi-trash text-danger"></i></a>
+                    <a class="show" title="importer les notes" href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="fa fa-file"></i></a>
+                    <a class="addnote" title="Ajouter une note" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus text-success"></i></a>
+                    <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-edit text-primary"></i></a>
+                    <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-trash text-danger"></i></a>
                     <?php endif?>
                 </div>  
                        <?php endif?>
@@ -54,9 +54,9 @@ $classe??=null;
 <div class="fixed-action">
  <?php if($_admin):?>
        <button title="ajouter un examen" class="btn btn-success circle" id="add">
-           <i class="bi-plus"></i>
+           <i class="fa fa-plus"></i>
        </button>
-       <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="bi-briefcase"></i></a>
+       <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle" href="?p=examen/forms/<?=$classe->codeSalleClasse?>"><i class="fa fa-briefcase"></i></a>
        <?php endif?>
 </div>
 
