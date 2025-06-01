@@ -33,7 +33,7 @@
             <ul>
                 <li>
                     <div class="search-container">
-                        <input type="search" name="etablissement" id="search" placeholder="Rechercher ...">
+                        <input type="search" name="etablissement" id="search" placeholder="<?=__("Rechercher") ?> ...">
                         <div class="search-result"></div>
                     </div>
                 </li>
@@ -64,54 +64,54 @@
         <ul>
             <li><a href="?p=home"><i class="fa fa-house"></i>
                     <div class="element">
-                        <div>Accueil</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Accueil") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=eleve/liste"><i class="fa fa-person"></i>
                     <div class="element">
-                        <div>Eleves</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Eleves") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=classe/liste"><i class="fa fa-list"></i>
                     <div class="element">
-                        <div>Classes</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Classes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=salleclasse/liste"><i class="fa fa-building"></i>
                     <div class="element">
-                        <div>Salles de Classes</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Salles de Classes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=professeur/liste"><i class="fa fa-user"></i>
                     <div class="element">
-                        <div>Professeurs</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Professeurs") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=matiere/liste"><i class="fa fa-book"></i>
                     <div class="element">
-                        <div>Matières</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Matières") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=inscrit/liste"><i class="fa fa-user-plus"></i>
                     <div class="element">   
-                        <div>Inscriptions</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Inscriptions") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=examen/liste"><i class="fa fa-table"></i>
                     <div class="element">
-                        <div>Examens</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Examens") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=note/liste"><i class="fa fa-list"></i>
                     <div class="element">
-                        <div>Notes</div><i class="fa fa-chevron-right"></i>
+                        <div><?=__("Notes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=paramettre/index"><i class="fa fa-gear"></i>
-                    <div class="element">Paramètres</div>
+                    <div class="element"><?=__("Paramètres") ?></div>
                 </a></li>
             <li><a href="?p=plus/home"><i class="fa fa-plus"></i>
-                    <div class="element">Plus</div>
+                    <div class="element"><?=__("Plus") ?></div>
                 </a></li>
         </ul>
     </div>

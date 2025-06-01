@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: french\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: french_team\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "Bonjour"
+msgstr "Hello"
+
+msgid "Bienvenue"
+msgstr "Bienvenue dans l'application"
+
+msgid "Au revoir"
+msgstr "Goodbye"
+
+msgid "Comment ça va ?"
+msgstr "How are you?"

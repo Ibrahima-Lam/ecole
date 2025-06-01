@@ -1,17 +1,17 @@
-<h1 class="title text-center">Bienvenue</h1>
+<h1 class="title text-center"><?=__("Bienvenue") ?></h1>
 <?php
 $salles = $salles??[];
 ?>
 <form id="srchform">
     <div class="center my-10">
-       <input type="search" id="srchfield" class="field width-300" placeholder="Entrez le matricule ou le NNI">
-       <button class="btn btn-primary" id="srchbtn">Rechercher</button>
+       <input type="search" id="srchfield" class="field width-300" placeholder="<?=__("Entrez le matricule ou le NNI") ?>">
+       <button class="btn btn-primary" id="srchbtn"><?=__("Rechercher") ?></button>
     </div>
 </form>
 <div class="result" id="result">
 
 </div>
-<h3 class="title text-center">Salles de Classe</h3>
+<h3 class="title text-center"><?=__("Salles de Classes") ?></h3>
 <div class="grid">
 <?php foreach($salles as $salle):?>
     <div class="card cls" data-code="<?= $salle->codeSalleClasse ?>">
@@ -53,13 +53,12 @@ $salles = $salles??[];
             document.getElementById('result').innerHTML = `
                 <div class="card">
                     <div class="card-header">
-                        <h3>Eleve non trouvé</h3>
+                        <h3><?=__("Eleve non trouvé") ?></h3>
                     </div>
                 </div>
             `
             return
         }
-
 
         const result = document.getElementById('result')
         result.innerHTML = `
@@ -78,7 +77,9 @@ $salles = $salles??[];
         result?.addEventListener('click',()=>{
             window.location.assign('?p=eleve/profil/'+data.matricule)
         })
-    })
+   })
+    
+    
 </script>
            
             

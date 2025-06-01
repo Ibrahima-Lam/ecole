@@ -1,5 +1,5 @@
 <?php
-
+require_once 'translate.php';
 require_once '../vendor/autoload.php';
 $p = $_GET["p"] ?? "home/index";
 $args = explode("/", $p);

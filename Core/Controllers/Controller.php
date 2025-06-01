@@ -13,10 +13,10 @@ use Core\Services\html\htmlService;
 
 class Controller
 {
-   
+
     protected function getCodeAnnee()
     {
-      return AnneeFactory::getAnnee();
+        return AnneeFactory::getAnnee();
     }
     protected function getNomAnnee()
     {
@@ -35,7 +35,7 @@ class Controller
     }
     private function getLangue()
     {
-      
+
         return LangueFactory::getLangue();
     }
     private function getAnneeScolaire()
@@ -46,26 +46,35 @@ class Controller
             htmlService::options($model->findAll(), "codeAnnee", "nomAnnee", $codeAnnee);
     }
 
-    private function isDark(){
-    return  DarkFactory::getDark()??false;
+    private function isDark()
+    {
+        return DarkFactory::getDark() ?? false;
     }
     public function render(string $file, array $data = [])
     {
-        $user=UserFactory::getUser();
-         if (!$user) $this->redirect("?p=home/login");
-        
+        $user = UserFactory::getUser();
+        if (!$user)
+            $this->redirect("?p=home/login");
+
         ob_start();
         extract($data);
         $_annee = $this->getAnneeScolaire();
         $_langue = $this->getLangue();
-        $_admin = $user->roleUser=="admin";
-        $_user=$user;
+        $_admin = $user->roleUser == "admin";
+        $_user = $user;
         $_dark = $this->isDark();
+        putenv("LANGUAGE=" . $this->getLangue());
+        setlocale(LC_ALL, $this->getLangue());
+        bindtextdomain("messages", "./locales");
+        bind_textdomain_codeset("messages", "UTF-8");
+        textdomain("messages");
+
         $path = "../App/Views/$file.php";
         if (!file_exists($path)) {
             echo '<p> Cette vue est introuvable! veuillez verifier le chemin du fichier dans les vues!</p>';
             return;
-        } else require $path;
+        } else
+            require $path;
 
         $content = ob_get_clean();
         require_once 'layout.php';
@@ -73,8 +82,9 @@ class Controller
 
     public function renderPDF(string $file, array $data = array(), array $options = array())
     {
-        $user=UserFactory::getUser();
-         if (!$user) $this->redirect("?p=home/login");
+        $user = UserFactory::getUser();
+        if (!$user)
+            $this->redirect("?p=home/login");
         ob_start();
         extract($data);
         require "../App/views/$file.php";
@@ -94,10 +104,13 @@ class Controller
 
     public function response(mixed $data)
     {
-        $user=UserFactory::getUser();
-         if (!$user)  $this->response("Unauthorized");
-        if (is_scalar($data)) echo $data;
-        else echo json_encode($data, true);
+        $user = UserFactory::getUser();
+        if (!$user)
+            $this->response("Unauthorized");
+        if (is_scalar($data))
+            echo $data;
+        else
+            echo json_encode($data, true);
         exit();
     }
 
@@ -107,5 +120,5 @@ class Controller
         exit();
     }
 
-    
+
 }

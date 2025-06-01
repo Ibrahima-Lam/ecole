@@ -6,7 +6,7 @@ class DarkFactory{
     private const DARK_KEY="dark";
     public static function getDark():bool{
         $session=new Session();
-        return $session->get(self::DARK_KEY);
+        return $session->get(self::DARK_KEY)??false;
     }
     public static function setDark(bool $dark):void{
         $session=new Session();

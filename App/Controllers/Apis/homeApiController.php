@@ -88,8 +88,8 @@ $result=[];
 foreach ($eleves as $eleve) {
     if (str_contains(strtoupper($eleve->nom), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->nom));
-       $eleve->result="<li title='Eleve'>
-       <span>$r <b>(Eleve)</b></span>
+       $eleve->result="<li title='".__('Eleve')."'>
+       <span>$r <b>(".__('Eleve').")</b></span>
        <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
        <br>
        $eleve->isme
@@ -99,8 +99,8 @@ foreach ($eleves as $eleve) {
     } 
     elseif (str_contains(strtoupper($eleve->isme), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->isme));
-       $eleve->result="<li title='Eleve'>
-       <span>$r <b>(Eleve)</b></span>
+       $eleve->result="<li title='".__('Eleve')."'>
+       <span>$r <b>(".__('Eleve').")</b></span>
        <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
        <br>
        $eleve->isme
@@ -110,8 +110,8 @@ foreach ($eleves as $eleve) {
     }
  elseif (str_contains(strtoupper($eleve->matricule), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->matricule));
-     $eleve->result="<li title='Eleve'>
-    <span>$r <b>(Eleve)</b></span>
+     $eleve->result="<li title='".__('Eleve')."'>
+    <span>$r <b>(".__('Eleve').")</b></span>
     <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
     <br>
     $eleve->isme
@@ -120,8 +120,8 @@ foreach ($eleves as $eleve) {
      $result[]=$eleve;
  }elseif (str_contains(strtoupper($eleve->nni), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($eleve->nni));
-     $eleve->result="<li title='Eleve'>
-    <span>$r <b>(Eleve)</b></span>
+     $eleve->result="<li title='".__('Eleve')."'>
+    <span>$r <b>(".__('Eleve').")</b></span>
     <a class='link' href='?p=eleve/profil/$eleve->matricule'>$eleve->nom
     <br>
     $eleve->isme
@@ -142,8 +142,8 @@ $result=[];
 foreach ($profs as $prof) {
     if (str_contains(strtoupper($prof->nomProfesseur), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->nomProfesseur));
-       $prof->result="<li title='Professeur'>
-       <span>$r <b>(Professeur)</b></span>
+       $prof->result="<li title='".__('Professeur')."'>
+       <span>$r <b>(".__('Professeur').")</b></span>
        <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
        <br>
        $prof->ismeProfesseur
@@ -153,8 +153,8 @@ foreach ($profs as $prof) {
     } 
     elseif (str_contains(strtoupper($prof->ismeProfesseur), strtoupper($search))) {
      $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->ismeProfesseur));
-       $prof->result="<li title='Professeur'>
-       <span>$r <b>(Professeur)</b></span>
+       $prof->result="<li title='  Professeur'>
+       <span>$r <b>(".__('Professeur').")</b></span>
        <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
        <br>
        $prof->ismeProfesseur
@@ -164,8 +164,8 @@ foreach ($profs as $prof) {
     }
  elseif (str_contains(strtoupper($prof->matriculeProfesseur), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->matriculeProfesseur));
-     $prof->result="<li title='Professeur'>
-    <span>$r <b>(Professeur)</b></span>
+     $prof->result="<li title='".__('Professeur')."'>
+    <span>$r <b>(".__('Professeur').")</b></span>
     <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
     <br>
     $prof->ismeProfesseur
@@ -174,8 +174,8 @@ foreach ($profs as $prof) {
      $result[]=$prof;
  }elseif (str_contains(strtoupper($prof->nniProfesseur), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->nniProfesseur));
-     $prof->result="<li title='Professeur'>
-    <span>$r <b>(Professeur)</b></span>
+     $prof->result="<li title='".__('Professeur')."'>
+    <span>$r <b>(".__('Professeur').")</b></span>
     <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
     <br>
     $prof->ismeProfesseur
@@ -184,8 +184,8 @@ foreach ($profs as $prof) {
      $result[]=$prof;
  }elseif (str_contains(strtoupper($prof->emailProfesseur), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->emailProfesseur));
-     $prof->result="<li title='Professeur'>
-    <span>$r <b>(Professeur)</b></span>
+     $prof->result="<li title='".__('Professeur')."'>
+    <span>$r <b>(".__('Professeur').")</b></span>
     <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
     <br>
     $prof->ismeProfesseur
@@ -194,8 +194,8 @@ foreach ($profs as $prof) {
      $result[]=$prof;
  }elseif (str_contains(strtoupper($prof->telProfesseur), strtoupper($search))) {
     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($prof->telProfesseur));
-     $prof->result="<li title='Professeur'>
-    <span>$r <b>(Professeur)</b></span>
+     $prof->result="<li title='".__('Professeur')."'>
+    <span>$r <b>(".__('Professeur').")</b></span>
     <a class='link' href='?p=professeur/profil/$prof->matriculeProfesseur'>$prof->nomProfesseur
     <br>
     $prof->ismeProfesseur
@@ -211,7 +211,7 @@ $res.=array_reduce($result, function ($a,$b)  {
 
 
 
-   $res=!empty($res)?"<ul>$res</ul>":"<p>Aucun resultat</p>";
+   $res=!empty($res)?"<ul>$res</ul>":"<p>".__("Aucun resultat")."</p>";
    $this->response($res);
 }
 }

@@ -48,7 +48,7 @@
                     window.location.href = '?p=home';
                 } else {
                     console.log(data);
-                    alert('Utilisateur nom reconnu');
+                    alert('Utilisateur non reconnu');
                 }
             })
             .catch(error => console.error('Error:', error));
