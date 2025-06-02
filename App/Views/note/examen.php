@@ -48,10 +48,12 @@ $title = "Relevé de notes";
                     <td><?= $note->updatedAt ?></td>
                     <td><?= $note->note ?></td>
                     <td>
-                        <div class="center">
-                            <a class="edit" title="Editer" data-id="<?= $note->idNote ?>"><i class="fa fa-edit text-primary"></i></a>
-                            <a class="delete" title="Supprimer" data-id="<?= $note->idNote ?>"><i class="fa fa-trash text-danger"></i></a>
-                        </div>
+                       <?php if($_admin):?>
+                         <div class="center">
+                             <a class="edit" title="Editer" data-id="<?= $note->idNote ?>"><i class="fa fa-edit text-primary"></i></a>
+                             <a class="delete" title="Supprimer" data-id="<?= $note->idNote ?>"><i class="fa fa-trash text-danger"></i></a>
+                         </div>
+                       <?php endif?>
                     </td>
                 </tr>
             <?php endforeach ?>
@@ -65,8 +67,10 @@ $title = "Relevé de notes";
         <i class="bi-file-earmark-excel"></i>
     </button>
     <button class="btn btn-primary circle" title="Paramétre" id="parametre"><i class="bi-gear"></i></button>
-    <button class="btn btn-primary circle" title="Ajouter" id="add" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus"></i></button>
-</div>
+   <?php if($_admin):?>
+     <button class="btn btn-primary circle" title="Ajouter" id="add" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus"></i></button>
+ 
+   <?php endif?></div>
 
 <dialog class="dialog" id="parametreDialog">
     <div class="dialog-content">

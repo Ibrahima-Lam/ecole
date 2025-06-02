@@ -23,9 +23,9 @@ document.getElementById("anneescolaire")?.addEventListener("change", async funct
     
 });
 
-document.getElementById('langue')?.addEventListener('change', function (e) {
+document.getElementById('langue')?.addEventListener('change',async function (e) {
     let langue = e.target.value;
-    fetchData("?p=api/home/langue/" + langue);
+   await fetchData("?p=api/home/langue/" + langue);
     window.location.reload();
 
 });
@@ -107,8 +107,8 @@ document.addEventListener('click',function(e){
 })
 
 const dark=document.getElementById('dark');
-dark?.addEventListener('click', function (e) {
-    fetchData("?p=api/home/toggleDark");
+dark?.addEventListener('click',async function (e) {
+   await fetchData("?p=api/home/toggleDark");
    document.body.classList.toggle('dark');
    dark.querySelector('i').classList.toggle('fa-moon');
    dark.querySelector('i').classList.toggle('fa-sun');

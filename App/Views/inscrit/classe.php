@@ -62,7 +62,7 @@
                    <?php if($paramettre->nni):?>
                     <td><?= $inscrit->nni ?></td>
                    <?php endif?>
-                    <td><a href="?p=eleve/profil/<?= $inscrit->matricule ?>"><i class="bi-eye"></i></a></td>
+                    <td><a href="?p=eleve/profil/<?= $inscrit->matricule ?>"><i class="fa fa-eye"></i></a></td>
                 </tr>
             <?php endforeach ?>
         </tbody>

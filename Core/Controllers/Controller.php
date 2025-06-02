@@ -2,13 +2,11 @@
 
 namespace Core\Controllers;
 
-use App\Models\Entities\UserEntity;
 use App\Models\Repositories\AnneeScolaireRepository;
 use App\Services\factories\AnneeFactory;
 use App\Services\factories\DarkFactory;
 use App\Services\factories\LangueFactory;
 use App\Services\factories\UserFactory;
-use Core\Caches\Session;
 use Core\Services\html\htmlService;
 
 class Controller
@@ -46,6 +44,17 @@ class Controller
             htmlService::options($model->findAll(), "codeAnnee", "nomAnnee", $codeAnnee);
     }
 
+    private function getSchoolName()
+    {
+        $name=file_get_contents('./res/names/fr.txt');
+        return $name ?: 'Etablissement';
+    }
+    private function getSchoolNameAr()
+    {
+        $name=file_get_contents('./res/names/ar.txt');
+        return $name?: 'المدرسة';
+    }
+
     private function isDark()
     {
         return DarkFactory::getDark() ?? false;
@@ -63,6 +72,8 @@ class Controller
         $_admin = $user->roleUser == "admin";
         $_user = $user;
         $_dark = $this->isDark();
+        $_schoolName = $this->getSchoolName();
+        $_schoolNameAr = $this->getSchoolNameAr();
         putenv("LANGUAGE=" . $this->getLangue());
         setlocale(LC_ALL, $this->getLangue());
         bindtextdomain("messages", "./locales");
@@ -80,7 +91,7 @@ class Controller
         require_once 'layout.php';
     }
 
-    public function renderPDF(string $file, array $data = array(), array $options = array())
+    public function renderPDF(string $file, array $data = [], array $options = [])
     {
         $user = UserFactory::getUser();
         if (!$user)
@@ -99,7 +110,7 @@ class Controller
         ]);
 
         $mpdf->WriteHTML($content);
-        $mpdf->Output($options['name'] ?? 'document.pdf', \Mpdf\Output\Destination::INLINE);
+        $mpdf->Output($options['name'] ?? 'document.pdf', $options['dest']??\Mpdf\Output\Destination::INLINE);
     }
 
     public function response(mixed $data)

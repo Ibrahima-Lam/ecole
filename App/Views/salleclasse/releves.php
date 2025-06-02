@@ -23,7 +23,7 @@ $title = "Liste des Releves";
                 <td><?= $matiere->codeMatiere ?></td>
                 <td><?= $matiere->nomMatiere ?></td>
                 <td>
-                    <a title="Voir les notes" href="?p=note/releve/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="bi-eye"></i></a>
+                    <a title="Voir les notes" href="?p=note/releve/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

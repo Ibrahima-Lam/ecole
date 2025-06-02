@@ -17,7 +17,7 @@
                 <td><?= $matiere->nomMatiere ?></td>
                 <td dir="rtl"><?= $matiere->ismeMatiere ?></td>
                 <td><?= $matiere->langueMatiere ?></td>
-                <td><a href="?p=classematiere/matiere/<?= $matiere->codeMatiere ?>"><i class="bi-eye"></i></a></td>
+                <td><a href="?p=classematiere/matiere/<?= $matiere->codeMatiere ?>"><i class="fa fa-eye"></i></a></td>
             </tr>
         <?php endforeach ?>
     </tbody>

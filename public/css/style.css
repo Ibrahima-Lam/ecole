@@ -9,7 +9,7 @@
 .dark{
     background-color: #1F2937;
     color: white;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
 }
 
 .dark .nav-bar{
@@ -134,6 +134,24 @@
     margin-right: 10px;
 }
 
+.nav-bar ul li .school-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5px;
+   
+}
+
+[dir="rtl"] .nav-bar ul li .school-name{
+    flex-direction: column-reverse;
+}
+
+.col-reverse{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .nav-bar ul li h3 {
     font-size: 20px;
     color: rgb(0, 0, 0);
@@ -216,7 +234,7 @@
     border-radius: 5px;
     padding: 10px;
     z-index: 5;
-    transition: all 0.3s ease-in-out;
+   
 }
 
 [dir='rtl'] .sidebar {
@@ -1063,6 +1081,8 @@ dd {
     font-size: 14px;
     padding: 5px;
   }
+
+ 
   
 @media screen and (max-width: 800px) {
     
@@ -1161,6 +1181,7 @@ dd {
    }
    .sidebar{
     left: -300px;
+    transition: all 0.3s ease-in-out;
    }
    [dir='rtl'] .sidebar{
     left: auto;
@@ -1177,6 +1198,7 @@ dd {
     margin: 5px;
     padding: 5px;
    }
+   
 
    .container {
     width: 100%;

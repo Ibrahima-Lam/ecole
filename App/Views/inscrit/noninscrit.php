@@ -31,7 +31,7 @@
                     <td>
                         <div class="center">
 
-                            <a href="?p=eleve/profil/<?= $eleve->matricule ?>"><i class="bi-eye"></i></a>
+                            <a href="?p=eleve/profil/<?= $eleve->matricule ?>"><i class="fa fa-eye"></i></a>
                             <?php if ($_admin): ?>
                                 <button class="btn  inscrire" title="Inscrire en <?= $anneescolaire->nomAnnee ?>"
                                     data-module="FormModule" data-matricule="<?= $eleve->matricule ?>"><i

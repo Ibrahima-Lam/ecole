@@ -51,7 +51,7 @@
                     alert('Utilisateur non reconnu');
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => alert('Utilisateur non reconnu'));
     });
 </script>
 </html>

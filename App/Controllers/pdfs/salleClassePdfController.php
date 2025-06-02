@@ -41,14 +41,14 @@ class salleClassePdfController extends Controller
         }, $data);
         $model = new ClasseMatiereRepository();
         $paramettre = ResultatParamettreFactory::getResultatParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
             });
         }
         $matieres = $model->findByClasse($salleClasse->codeClasse);
-        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat1_{$salleClasse->pseudoSalleClasse}.pdf"], );
+        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat1_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function resultat2($codeSalleClasse)
     {
@@ -69,13 +69,13 @@ class salleClassePdfController extends Controller
         $model = new ClasseMatiereRepository();
         $matieres = $model->findByClasse($salleClasse->codeClasse);
         $paramettre = ResultatParamettreFactory::getResultatParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
             });
         }
-        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat2_{$salleClasse->pseudoSalleClasse}.pdf"], );
+        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat2_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function resultat3($codeSalleClasse)
     {
@@ -96,13 +96,13 @@ class salleClassePdfController extends Controller
         $model = new ClasseMatiereRepository();
         $matieres = $model->findByClasse($salleClasse->codeClasse);
         $paramettre = ResultatParamettreFactory::getResultatParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
             });
         }
-        $this->renderPDF("pdf/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'name'=>"Resultat3_{$salleClasse->pseudoSalleClasse}.pdf"], );
+        $this->renderPDF("pdf/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'name'=>"Resultat3_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function bulletin1($codeSalleClasse): void
     {
@@ -129,7 +129,7 @@ class salleClassePdfController extends Controller
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -142,7 +142,7 @@ class salleClassePdfController extends Controller
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output("bulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("bulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
     }
     public function bulletin2($codeSalleClasse): void
     {
@@ -169,7 +169,7 @@ class salleClassePdfController extends Controller
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite || ($_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -182,7 +182,7 @@ class salleClassePdfController extends Controller
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output("bulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("bulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
 
     }
     public function bulletin3($codeSalleClasse): void
@@ -211,7 +211,7 @@ class salleClassePdfController extends Controller
             $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite || ($_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -224,7 +224,7 @@ class salleClassePdfController extends Controller
             $html = ob_get_clean();
             $mpdf->WriteHTML($html);
         }
-        $mpdf->Output("bulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("bulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
     }
     public function minibulletin1($codeSalleClasse): void
     {
@@ -252,7 +252,7 @@ class salleClassePdfController extends Controller
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -270,7 +270,7 @@ class salleClassePdfController extends Controller
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
-        $mpdf->Output("minibulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("minibulletin1_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
     }
     public function minibulletin2($codeSalleClasse): void
     {
@@ -298,7 +298,7 @@ class salleClassePdfController extends Controller
             $bulletin->setTabPoints($tab);
             return $bulletin;
         }, $data);
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -316,7 +316,7 @@ class salleClassePdfController extends Controller
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
-        $mpdf->Output("minibulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("minibulletin2_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
     }
     public function minibulletin3($codeSalleClasse): void
     {
@@ -343,7 +343,7 @@ class salleClassePdfController extends Controller
             return $bulletin;
         }, $data);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        if ($paramettre->merite || $_REQUEST['merite'] ?? false) {
+        if ($paramettre->merite ||( $_REQUEST['merite'] ?? false)) {
             usort($data, function ($a, $b) {
                 return $a->getRang() - $b->getRang()
 ;
@@ -361,7 +361,7 @@ class salleClassePdfController extends Controller
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
 
-        $mpdf->Output("minibulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'I');
+        $mpdf->Output("minibulletin3_{$salleclasse->pseudoSalleClasse}.pdf", 'D');
     }
 }
 

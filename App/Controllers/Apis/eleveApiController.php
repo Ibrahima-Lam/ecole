@@ -48,7 +48,7 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
             <td>
             <div class='center'>
 
-                            <a href=\"?p=eleve/profil/" . $item->matricule . "\" title=\"Voir l'eleve\"><i class=\"bi-eye\"></i></a>
+                            <a href=\"?p=eleve/profil/" . $item->matricule . "\" title=\"Voir l'eleve\"><i class=\"fa fa-eye\"></i></a>
                            ";
                            if($admin){
                                 $tr.="

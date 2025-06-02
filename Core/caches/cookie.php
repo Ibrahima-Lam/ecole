@@ -5,9 +5,9 @@ namespace Core\Caches;
 class Cookie
 {
     private int $expire;
-    public function __construct()
+    public function __construct(?int $expire=null)
     {
-        $this->expire = time() + 30 * 24 * 60 * 60;
+        $this->expire =$expire?? (time() + 30 * 24 * 60 * 60);
     }
 
 

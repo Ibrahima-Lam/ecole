@@ -11,7 +11,7 @@
         <tbody>
 
         <tr>
-                <td><h4><?=$paramettre->getEtablissemment()?></h4></td>
+                <td><h4><?=$paramettre::ETABLISSEMENT?></h4></td>
                 <td class="center" ><div >
                     <u>
                         <strong>
@@ -20,7 +20,7 @@
                     </u>
                 </div>
             </td>
-            <td class="right" dir="rtl" ><h4  ><?=$paramettre->getEtablissemmentArabe()?></h4></td>
+            <td class="right" dir="rtl" ><h4  ><?=$paramettre::ETABLISSEMENT_ARABE?></h4></td>
         </tr>
     </tbody>
     </table>

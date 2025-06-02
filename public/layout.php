@@ -21,7 +21,10 @@
                 <li class="infos">
                     <div class="logo">
                         <img src="images/ecole.jpg" alt="logo">
-                        <h3>Etablissements</h3>
+                       <div class="school-name">
+                         <h4 dir="ltr"><?=$_schoolName ?></h4>
+                         <h4 dir="rtl"><?=$_schoolNameAr ?></h4>
+                       </div>
                     </div>
                 </li>
                 <li class="dropdown" id="dropdown"><i class="fa fa-ellipsis-vertical"></i></li>

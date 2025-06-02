@@ -22,7 +22,7 @@
                 <td><?= $classe->niveau ?></td>
                 <td><?= $classe->codeSerie ?></td>
                 <td>
-                    <a href="?p=classematiere/classe/<?= $classe->codeClasse ?>"><i class="bi-eye"></i></a>
+                    <a href="?p=classematiere/classe/<?= $classe->codeClasse ?>"><i class="fa fa-eye"></i></a>
                 </td>
             </tr>
         <?php endforeach ?>
