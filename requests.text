@@ -8,12 +8,14 @@ create table eleve(
     adresse varchar(50) not null,
     nni varchar(100) not null,
     lieuNaissance varchar(100),
+    imagePath varchar(100),
     statutEleve enum('actif','inactif','exclu','abandonne') default 'actif',
     Constraint eleve_pkey Primary Key (matricule),
     Constraint eleve_nni_unique Unique (nni)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 insert into eleve(matricule,nom,isme,sexe,dateNaissance,adresse,nni) values('123456789','Moussa lamine','موسى المن','M','1990-01-01','123 main street','123456789');
 alter table eleve add column lieuNaissance varchar(100);
+alter table eleve add column imagePath varchar(100);
 alter table eleve modify column dateNaissance date ;
 alter table eleve modify column adresse varchar(100) ;
 alter table eleve modify column isme varchar(100) ;
@@ -157,6 +159,8 @@ create table inscrit(
     numeroInscrit int(3) not null,
     typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null,
     dateInscription date not null,
+    createdAtInscrit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAtInscrit TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     Constraint inscrit_unique Unique (matricule,codeSalleClasse),
     Constraint inscrit_pkey Primary Key (idInscrit),
     Constraint inscrit_classe_fkey Foreign Key (codeSalleClasse) References salle_classe(codeSalleClasse)
@@ -165,12 +169,15 @@ create table inscrit(
 alter table inscrit add column  typeInscrit enum('passant','redoublant','nouveau-passant','nouveau-redoublant','entrant') not null;
 alter table inscrit add column  dateInscription date not null;
 alter table inscrit modify column numeroInscrit int(3) not null;
+alter table inscrit add column createdAtInscrit TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+alter table inscrit add column updatedAtInscrit TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ;
 
 insert into inscrit(matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('123456789','A24255LM',1,'passant','2023-10-01');
 
 create view inscrit_view as select
-  i.idInscrit as idInscrit, i.matricule as matricule,i.numeroInscrit as numeroInscrit,i.typeInscrit as typeInscrit,i.dateInscription as dateInscription,
+  i.idInscrit as idInscrit, i.matricule as matricule,i.numeroInscrit as numeroInscrit,i.typeInscrit as typeInscrit,i.dateInscription as dateInscription,i.createdAtInscrit as createdAtInscrit,i.updatedAtInscrit as updatedAtInscrit,
   e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,
+  e.imagePath as imagePath,
   sc.codeSalleClasse as codeSalleClasse, sc.indiceSalleClasse as indiceSalleClasse,
   s.codeSalle as codeSalle, s.nomSalle as nomSalle,
   c.codeClasse as codeClasse, c.nomClasse as nomClasse,
@@ -206,7 +213,9 @@ create table professeur(
     codeSpecialite varchar(10) ,
     dateDebutProfesseur date,
     dateArriveeProfesseur date,
+    imagePathProfesseur varchar(100),
     statutProfesseur enum('actif','inactif','malade','suspendu','exclu','abandonne','autre','retraite') default 'actif',
+    cycleProfesseur enum('1','2') default '1',
     Constraint professeur_pkey Primary Key (matriculeProfesseur),
     Constraint professeur_nni_unique Unique (nniProfesseur),
     Constraint professeur_specialite_fkey Foreign Key (codeSpecialite) References specialite(codeSpecialite)
@@ -216,7 +225,8 @@ alter table professeur modify column statutProfesseur enum('actif','inactif','ma
 alter table professeur modify column sexeProfesseur enum('M','F');
 alter table professeur add column dateArriveeProfesseur date;
 alter table professeur add column dateDebutProfesseur date;
-
+alter table professeur add column imagePathProfesseur varchar(100);
+alter table professeur add column cycleProfesseur enum('1','2') default '1';
 create table matiere(
     codeMatiere varchar(5) not null,
     nomMatiere varchar(100) not null,
@@ -250,6 +260,7 @@ create table classe_matiere(
     horaireClasseMatiere int(2) not null,
     coefficientClasseMatiere int(2) not null,
     dateClasseMatiere date not null,
+    
     Constraint classe_matiere_pkey Primary Key (codeClasseMatiere),
     Constraint classe_matiere_unique Unique (codeClasse,codeMatiere,dateClasseMatiere),
     Constraint fk_classe_matiere_classe_code FOREIGN KEY (codeClasse) REFERENCES classe(codeClasse)
@@ -307,7 +318,7 @@ insert into enseigner (matriculeProfesseur,codeMatiere,codeSalleClasse) values('
 
 create view enseigner_view as select
   e.idEnseigner as idEnseigner,e.matriculeProfesseur as matriculeProfesseur,e.codeMatiere as codeMatiere,
-  p.nomProfesseur as nomProfesseur,p.ismeProfesseur as ismeProfesseur,p.sexeProfesseur as sexeProfesseur,p.nniProfesseur as nniProfesseur,p.telProfesseur as telProfesseur,p.emailProfesseur as emailProfesseur,
+  p.nomProfesseur as nomProfesseur,p.ismeProfesseur as ismeProfesseur,p.sexeProfesseur as sexeProfesseur,p.nniProfesseur as nniProfesseur,p.telProfesseur as telProfesseur,p.emailProfesseur as emailProfesseur,p.imagePathProfesseur as imagePathProfesseur,
   m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
   s.codeSalleClasse as codeSalleClasse,s.codeClasse as codeClasse,s.codeSalle as codeSalle,
   case when s.indiceSalleClasse is null then s.codeClasse else concat(s.codeClasse,s.indiceSalleClasse) end as pseudoSalleClasse
@@ -402,7 +413,7 @@ insert into note (matricule,codeExamen,note) values('Mat5d101','2425PC5D1D1',14.
 
 create  view note_view as select
   n.idNote as idNote, n.matricule as matricule,n.note as note,n.createdAt as createdAt,n.updatedAt as updatedAt,
-  e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,
+  e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,e.imagePath as imagePath,
   cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
   ex.codeExamen as codeExamen,ex.codeClasseMatiere as codeClasseMatiere,ex.dateExamen as dateExamen,ex.heureDebutExamen as heureDebutExamen,ex.heureFinExamen as heureFinExamen,ex.codeSalleClasse as codeSalleClasse,ex.statutExamen as statutExamen,
   ev.codeEvaluation as codeEvaluation, ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
@@ -432,8 +443,9 @@ create table cours(
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 create table absence(
-    idAbsence int(6) AUTO_INCREMENT;
+    idAbsence int(6) AUTO_INCREMENT,
     listeAbsence text not null,
+    matricule varchar(10) not null,
    idCours int not null,
     Constraint absence_pkey Primary Key (idAbsence),
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -482,3 +494,35 @@ create table user(
 );
 insert into user (nameUser,emailUser,passwordUser,roleUser) values('admin','admin@admin.com','admin','admin');
 insert into user (nameUser,emailUser,passwordUser,roleUser) values('user','user@user.com','user','user');
+
+
+create table correspondant(
+    idCorrespondant int(6) AUTO_INCREMENT,
+    nomCorrespondant varchar(100) not null,
+    ismeCorrespondant varchar(100),
+    sexeCorrespondant enum('M','F'),
+    adresseCorrespondant varchar(100) ,
+    nniCorrespondant varchar(10),
+    telCorrespondant varchar(8),
+    emailCorrespondant varchar(100) ,
+    imagePathCorrespondant varchar(100),
+    Constraint correspondant_pkey Primary Key (idCorrespondant),
+    Constraint correspondant_nni_unique Unique (nniCorrespondant)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create table correspondance(
+    idCorrespondance int(6) AUTO_INCREMENT,
+    idCorrespondant int not null,
+    matricule varchar(10) not null,
+    Constraint correspondance_pkey Primary Key (idCorrespondance),
+    Constraint correspondance_correspondant_fkey Foreign Key (idCorrespondant) References correspondant(idCorrespondant)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create view correspondance_view as select
+  c.idCorrespondance as idCorrespondance, c.idCorrespondant as idCorrespondant, c.matricule as matricule,
+  e.nom as nom, e.isme as isme, e.sexe as sexe, e.adresse as adresse, e.nni as nni,  e.imagePath as imagePath,
+  cor.nomCorrespondant as nomCorrespondant, cor.ismeCorrespondant as ismeCorrespondant, cor.sexeCorrespondant as sexeCorrespondant, cor.adresseCorrespondant as adresseCorrespondant, cor.nniCorrespondant as nniCorrespondant, cor.telCorrespondant as telCorrespondant, cor.emailCorrespondant as emailCorrespondant, cor.imagePathCorrespondant as imagePathCorrespondant
+  from correspondance c
+  join eleve e on e.matricule=c.matricule
+  join correspondant cor on cor.idCorrespondant=c.idCorrespondant;
+

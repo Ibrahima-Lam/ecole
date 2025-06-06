@@ -3,6 +3,7 @@
 namespace App\Controllers\https;
 
 use App\Controllers\interfaces\EleveControllerInterfaces;
+use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
@@ -35,22 +36,30 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $class = "";
         if ($matricule) {
             $class = $active == 1 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/profil/$matricule'class='$class'>Profil</a></li>";
+            $html .= "<li><a href='?p=eleve/profil/$matricule'class='$class'>".__("Profil")."</a></li>";
             $class = $active == 2 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/resultat/$matricule'class='$class'>Resultat</a></li>";
+            $html .= "<li><a href='?p=eleve/resultat/$matricule'class='$class'>".__("Resultat")."</a></li>";
             $class = $active == 3 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/bulletin1/$matricule'class='$class'>Bulletin C1</a></li>";
+            $html .= "<li><a href='?p=eleve/bulletin1/$matricule'class='$class'>".__("Bulletin C1")."</a></li>";
             $class = $active == 4 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>Bulletin C2</a></li>";
+            $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>".__("Bulletin C2")."</a></li>";
             $class = $active == 5 ? "active" : "";
-            $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>Bulletin C3</a></li>";
+            $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>".__("Bulletin C3")."</a></li>";
         }
         $class = $active == 10 ? "active" : "";
-        $html .= "<li><a href='?p=eleve/liste' class='$class'>Eleves</a></li>";
+        $html .= "<li><a href='?p=eleve/liste' class='$class'>".__("Eleves")."</a></li>";
         $class = $active == 11 ? "active" : "";
-        $html .= "<li><a href='?p=inscrit/liste' class='$class'>Les Inscrits</a></li>";
+        $html .= "<li><a href='?p=eleve/inscrit' class='$class'>".__("Les inscrits")."</a></li>";
         $class = $active == 12 ? "active" : "";
-        $html .= "<li><a href='?p=inscrit/noninscrit' class='$class'>Les non inscrit</a></li>";
+        $html .= "<li><a href='?p=eleve/noninscrit' class='$class'>".__("Les non inscrits")."</a></li>";
+        $class = $active == 13 ? "active" : "";
+        $html .= "<li><a href='?p=eleve/statut/actif' class='$class'>".__("Les Actifs")."</a></li>";
+        $class = $active == 14 ? "active" : "";
+        $html .= "<li><a href='?p=eleve/statut/inactif' class='$class'>".__("Les Inactifs")."</a></li>";
+        $class = $active == 15 ? "active" : "";
+        $html .= "<li><a href='?p=eleve/statut/exclus' class='$class'>".__("Les Exclus")."</a></li>";
+        $class = $active == 16 ? "active" : "";
+        $html .= "<li><a href='?p=eleve/statut/abandonne' class='$class'>".__("Les Abandonnes")."</a></li>";
         $html .= "</ul>";
         $html .= "</div>";
         return $html;
@@ -66,10 +75,58 @@ class EleveController extends Controller implements EleveControllerInterfaces
     public function profil(string $matricule): void
     {
         $model = new EleveRepository();
+       
+        
         $data = $model->findOneByMatricule($matricule);
         $model2 = new inscritRepository();
         $inscription = $model2->findOneByCodeAndAnnee($matricule, $this->getCodeAnnee());
         $this->render("eleve/profil", ["data" => $data, 'inscription' => $inscription, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 1)]);
+    }
+    public function inscrit()
+    {
+        $model = new inscritRepository();
+        $eleves = $model->findAllByAnnee($this->getCodeAnnee());
+        $model = new AnneeScolaireRepository();
+        $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
+        $this->render('eleve/inscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 11)]);
+    }
+    public function noninscrit()
+    {
+        $model = new EleveRepository();
+        $eleves = $model->findAllNonInscritsByAnnee($this->getCodeAnnee());
+        $model = new AnneeScolaireRepository();
+        $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
+        $this->render('eleve/noninscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 12)]);
+    }
+ 
+    public function statut($statutEleve): void
+    {
+        $model = new EleveRepository();
+        $data = $model->findAllByStatut($statutEleve);
+        $tab    =[
+            "actif"=>__("Les eleves actifs"),
+            "inactif"=>__("Les eleves inactifs"),
+            "exclus"=>__("Les eleves exclus"),
+            "abandonne"=>__("Les eleves abandonnes")
+        ];
+         $num    =[
+            "actif"=>13,
+            "inactif"=>14,
+            "exclus"=>15,
+            "abandonne"=>16
+        ];
+        $this->render("eleve/statut", ["data" => $data,'statut'=>$statutEleve,'title'=>sprintf($tab[$statutEleve],count($data)) ,'subsidebar' => $this->subsidebar(null, $num[$statutEleve])]);
+   
+    }
+    public function traitementImage(): void
+    {
+        $matricule=$_REQUEST['matricule'];
+        $model = new EleveRepository();
+        if(isset($_FILES['image']) && $_FILES['image']['error'] == 0){
+            move_uploaded_file($_FILES['image']['tmp_name'], "profiles/eleve/img_$matricule.jpg");
+            $model->updateImage($matricule,"img_$matricule.jpg");
+            $this->redirect("?p=eleve/profil/$matricule");
+        }
     }
 
     public function bulletin1(string $matricule): void
@@ -135,7 +192,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
     {
         extract($_POST);
         $model = new EleveRepository();
-        $res = $model->insert($matricule, $nom, $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni);
+        $res = $model->insert($matricule, $nom, $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni,$statutEleve??"actif");
         if ($res)
             $this->redirect("?p=eleve/liste");
         else
@@ -230,7 +287,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
 
         $model = new SalleClasseRepository();
         $classes = $model->findAll($this->getCodeAnnee());
-        $this->render("eleve/noninscrit", ["data" => $eleves, "classes" => $classes]);
+        $this->render("eleve/inscrire", ["data" => $eleves, "classes" => $classes]);
 
 }
     

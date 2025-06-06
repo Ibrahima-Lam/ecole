@@ -13,6 +13,8 @@ export default class FormModule {
         this.button = button;
         this.dialog = null;
         this.button?.addEventListener('click',async (e) =>{
+            
+            e.stopPropagation()
            await this.create();
             this.show();
         });
@@ -61,8 +63,10 @@ export default class FormModule {
         //if (this.form.edit.value) return;
         this.params.classe = e.target.value;
         fetchJson('?p=api/inscrit/last/' + e.target.value).then(data => {
-            if (data?.idInscrit ?? false) this.form.querySelector('#numeroInscrit').value = (data.numeroInscrit ?? 0) + 1;
-            else this.form.querySelector('#numeroInscrit').value = 1;
+            if (data?.idInscrit ?? false){
+               if(!this.params.idInscrit)  this.form.querySelector('#numeroInscrit').value = (data.numeroInscrit ?? 0) + 1;
+               else  this.form.querySelector('#numeroInscrit').placeholder ="Entrer "+ ((data.numeroInscrit ?? 0) + 1);
+            }else this.form.querySelector('#numeroInscrit').value = 1;
         }).catch(e => console.log(e))
 
     }

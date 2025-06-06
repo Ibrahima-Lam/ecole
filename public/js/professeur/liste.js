@@ -9,6 +9,15 @@ window?.addEventListener('load', function () {
     admin = document.getElementById('_admin').value;
 });
 
+const params = {
+    admin: admin,
+    sort: 'matriculeProfesseur',
+    order: 'asc',
+    statut: null,
+    cycle: null,
+    search: ''
+}
+
 function deleteEleve(matricule) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet élève ?")) {
         fetchJson("?p=api/eleve/delete/" + matricule).then((data) => {
@@ -64,10 +73,8 @@ if (data.length == 0) {
 if (e.target.value.length<3&&e.target.value.length>0) return;
 
     let tab = new TableData(table, data, {
+        ...params,
         search: e.target.value,
-        admin: admin,
-        sort: sort,
-        order: order
     });
     tab.create();
     tab.setFiltering(e.target.value);
@@ -94,9 +101,9 @@ headers.forEach(header => {
             data = await fetchJson(url);
         }
         let tab = new TableData(table, data, {
+            ...params,
             sort: srt,
             order: ord,
-            admin: admin
         });
         tab.create();
         tab.setSorting(header)
@@ -113,7 +120,7 @@ window?.addEventListener('load', function (e) {
             order: order
         }
     )
-    tab.setSorting(table.querySelector('th'))
+    tab.setSorting(table.querySelector('th.sortable'))
 })
 
 const trs=document.querySelectorAll('tbody tr')
@@ -123,6 +130,34 @@ trs.forEach(tr => {
     })
 });
 
+let statutfilter = document.getElementById('statutfilter');
+let cyclefilter = document.getElementById('cyclefilter');
+
+statutfilter?.addEventListener('change',async function (e) {
+    if (data.length == 0) {
+        let url = "?p=api/professeur/liste";
+        data = await fetchJson(url);
+    }
+    let tab = new TableData(table, data, {
+        ...params,
+        statut: e.target.value,
+    });
+    tab.create();
+   
+});
+
+cyclefilter?.addEventListener('change',async function (e) {
+    if (data.length == 0) {
+        let url = "?p=api/professeur/liste";
+        data = await fetchJson(url);
+    }
+    let tab = new TableData(table, data, {
+        ...params,
+        cycle: e.target.value,
+    });
+    tab.create();
+  
+});
 
 
 
@@ -142,13 +177,15 @@ class TableData {
             sort: 'matricule',
             order: 'asc',
             admin: false,
+            statut: null,
+            cycle: null,
             ...params
         };
 
     }
     create() {
         let elements = this.data;
-        elements = this.#filterData(this.data, this.params.search);
+        elements = this.#filterData(this.data, this.params);
         elements = this.#sortData(elements);
         this.#render(elements);
     }
@@ -162,7 +199,8 @@ class TableData {
             }
         });
         const i = document.createElement('i')
-        let cl = this.params.order == 'asc' ? 'bi-sort-down' : 'bi-sort-up'
+        let cl = this.params.order == 'asc' ? 'fa-sort-up' : 'fa-sort-down'
+        i.classList.add('fa')
         i.classList.add(cl)
         i.classList.add('ml-5')
         i.classList.add('text-primary')
@@ -209,19 +247,26 @@ class TableData {
         });
     }
 
-    #filterData(data, value) {
-        if (value == '') {
+    #filterData(data, params) {
+       
+        if(params.statut){
+            data=data.filter(element=>element.statutProfesseur==params.statut)
+        }
+        if(params.cycle){
+            data=data.filter(element=>element.cycleProfesseur==params.cycle)
+        }
+        if (params.search == '') {
             return data;
         }
         return data.filter((element) => {
-            return element.nomProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.matriculeProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.ismeProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.nomSpecialite.toString().toLowerCase().includes(value.toLowerCase())||
-                element.statutProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.telProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.emailProfesseur.toString().toLowerCase().includes(value.toLowerCase())||
-                element.nniProfesseur.toString().toLowerCase().includes(value.toLowerCase());
+            return element.nomProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.matriculeProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.ismeProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.nomSpecialite.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.statutProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.telProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.emailProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
+                element.nniProfesseur.toString().toLowerCase().includes(params.search.toLowerCase());
         });
     }
 
@@ -237,9 +282,12 @@ class TableData {
         });
     }
 
-    #trString({ matriculeProfesseur, nomProfesseur, ismeProfesseur, nomSpecialite, statutProfesseur, telProfesseur, emailProfesseur,nniProfesseur }) {
+    #trString({ matriculeProfesseur, nomProfesseur, ismeProfesseur, nomSpecialite, statutProfesseur, telProfesseur, emailProfesseur,nniProfesseur,imagePathProfesseur }) {
         return `
         <tr data-matricule="${matriculeProfesseur}">
+        <td>
+                        
+                    </td>
          <td class="seachable">${matriculeProfesseur}</td>
         <td class="seachable">${nomProfesseur}</td>
         <td class="seachable">${ismeProfesseur}</td>

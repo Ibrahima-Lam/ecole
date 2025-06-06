@@ -36,7 +36,7 @@ class ProfesseurApiController extends Controller implements EleveControllerInter
         try {
         extract($_REQUEST);
         $model = new ProfesseurRepository();
-        $res = $model->insert($matricule, ucwords($nom), $isme, $sexe, $adresse, $nni,$codeSpecialite,$dateDebut,$dateArrivee,$tel,$email,$statut);
+        $res = $model->insert($matricule, ucwords($nom), $isme, $sexe, $adresse, $nni,$codeSpecialite,$dateDebut,$dateArrivee,$tel,$email,$statut,$cycle);
         if ($res) {
             $data = $model->findOneByMatricule($matricule);
             $this->response(
@@ -89,7 +89,7 @@ class ProfesseurApiController extends Controller implements EleveControllerInter
         try {
         extract($_REQUEST);
         $model = new ProfesseurRepository();
-        $res = $model->update($oldMatricule, $matricule, ucwords($nom), $isme, $sexe, $adresse, $nni,$codeSpecialite,$dateDebut,$dateArrivee,$tel,$email,$statut);
+        $res = $model->update($oldMatricule, $matricule, ucwords($nom), $isme, $sexe, $adresse, $nni,$codeSpecialite,$dateDebut,$dateArrivee,$tel,$email,$statut,$cycle);
         if ($res) {
             $data = $model->findOneByMatricule($matricule);
             $this->response(

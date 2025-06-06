@@ -8,6 +8,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th></th>
                 <th>Matricule</th>
                 <th>Nom</th>
                 <th>الاسم</th>
@@ -21,6 +22,17 @@
         <tbody>
             <?php foreach ($eleves as $eleve): ?>
                 <tr class="inscritRow" data-matricule="<?= $eleve->matricule ?>">
+                    <td>
+                    <div class="center img-circle">
+                    <?php if(file_exists("profiles/eleve/".$eleve->imagePath)&&$eleve->imagePath): ?>
+                    <img src="profiles/eleve/<?= $eleve->imagePath ?>" >
+                    <?php else: ?>
+                     <div class="center">
+                        <i class="fa fa-user"></i>
+                     </div>
+                     <?php endif ?>
+                    </div>
+                </td>
                     <td><?= $eleve->matricule ?></td>
                     <td><?= $eleve->nom ?></td>
                     <td dir="rtl"><?= $eleve->isme ?></td>
@@ -63,7 +75,7 @@
 
     const inscritRows = document.querySelectorAll('.inscritRow');
     inscritRows.forEach(row => {
-        row?.addEventListener('click', function () {
+        row?.addEventListener('dblclick', function () {
             window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
         });
     });

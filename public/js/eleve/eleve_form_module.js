@@ -24,6 +24,7 @@ export default class EleveForm {
     }
     #addData() {
         fetchJson("?p=api/eleve/matricule/" + this.matricule).then((data) => {
+            console.log(data.statutEleve);
             this.form.matricule.value = data.matricule;
             this.form.nom.value = data.nom;
             this.form.isme.value = data.isme;
@@ -32,6 +33,7 @@ export default class EleveForm {
             this.form.lieuNaissance.value = data.lieuNaissance;
             this.form.adresse.value = data.adresse;
             this.form.nni.value = data.nni;
+            this.form.statut.value = data.statutEleve;
         });
     }
 

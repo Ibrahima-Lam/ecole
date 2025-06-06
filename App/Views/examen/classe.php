@@ -38,6 +38,7 @@ $classe??=null;
                     <?php if($_admin):?>
                     <a class="show" title="importer les notes" href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="fa fa-file"></i></a>
                     <a class="addnote" title="Ajouter une note" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus text-success"></i></a>
+                    <a class="addnote" title="Ajouter plusieurs notes" href="?p=note/addAll/<?= $examen->codeExamen ?>"><i class="fa fa-layer-group text-success"></i></a>
                     <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-edit text-primary"></i></a>
                     <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-trash text-danger"></i></a>
                     <?php endif?>

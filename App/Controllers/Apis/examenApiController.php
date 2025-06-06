@@ -5,6 +5,7 @@ namespace App\Controllers\Apis;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\EvaluationRepository;
 use App\Models\Repositories\SalleClasseRepository;
+use App\Services\factories\UserFactory;
 use Core\Controllers\Controller;
 use App\Models\Repositories\ExamenRepository;
 use Core\Services\html\htmlService;
@@ -25,6 +26,74 @@ class ExamenApiController extends Controller
         echo json_encode($data);
 
     }
+
+    public function htmlListe($filter_annee=true)
+    {
+        $search=$_GET['search'] ?? null;
+        $codeSalleClasse=$_GET['classe'] ?? null;
+        $date=$_GET['date'] ?? null;
+        $codeMatiere=$_GET['matiere'] ?? null;
+        $codeEvaluation=$_GET['evaluation'] ?? null;
+        $annee=$this->getCodeAnnee();
+        $data =$filter_annee ? $this->examenRepository->findAllByAnnee($annee) : $this->examenRepository->findAll();
+        $admin=UserFactory::isAdmin();
+     if ($codeSalleClasse){
+        $data =array_filter($data, function($note) use ($codeSalleClasse) {
+           return 
+           strtolower($note->codeSalleClasse) == strtolower($codeSalleClasse) ;
+           });
+     }
+     if ($codeMatiere){
+        $data =array_filter($data, function($note) use ($codeMatiere) {
+           return 
+           strtolower($note->codeMatiere) == strtolower($codeMatiere) ;
+           });
+     }
+     if ($codeEvaluation){
+        $data =array_filter($data, function($note) use ($codeEvaluation) {
+           return 
+           $note->codeEvaluation == $codeEvaluation ;
+           });
+     }
+      if ($date){
+        $data =array_filter($data, function($note) use ($date) {
+           return 
+           $note->dateExamen == $date ;
+           });
+     }
+
+
+       if($search){
+           $data =array_filter($data, function($note) use ($search) {
+               return str_contains($note->codeExamen, $search) ;});
+       }
+       
+       $data=array_reduce($data, function($a,$b) use ($admin) {
+           $new="<tr>
+            <td>".$b->codeExamen."</td>
+            <td>".$b->codeSalleClasse."</td>
+            <td>".$b->codeMatiere."</td>
+            <td>".$b->codeEvaluation."</td>
+            <td>".$b->dateExamen."</td>
+            <td>";
+            $new .= "<div class='center'>";
+            $new .= "<a href='?p=note/examen/".$b->codeExamen."'><i class='fa fa-list'></i></a>";
+            if($admin){
+                $new .= "<a class='show' title='importer les notes' href='?p=note/formulaire/".$b->codeExamen."'><i class='fa fa-file'></i></a>";
+                $new .= "<a class='addnote' title='Ajouter plusieurs notes' href='?p=note/addAll/".$b->codeExamen."'><i class='fa fa-layer-group text-success'></i></a>";
+                $new .= "<a class='add' title='Ajouter des notes' data-code='".$b->codeExamen."'><i class='fa fa-plus text-success'></i></a>";
+                $new .= "<a class='edit' title='Editer' data-code=".$b->codeExamen.">";
+                $new .= "<i class='fa fa-edit text-primary'></i></a>";
+                $new .= "<a class='delete' title='Supprimer' data-code=".$b->codeExamen.">";
+                $new .= "<i class='fa fa-trash text-danger'></i></a>";
+            }
+            $new .= " </div></td></tr>";
+            return $a.$new;
+        },"");
+        $this->response($data);
+    }
+
+    
 
     public function examen($code)
     {

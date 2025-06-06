@@ -3,6 +3,7 @@
 namespace App\Controllers\apis;
 
 use App\Models\Repositories\EleveRepository;
+use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ProfesseurRepository;
 use App\Services\factories\NomFactory;
 use App\Services\factories\NoninscritFactory;
@@ -13,7 +14,6 @@ use App\Services\factories\UserFactory;
 
 class EleveApiController extends Controller implements EleveControllerInterfaces
 {
-    private const KEY = "noninscrit";
     public function liste(): void
     {
         $model = new EleveRepository();
@@ -21,15 +21,14 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         $this->response($data);
     }
 
-    public function htmlListe(): void
+    public function htmlListe($statutEleve=null): void
     {
-        $user=UserFactory::getUser();
-        $admin=$user->roleUser=="admin";
+        $admin=UserFactory::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'matricule';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? null;
         $model = new EleveRepository();
-        $data = $model->findAll();
+        $data = $statutEleve?$model->findAllByStatut($statutEleve): $model->findAll();
 
         if ($search) {
             $data = array_filter($data, function ($value) use ($search) {
@@ -44,15 +43,29 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
             return $order === 'asc' ? $result : -$result;
         });
         $html = array_reduce($data, function ($carry, $item)use($search,$admin) {
-            $tr=  "<tr data-matricule=\"" . $item->matricule . "\"><td>" . $item->matricule . "</td><td>" . $item->nom . "<br><span dir=\"rtl\">" . $item->isme . "</span></td><td>" . $item->sexe . "</td><td>" . $item->dateNaissance . "</td><td>" . $item->lieuNaissance . "</td><td>" . $item->adresse . "</td><td>" . $item->nni . "</td>
+           $imgTag="<div class=\"img-circle\">";
+           $imgTag.=file_exists("profiles/eleve/".$item->imagePath)&&$item->imagePath?"<img  src=\"profiles/eleve/" . $item->imagePath . "\" >":
+           "<div class=\"center\">
+                            <i class=\"fa fa-user\"></i>
+                         </div>";
+           $imgTag.="</div>";
+            $tr=  "<tr data-matricule=\"" . $item->matricule . "\">
+            <td>{$imgTag}</td>
+            <td>{$item->matricule}</td>
+            <td>{$item->nom}<br><span dir=\"rtl\">{$item->isme}</span></td>
+            <td>{$item->sexe}</td>
+            <td>{$item->dateNaissance}</td>
+            <td>{$item->lieuNaissance}</td>
+            <td>{$item->adresse}</td>
+            <td>{$item->nni}</td>
             <td>
             <div class='center'>
 
-                            <a href=\"?p=eleve/profil/" . $item->matricule . "\" title=\"Voir l'eleve\"><i class=\"fa fa-eye\"></i></a>
+                            <a href=\"?p=eleve/profil/" . $item->matricule . "\" title=\"Voir l'eleve\"><i class=\"fa fa-eye text-info\"></i></a>
                            ";
                            if($admin){
                                 $tr.="
-                                <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-edit\"></i></div>
+                                <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-edit text-primary\"></i></div>
                                 <div class=\"delete\" title=\"Supprimer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-trash  text-danger\"></i></div>
                             ";
                            }    
@@ -142,7 +155,7 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         try {
             extract($_REQUEST);
             $model = new EleveRepository();
-            $res = $model->insert($matricule, ucwords($nom), $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni);
+            $res = $model->insert($matricule, ucwords($nom), $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni, $statut);
             if ($res) {
                 $data = $model->findOneByMatricule($matricule);
                 $this->response(
@@ -195,7 +208,7 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
         try {
             extract($_REQUEST);
             $model = new EleveRepository();
-            $res = $model->update($oldMatricule, $matricule, ucwords($nom), $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni);
+            $res = $model->update($oldMatricule, $matricule, ucwords($nom), $isme, $sexe, $dateNaissance, $lieuNaissance, $adresse, $nni, $statut);
             if ($res) {
                 $data = $model->findOneByMatricule($matricule);
                 $this->response(
@@ -223,5 +236,51 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
             ]);
         }
     }
+
+    public function editImage($matricule): void
+    {
+        try {
+            $model = new EleveRepository();
+            $data = $model->updateImage($matricule, "img_$matricule.jpg");
+            $this->response([
+                "data" => $data,
+                'response' => "ok",
+                'message' => "L'élève a été mis à jour",
+                'status' => 1
+            ]);
+        } catch (\PDOException $th) {
+            $this->response([
+                'response' => "ko",
+                'message' => SqlErreurMessage::getMessage($th->errorInfo[1]),
+                'error' => $th->getMessage(),
+                'code' => $th->errorInfo[1],
+                'status' => 0
+            ]);
+        }
+    }
+
+    public function statistique($statut=null) {
+        $model=new EleveRepository();
+        $total=$model->count();
+        $actifs=$model->count('actif');
+        $inactifs=$model->count('inactif');
+        $exclus=$model->count('exclus');
+        $abandonnes=$model->count('abandonne');
+        $annee=$this->getCodeAnnee();
+        $noninscrits=$model->countNonInscrit($annee);
+        $model2=new inscritRepository();
+        $inscrits=$model2->count($annee);
+        $this->response([
+            'actif'=>$actifs->nombre,
+            'inactif'=>$inactifs->nombre,
+            'exclus'=>$exclus->nombre,
+            'abandonne'=>$abandonnes->nombre,
+            'noninscrit'=>$noninscrits->nombre,
+            'inscrit'=>$inscrits->nombre,
+            'total'=>$total->nombre
+        ]);
+
+    }
+
 
 }

@@ -1,16 +1,17 @@
 
-import {fetchJson} from '../src/fetch.js'
+import {fetchJson,fetchText} from '../src/fetch.js'
 import FormExamen from './form_examen_module.js'
 import {NoteFormDialog} from '../note/note_module.js'
 let data=[]
-const _admin=document.getElementById('_admin').value
 const dialog=document.getElementById('dialog')
 const noteDialog=document.getElementById('noteDialog')
 
 let params={
     codeClasse: null,
     codeMatiere: null,
-    codeEvaluation: null
+    codeEvaluation: null,
+    date: null,
+    codeExamen: null
 }
 
 const table=document.getElementById('table')
@@ -36,6 +37,8 @@ close?.addEventListener('click',function () {
 const classe=document.getElementById('classe');
 const matiere=document.getElementById('matiere');
 const evaluation=document.getElementById('evaluation');
+const date=document.getElementById('date');
+const codeExamen=document.getElementById('examen');
 
 classe?.addEventListener('change',async function () {
     params.codeClasse=this.value
@@ -55,8 +58,20 @@ evaluation?.addEventListener('change',async function () {
     renderTable()
 })
 
-function renderTable() {
-    let elements=data
+date?.addEventListener('change',async function () {
+    params.date=this.value
+    await getData()
+    renderTable()
+})
+
+codeExamen?.addEventListener('input',async function () {
+    params.codeExamen=this.value
+    await getData()
+    renderTable()
+})
+
+async function renderTable() {
+   /*  let elements=data
     if (params.codeClasse) elements=elements.filter(examen => examen.codeSalleClasse===params.codeClasse)
     if (params.codeMatiere) elements=elements.filter(examen => examen.codeMatiere===params.codeMatiere)
     if (params.codeEvaluation) elements=elements.filter(examen => examen.codeEvaluation===params.codeEvaluation)
@@ -72,15 +87,28 @@ function renderTable() {
             <td>
                 <div class="center">
                     <a class="show" title="Voir les notes" href="?p=note/examen/${examen.codeExamen}"><i class="bi-list"></i></a>
-                    ${_admin?`<a class="show" title="importer les notes" href="?p=note/formulaire/${examen.codeExamen}"><i class="bi-file-earmark"></i></a>
+                    ${_admin?`
+                        <a class="show" title="importer les notes" href="?p=note/formulaire/${examen.codeExamen}"><i class="bi-file-earmark"></i></a>
                     <a class="addnote" title="Ajouter une note" data-code="${examen.codeExamen}"><i class="fa fa-plus text-success"></i></a>
+                    <a title="Ajouter plusieurs notes" href="?p=note/addAll/${examen.codeExamen}"><i class="fa fa-layer-group text-success"></i></a>
                     <a class="edit" title="Editer" data-code="${examen.codeExamen}"><i class="fa fa-edit text-primary"></i></a>
                     <a class="delete" title="Supprimer" data-code="${examen.codeExamen}"><i class="fa fa-trash text-danger"></i></a>`:''}
                 </div>
             </td>
         `
         tbody.appendChild(row)
-    })
+    }) */
+
+
+    let url=`?p=api/examen/htmlListe/true`;
+    if(params.date)url+=`&date=${params.date}`; 
+    if(params.codeClasse)url+=`&classe=${params.codeClasse}`;
+    if(params.codeMatiere)url+=`&matiere=${params.codeMatiere}`;
+    if(params.codeEvaluation)url+=`&evaluation=${params.codeEvaluation}`;
+    if(params.codeExamen)url+=`&search=${params.codeExamen}`;
+    console.log(params.codeExamen);
+    
+   await fetchText(url).then(res => tbody.innerHTML = res);
     document.querySelectorAll(".edit").forEach(function (element) {
         element?.addEventListener("click", function (e) {
             let codeExamen = element.dataset.code;

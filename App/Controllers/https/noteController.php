@@ -168,6 +168,46 @@ $writer->save('php://output');
         $this->render("note/exported", compact("data", "codeExamen"));
 
     }
+     public function addAll($codeExamen)
+    {
+        
+
+        $examen = $this->examenRepository->findOne($codeExamen);
+        $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
+        $eleves = $this->inscritRepository->findAllByClasse($examen->codeSalleClasse);
+        $tab = [];
+
+        foreach ($eleves as $row) {
+           
+            $matricule = $row->matricule;
+            $num = $row->numeroInscrit;
+            $nom = $row->nom;
+            $note = null;
+            $note2 = null;
+            $statut = false;
+            $id = null;
+            
+            
+            foreach ($notes as $nt) {
+                if ($nt->matricule == $matricule) {
+                    $note2 = $nt->note;
+                    $note = $nt->note;
+                    $id = $nt->idNote;
+                    $statut = true;
+                    break;
+                }
+                }
+            
+            $tab[] = ['matricule' => $matricule, 'num' => $num, 'nom' => $nom, 'note' => $note, 'note2' => $note2, 'statut' => $statut, 'id' => $id];
+        }
+
+        $data = $tab;
+        $this->render("note/addAll", compact("data", "codeExamen"));
+
+    }
+    
+
+    
 
     public function releve($codeSalleClasse, $codeMatiere)
     {

@@ -56,6 +56,16 @@ class professeurController extends Controller
         $matieres=$repos1->findAllByMatriculeProfesseur($matricule);
         $this->render('professeur/profil',compact(['prof','specialites','subsidebar','matieres']));
     }
+    public function traitementImage(): void
+    {
+        $matricule=$_REQUEST['matricule'];
+        $model = new ProfesseurRepository();
+        if(isset($_FILES['image']) && $_FILES['image']['error'] == 0){
+            move_uploaded_file($_FILES['image']['tmp_name'], "profiles/professeur/img_$matricule.jpg");
+            $model->updateImage($matricule,"img_$matricule.jpg");
+            $this->redirect("?p=professeur/profil/$matricule");
+        }
+    }
     public function matiere($matricule): void
     {
         $subsidebar=$this->subsidebar($matricule,2);

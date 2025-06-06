@@ -61,16 +61,15 @@ class Controller
     }
     public function render(string $file, array $data = [])
     {
-        $user = UserFactory::getUser();
-        if (!$user)
+        if (!UserFactory::getUser())
             $this->redirect("?p=home/login");
 
         ob_start();
         extract($data);
         $_annee = $this->getAnneeScolaire();
         $_langue = $this->getLangue();
-        $_admin = $user->roleUser == "admin";
-        $_user = $user;
+        $_admin = UserFactory::isAdmin();
+        $_user = UserFactory::getUser();
         $_dark = $this->isDark();
         $_schoolName = $this->getSchoolName();
         $_schoolNameAr = $this->getSchoolNameAr();
@@ -93,10 +92,9 @@ class Controller
 
     public function renderPDF(string $file, array $data = [], array $options = [])
     {
-        $user = UserFactory::getUser();
-        if (!$user)
+        if (!UserFactory::getUser())
             $this->redirect("?p=home/login");
-        ob_start();
+        ob_start(); 
         extract($data);
         require "../App/views/$file.php";
         $content = ob_get_clean();
@@ -115,8 +113,7 @@ class Controller
 
     public function response(mixed $data)
     {
-        $user = UserFactory::getUser();
-        if (!$user)
+        if (!UserFactory::getUser())
             $this->response("Unauthorized");
         if (is_scalar($data))
             echo $data;

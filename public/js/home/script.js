@@ -112,6 +112,13 @@ dark?.addEventListener('click',async function (e) {
    document.body.classList.toggle('dark');
    dark.querySelector('i').classList.toggle('fa-moon');
    dark.querySelector('i').classList.toggle('fa-sun');
+   let title="Mode sombre";
+   if(document.body.classList.contains('dark')) {
+    title="Mode clair";
+   }
+  await fetchData("?p=api/home/translate/" + title).then(data=>{
+    dark.querySelector('i').title=data.res;
+   });
 });
 
 

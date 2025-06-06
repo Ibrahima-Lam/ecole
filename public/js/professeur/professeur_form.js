@@ -36,6 +36,7 @@ export default class ProfesseurForm {
             this.form.email.value = data.emailProfesseur;
             this.form.dateArrivee.value = data.dateArriveeProfesseur;
             this.form.dateDebut.value = data.dateDebutProfesseur;
+            this.form.cycle.value = data.cycleProfesseur;
         });
     }
 

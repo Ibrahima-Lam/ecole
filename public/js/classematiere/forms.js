@@ -1,4 +1,6 @@
 import { fetchJson, fetchText } from "../../js/src/fetch.js";
+import {Spinner} from "../../js/src/spinner.js";
+const spinner=new Spinner()
 
  const deletes=document.querySelectorAll('.delete')
  deletes.forEach(element => {
@@ -66,7 +68,25 @@ class FormElement{
             console.log(error);
         });
     }
+     static async submitAll(forms){
+        spinner.show()
+        for(let frm of forms){
+        let data = new FormData(frm)
+        let dtSring = new URLSearchParams(data).toString();
+        let url = frm.edit.value  ? "?p=api/classematiere/update&"+dtSring : "?p=api/classematiere/insert&"+dtSring
+        await fetchJson(url).then((data) => {
+            console.log(data);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+    spinner.hide()
+    window.location.reload()
+    }
+
+    
 }
+
 
 const forms=document.querySelectorAll('form')
 forms.forEach(element => {
@@ -76,11 +96,13 @@ forms.forEach(element => {
 
 const send = document.getElementById('send');
 send?.addEventListener('click', function (e) {
+    let frms=[]
     forms.forEach(element => {
         let check=element.check.checked
         if(check){
-            FormElement.submit(element,new Event('submit'))
+            frms.push(element)
         }
     });
+    FormElement.submitAll(frms)
 })
 

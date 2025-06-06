@@ -60,13 +60,15 @@ async function getData() {
     return await fetchJson(`?p=api/note/liste/true`).then(res => data = res);
 }
 
-function renderTable(){
-    let elements = data;
+async function renderTable(){
+   /*  let elements = data;
   
    if(params.classe)elements=elements.filter(note=>note.codeSalleClasse===params.classe)
    if(params.matiere)elements=elements.filter(note=>note.codeMatiere===params.matiere)
    if(params.evaluation)elements=elements.filter(note=>note.codeEvaluation===params.evaluation)
-   if(params.matricule)elements=elements.filter(note=>note.matricule.toLowerCase().includes(params.matricule.toLowerCase())||note.nni.toLowerCase().includes(params.matricule.toLowerCase()))
+   if(params.matricule)elements=elements.filter(note=>note.matricule.toLowerCase().includes(params.matricule.toLowerCase())||
+   note.nni.toLowerCase().includes(params.matricule.toLowerCase())||
+   note.codeExamen.toLowerCase().includes(params.matricule.toLowerCase()))
    tbody.innerHTML = elements.map(note => `
         <tr>
             <td>${note.matricule}</td>
@@ -88,7 +90,14 @@ function renderTable(){
                </div>` : ''}
             </td>
         </tr>
-    `).join('');
+    `).join(''); */
+    let url=`?p=api/note/htmlListe/true`;
+    if(params.classe)url+=`&classe=${params.classe}`;
+    if(params.matiere)url+=`&matiere=${params.matiere}`;
+    if(params.evaluation)url+=`&evaluation=${params.evaluation}`;
+    if(params.matricule)url+=`&search=${params.matricule}`;
+   await fetchText(url).then(res => tbody.innerHTML = res);
+
     tbody.querySelectorAll(".edit").forEach(function (element) {
        
         element?.addEventListener("click", function (e) {

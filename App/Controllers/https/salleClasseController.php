@@ -40,35 +40,35 @@ class salleClasseController extends Controller
         $class = "";
         if ($code) {
             $class = $active == 1 ? "active" : "";
-            $html .= "<li><a href='?p=salleclasse/profil/$code'class='$class'>Profil</a></li>";
+            $html .= "<li><a href='?p=salleclasse/profil/$code'class='$class'>".__("Profil")."</a></li>";
             $class = $active == 2 ? "active" : "";
-            $html .= "<li><a href='?p=inscrit/classe/$code'class='$class'>Eleves</a></li>";
+            $html .= "<li><a href='?p=inscrit/classe/$code'class='$class'>".__("Eleves")."</a></li>";
             $class = $active == 5 ? "active" : "";
-            $html .= "<li><a href='?p=examen/classe/$code'class='$class'>Les Examens</a></li>";
+            $html .= "<li><a href='?p=examen/classe/$code'class='$class'>".__("Les Examens")."</a></li>";
             $class = $active == 6 ? "active" : "";
-            $html .= "<li><a href='?p=salleclasse/releves/$code'class='$class'>Les relevés</a></li>";
+            $html .= "<li><a href='?p=salleclasse/releves/$code'class='$class'>".__("Les Relevés")."</a></li>";
             $html .= "<li>
-            <a href='#'>Resultat </a>&nbsp;
+            <a href='#'>".__("Resultat")." </a>&nbsp;
             <a href='?p=pdf/salleclasse/resultat1/$code' target='_blank'>C1</a>
             <a href='?p=pdf/salleclasse/resultat2/$code' target='_blank'>C2</a>
             <a href='?p=pdf/salleclasse/resultat3/$code' target='_blank'>C3</a>
             </li>";
-             $html .= "<li>
-             <a href='#'>Bulletins</a>&nbsp;
-             <a href='?p=pdf/salleclasse/bulletin1/$code' target='_blank'><span>C1</span></a>
-             <a href='?p=pdf/salleclasse/bulletin2/$code' target='_blank'>C2</a>
-             <a href='?p=pdf/salleclasse/bulletin3/$code' target='_blank'>C3</a>
-             </li>";
-            $html .= "<li>
-            <a href='#'>MiniBulletins </a>&nbsp;
-            <a href='?p=pdf/salleclasse/minibulletin1/$code' target='_blank'>C1</a>
-            <a href='?p=pdf/salleclasse/minibulletin2/$code' target='_blank'>C2</a>
-            <a href='?p=pdf/salleclasse/minibulletin3/$code' target='_blank'>C3</a>
-            </li>";
+             $html .= "<li>";
+            $html .= "<a href='#'>".__("Bulletins")."</a>&nbsp;";
+            $html .= "<a href='?p=pdf/salleclasse/bulletin1/$code' target='_blank'><span>C1</span></a>";
+            $html .= "<a href='?p=pdf/salleclasse/bulletin2/$code' target='_blank'>C2</a>";
+            $html .= "<a href='?p=pdf/salleclasse/bulletin3/$code' target='_blank'>C3</a>";
+            $html .= "</li>";
+            $html .= "<li>";
+            $html .= "<a href='#'>".__("MiniBulletins")."</a>&nbsp;";
+            $html .= "<a href='?p=pdf/salleclasse/minibulletin1/$code' target='_blank'>C1</a>";
+            $html .= "<a href='?p=pdf/salleclasse/minibulletin2/$code' target='_blank'>C2</a>";
+            $html .= "<a href='?p=pdf/salleclasse/minibulletin3/$code' target='_blank'>C3</a>";
+            $html .= "</li>";
 
         }
         $class = $active == 10 ? "active" : "";
-        $html .= "<li><a href='?p=salleclasse/liste'class='$class'>Liste des salles de classes</a></li>";
+        $html .= "<li><a href='?p=salleclasse/liste'class='$class'>".__("Liste des salles de classes")."</a></li>";
 
         $html .= "</ul>";
         $html .= "</div>";

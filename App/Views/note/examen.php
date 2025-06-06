@@ -64,9 +64,9 @@ $title = "Relevé de notes";
     <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/examen/<?= $examen->codeExamen ?>"><i
             class="fa fa-file-pdf"></i></a>
     <button id="excel" class="btn btn-success circle" title="Excel" data-code="<?= $examen->codeExamen ?>" >
-        <i class="bi-file-earmark-excel"></i>
+        <i class="fa fa-file-excel"></i>
     </button>
-    <button class="btn btn-primary circle" title="Paramétre" id="parametre"><i class="bi-gear"></i></button>
+    <button class="btn btn-primary circle" title="Paramétre" id="parametre"><i class="fa fa-gear"></i></button>
    <?php if($_admin):?>
      <button class="btn btn-primary circle" title="Ajouter" id="add" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus"></i></button>
  

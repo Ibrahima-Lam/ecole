@@ -9,6 +9,8 @@ use App\Models\Repositories\UserRepository;
 class UserFactory
 {
     private const USER_KEY = "user";
+    
+    
     public static function getUser(): false|UserEntity
     {
         try {
@@ -23,6 +25,12 @@ class UserFactory
         } catch (\Throwable $th) {
             return false;
         }
+    }
+
+    public static function isAdmin(): bool
+    {
+        $user = self::getUser();
+        return $user && $user->roleUser === 'admin';
     }
     public static function setUser($name, $password): bool
     {

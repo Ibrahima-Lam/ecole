@@ -57,10 +57,7 @@ document.getElementById("add")?.addEventListener("click", function (e) {
 
 
 document.getElementById("srch")?.addEventListener("input",async function (e) {
-if (data.length == 0) {
-    let url = "?p=api/eleve/liste";
-    data = await fetchJson(url);
-}
+
 if (e.target.value.length<3&&e.target.value.length>0) return;
 
     let tab = new TableData(table, data, {
@@ -70,7 +67,7 @@ if (e.target.value.length<3&&e.target.value.length>0) return;
         order: order
     });
     tab.create();
-    tab.setFiltering(e.target.value);
+    // tab.setFiltering(e.target.value);
 });
 
 
@@ -113,7 +110,7 @@ window?.addEventListener('load', function (e) {
             order: order
         }
     )
-    tab.setSorting(table.querySelector('th'))
+    tab.setSorting(table.querySelector('th.sortable'))
 })
 
 const trs=document.querySelectorAll('tbody tr')
@@ -152,9 +149,13 @@ class TableData {
         elements = this.#sortData(elements);
         this.#render(elements); */
         let tbody = this.table.querySelector("tbody");
+        let status=document.getElementById("statut-param")?.value;
         tbody.innerHTML = '';
     let paramStr = Object.entries(this.params).map(([key, value]) => `${key}=${value}`).join("&");
-        let url = "?p=api/eleve/htmlListe&"+paramStr;
+       
+    let url = "?p=api/eleve/htmlListe";
+    if(status) url+="/"+status;
+    url+="&"+paramStr;
        
         let html = await fetchText(url);
         tbody.innerHTML = html;
@@ -186,15 +187,20 @@ class TableData {
         ths.forEach(element => {
             let i = element.querySelector('i')
             if (i) {
-                element.removeChild(i)
+                i.remove()
             }
         });
         const i = document.createElement('i')
-        let cl = this.params.order == 'asc' ? 'bi-sort-down' : 'bi-sort-up'
+        let cl = this.params.order == 'asc' ? 'fa-sort-up' : 'fa-sort-down'
+        i.classList.add('fa')
         i.classList.add(cl)
         i.classList.add('ml-5')
+        i.classList.add('mx-5')
         i.classList.add('text-primary')
-        th.append(i)
+        i.style.fontSize="1.2rem"
+        i.style.color="blue"
+        let sort=th.querySelector('.sort')
+        sort.append(i)
     }
 /*
     setFiltering(value) {

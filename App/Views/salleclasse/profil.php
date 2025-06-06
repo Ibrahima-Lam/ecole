@@ -1,16 +1,16 @@
 
 <?=$subsidebar ?>
-<h2 class="title center my-10">Profil de la salle de classe</h2>
+<h2 class="title center my-10"><?=__("Profil de la salle de classe")?></h2>
 
 <div class="table-container">
     <table class="table table-striped my-10">
         <thead>
             <tr>
-                <th>Code Salle Classe</th>
-                <th>code Classe</th>
-                <th>Classe</th>
-                <th>Salle</th>
-                <th>Annee Scolaire</th>
+                <th><?=__("Code Salle Classe")?></th>
+                <th><?=__("Code Classe")?></th>
+                <th><?=__("Classe")?></th>
+                <th><?=__("Salle")?></th>
+                <th><?=__("Annee Scolaire")?></th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                 <tr>
                     <td><?= $salle->codeSalleClasse ?></td>
                     <td><?= $salle->codeClasse ?><sub><?= $salle->indiceSalleClasse ?? '' ?></sub></td>
-                    <td><?= $salle->nomClasse ?>&nbsp;<?= $salle->indiceSalleClasse ?? '' ?></td>
+                    <td dir="ltr"><?= $salle->nomClasse ." " . $salle->indiceSalleClasse ?? '' ?></td>
                     <td><?= $salle->nomSalle ?></td>
                     <td><?= $salle->nomAnnee ?></td>
                 </tr>

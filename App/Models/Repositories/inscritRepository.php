@@ -79,6 +79,13 @@ class inscritRepository extends Repository
         return $result;
     }
 
+    public function count($codeAnnee=null) {
+        $sql = "select count(*) as nombre from inscrit_view";
+        if($codeAnnee)$sql.=" where codeAnnee='$codeAnnee'";
+        $result = $this->db->selectOne($sql);
+        return $result;
+    }
+
     public function insert($idInscrit, $matricule, $codeSalleClasse, $numeroInscrit, $typeInscrit, $dateInscription): bool
     {
         $sql = "insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values(:idInscrit,:matricule,:codeSalleClasse,:numeroInscrit,:typeInscrit,:dateInscription)";

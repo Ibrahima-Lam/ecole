@@ -26,6 +26,11 @@ class homeApiController extends Controller
         $this->response(["res" => "ok", "data" => AnneeFactory::getAnnee()]);
     }
 
+    public function translate($text): void
+    {
+        $this->response([ "res" => __($text)]);
+    }
+
     public function langue($langue): void
     {
         LangueFactory::setLangue($langue);

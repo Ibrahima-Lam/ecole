@@ -2,8 +2,7 @@
 
 namespace App\Controllers\https;
 
-use App\Controllers\interfaces\ClasseControllerInterfaces;
-use App\Models\Repositories\AnneeScolaireRepository;
+
 use Core\Controllers\Controller;
 use App\Models\Repositories\ClasseRepository;
 use Core\Caches\Session;

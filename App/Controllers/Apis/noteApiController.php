@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Apis;
 
+use App\Services\factories\UserFactory;
 use Core\Controllers\Controller;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
@@ -28,6 +29,66 @@ class NoteApiController extends Controller
     {
         $annee=$this->getCodeAnnee();
         $data =$filter_annee ? $this->noteRepository->findAllByAnnee($annee) : $this->noteRepository->findAll();
+        $this->response($data);
+    }
+     public function htmlListe($filter_annee=true)
+    {
+        $search=$_GET['search'] ?? null;
+        $codeSalleClasse=$_GET['classe'] ?? null;
+        $codeMatiere=$_GET['matiere'] ?? null;
+        $codeEvaluation=$_GET['evaluation'] ?? null;
+        $annee=$this->getCodeAnnee();
+        $data =$filter_annee ? $this->noteRepository->findAllByAnnee($annee) : $this->noteRepository->findAll();
+        $admin=UserFactory::isAdmin();
+     if ($codeSalleClasse){
+        $data =array_filter($data, function($note) use ($codeSalleClasse) {
+           return 
+           strtolower($note->codeSalleClasse) == strtolower($codeSalleClasse) ;
+           });
+     }
+     if ($codeMatiere){
+        $data =array_filter($data, function($note) use ($codeMatiere) {
+           return 
+           strtolower($note->codeMatiere) == strtolower($codeMatiere) ;
+           });
+     }
+     if ($codeEvaluation){
+        $data =array_filter($data, function($note) use ($codeEvaluation) {
+           return 
+           $note->codeEvaluation == $codeEvaluation ;
+           });
+     }
+
+
+       if($search){
+           $data =array_filter($data, function($note) use ($search) {
+               return str_contains($note->matricule, $search) || 
+               str_contains(strtolower($note->nni), strtolower($search)) || 
+               str_contains(strtolower($note->codeExamen), strtolower($search));
+           });
+       }
+       
+       $data=array_reduce($data, function($a,$b) use ($admin) {
+           $new="<tr>
+            <td>".$b->matricule."</td>
+            <td>".$b->nom."</td>
+            <td>".$b->codeExamen."</td>
+            <td>".$b->note."</td>
+            <td>".$b->dateExamen."</td>
+            <td>".$b->createdAt."</td>
+            <td>".$b->updatedAt."</td>
+            <td>";
+            if($admin){
+                  $new .= "<div class='center'> <button class=\"btn circle edit\" data-id=".$b->idNote.">
+                       <i class=\"fa fa-edit text-primary\"></i>
+                   </button>
+                   <button class=\"btn  circle delete\" data-id=".$b->idNote.">
+                       <i class=\"fa fa-trash text-danger\"></i>
+                   </button></div>";
+             }
+          $new .= " </td></tr>";
+           return $a.$new;
+       },"");
         $this->response($data);
     }
 

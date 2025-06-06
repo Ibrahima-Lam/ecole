@@ -4151,3 +4151,570 @@ update eleve set matricule='31413699',nom='Abdou Kane',isme='عبد كان ',sex
 insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','31413699','A24252AS2','58','passant','2025-05-27');
 -- 2025-05-28 10:56:06
 update eleve set matricule='2AS202',nom='Coumba Abdou Salam Sy',isme='كمبا عبد السلام سي',sexe='F',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='NNI2AS202' where matricule='2AS202';
+-- 2025-06-02 21:04:12
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('662671','Ibrahima Lam','إبراهيما لام ','M','2000-01-01','','','56371635531');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1001','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1002','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1003','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1004','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1005','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1006','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1007','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1008','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1009','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1010','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1011','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1012','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:28
+insert into note(matricule,codeExamen,note) values('5d1013','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1014','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1015','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1016','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1017','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1018','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1019','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1020','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1021','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1022','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1023','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1024','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1025','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1026','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1027','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1028','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1029','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:29
+insert into note(matricule,codeExamen,note) values('5d1030','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1031','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1032','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1033','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1034','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1035','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1036','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1037','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1038','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1039','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1040','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1041','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1042','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1043','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1044','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1045','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1046','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1047','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:30
+insert into note(matricule,codeExamen,note) values('5d1048','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1049','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1050','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1051','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1052','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1053','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1054','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1055','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1056','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1057','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1058','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1059','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1060','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1061','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1062','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1063','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:26:31
+insert into note(matricule,codeExamen,note) values('5d1064','A24255D1MATH5DC1','0');
+-- 2025-06-03 10:31:41
+update note set note='0' where idNote='1512' ;
+-- 2025-06-03 10:31:41
+update note set note='0' where idNote='1513' ;
+-- 2025-06-03 10:31:41
+update note set note='0' where idNote='1514' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1515' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1516' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1517' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1518' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1519' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1520' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1521' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1522' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1523' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1524' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1525' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1526' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1527' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1528' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1529' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1530' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1531' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1532' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1533' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1534' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1535' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1536' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1537' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1538' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1539' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1540' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1541' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1542' ;
+-- 2025-06-03 10:31:42
+update note set note='0' where idNote='1543' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1544' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1545' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1546' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1547' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1548' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1549' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1550' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1551' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1552' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1553' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1554' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1555' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1556' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1557' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1558' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1559' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1560' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1561' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1562' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1563' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1564' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1565' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1566' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1567' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1568' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1569' ;
+-- 2025-06-03 10:31:43
+update note set note='0' where idNote='1570' ;
+-- 2025-06-03 10:31:44
+update note set note='0' where idNote='1571' ;
+-- 2025-06-03 10:31:44
+update note set note='0' where idNote='1572' ;
+-- 2025-06-03 10:31:44
+update note set note='0' where idNote='1573' ;
+-- 2025-06-03 10:31:44
+update note set note='0' where idNote='1574' ;
+-- 2025-06-03 10:31:44
+update note set note='0' where idNote='1575' ;
+-- 2025-06-03 12:27:59
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('36153541','Amadou Abou Lam','أمدو أبو لام ','M','2000-01-01','Boghe','Boghe','655323333');
+-- 2025-06-03 12:29:03
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','36153541','A24252AS2','59','passant','2025-06-03');
+-- 2025-06-03 12:29:36
+insert into note(matricule,codeExamen,note) values('36153541','A24252AS2MATH2ASC1','12');
+-- 2025-06-03 12:32:31
+update eleve set matricule='36153541',nom='Amadou Abou Lam',isme='أمدو أبو لام ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Bababe',adresse='Boghe',nni='655323333' where matricule='36153541';
+-- 2025-06-03 12:39:42
+INSERT INTO salle_classe(codeSalleClasse, codeSalle, codeClasse, codeAnnee, indiceSalleClasse) 
+    VALUES('A24251AS1', 'Salle2', '1AS', '2425', '1');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EPS1AS','1AS','EPS','2','2','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('FR1AS','1AS','FR','2','2','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('HG1AS','1AS','HG','1','1','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IC1AS','1AS','IC','1','5','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('INFO1AS','1AS','INFO','5','5','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IR1AS','1AS','IR','2','4','2024-10-01');
+-- 2025-06-03 12:41:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('SN1AS','1AS','SN','3','3','2024-10-01');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1MATH1ASC1','MATH1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1INFO1ASC1','INFO1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1IC1ASC1','IC1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1IR1ASC1','IR1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1SN1ASC1','SN1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1FR1ASC1','FR1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1EPS1ASC1','EPS1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 12:42:40
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24251AS1HG1ASC1','HG1AS','A24251AS1','C1','','1','','');
+-- 2025-06-03 13:02:56
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('rim ','Baba Coumba','بابا كومبا ','M','2000-01-01','','','1232134567');
+-- 2025-06-03 13:21:10
+delete from eleve where matricule='rim';
+-- 2025-06-03 13:22:39
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni) values('rim02','Mamadou Amadou Barry','ممدو أمدو باري ','M','2000-01-01','','','233355445');
+-- 2025-06-03 13:23:00
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','rim02','A24251AS1','1','passant','2025-06-03');
+-- 2025-06-03 13:23:21
+update inscrit set matricule='rim02',codeSalleClasse='A24252AS2',numeroInscrit='60',typeInscrit='passant',dateInscription='2025-06-03' where idInscrit='327';
+delete from inscrit where idInscrit='327'
+-- 2025-06-03 13:27:31
+update note set note='19.5' where idNote='315' ;
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2FR2ASC1','0');
+-- 2025-06-03 13:36:29
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2FR2ASC1','6');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2FR2ASC1','4.5');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2FR2ASC1','0.5');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2FR2ASC1','5');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2FR2ASC1','10');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2FR2ASC1','3');
+-- 2025-06-03 13:36:30
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2FR2ASC1','0');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2FR2ASC1','6');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2FR2ASC1','5');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2FR2ASC1','0');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2FR2ASC1','7');
+-- 2025-06-03 13:36:31
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2FR2ASC1','7');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2FR2ASC1','5');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2FR2ASC1','9');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2FR2ASC1','10');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2FR2ASC1','8');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:32
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2FR2ASC1','7');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2FR2ASC1','8');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2FR2ASC1','8');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2FR2ASC1','0');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2FR2ASC1','0');
+-- 2025-06-03 13:36:33
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2FR2ASC1','10');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2FR2ASC1','7.5');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2FR2ASC1','4.5');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2FR2ASC1','9');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2FR2ASC1','6');
+-- 2025-06-03 13:36:34
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2FR2ASC1','2');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2FR2ASC1','14.5');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2FR2ASC1','3');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2FR2ASC1','4');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2FR2ASC1','7');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2FR2ASC1','3.5');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:35
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2FR2ASC1','1');
+-- 2025-06-03 13:36:36
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2FR2ASC1','6.5');
+-- 2025-06-03 13:36:36
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2FR2ASC1','11');
+-- 2025-06-03 13:36:36
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2FR2ASC1','5');
+-- 2025-06-03 13:36:36
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2FR2ASC1','4.5');
+-- 2025-06-03 13:36:36
+insert into note(matricule,codeExamen,note) values('2AS257','A24252AS2FR2ASC1','0');
+-- 2025-06-03 17:18:23
+update note set note='19' where idNote='315' ;
+-- 2025-06-03 20:42:23
+update classe_matiere set codeClasse='1AS',codeMatiere='IC',horaireClasseMatiere='1',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IC1AS';
+-- 2025-06-03 20:42:23
+update classe_matiere set codeClasse='1AS',codeMatiere='IR',horaireClasseMatiere='2',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IR1AS';
+-- 2025-06-03 20:42:48
+update classe_matiere set codeClasse='1AS',codeMatiere='MATH',horaireClasseMatiere='6',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='MATH1AS';
+-- 2025-06-03 20:42:48
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='5',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='INFO1AS';
+-- 2025-06-03 20:42:48
+update classe_matiere set codeClasse='1AS',codeMatiere='IC',horaireClasseMatiere='1',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IC1AS';
+-- 2025-06-03 20:42:48
+update classe_matiere set codeClasse='1AS',codeMatiere='IR',horaireClasseMatiere='2',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IR1AS';
+-- 2025-06-03 20:42:48
+update classe_matiere set codeClasse='1AS',codeMatiere='SN',horaireClasseMatiere='3',coefficientClasseMatiere='3',dateClasseMatiere='2024-10-01' where codeClasseMatiere='SN1AS';
+-- 2025-06-03 20:42:49
+update classe_matiere set codeClasse='1AS',codeMatiere='EPS',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='EPS1AS';
+-- 2025-06-03 20:42:49
+update classe_matiere set codeClasse='1AS',codeMatiere='FR',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='FR1AS';
+-- 2025-06-03 20:42:49
+update classe_matiere set codeClasse='1AS',codeMatiere='HG',horaireClasseMatiere='1',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='HG1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='MATH',horaireClasseMatiere='6',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='MATH1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='IC',horaireClasseMatiere='1',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IC1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='5',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='INFO1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='IR',horaireClasseMatiere='2',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IR1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='SN',horaireClasseMatiere='3',coefficientClasseMatiere='3',dateClasseMatiere='2024-10-01' where codeClasseMatiere='SN1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='EPS',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='EPS1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='FR',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='FR1AS';
+-- 2025-06-03 20:43:52
+update classe_matiere set codeClasse='1AS',codeMatiere='HG',horaireClasseMatiere='1',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='HG1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='MATH',horaireClasseMatiere='6',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='MATH1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='5',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='INFO1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='IR',horaireClasseMatiere='2',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IR1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='SN',horaireClasseMatiere='3',coefficientClasseMatiere='3',dateClasseMatiere='2024-10-01' where codeClasseMatiere='SN1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='EPS',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='EPS1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='FR',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='FR1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='IC',horaireClasseMatiere='1',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IC1AS';
+-- 2025-06-03 20:45:52
+update classe_matiere set codeClasse='1AS',codeMatiere='HG',horaireClasseMatiere='1',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='HG1AS';
+-- 2025-06-04 13:49:42
+update eleve set imagePath='img_rim02.jpg' where matricule='rim02';
+-- 2025-06-04 13:50:32
+update eleve set imagePath='img_rim02.jpg' where matricule='rim02';
+-- 2025-06-04 13:56:35
+update eleve set imagePath='img_5LM057.jpg' where matricule='5LM057';
+-- 2025-06-04 13:56:56
+update eleve set imagePath='img_5LM057.jpg' where matricule='5LM057';
+-- 2025-06-04 14:43:37
+update eleve set imagePath='img_5LM055.jpg' where matricule='5LM055';
+-- 2025-06-04 18:49:07
+update professeur set imagePathProfesseur='img_124871D.jpg' where matriculeProfesseur='124871D';
+-- 2025-06-04 19:02:06
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','662671','A24251AS1','1','passant','2025-06-04');
+-- 2025-06-04 19:02:06
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','rim02','A24251AS1','2','passant','2025-06-04');
+-- 2025-06-04 21:00:08
+update classe_matiere set codeClasse='2AS',codeMatiere='AR',horaireClasseMatiere='6',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='AR2AS';
+-- 2025-06-04 21:00:08
+update classe_matiere set codeClasse='5LM',codeMatiere='AR',horaireClasseMatiere='5',coefficientClasseMatiere='5',dateClasseMatiere='2024-10-01' where codeClasseMatiere='AR5LM';
+-- 2025-06-04 21:00:08
+update classe_matiere set codeClasse='5D',codeMatiere='AR',horaireClasseMatiere='3',coefficientClasseMatiere='3',dateClasseMatiere='2024-10-01' where codeClasseMatiere='AR5D';
+-- 2025-06-04 21:07:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('AR4AS','4AS','AR','5','5','2024-10-01');
+-- 2025-06-04 21:07:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EN4AS','4AS','EN','2','1','2024-10-01');
+-- 2025-06-04 21:07:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('EPS4AS','4AS','EPS','2','1','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('FR4AS','4AS','FR','4','3','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('HG4AS','4AS','HG','3','2','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IC4AS','4AS','IC','1','1','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('IR4AS','4AS','IR','4','3','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('PC4AS','4AS','PC','2','2','2024-10-01');
+-- 2025-06-04 21:07:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('SN4AS','4AS','SN','3','2','2024-10-01');
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='1',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='INFO1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='IR',horaireClasseMatiere='4',coefficientClasseMatiere='3',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IR1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='SN',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='SN1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='EPS',horaireClasseMatiere='2',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='EPS1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='FR',horaireClasseMatiere='5',coefficientClasseMatiere='4',dateClasseMatiere='2024-10-01' where codeClasseMatiere='FR1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='IC',horaireClasseMatiere='1',coefficientClasseMatiere='1',dateClasseMatiere='2024-10-01' where codeClasseMatiere='IC1AS';
+-- 2025-06-04 21:13:21
+update classe_matiere set codeClasse='1AS',codeMatiere='HG',horaireClasseMatiere='2',coefficientClasseMatiere='2',dateClasseMatiere='2024-10-01' where codeClasseMatiere='HG1AS';
+-- 2025-06-04 21:13:21
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values('AR1AS','1AS','AR','6','5','2024-10-01');
+-- 2025-06-05 20:39:24
+update eleve set matricule='662671',nom='Ibrahima Lam',isme='إبراهيما لام ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='56371635531',statutEleve='Inactif' where matricule='662671';
+-- 2025-06-05 20:41:21
+update eleve set matricule='rim02',nom='Mamadou Amadou Barry',isme='ممدو أمدو باري ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='233355445',statutEleve='Inactif' where matricule='rim02';
+-- 2025-06-05 20:41:35
+update eleve set matricule='rim02',nom='Mamadou Amadou Barry',isme='ممدو أمدو باري ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='233355445',statutEleve='Actif' where matricule='rim02';
+delete from inscrit where idInscrit='328'
+-- 2025-06-06 13:39:11
+update professeur set matriculeProfesseur='124871D',nomProfesseur='Ibrahima Abou Lam',ismeProfesseur='إبراهيم أبو لام ',sexeProfesseur='M',adresseProfesseur='Boghe Thialgou',nniProfesseur='9872324575',codeSpecialite='mpc',dateDebutProfesseur='2024-10-01',dateArriveeProfesseur='2024-12-01',telProfesseur='41916418',emailProfesseur='ibrahimaaboulam@gmail.com',statutProfesseur='actif',cycleProfesseur='2' where matriculeProfesseur='124871D';
+-- 2025-06-06 14:21:55
+update eleve set imagePath='img_rim02.jpg' where matricule='rim02';
+-- 2025-06-06 18:33:18
+INSERT INTO correspondant (nomCorrespondant, ismeCorrespondant, adresseCorrespondant, telCorrespondant, emailCorrespondant, nniCorrespondant, imagePathCorrespondant) VALUES ('Amadou', 'أمدو ', 'thialgou', '3465632', '', '463463455', '');
+-- 2025-06-06 18:48:15
+INSERT INTO correspondant (nomCorrespondant, ismeCorrespondant, adresseCorrespondant, telCorrespondant, emailCorrespondant, nniCorrespondant, imagePathCorrespondant) VALUES ('Lamine', '', 'v vg,ghklhjl', '8671336', '', '31561356', '');
+-- 2025-06-06 18:51:41
+UPDATE correspondant SET nomCorrespondant = 'Lamine', ismeCorrespondant = '', adresseCorrespondant = 'v vg,ghklhjl', telCorrespondant = '8671336', emailCorrespondant = '', nniCorrespondant = '31561356', sexeCorrespondant = 'M' WHERE idCorrespondant = '9';
+-- 2025-06-06 19:05:27
+UPDATE correspondant SET nomCorrespondant = 'Lamine', ismeCorrespondant = '', adresseCorrespondant = 'Boghe', telCorrespondant = '8671336', emailCorrespondant = '', nniCorrespondant = '31561356', sexeCorrespondant = 'M' WHERE idCorrespondant = '9';
+-- 2025-06-06 19:07:14
+UPDATE correspondant SET nomCorrespondant = 'Lamine', ismeCorrespondant = 'لمين ', adresseCorrespondant = 'Boghe', telCorrespondant = '8671336', emailCorrespondant = '', nniCorrespondant = '31561356', sexeCorrespondant = 'M' WHERE idCorrespondant = '9';
+-- 2025-06-06 19:23:33
+UPDATE correspondant SET nomCorrespondant = 'Amadou', ismeCorrespondant = 'أمدو ', adresseCorrespondant = 'thialgou', telCorrespondant = '3465632', emailCorrespondant = 'am@gmail.com', nniCorrespondant = '463463455', sexeCorrespondant = 'M' WHERE idCorrespondant = '8';
+-- 2025-06-06 19:27:29
+UPDATE correspondant SET imagePathCorrespondant = 'img_8.jpg' WHERE idCorrespondant = '8';
+-- 2025-06-06 19:33:29
+UPDATE correspondant SET imagePathCorrespondant = 'img_8.jpg' WHERE idCorrespondant = '8';
+-- 2025-06-06 19:35:20
+UPDATE correspondant SET imagePathCorrespondant = 'img_9.jpg' WHERE idCorrespondant = '9';
+-- 2025-06-06 19:37:12
+UPDATE correspondant SET imagePathCorrespondant = 'img_C9.jpg' WHERE idCorrespondant = '9';

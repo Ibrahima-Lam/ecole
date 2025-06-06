@@ -1,16 +1,21 @@
 
     <?=$subsidebar ?>
-<h2 class="title text-center">Les Salles de classes d'Annee Scolaire <?= $annee->nomAnnee ?></h2>
+<h2 class="title text-center"><?=__format("Les Salles de classes de l'Annee Scolaire %s", $annee->nomAnnee)?></h2>
 
 <?php if (sizeof($data) > 0): ?>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Code Salle Classe</th>
-                <th>code Classe</th>
-                <th>Classe</th>
-                <th>Salle</th>
-                <th>Actions</th>
+                <th><?=__("Code Salle Classe")?>
+                </th>
+                <th><?=__("Code Classe")?>
+                </th>
+                <th><?=__("Classe")?>
+                </th>
+                <th><?=__("Salle")?>
+                </th>
+                <th><?=__("Actions")?>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -22,14 +27,14 @@
                 <tr class="list-element" data-code="<?= $salle->codeSalleClasse ?>">
                     <td><?= $salle->codeSalleClasse ?></td>
                     <td><?= $salle->codeClasse ?><sub><?= $salle->indiceSalleClasse ?? '' ?></sub></td>
-                    <td><?= $salle->nomClasse ?>&nbsp;<?= $salle->indiceSalleClasse ?? '' ?></td>
+                    <td dir="ltr"><?= $salle->nomClasse ?>&nbsp;<?= $salle->indiceSalleClasse ?? '' ?></td>
                     <td><?= $salle->nomSalle ?></td>
                     <td>
                        <div class="center">
-                         <a href="?p=salleclasse/profil/<?= $salle->codeSalleClasse ?>">voir</a>
+                         <a title="<?=__("Voir")?>" href="?p=salleclasse/profil/<?= $salle->codeSalleClasse ?>"><i class="fa fa-eye text-info"></i></a>
                       <?php if($_admin):?>
-                           <div data-code="<?= $salle->codeSalleClasse ?>" class="edit"><i class="fa fa-edit text-primary"></i></div>
-                           <div data-code="<?= $salle->codeSalleClasse ?>" class="delete"><i class="fa fa-trash text-danger"></i></div>
+                           <div title="<?=__("Modifier")?>" data-code="<?= $salle->codeSalleClasse ?>" class="edit"><i class="fa fa-edit text-primary"></i></div>
+                           <div title="<?=__("Supprimer")?>" data-code="<?= $salle->codeSalleClasse ?>" class="delete"><i class="fa fa-trash text-danger"></i></div>
                        
                       <?php endif?>
                        </div></td>
@@ -39,26 +44,27 @@
     </table>
 <?php else: ?>
     <div class="center">
-        <p class="title text-center">Aucune salle de classe trouvé pour l'année scolaire <?= $annee->nomAnnee ?>.</p>
+        <p class="title text-center"><?=__format("Aucune salle de classe trouvé pour l'année scolaire %s", $annee->nomAnnee)?></p>
     </div>
 <?php endif; ?>
 <?php if($_admin):?>
     <div class="fixed-action">
-        <button type="button" id="add" class="btn btn-primary circle">
+        <button title="<?=__("Ajouter")?>" type="button" id="add" class="btn btn-success circle">
             <i class="fa fa-plus"></i>
         </button>
     </div>
 <?php endif?>
 <dialog class="dialog" id="dialog">
     
-        <h3 class="title text-center">Formulaire</h3>
+        <h3 class="title text-center"><?=__("Formulaire")?></h3>
    
     <div class="dialog-body">
         <form action="" class="form" id="form">
             <input type="hidden" name="edit">
             <input type="hidden" name="codeSalleClasse">
             <div class="form-group">
-                <label for="classe">Classe Niveau</label>
+                <label for="classe"><?=__("Classe Niveau")?>
+                </label>
                 <select name="codeClasse" id="classe" class="form-control">
                     <?php foreach ($classes as $classe): ?>
                         <option value="<?= $classe->codeClasse ?>"><?= $classe->nomClasse ?>&nbsp;<?= $classe->indiceClasse ?? '' ?></option>
@@ -66,7 +72,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="salle">Salle</label>
+                <label for="salle"><?=__("Salle")?>
+                </label>
                 <select name="codeSalle" id="salle" class="form-control">
                     <?php foreach ($salles as $salle): ?>
                         <option value="<?= $salle->codeSalle ?>"><?= $salle->nomSalle ?></option>
@@ -74,21 +81,25 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="codeAnnee">codeAnnee Scolaire</label>
+                <label for="codeAnnee"><?=__("Code Annee Scolaire")?>
+                </label>
                 <input type="text" name="codeAnnee" id="codeAnnee" class="form-control" value="<?= $annee->codeAnnee ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="indiceSalleClasse">Indice Salle de Classe</label>
+                <label for="indiceSalleClasse"><?=__("Indice Salle de Classe")?>
+                </label>
                 <input type="number" name="indiceSalleClasse" id="indiceSalleClasse" class="form-control">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button title="<?=__("Ajouter")?>" type="submit" class="btn btn-primary"><?=__("Ajouter")?>
+                </button>
             </div>
         </form>
     </div>
    
     <div class="dialog-footer mx-10 right">
-        <button type="submit" id="close" class="btn btn-danger my-10">fermer</button>
+        <button title="<?=__("Fermer")?>" type="submit" id="close" class="btn btn-danger my-10"><?=__("Fermer")?>
+        </button>
     </div>
 </dialog>
 

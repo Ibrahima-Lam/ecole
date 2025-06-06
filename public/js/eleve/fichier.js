@@ -1,8 +1,10 @@
 import { fetchJson } from "../../js/src/fetch.js";
+import { Spinner } from "../../js/src/spinner.js";
+const spinner = new Spinner();
 const forms = document.querySelectorAll('form')
-const checkAll=document.getElementById('checkAll');
+const checkAll = document.getElementById('checkAll');
 const send = document.getElementById('send');
-const statuts=document.querySelectorAll('.statut')
+const statuts = document.querySelectorAll('.statut')
 
 forms.forEach(form => {
     form?.addEventListener('submit', function (e) {
@@ -15,17 +17,17 @@ forms.forEach(form => {
 checkAll?.addEventListener('change', function (e) {
     let checked = e.target.checked
     for (const form of forms) {
-        form.statut.checked=checked
+        form.statut.checked = checked
     }
     document.querySelector('.statut').dispatchEvent(new Event('change'))
 });
 
-window?.addEventListener('load',function(e){
-    checkAll.checked=true
-    if (statuts.length==0) {
-        send.disabled=true
-        checkAll.checked=false
-        checkAll.disabled=true 
+window?.addEventListener('load', function (e) {
+    checkAll.checked = true
+    if (statuts.length == 0) {
+        send.disabled = true
+        checkAll.checked = false
+        checkAll.disabled = true
     }
 })
 
@@ -35,21 +37,21 @@ send?.addEventListener('click', function (e) {
 
 statuts.forEach(element => {
     element?.addEventListener('change', function (e) {
-        let checked=0
+        let checked = 0
         for (const statut of statuts) {
-            if(statut.checked){
+            if (statut.checked) {
                 checked++
             }
         }
-        if(checked==0){
-            checkAll.checked=false
-            send.disabled=true
-        }else if(checked==statuts.length){
-            checkAll.checked=true
-            send.disabled=false
-        }else{
-            checkAll.checked=false
-            send.disabled=false
+        if (checked == 0) {
+            checkAll.checked = false
+            send.disabled = true
+        } else if (checked == statuts.length) {
+            checkAll.checked = true
+            send.disabled = false
+        } else {
+            checkAll.checked = false
+            send.disabled = false
         }
     })
 });
@@ -63,18 +65,18 @@ trs.forEach(tr => {
     })
 });
 
-const inscrire=document.getElementById('inscrire');
-inscrire?.addEventListener('click',async function (e) {
+const inscrire = document.getElementById('inscrire');
+inscrire?.addEventListener('click', async function (e) {
     await fetchJson('?p=api/eleve/clearNoninscrit')
     for (const tr of trs) {
         if (tr.dataset.statut == true) {
             const form = tr.querySelector('form')
-          const data = new FormData(form)
-          const dtString = new URLSearchParams(data).toString()
-          const url = "?p=api/eleve/enregistrer&" + dtString
-          await fetchJson(url).then((data) => {
-            console.log(data);
-        });
+            const data = new FormData(form)
+            const dtString = new URLSearchParams(data).toString()
+            const url = "?p=api/eleve/enregistrer&" + dtString
+            await fetchJson(url).then((data) => {
+                console.log(data);
+            });
         }
     }
     setTimeout(() => {
@@ -96,7 +98,7 @@ class FormElement {
         let fd = new FormData(e.target)
         let dtSring = new URLSearchParams(fd).toString()
         console.log(dtSring);
-        if (!(e.target.statut?.checked??false)) return;
+        if (!(e.target.statut?.checked ?? false)) return;
         let url = "?p=api/eleve/insert&" + dtSring
         fetchJson(url).then((data) => {
             console.log(data);
@@ -114,12 +116,12 @@ class FormElement {
 
     static async submitAll(listForms) {
         let list = [];
-
+        spinner.show()
         for (const form of listForms) {
             let fd = new FormData(form)
             let dtSring = new URLSearchParams(fd).toString()
             console.log(dtSring);
-            let url =  "?p=api/eleve/insert&" + dtSring
+            let url = "?p=api/eleve/insert&" + dtSring
             await fetchJson(url).then((data) => {
                 console.log(data);
             }).catch((error) => {
@@ -127,7 +129,7 @@ class FormElement {
             });
         }
         console.log(list);
-
+        spinner.hide()
         window.location.reload();
 
     }

@@ -23,8 +23,7 @@ class inscritController extends Controller
     {
    
         $this->inscritRepository = new inscritRepository();
-        $model = new AnneeScolaireRepository();
-        $session = new Session();
+      
         $this->annee =$this->getCodeAnnee();
     }
 
