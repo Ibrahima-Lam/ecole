@@ -5,6 +5,7 @@ namespace App\Controllers\https;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
+use App\Models\Repositories\correspondanceRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\Bulletin1Factory;
@@ -16,10 +17,19 @@ use Core\Controllers\Controller;
 use App\Models\Repositories\EleveRepository;
 use App\Models\Repositories\inscritRepository;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use App\Controllers\traits\inscriptionTrait;
 
 
 class EleveController extends Controller implements EleveControllerInterfaces
 {
+    use inscriptionTrait;
+    private $inscritRepository;
+    private $annee;
+    public function __construct()
+    {
+        $this->inscritRepository = new inscritRepository();
+        $this->annee =$this->getCodeAnnee();
+    }
     private function subsidebar(?string $matricule, int $active = 1): string
     {
         $eleve=null;
@@ -45,6 +55,8 @@ class EleveController extends Controller implements EleveControllerInterfaces
             $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>".__("Bulletin C2")."</a></li>";
             $class = $active == 5 ? "active" : "";
             $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>".__("Bulletin C3")."</a></li>";
+            $class = $active == 6 ? "active" : "";
+            $html .= "<li><a href='?p=eleve/correspondant/$matricule'class='$class'>".__("Correspondant")."</a></li>";
         }
         $class = $active == 10 ? "active" : "";
         $html .= "<li><a href='?p=eleve/liste' class='$class'>".__("Eleves")."</a></li>";
@@ -72,7 +84,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $this->render("eleve/liste", ["data" => $data, 'subsidebar' => $this->subsidebar(null, 10)]);
     }
 
-    public function profil(string $matricule): void
+/*     public function profil(string $matricule): void
     {
         $model = new EleveRepository();
        
@@ -81,24 +93,34 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $model2 = new inscritRepository();
         $inscription = $model2->findOneByCodeAndAnnee($matricule, $this->getCodeAnnee());
         $this->render("eleve/profil", ["data" => $data, 'inscription' => $inscription, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 1)]);
-    }
-    public function inscrit()
+    } */
+  /*   public function inscrit()
     {
         $model = new inscritRepository();
         $eleves = $model->findAllByAnnee($this->getCodeAnnee());
         $model = new AnneeScolaireRepository();
         $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
         $this->render('eleve/inscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 11)]);
-    }
-    public function noninscrit()
+    } */
+    /* public function noninscrit()
     {
         $model = new EleveRepository();
         $eleves = $model->findAllNonInscritsByAnnee($this->getCodeAnnee());
         $model = new AnneeScolaireRepository();
         $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
         $this->render('eleve/noninscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 12)]);
+    } */
+    public function correspondant($matricule)
+    {
+        $eleveRepository = new EleveRepository();
+        $eleve = $eleveRepository->findOneByMatricule($matricule);
+        if(!$eleve){
+            die(__("eleve non trouvé"));
+        }
+        $correspondanceRepository = new correspondanceRepository();
+        $correspondances = $correspondanceRepository->findAllByMatricule($matricule);
+        $this->render('eleve/correspondant', ['correspondances' => $correspondances,'subsidebar'=>$this->subsidebar($matricule,6)]);
     }
- 
     public function statut($statutEleve): void
     {
         $model = new EleveRepository();
@@ -134,7 +156,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $annee = $this->getCodeAnnee();
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
-        (!$eleve) && $this->redirect("?p=eleve/liste");
+        (!$eleve) && die("<p class='text-center'>".__("eleve non inscrit")."</p>");
         $notematieres = Bulletin1Factory::getBulletin($matricule, $annee);
 
         $tab = Bulletin1Factory::getPoints($matricule, $annee);
@@ -146,7 +168,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $annee = $this->getCodeAnnee();
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
-        (!$eleve) && $this->redirect("?p=eleve/liste");
+        (!$eleve) && die("<p class='text-center'>".__("eleve non inscrit")."</p>");
         $notematieres = Bulletin2Factory::getBulletin($matricule, $annee);
 
         $tab = Bulletin2Factory::getPoints($matricule, $annee);
@@ -158,7 +180,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $annee = $this->getCodeAnnee();
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
-        (!$eleve) && $this->redirect("?p=eleve/liste");
+        (!$eleve) && die("<p class='text-center'>".__("eleve non inscrit")."</p>");
         $notematieres = Bulletin3Factory::getBulletin($matricule, $annee);
 
         $tab = Bulletin3Factory::getPoints($matricule, $annee);
@@ -171,6 +193,7 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $annee = $this->getCodeAnnee();
         $model = new inscritRepository();
         $eleve = $model->findOne($matricule);
+        (!$eleve) && die("<p class='text-center'>".__("eleve non inscrit")."</p>");
         $matieres = [];
         $notes = [];
         if ($eleve) {

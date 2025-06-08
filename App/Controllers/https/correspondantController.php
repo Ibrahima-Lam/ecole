@@ -4,15 +4,44 @@ namespace App\Controllers\https;
 
 use App\Models\Repositories\correspondanceRepository;
 use App\Models\Repositories\correspondantRepository;
+use App\Models\Repositories\EleveRepository;
+use App\Models\Repositories\inscritRepository;
 use Core\Controllers\Controller;
 
 class CorrespondantController extends Controller
 {
+
+    private function subsidebar(?string $id, int $active = 1): string
+    {
+       $repos=new correspondantRepository();
+       $prof=$repos->findOneById($id??'');
+        $html = "<div class='subsidebar'>";
+        if($prof){
+            $html.='<h3>'.$prof->nomCorrespondant.'</h3>';
+            $html.='<p class="text-center">'.$prof->ismeCorrespondant.'</p>';
+        }
+        $html .= "<ul>";
+        $class = "";
+        if ($id) {
+            $class = $active == 1 ? "active" : "";
+            $html .= "<li><a href='?p=correspondant/profil/$id'class='$class'>".__("Profil") ."</a></li>";
+            $class = $active == 2 ? "active" : "";
+            $html .= "<li><a href='?p=correspondant/enfant/$id'class='$class'>".__("Enfant") ."</a></li>";
+      
+        }   
+        $class = $active == 10 ? "active" : "";
+        $html .= "<li><a href='?p=correspondant/liste' class='$class'>".__("Correspondant") ."</a></li>";
+       $class = $active == 11 ? "active" : "";
+        $html .= "<li><a href='?p=correspondant/correspondance' class='$class'>".__("Correspondance") ."</a></li>";
+        $html .= "</ul>";
+        $html .= "</div>";
+        return $html;
+    }
     public function liste()
     {
         $correspondanceRepository = new correspondantRepository();
         $correspondants = $correspondanceRepository->findAll();
-        $this->render('correspondant/liste', ['correspondants' => $correspondants]);
+        $this->render('correspondant/liste', ['correspondants' => $correspondants,'subsidebar'=>$this->subsidebar(null,10)]);
     }
 
     public function traitementImage(): void
@@ -29,12 +58,36 @@ class CorrespondantController extends Controller
     {
         $correspondanceRepository = new correspondantRepository();
         $correspondant = $correspondanceRepository->findOneById($id);
-        $this->render('correspondant/profil', ['correspondant' => $correspondant]);
+        if(!$correspondant){
+            die(__("correspondant non trouvé"));
+        }
+        $this->render('correspondant/profil', ['correspondant' => $correspondant,'subsidebar'=>$this->subsidebar($id,1)]);
     }
      public function correspondance()
     {
         $correspondanceRepository = new correspondanceRepository();
-        $correspondants = $correspondanceRepository->findAll();
-        $this->render('correspondant/correspondance', ['correspondants' => $correspondants]);
+        $correspondances = $correspondanceRepository->findAll();
+        $correspondantRepository = new correspondantRepository();
+        $correspondants = $correspondantRepository->findAll();
+        $eleveRepository = new EleveRepository();
+        $eleves = $eleveRepository->findAll();
+        $this->render('correspondant/correspondance', ['correspondances' => $correspondances,'correspondants'=>$correspondants,'eleves'=>$eleves,'subsidebar'=>$this->subsidebar(null,11)]);
     }
+    public function enfant($id)
+    {
+        
+        $correspondanceRepository = new correspondanceRepository();
+        $correspondances = $correspondanceRepository->findAllByCorrespondant($id);
+        $correspondances=array_map(function($correspondance){
+            $inscritRepository = new inscritRepository();
+            $inscrit=$inscritRepository->findOneByMatriculeAndAnnee($correspondance->matricule,$this->getCodeAnnee());
+            $correspondance->pseudoSalleClasse=$inscrit? $inscrit->pseudoSalleClasse:__("non inscrit");
+            return $correspondance;
+        },$correspondances);
+        $subsidebar=$this->subsidebar($id,2);
+        
+        $this->render('correspondant/enfant', ['correspondances' => $correspondances,'subsidebar'=>$subsidebar]);
+    }
+
+  
 }

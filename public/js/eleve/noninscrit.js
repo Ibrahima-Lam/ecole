@@ -1,6 +1,6 @@
 
-import { fetchJson } from "../src/fetch.js";
-import ProfesseurForm from "./professeur_form.js";
+import { fetchJson, fetchText } from "../src/fetch.js";
+import EleveForm from "./eleve_form_module.js";
 /**
  * @type {HTMLInputElement} admin
  */
@@ -9,14 +9,20 @@ window?.addEventListener('load', function () {
     admin = document.getElementById('_admin').value;
 });
 
-const params = {
-    admin: admin,
-    sort: 'matriculeProfesseur',
-    order: 'asc',
-    statut: null,
-    cycle: null,
-    search: ''
-}
+import { FormModuleArray } from '../inscrit/formModule.js';
+
+    const inscrires = document.querySelectorAll('.inscrire');
+
+    new FormModuleArray(document.querySelector('.form-contain'), inscrires);
+
+    const inscritRows = document.querySelectorAll('.inscritRow');
+    inscritRows.forEach(row => {
+        row?.addEventListener('dblclick', function () {
+            window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
+        });
+    });
+
+
 
 function deleteEleve(matricule) {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet élève ?")) {
@@ -44,7 +50,7 @@ document.querySelectorAll(".delete").forEach(function (element) {
 });
 
 function editEleve(matricule) {
-    let dialog = new ProfesseurForm(document.querySelector(".dialog"), matricule);
+    let dialog = new EleveForm(document.querySelector("#dialog-eleve"), matricule);
     dialog.setEditable('true');
     dialog.show();
 }
@@ -58,7 +64,7 @@ document.querySelectorAll(".edit").forEach(function (element) {
 });
 
 document.getElementById("add")?.addEventListener("click", function (e) {
-    let dialog = new ProfesseurForm(document.querySelector(".dialog"));
+    let dialog = new EleveForm(document.querySelector("#dialog-eleve"));
     dialog.reset();
     dialog.setEditable('false');
     dialog.show();
@@ -66,18 +72,17 @@ document.getElementById("add")?.addEventListener("click", function (e) {
 
 
 document.getElementById("srch")?.addEventListener("input",async function (e) {
-if (data.length == 0) {
-    let url = "?p=api/professeur/liste";
-    data = await fetchJson(url);
-}
+
 if (e.target.value.length<3&&e.target.value.length>0) return;
 
     let tab = new TableData(table, data, {
-        ...params,
         search: e.target.value,
+        admin: admin,
+        sort: sort,
+        order: order
     });
     tab.create();
-    tab.setFiltering(e.target.value);
+    // tab.setFiltering(e.target.value);
 });
 
 
@@ -97,13 +102,13 @@ headers.forEach(header => {
         }
         sort = srt
         if (data.length == 0) {
-            let url = "?p=api/professeur/liste";
+            let url = "?p=api/eleve/liste";
             data = await fetchJson(url);
         }
         let tab = new TableData(table, data, {
-            ...params,
             sort: srt,
             order: ord,
+            admin: admin
         });
         tab.create();
         tab.setSorting(header)
@@ -125,38 +130,9 @@ window?.addEventListener('load', function (e) {
 
 const trs=document.querySelectorAll('tbody tr')
 trs.forEach(tr => {
-    tr?.addEventListener('click',function(e){
-    window.location.assign("?p=professeur/profil/" + tr.dataset.matricule)
+    tr?.addEventListener('dblclick',function(e){
+    window.location.assign("?p=eleve/profil/" + tr.dataset.matricule)
     })
-});
-
-let statutfilter = document.getElementById('statutfilter');
-let cyclefilter = document.getElementById('cyclefilter');
-
-statutfilter?.addEventListener('change',async function (e) {
-    if (data.length == 0) {
-        let url = "?p=api/professeur/liste";
-        data = await fetchJson(url);
-    }
-    let tab = new TableData(table, data, {
-        ...params,
-        statut: e.target.value,
-    });
-    tab.create();
-   
-});
-
-cyclefilter?.addEventListener('change',async function (e) {
-    if (data.length == 0) {
-        let url = "?p=api/professeur/liste";
-        data = await fetchJson(url);
-    }
-    let tab = new TableData(table, data, {
-        ...params,
-        cycle: e.target.value,
-    });
-    tab.create();
-  
 });
 
 
@@ -177,25 +153,56 @@ class TableData {
             sort: 'matricule',
             order: 'asc',
             admin: false,
-            statut: null,
-            cycle: null,
             ...params
         };
 
     }
-    create() {
-        let elements = this.data;
-        elements = this.#filterData(this.data, this.params);
+   async create() {
+       /*  let elements = this.data;
+        elements = this.#filterData(this.data, this.params.search);
         elements = this.#sortData(elements);
-        this.#render(elements);
+        this.#render(elements); */
+        let tbody = this.table.querySelector("tbody");
+        let status=document.getElementById("statut-param")?.value;
+        tbody.innerHTML = '';
+    let paramStr = Object.entries(this.params).map(([key, value]) => `${key}=${value}`).join("&");
+       
+    let url = "?p=api/eleve/htmlListe";
+    if(status) url+="/"+status;
+    url+="&noninscrit=true";
+    url+="&"+paramStr;
+       
+        let html = await fetchText(url);
+        tbody.innerHTML = html;
+        
+        tbody.querySelectorAll(".edit").forEach(element => {
+            element?.addEventListener("click", async (e) => {
+                let matricule = element.dataset.matricule;
+                editEleve(matricule);
+            });
+        });
+
+        tbody.querySelectorAll(".delete").forEach(element => {
+            element?.addEventListener("click", async (e) => {
+                let matricule = element.dataset.matricule;
+                deleteEleve(matricule);
+            });
+
+        });
+        tbody.querySelectorAll('tr').forEach(element => {
+            element?.addEventListener("dblclick", async (e) => {
+                let matricule = element.dataset.matricule;
+                window.location.assign('?p=eleve/profil/' + matricule);
+            });
+        });
     }
 
-    setSorting(th) {
+     setSorting(th) {
         const ths = this.table.querySelectorAll('.sortable')
         ths.forEach(element => {
             let i = element.querySelector('i')
             if (i) {
-                element.removeChild(i)
+                i.remove()
             }
         });
         const i = document.createElement('i')
@@ -203,10 +210,14 @@ class TableData {
         i.classList.add('fa')
         i.classList.add(cl)
         i.classList.add('ml-5')
+        i.classList.add('mx-5')
         i.classList.add('text-primary')
-        th.append(i)
+        i.style.fontSize="1.2rem"
+        i.style.color="blue"
+        let sort=th.querySelector('.sort')
+        sort.append(i)
     }
-
+/*
     setFiltering(value) {
         const tds = this.table.querySelectorAll('td.seachable')
         const mark = document.createElement('mark')
@@ -242,31 +253,20 @@ class TableData {
         tbody.querySelectorAll('tr').forEach(element => {
             element?.addEventListener("dblclick", async (e) => {
                 let matricule = element.dataset.matricule;
-                window.location.assign('?p=professeur/profil/' + matricule);
+                window.location.assign('?p=eleve/profil/' + matricule);
             });
         });
     }
 
-    #filterData(data, params) {
-       
-        if(params.statut){
-            data=data.filter(element=>element.statutProfesseur==params.statut)
-        }
-        if(params.cycle){
-            data=data.filter(element=>element.cycleProfesseur==params.cycle)
-        }
-        if (params.search == '') {
+    #filterData(data, value) {
+        if (value == '') {
             return data;
         }
         return data.filter((element) => {
-            return element.nomProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.matriculeProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.ismeProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.nomSpecialite.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.statutProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.telProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.emailProfesseur.toString().toLowerCase().includes(params.search.toLowerCase())||
-                element.nniProfesseur.toString().toLowerCase().includes(params.search.toLowerCase());
+            return element.nom.toString().toLowerCase().includes(value.toLowerCase())||
+                element.matricule.toString().toLowerCase().includes(value.toLowerCase())||
+                element.isme.toString().toLowerCase().includes(value.toLowerCase())||
+                element.nni.toString().toLowerCase().includes(value.toLowerCase());
         });
     }
 
@@ -282,49 +282,27 @@ class TableData {
         });
     }
 
-    #trString({ matriculeProfesseur, nomProfesseur, ismeProfesseur, nomSpecialite, cycleProfesseur, statutProfesseur, telProfesseur, emailProfesseur,nniProfesseur,imagePathProfesseur }) {
-     /*  let img=""
-      if(imagePathProfesseur&& new File("profiles/professeur/"+imagePathProfesseur)){
-        img=`<div class="center img-circle">
-        <img src="profiles/professeur/${imagePathProfesseur}" >
-        </div>`
-      }
-      else{
-        img=`<div class="center img-circle">
-        <i class="fa fa-user"></i>
-        </div>`
-      } */
-      
-      
-      
-
-       
+    #trString({ matricule, nom, isme, sexe, dateNaissance, lieuNaissance, adresse, nni }) {
         return `
-        <tr data-matricule="${matriculeProfesseur}">
-        <td>
-                       
-                    </td>
-         <td class="seachable">${matriculeProfesseur}</td>
-        <td class="seachable">${nomProfesseur}</td>
-        <td class="seachable">${ismeProfesseur}</td>
-        <td class="seachable">${nomSpecialite}</td>
-        <td class="seachable">${cycleProfesseur}</td>
-        <td class="seachable">${statutProfesseur}</td>
-        <td class="seachable">${telProfesseur}</td>
-        <td class="seachable">${emailProfesseur}</td>
-        <td class="seachable">${nniProfesseur}</td>
-        <td>
+        <tr data-matricule="${matricule}">
+         <td class="seachable">${matricule}</td>
+        <td class="seachable">${nom}<br><span dir="rtl">${isme}</span></td>
+        <td >${sexe}</td>
+        <td >${dateNaissance}</td>
+        <td>${lieuNaissance}</td>
+        <td>${adresse}</td>
+        <td class="seachable">${nni}</td><td>
         <div class="center">
-         <a href="?p=professeur/profil/${matriculeProfesseur}"><i class="bi-eye"></i></a>
+         <a href="?p=eleve/profil/${matricule}"><i class="bi-eye"></i></a>
         ${this.params.admin ? `
 
-                            <div class="edit" data-matricule="${matriculeProfesseur}"><i class="fa fa-edit"></i></div>
-                            <div class="delete" data-matricule="${matriculeProfesseur}"><i class="fa fa-trash  text-danger"></i></div>
+                            <div class="edit" data-matricule="${matricule}"><i class="bi-pencil"></i></div>
+                            <div class="delete" data-matricule="${matricule}"><i class="bi-trash  text-danger"></i></div>
 
                             ` : ''
             }
                         </div>
         </td>
         </tr>`;
-    }
+    } */
 }

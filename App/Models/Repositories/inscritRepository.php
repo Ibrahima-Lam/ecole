@@ -27,7 +27,8 @@ class inscritRepository extends Repository
         $sql = "select * from inscrit_view where codeSalleClasse='$classe' order by numeroInscrit asc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
-    }
+    } 
+   
 
     
 

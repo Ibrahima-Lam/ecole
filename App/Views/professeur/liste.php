@@ -24,11 +24,12 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th></th>
+                <th  ><i class="fa fa-sort"></i></th>
                 <th data-sort="matriculeProfesseur" class="sortable"><?=__("Matricule")?></th>
                 <th data-sort="nomProfesseur" class="sortable"><?=__("Nom")?></th>
                 <th data-sort="ismeProfesseur" class="sortable"><?=__("Nom en arabe")?></th>
-                <th data-sort="codeSpecialite" class="sortable"><?=__("Cycle")?></th>
+                <th data-sort="codeSpecialite" class="sortable"><?=__("Specialite")?></th>
+                <th data-sort="cycleProfesseur" class="sortable"><?=__("Cycle")?></th>
                 <th data-sort="statutProfesseur" class="sortable"><?=__("statut")?></th>
                 <th data-sort="telProfesseur" class="sortable"><?=__("Tel")?></th>
                 <th data-sort="emailProfesseur" class="sortable"><?=__("Email")?></th>
@@ -53,6 +54,7 @@
                     <td><?=$prof->matriculeProfesseur ?></td>
                     <td><?=$prof->nomProfesseur ?></td>
                     <td><?=$prof->ismeProfesseur ?></td>
+                    <td><?=$prof->codeSpecialite ?></td>
                     <td><?=__format($prof->cycleProfesseur==1?'%sère Cycle':'%sème Cycle',$prof->cycleProfesseur) ?></td>
                     <td><?=$prof->statutProfesseur ?></td>
                     <td><?=$prof->telProfesseur ?></td>

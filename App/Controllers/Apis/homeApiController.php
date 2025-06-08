@@ -2,6 +2,7 @@
 
 namespace App\Controllers\apis;
 
+use App\Models\Repositories\correspondantRepository;
 use App\Models\Repositories\EleveRepository;
 use App\Models\Repositories\ProfesseurRepository;
 use App\Models\Repositories\SalleClasseRepository;
@@ -207,6 +208,65 @@ foreach ($profs as $prof) {
     </a>
     </li>";
      $result[]=$prof;
+ }
+}   
+$model=new correspondantRepository();
+$correspondants=$model->findAll();
+
+$result=[];
+foreach ($correspondants as $correspondant) {
+    if (str_contains(strtoupper($correspondant->nomCorrespondant), strtoupper($search))) {
+     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($correspondant->nomCorrespondant));
+       $correspondant->result="<li title='".__('Correspondant')."'>
+       <span>$r <b>(".__('Correspondant').")</b></span>
+       <a class='link' href='?p=correspondant/profil/$correspondant->idCorrespondant'>$correspondant->nomCorrespondant
+       <br>
+       $correspondant->ismeCorrespondant
+       </a>
+       </li>";
+        $result[]=$correspondant;
+    } 
+    elseif (str_contains(strtoupper($correspondant->ismeCorrespondant), strtoupper($search))) {
+     $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($correspondant->ismeCorrespondant));
+       $correspondant->result="<li title='  Professeur'>
+       <span>$r <b>(".__('Professeur').")</b></span>
+       <a class='link' href='?p=correspondant/profil/$correspondant->idCorrespondant'>$correspondant->nomCorrespondant
+       <br>
+       $correspondant->ismeCorrespondant
+       </a>
+       </li>";
+        $result[]=$correspondant;
+    }
+ elseif (str_contains(strtoupper($correspondant->nniCorrespondant), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($correspondant->nniCorrespondant));
+     $correspondant->result="<li title='".__('Correspondant')."'>
+    <span>$r <b>(".__('Correspondant').")</b></span>
+    <a class='link' href='?p=correspondant/profil/$correspondant->idCorrespondant'>$correspondant->nomCorrespondant
+    <br>
+    $correspondant->ismeCorrespondant
+    </a>
+    </li>";
+     $result[]=$correspondant;
+ }elseif (str_contains(strtoupper($correspondant->emailCorrespondant), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($correspondant->emailCorrespondant));
+     $correspondant->result="<li title='".__('Correspondant')."'>
+    <span>$r <b>(".__('Correspondant').")</b></span>
+    <a class='link' href='?p=correspondant/profil/$correspondant->idCorrespondant'>$correspondant->nomCorrespondant
+    <br>
+    $correspondant->ismeCorrespondant
+    </a>
+    </li>";
+     $result[]=$correspondant;
+ }elseif (str_contains(strtoupper($correspondant->telCorrespondant), strtoupper($search))) {
+    $r=str_replace(strtoupper($search),"<mark>$search</mark>",strtoupper($correspondant->telCorrespondant));
+     $correspondant->result="<li title='".__('Correspondant')."'>
+    <span>$r <b>(".__('Correspondant').")</b></span>
+    <a class='link' href='?p=correspondant/profil/$correspondant->idCorrespondant'>$correspondant->nomCorrespondant
+    <br>
+    $correspondant->ismeCorrespondant
+    </a>
+    </li>";
+     $result[]=$correspondant;
  }
 }
 $res.=array_reduce($result, function ($a,$b)  {

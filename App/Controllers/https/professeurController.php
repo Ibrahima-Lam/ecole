@@ -24,15 +24,15 @@ class professeurController extends Controller
         $class = "";
         if ($matricule) {
             $class = $active == 1 ? "active" : "";
-            $html .= "<li><a href='?p=professeur/profil/$matricule'class='$class'>Profil</a></li>";
+            $html .= "<li><a href='?p=professeur/profil/$matricule'class='$class'>".__("Profil") ."</a></li>";
             $class = $active == 2 ? "active" : "";
-            $html .= "<li><a href='?p=professeur/matiere/$matricule'class='$class'>Matiere</a></li>";
+            $html .= "<li><a href='?p=professeur/matiere/$matricule'class='$class'>".__("Matiere") ."</a></li>";
         $class = $active == 3 ? "active" : "";
-            $html .= "<li><a href='?p=professeur/enseignant/$matricule'class='$class'>Classe et Matiere</a></li>";
+            $html .= "<li><a href='?p=professeur/enseignant/$matricule'class='$class'>".__("Classe et Matiere") ."</a></li>";
         
         }   
         $class = $active == 10 ? "active" : "";
-        $html .= "<li><a href='?p=professeur/liste' class='$class'>Professeurs</a></li>";
+        $html .= "<li><a href='?p=professeur/liste' class='$class'>".__("Professeurs") ."</a></li>";
         $html .= "</ul>";
         $html .= "</div>";
         return $html;

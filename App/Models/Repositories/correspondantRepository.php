@@ -11,7 +11,7 @@ class correspondantRepository extends Repository
        return $this->db->selectAll($sql,stdClass::class);
     } 
 
-    public function findOneById(string $id): ?stdClass
+    public function findOneById(string $id): false|stdClass
     {
         $sql = "SELECT * FROM correspondant WHERE idCorrespondant = '$id'";
         return $this->db->selectOne($sql,  stdClass::class);

@@ -23,12 +23,17 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
 
     public function htmlListe($statutEleve=null): void
     {
+        $noninscrit=$_REQUEST['noninscrit'] ?? null;
         $admin=UserFactory::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'matricule';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? null;
         $model = new EleveRepository();
         $data = $statutEleve?$model->findAllByStatut($statutEleve): $model->findAll();
+        if($noninscrit){
+          
+            $data = $model->findAllNonInscritsByAnnee($this->getCodeAnnee());
+        }
 
         if ($search) {
             $data = array_filter($data, function ($value) use ($search) {
@@ -42,7 +47,7 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
             $result = strcmp($a->$sort, $b->$sort);
             return $order === 'asc' ? $result : -$result;
         });
-        $html = array_reduce($data, function ($carry, $item)use($search,$admin) {
+        $html = array_reduce($data, function ($carry, $item)use($search,$admin,$noninscrit) {
            $imgTag="<div class=\"img-circle\">";
            $imgTag.=file_exists("profiles/eleve/".$item->imagePath)&&$item->imagePath?"<img  src=\"profiles/eleve/" . $item->imagePath . "\" >":
            "<div class=\"center\">
@@ -68,6 +73,11 @@ class EleveApiController extends Controller implements EleveControllerInterfaces
                                 <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-edit text-primary\"></i></div>
                                 <div class=\"delete\" title=\"Supprimer l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-trash  text-danger\"></i></div>
                             ";
+                            if($noninscrit){
+                                $tr.="
+                                <div class=\"inscrire\" title=\"Inscrire l'eleve\" data-matricule=\"" . $item->matricule . "\"><i class=\"fa fa-user-plus text-success\"></i></div>
+                            ";
+                            }
                            }    
                            $tr.="</div>
             </td></tr>";

@@ -4718,3 +4718,47 @@ UPDATE correspondant SET imagePathCorrespondant = 'img_8.jpg' WHERE idCorrespond
 UPDATE correspondant SET imagePathCorrespondant = 'img_9.jpg' WHERE idCorrespondant = '9';
 -- 2025-06-06 19:37:12
 UPDATE correspondant SET imagePathCorrespondant = 'img_C9.jpg' WHERE idCorrespondant = '9';
+-- 2025-06-07 12:49:14
+UPDATE correspondant SET imagePathCorrespondant = 'img_C8.jpg' WHERE idCorrespondant = '8';
+-- 2025-06-07 12:51:19
+update professeur set imagePathProfesseur='img_124871D.jpg' where matriculeProfesseur='124871D';
+-- 2025-06-07 12:54:21
+update eleve set imagePath='img_662671.jpg' where matricule='662671';
+-- 2025-06-07 13:03:03
+UPDATE salle_classe 
+                   SET codeSalle = 'Salle3', 
+                       codeClasse = '1AS', 
+                       codeAnnee = '2425', 
+                       indiceSalleClasse = '1' 
+                   WHERE codeSalleClasse = 'A24251AS1';
+-- 2025-06-07 13:14:26
+update eleve set matricule='5d223',nom='Sidi Haroune Ndaye',isme='سدإ هارون نجاي',sexe='M',dateNaissance='2000-01-01',lieuNaissance='',adresse='',nni='00000123',statutEleve='actif' where matricule='5d223';
+-- 2025-06-07 14:19:01
+update inscrit set matricule='2AS201',codeSalleClasse='A24252AS2',numeroInscrit='2',typeInscrit='passant',dateInscription='2025-04-30' where idInscrit='209';
+-- 2025-06-07 14:19:27
+update inscrit set matricule='2AS201',codeSalleClasse='A24252AS2',numeroInscrit='1',typeInscrit='passant',dateInscription='2025-04-30' where idInscrit='209';
+-- 2025-06-07 17:18:01
+update eleve set matricule='31413699',nom='Abdou Kane',isme='عبد كان ',sexe='M',dateNaissance='2000-01-01',lieuNaissance='Thialgou',adresse='thialgou',nni='3566323263',statutEleve='actif' where matricule='31413699';
+delete from inscrit where idInscrit='325'
+delete from inscrit where idInscrit='326'
+delete from inscrit where idInscrit='329'
+-- 2025-06-07 17:29:15
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','31413699','A24251AS1','1','passant','2025-06-07');
+-- 2025-06-07 17:29:15
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','36153541','A24251AS1','2','passant','2025-06-07');
+-- 2025-06-07 17:29:15
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','662671','A24251AS1','3','passant','2025-06-07');
+-- 2025-06-07 17:29:15
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','rim02','A24251AS1','4','passant','2025-06-07');
+delete from inscrit where idInscrit='333'
+delete from inscrit where idInscrit='332'
+delete from inscrit where idInscrit='331'
+delete from inscrit where idInscrit='330'
+-- 2025-06-08 12:55:58
+INSERT INTO correspondance (matricule, idCorrespondant) VALUES ('5d202', '8');
+-- 2025-06-08 13:03:29
+INSERT INTO correspondance (matricule, idCorrespondant) VALUES ('5d202', '9');
+-- 2025-06-08 13:05:19
+UPDATE correspondance SET matricule = '5d203', idCorrespondant = '9' WHERE idCorrespondance = '9';
+-- 2025-06-08 13:07:27
+DELETE FROM correspondance WHERE idCorrespondance = '9';

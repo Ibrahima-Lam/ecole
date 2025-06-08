@@ -18,7 +18,7 @@
                 <input type="hidden" name="id" value="<?= $correspondant->idCorrespondant ?>">
                 <div class="edit-image">
                  <label for="editImageInput">
-                  <i class="fa fa-pen text-primary" style="font-size: 1rem;"></i>
+                  <i title="<?=__("Modifier l'image")?>" class="fa fa-pen text-primary" style="font-size: 1rem;"></i>
               </label>
 
                  <input type="file" id="editImageInput" name="image" accept="image/*">
@@ -55,7 +55,7 @@
                     <td>
                         <?php if($_admin):?>
                             <div class="center">
-                                <button type="button" id="edit" data-id="<?=$correspondant->idCorrespondant ?>" class="btn"><i class="fa fa-edit text-primary"></i></button>
+                                <button type="button" id="edit" data-id="<?=$correspondant->idCorrespondant ?>" class="btn"><i title="<?=__("Modifier")?>" class="fa fa-edit text-primary"></i></button>
                             </div>
                         <?php endif?>
                     </td>

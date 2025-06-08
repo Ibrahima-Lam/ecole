@@ -3,6 +3,7 @@
 namespace App\Controllers\Apis;
 
 use App\Models\Repositories\InscritRepository;
+use App\Services\factories\UserFactory;
 use Core\Controllers\Controller;
 use Core\Services\html\htmlService;
 use App\Models\Repositories\AnneeScolaireRepository;
@@ -44,6 +45,61 @@ class inscritApiController extends Controller
             return;
         }
         $this->response($data);
+    }
+
+    public function htmlListe(): void
+    {
+        $admin=UserFactory::isAdmin();
+        $sort = $_REQUEST['sort'] ?? 'matricule';
+        $order = $_REQUEST['order'] ?? 'asc';
+        $search = $_REQUEST['search'] ?? null;
+        $model = new InscritRepository();
+        $data = $model->findAllByAnnee($this->getCodeAnnee());
+
+        if ($search) {
+            $data = array_filter($data, function ($value) use ($search) {
+                return preg_match('/'.$search.'/i', $value->nom) ||
+                preg_match('/'.$search.'/i', $value->nni) ||
+                preg_match('/'.$search.'/i', $value->matricule) ||
+                 preg_match('/'.$search.'/i', $value->isme);
+            });
+        }
+        usort($data, function ($a, $b) use ($sort, $order) {
+            $result = strcmp($a->$sort, $b->$sort);
+            return $order === 'asc' ? $result : -$result;
+        });
+        $html = array_reduce($data, function ($carry, $item)use($search,$admin) {
+           $imgTag="<div class=\"img-circle\">";
+           $imgTag.=file_exists("profiles/eleve/".$item->imagePath)&&$item->imagePath?"<img  src=\"profiles/eleve/" . $item->imagePath . "\" >":
+           "<div class=\"center\">
+                            <i class=\"fa fa-user\"></i>
+                         </div>";
+           $imgTag.="</div>";
+            $tr=  "<tr data-matricule=\"" . $item->matricule . "\" data-id=\"" . $item->idInscrit . "\">
+            <td>{$imgTag}</td>
+            <td>{$item->matricule}</td>
+            <td>{$item->numeroInscrit}</td>
+            <td>{$item->nom}<br><span dir=\"rtl\">{$item->isme}</span></td>
+            <td><a href=\"?p=salleClasse/profil/" . $item->codeSalleClasse . "\">{$item->pseudoSalleClasse}</a></td>
+            <td>{$item->typeInscrit}</td>
+            <td>{$item->dateInscription}</td>
+            <td>
+            <div class='center'>
+
+                            <a href=\"?p=eleve/profil/" . $item->matricule . "\" title=\"Voir l'eleve\"><i class=\"fa fa-eye text-info\"></i></a>
+                           ";
+                           if($admin){
+                                $tr.="
+                                <div class=\"edit\" title=\"Editer l'eleve\" data-matricule=\"" . $item->matricule . "\" data-id=\"" . $item->idInscrit . "\"><i class=\"fa fa-edit text-primary\"></i></div>
+                                <div class=\"delete\" title=\"Supprimer l'eleve\" data-matricule=\"" . $item->matricule . "\" data-id=\"" . $item->idInscrit . "\"><i class=\"fa fa-trash  text-danger\"></i></div>
+                            ";
+                           }    
+                           $tr.="</div>
+            </td></tr>";
+           if($search) $tr=preg_replace('/'.$search.'/i', "<mark>$search</mark>", $tr);
+            return $carry.$tr;
+        }, "");
+        $this->response($html);
     }
 
     public function last($classe)

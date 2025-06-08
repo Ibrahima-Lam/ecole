@@ -1,14 +1,33 @@
-<h2 class="title text-center">Liste des inscrits</h2>
+<?=$subsidebar??"" ?>
+
+<h2 class="title text-center"><?=__format("Liste des inscrits de l'annee scolaire %s",$anneescolaire->nomAnnee)?></h2>
+
+<div class="center my-10">
+    <input class="field" type="search" id="srch" placeholder="<?=__("Rechercher un inscrit")?>
+    ">
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th></th>
-            <th>Matricule</th>
-            <th>Numero inscrit</th>
-            <th>Nom</th>
-            <th>Code classe</th>
-            <th>Type inscrit</th>
-            <th>Date inscription</th>
+            <th data-sort="matricule" ><i class="fa fa-sort"></i></th>
+            <th data-sort="matricule" class="sortable"><div class="sort">
+                Matricule
+            </div></th>
+            <th data-sort="numeroInscrit" class="sortable"><div class="sort">
+                Numero inscrit
+            </div></th>
+            <th data-sort="nom" class="sortable"><div class="sort">
+                Nom
+            </div></th>
+            <th data-sort="codeSalleClasse" class="sortable"><div class="sort">
+                Code classe
+            </div></th>
+            <th data-sort="typeInscrit" class="sortable"><div class="sort">
+                Type inscrit
+            </div></th>
+            <th data-sort="dateInscription" class="sortable"><div class="sort">
+                Date inscription
+            </div></th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -29,43 +48,23 @@
                 <td><?= $inscrit->matricule ?></td>
                 <td><?= $inscrit->numeroInscrit ?></td>
                 <td><?= $inscrit->nom ?><br><span><?= $inscrit->isme ?></span></td>
-                <td><?= $inscrit->codeClasse . $inscrit->indiceSalleClasse ?></td>
+                <td><a href="?p=salleClasse/profil/<?= $inscrit->codeSalleClasse ?>"><?= $inscrit->pseudoSalleClasse ?></a></td>
                 <td><?= $inscrit->typeInscrit ?></td>
                 <td><?= $inscrit->dateInscription ?></td>
                 <td>
                     <?php if ($_admin): ?>
-                        <button title="Editer l'inscription" data-id="<?= $inscrit->idInscrit ?>" data-matricule="<?= $inscrit->matricule ?>" class="btn btn-primary inscrire"><i class="fa fa-edit"></i></button>
-                    <?php endif ?>
+                       <div class="center">
+                         <button title="<?=__("Editer l'inscription")?>" data-id="<?= $inscrit->idInscrit ?>" data-matricule="<?= $inscrit->matricule ?>" class="btn btn-primary edit"><i class="fa fa-edit"></i></button>
+                         <button title="<?=__("Supprimer l'inscription")?>" data-id="<?= $inscrit->idInscrit ?>" data-matricule="<?= $inscrit->matricule ?>" class="btn btn-danger delete"><i class="fa fa-trash"></i></button>
+                  
+                       </div>   <?php endif ?>
                 </td>   
             </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 <div class="inscrit-form"></div>
-<?php if ($_admin): ?>
 
-    <div class="fixed-action">
-        <a href="?p=inscrit/form" class="btn btn-success circle"><i class="fa fa-plus"></i> </a>
-    </div>
-<?php endif ?>
 
-<script type="module">
-    import FormModule from './js/inscrit/formModule.js';
-    const inscritRows = document.querySelectorAll('.inscritRow');
-    inscritRows.forEach(row => {
-        row?.addEventListener('click', function () {
-            window.location.href = `?p=eleve/profil/${this.dataset.matricule}`;
-        });
-    });
-
-   document.querySelectorAll('.inscrire')?.forEach(button => {
-   
-        const form = new FormModule(document.querySelector('.inscrit-form'), button, {
-        matricule:button.dataset.matricule,
-        idInscrit:button.dataset.id
-    });
-    
-    form.show()
-});
-</script>
+<script src="js/inscrit/liste.js" type="module"></script>
 

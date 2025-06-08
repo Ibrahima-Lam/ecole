@@ -2,12 +2,11 @@
 
 namespace App\Controllers\https;
 
-use App\Models\Repositories\inscritRepository;
+use App\Controllers\traits\inscriptionTrait;
 use Core\Controllers\Controller;
-use App\Models\Repositories\AnneeScolaireRepository;
+    use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\EleveRepository;
-use Core\Caches\Session;
 use Core\Services\html\htmlService;
 use Src\Paramettres\ClasseParamettre;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -15,17 +14,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class inscritController extends Controller
 {
-    private $inscritRepository;
-  
-    private $annee;
-
-    public function __construct()
-    {
-   
-        $this->inscritRepository = new inscritRepository();
-      
-        $this->annee =$this->getCodeAnnee();
-    }
+    use inscriptionTrait;
 
     private function subsidebar( int $active = 1): string
     {
@@ -45,11 +34,8 @@ class inscritController extends Controller
     }
     public function liste()
     {
-        $inscrits = $this->inscritRepository->findAllByAnnee($this->annee);
-        $model = new AnneeScolaireRepository();
-        $anneescolaire = $model->findOneByCodeAnnee($this->annee);
-        $this->render('inscrit/liste', ['inscrits' => $inscrits, 'anneescolaire' => $anneescolaire]);
-    }
+      $this->inscrit(); 
+     }
 
     public function export($codeSalleClasse){
        
@@ -111,13 +97,13 @@ class inscritController extends Controller
         $this->render('inscrit/classe', ['inscrits' => $inscrits, 'anneescolaire' => $anneescolaire, 'classe' => $classe,'paramettre'=> $paramettre]);
     }
 
-    public function noninscrit(){
+   /* public function noninscrit(){
         $model = new EleveRepository();
         $eleves = $model->findAllNonInscritsByAnnee($this->annee);
         $model = new AnneeScolaireRepository();
         $anneescolaire = $model->findOneByCodeAnnee($this->annee);
         $this->render('inscrit/noninscrit', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire]);
-    }
+    } */
 
     public function form($matricule = null)
     {

@@ -1,3 +1,6 @@
+<?=$subsidebar??'' ?>
+
+
 <h2 class="title text-center"><?= __("Les correspondants") ?></h2>
 
 <div class="center my-10">

@@ -19,7 +19,7 @@
                 <input type="hidden" name="matricule" value="<?= $eleve->matricule ?>">
                 <div class="edit-image">
                  <label for="editImageInput">
-                  <i class="fa fa-pen text-primary" style="font-size: 1rem;"></i>
+                  <i title="<?=__("Modifier l'image")?>" class="fa fa-pen text-primary" style="font-size: 1rem;"></i>
               </label>
 
                  <input type="file" id="editImageInput" name="image" accept="image/*">
@@ -74,7 +74,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="6"></td>
-                        <td><button id="edit" class="btn btn-primary circle" title="Modifier"><i
+                        <td><button id="edit" class="btn btn-primary circle" title="<?=__("Modifier")?>"><i
                                     class="fa fa-edit"></i></button></td>
                     </tr>
                 </tfoot>
