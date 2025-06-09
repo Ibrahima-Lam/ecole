@@ -39,13 +39,13 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Matiere</th>
-                <th>Interrogations</th>
-                <th>Composition</th>
-                <th>MD</th>
-                <th>Coefficient</th>
-                <th>MD*Coeff</th>
-                <th colspan="2">Observations et discipline</th>
+                <th><?=__("Matiere")?></th>
+                <th><?=__("Interrogations")?></th>
+                <th><?=__("Composition")?></th>
+                <th><?=__("MD")?></th>
+                <th><?=__("Coefficient")?></th>
+                <th><?=__("MD*Coeff")?></th>
+                <th colspan="2"><?=__("Observations et discipline")?></th>
             </tr>
         </thead>
         <tbody>

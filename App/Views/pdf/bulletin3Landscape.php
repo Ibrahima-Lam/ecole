@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/pdfstyle.css">
     <title>Bulletin</title>
 </head>
+
 <body>
-    <header>
-<table class="table">
-    <tbody>
-<tr>
+    <table class="table">
+        <tbody>
+            <tr>
 
-    <td style="width: 50%;" >
-        <h4 class="title my-10" >République Islamique de Mauritanie</h4>
-            <h4 dir="rtl" class="text-center" >الجمهورية الاسلامية الموريتانية</h4>
-        <h4 class="title my-10" >Ministère De L'Education Nationale
-           
-            </h4>
-            <h4 dir="rtl" class="text-center" >الوزاة التعليم الوطني</h4>
-       
-       
-    </td>
-    <td style="width: 10%;"><h2 class="text-center">N<sup>o</sup>&nbsp;<?=$bulletin->eleve->numeroInscrit?></h2></td>
-    <th class="right" style="width: 40%;">
-     <span>Honneur - fraternite - justice</span><br>
-     <div class="text-center mx-10" >شرف -الإخاء - العدل </div>
-    </th>
+                <th style="width: 45%;">
+                    <h4 class="title my-10">République Islamique de Mauritanie</h4>
+                    <span>Honneur - fraternite - justice</span><br>
+                    <h4 class="title my-10">Ministère de l’Education Nationale Et de la Réforme du Système Educatif
+                    </h4>
 
-</tr>
-<tr>
-    <td> <span >Etablissement : </span> <span><?= $paramettre::ETABLISSEMENT?></span></td>
-    <td></td>
-    <td class="right"><span> المؤسسة</span><span> : <?= $paramettre::ETABLISSEMENT_ARABE?></span> </td>
-</tr>
-</tbody>
-</table>
-</header>
-<div class="text-center ">
-    <u>
-        <strong>
-                 Bulletin de Notes
-        </strong>
-    </u>
-</div>
-<div class="text-center">
-    <u>
-        <small>
-            Composition du 3ème Trimestre
-        </small>
-    </u>
-</div>
 
+                </th>
+                <th style="width: 15%;">
+                    <center> <img src="images/logo_ministere.jpeg" style="width: 40px; height: 40px;"> </center>
+                </th>
+
+                <th class="right" style="width: 45%;">
+                    <h4 dir="rtl" class="text-center">الجمهورية الاسلامية الموريتانية</h4>
+                    <span dir="rtl" class="text-center mx-10">شرف -الإخاء - العدل </span>
+                    <h4 dir="rtl" class="text-center">وزارة التهذيب الوطني و الإصلاح</h4>
+                </th>
+
+            </tr>
+            <tr>
+                <td> <span>Etablissement : </span> <span><?= $paramettre::ETABLISSEMENT ?></span></td>
+                <td>
+                    <h3>
+                        <center> N<sup>o</sup>&nbsp;<?= $bulletin->eleve->numeroInscrit ?> </center>
+                    </h3>
+                </td>
+                <td class="right"><span> المؤسسة</span><span> : <?= $paramettre::ETABLISSEMENT_ARABE ?></span> </td>
+            </tr>
+        </tbody>
+    </table>
+   
+    <div class="text-center ">
+        <u>
+            <strong>
+               <?=__(" Bulletin de Notes")?>
+               
+            </strong>
+        </u>
+    </div>
+    <div class="text-center">
+        <u>
+            <small>
+
+                <?=__format("Composition du %sème Trimestre",3)?>
+                
+            </small>
+        </u>
+    </div>
 
 <div class="table-container mx-10">
     <table class="table">
@@ -144,30 +153,76 @@
         </tfoot>
     </table>
 </div>
-<br>
-<table class="table" >
-    <tbody>
-        <tr>
-            <th><span class='inline'>Moyenne </span>:<i>&nbsp;<?=$bulletin->getMoyenne(2)?>&nbsp;</i>:<span class='inline'> المعدل</span></th>
-            <th><span class='inline'>Rang </span>:<i>&nbsp;<?=$bulletin->getRang()?>&nbsp;</i>:<span class='inline'> الترتيب</span></th>
-            <th><span class='inline'>Decision </span>:<i>&nbsp;<?=$bulletin->getDecision()?>&nbsp;</i>:<span class='inline'> القرار</span></th>
-            <th><span class='inline'>Mension </span>:<i>&nbsp;<?=$bulletin->getMension()?>&nbsp;</i>:<span class='inline'> المقرار</span></th>
-        </tr>
-    </tbody>
-</table>
-<br>
-<br>
-<br>
-<footer>
-<div class="mx-10">
-    <table class='table mx-10'>
-        <tr>
-            <td><h3><u> Directeur Général</u></h3></td>
-            <td><h3><u> Directeur Des Etudes</u></h3></td>
-            <td><h3><u> Parent D'élève</u></strong></td>
-        </tr>
-    </table>
-</div>
-</footer>
+
+
+<table>
+     <tr>
+         <td>
+         
+             <table class="table" style="width: 300px">
+                 <tbody>
+                     <tr>
+                         <th>Moyenne</th>
+                         <td><strong><?= $bulletin->getMoyenne(2) ?></strong></td>
+                         <th dir="rtl">المعدل</th>
+                     </tr>
+                     <tr>
+                         <th>Rang</th>
+                         <td><strong><?= $bulletin->getRang() ?></strong></td>
+                         <th dir="rtl">الترتيب</th>
+                     </tr>
+                     <tr>
+                         <th>Decision</th>
+                         <td><strong><?= $bulletin->getDecision() ?></strong></td>
+                         <th dir="rtl">القرار</th>
+                     </tr>
+                     <tr>
+                         <th>Mension</th>
+                         <td><strong><?= $bulletin->getMension() ?></strong></td>
+                         <th dir="rtl">المقرار</th>
+                     </tr>
+                 </tbody>
+             </table>
+     </td>
+     <td style="width: 100px"></td>
+             <td style="width: 300px" class="inline-block">
+                 <table class="table" >
+                     <tbody>
+                         <tr>
+                             <th>Abscence</th>
+                             <td><?= $bulletin->getAbsencesToString() ?></td>
+                             <th dir="rtl">غياب</th>
+                         </tr>
+                         <tr><td>&nbsp;</td><td></td><td></td></tr>
+                         <tr><td>&nbsp;</td><td></td><td></td></tr>
+                         <tr><td>&nbsp;</td><td></td><td></td></tr>
+                        
+                     </tbody>
+                 </table>
+             </td>
+     </tr>
+   </table>
+    <br>
+   
+    <div class="mx-10">
+
+        <table class='table mx-10'>
+            <tr>
+                <td>
+                    <h3><u> <?=__("Directeur Général")?>
+                    </u></h3>
+                </td>
+                <td>
+                    <h3><u> <?=__("Directeur Des Etudes")?>
+                    </u></h3>
+                </td>
+                <td>
+                    <h3><u> <?=__("Parent D'élève")?>
+                    </u></strong>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>

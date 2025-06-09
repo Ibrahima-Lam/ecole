@@ -48,7 +48,8 @@ class salleClassePdfController extends Controller
             });
         }
         $matieres = $model->findByClasse($salleClasse->codeClasse);
-        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat1_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
+        $statistiques=Bulletin1Factory::getStatistiques($data);
+        $this->renderPDF("pdf/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], ['orientation' => 'landscape','name'=>"Resultat1_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function resultat2($codeSalleClasse)
     {
@@ -75,7 +76,8 @@ class salleClassePdfController extends Controller
 ;
             });
         }
-        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape','name'=>"Resultat2_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
+        $statistiques=Bulletin2Factory::getStatistiques($data);
+        $this->renderPDF("pdf/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], ['orientation' => 'landscape','name'=>"Resultat2_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function resultat3($codeSalleClasse)
     {
@@ -102,7 +104,8 @@ class salleClassePdfController extends Controller
 ;
             });
         }
-        $this->renderPDF("pdf/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre], ['orientation' => 'landscape', 'name'=>"Resultat3_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
+        $statistiques=Bulletin3Factory::getStatistiques($data);
+        $this->renderPDF("pdf/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleClasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], ['orientation' => 'landscape', 'name'=>"Resultat3_{$salleClasse->pseudoSalleClasse}.pdf",'dest'=>"D"], );
     }
     public function bulletin1($codeSalleClasse): void
     {

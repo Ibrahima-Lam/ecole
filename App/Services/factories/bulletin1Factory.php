@@ -8,6 +8,16 @@ use App\Models\Repositories\NoteRepository;
 
 class Bulletin1Factory extends BulletinFactory
 {
+    const FILE_PATH = "../res/eleve/bulletin1.txt";
+
+    public static function saveBulletin($bulletin) {
+       file_put_contents(Self::FILE_PATH,serialize($bulletin));
+    }
+
+    public static function getSavedBulletin():?Bulletin1Provider{
+        $bul=file_get_contents(self::FILE_PATH);
+        return unserialize($bul);
+    }
     
     public static function getBulletin($matricule,$codeAnnee):?Bulletin1Provider {
         $annee = $codeAnnee;

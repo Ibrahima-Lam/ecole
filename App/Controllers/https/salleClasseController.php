@@ -65,6 +65,12 @@ class salleClasseController extends Controller
             $html .= "<a href='?p=pdf/salleclasse/minibulletin2/$code' target='_blank'>C2</a>";
             $html .= "<a href='?p=pdf/salleclasse/minibulletin3/$code' target='_blank'>C3</a>";
             $html .= "</li>";
+            $class = $active == 7 ? "active" : "";
+            $html .= "<li><a href='#' class='$class'>".__("Statistiques")." </a>&nbsp;
+            <a href='?p=salleclasse/statistique/$code/C1' >C1</a>
+            <a href='?p=salleclasse/statistique/$code/C2' >C2</a>
+            <a href='?p=salleclasse/statistique/$code/C3' >C3</a>
+            </li>";
 
         }
         $class = $active == 10 ? "active" : "";
@@ -100,5 +106,11 @@ class salleClasseController extends Controller
         $salleClasse = $salleClasse->findOneByCode($code);
         $matieres=$model->findByClasse($salleClasse->codeClasse);
         $this->render("salleclasse/releves", ["matieres" => $matieres,'salleclasse'=>$salleClasse,'subsidebar'=>$this->subsidebar($code,6)]);
+    }
+    public function statistique($code,$typeBulletin): void
+    {
+        $salleClasse = new SalleClasseRepository();
+        $salleClasse = $salleClasse->findOneByCode($code);
+        $this->render("salleclasse/statistique", ["typeBulletin" => $typeBulletin,'salleclasse'=>$salleClasse,'code'=>$code,'subsidebar'=>$this->subsidebar($code,7)]);
     }
 }

@@ -12,6 +12,7 @@ class ResultatParamettre{
     public  $striped=true;
     public  $bordered=false;
 
+    public  $statistiques=true;
 
     public  $orientation="portrait";
     public  $sort="numero";
@@ -31,6 +32,7 @@ class ResultatParamettre{
         $this->merite = $data['merite']??false;
         $this->striped = $data['striped']??false;
         $this->bordered = $data['bordered']??false;
+        $this->statistiques = $data['statistiques']??false;
         $this->sort = $data['sort']??$this->sort;
         $this->orientation = $data['orientation']??$this->orientation;
     $this->order = $data['order']??$this->order;
@@ -48,6 +50,7 @@ class ResultatParamettre{
             'merite' => $this->merite,
             'striped' => $this->striped,
             'bordered' => $this->bordered,
+            'statistiques' => $this->statistiques,
             'orientation' => $this->orientation,
             'sort' => $this->sort,
             'order' => $this->order

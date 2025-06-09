@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultat du 1er Trimestre de la <?=$salleclasse->codeClasse.$salleclasse->indiceSalleClasse ?></title>
+    <title><?=__format("Resultat du 1er Trimestre de la",$salleclasse->pseudoSalleClasse)?></title>
     <link rel="stylesheet" href="css/pdfstyle.css">
 </head>
 
 <body>
 
-    <h2 class="title-center my-10 text-center">Résultat du 1er Trimestre de la <?=$salleclasse->codeClasse.$salleclasse->indiceSalleClasse ?></h2>
+    <h2 class="title-center my-10 text-center"><?=__format("Resultat du 1er Trimestre de la",$salleclasse->pseudoSalleClasse)?></h2>
     <table class="table <?= $paramettre->striped ? 'table-striped' : '' ?> table-bordered">
         <thead>
             <tr>
@@ -115,6 +115,36 @@
             <?php endforeach ?>
         </tbody>
     </table>
+    <?php if($paramettre->statistiques):?>
+        <pagebreak/>
+    <div class="statistiques">
+        <h2>Statistiques</h2>
+<table class="table table-bordered">
+    <tr>
+        <th><?=__("Effectif")?></th>
+        <th><?=__("Admis")?></th>
+        <th><?=__("Non Admis")?></th>
+        <th><?=__("Mention Tres Faible")?></th>
+        <th><?=__("Mention Faible")?></th>
+        <th><?=__("Mention Passable")?></th>
+        <th><?=__("Mention Bien")?></th>
+        <th><?=__("Mention Assez Bien")?></th>
+        <th><?=__("Mention Tres Bien")?></th>
+    </tr>
+    <tr>
+        <td><?= $statistiques->effectif ?></td>
+        <td><?= $statistiques->admis ?></td>
+        <td><?= $statistiques->nonAdmis ?></td>
+        <td><?= $statistiques->mentionTresFaible ?></td>
+        <td><?= $statistiques->mentionFaible ?></td>
+        <td><?= $statistiques->mentionPassable ?></td>
+        <td><?= $statistiques->mentionBien ?></td>
+        <td><?= $statistiques->mentionAssezBien ?></td>
+        <td><?= $statistiques->mentionTresBien ?></td>
+    </tr>
+</table>
+    </div>
+    <?php endif?>
 
 </body>
 

@@ -3,18 +3,18 @@
 <table class="table table-striped" id="stat-table">
     <thead>
         <tr>
-            <th>Statut</th>
+            <th><?=__("Type")?></th>
             
         </tr>
     </thead>
     <tbody>
        <tr>
-        <th>Nombre</th>
+        <th><?=__(  "Nombre")?></th>
        </tr>
     </tbody>
     <tfoot>
         <tr>
-            <th>Pourcentage</th>
+            <th><?=__("Pourcentage")?></th>
         </tr>
     </tfoot>
 </table>

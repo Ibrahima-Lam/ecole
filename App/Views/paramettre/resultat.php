@@ -30,6 +30,10 @@
     <li class="list-group-item">
         <label for="merite">Merite</label>
         <input type="checkbox" name="merite" id="merite" value="true" <?=$paramettre->merite?'checked' : ''?>>
+    </li> 
+    <li class="list-group-item">
+        <label for="statistiques">Statistiques</label>
+        <input type="checkbox" name="statistiques" id="statistiques" value="true" <?=$paramettre->statistiques?'checked' : ''?>>
     </li>
     <li class="list-group-item">
         <label for="striped">Striped</label>

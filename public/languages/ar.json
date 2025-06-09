@@ -94,6 +94,13 @@
     "Les Relevés":"بيان النقاط",
     "Annee Scolaire":"سنة الدراسية",
     "Profil de la salle de classe":"ملف القاعة الدراسية",
-    "Informations de la salle de classe":"معلومات القاعة الدراسية"
+    "Informations de la salle de classe":"معلومات القاعة الدراسية",
+    "Composition du %sème Trimestre":"امتحان الفصل %s",
+    "Composition du 1er Trimestre":"امتحان الفصل 1",
+    "Bulletin de Notes":"كشف الدرجات",
+    "Directeur Général":" المدير العام",
+    "Directeur Des Etudes":"مديرة الدراسية",
+    "Parent D'élève":"والد التلميذ"
+
     
 }

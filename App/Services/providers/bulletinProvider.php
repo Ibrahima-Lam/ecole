@@ -2,6 +2,14 @@
 namespace App\Services\Providers;
 
 abstract class BulletinProvider extends ResultatProvider {
+    public const DECISION_ADMIS="Admis";
+    public const DECISION_NON_ADMIS="Non Admis";
+    public const MENTION_TRES_FAIBLE="Trés Faible";
+    public const MENTION_FAIBLE="Faible";
+    public const MENTION_PASSABLE="Passable";
+    public const MENTION_BIEN="Bien";
+    public const MENTION_ASSEZ_BIEN="Assez Bien";
+    public const MENTION_TRES_BIEN="Trés Bien";
     protected $points_tab=[];
     protected $rang;
     protected $moyenne=0;
@@ -10,6 +18,7 @@ abstract class BulletinProvider extends ResultatProvider {
 
     protected $points;
     protected $data=[];
+    protected $absences;
 
   abstract public function getMatieresWithNotesAndMoyenne():array;
     public function setTabPoints($tab){
@@ -29,17 +38,17 @@ abstract class BulletinProvider extends ResultatProvider {
     public function getMension():string{
         $moyenne=$this->moyenne;
         if($moyenne<5){
-            return "Trés Faible";
+            return self::MENTION_TRES_FAIBLE;
         }elseif($moyenne<9){
-            return "Faible";
+            return self::MENTION_FAIBLE;
         }elseif($moyenne<12){
-            return "Passable";
+            return self::MENTION_PASSABLE;
         }elseif($moyenne<14){
-            return "Bien";
+            return self::MENTION_BIEN;
         }elseif($moyenne<16){
-            return "Assez Bien";
+            return self::MENTION_ASSEZ_BIEN;
         }else{
-            return "Trés Bien";
+            return self::MENTION_TRES_BIEN;
         }
 
     }
@@ -47,9 +56,9 @@ abstract class BulletinProvider extends ResultatProvider {
     public function getDecision():string{
         $moyenne=$this->getMoyenne();
         if($moyenne<9){
-            return "Non Admis";
+            return self::DECISION_NON_ADMIS;
         }else{
-            return "Admis";
+            return self::DECISION_ADMIS;
         }
     }
     public function getRang():?int{
@@ -104,6 +113,13 @@ abstract class BulletinProvider extends ResultatProvider {
           $this->getMatieresWithNotesAndMoyenne();
         }
         return $this->points??0;
+    }
+
+    public function getAbsences():?int{
+        return $this->absences;
+    }
+    public function getAbsencesToString():string{
+        return $this->absences===null ? "" : __format('%s h', $this->absences);
     }
     
 }

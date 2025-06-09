@@ -2,7 +2,12 @@
 
 namespace App\Controllers\Apis;
 
+use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\SalleClasseRepository;
+use App\Services\Factories\Bulletin1Factory;
+use App\Services\Factories\Bulletin2Factory;
+use App\Services\Factories\Bulletin3Factory;
+use App\Services\Factories\BulletinFactory;
 use Core\Controllers\Controller;
 use Core\Services\Sql\SqlErreurMessage;
 
@@ -115,5 +120,29 @@ class salleClasseApiController extends Controller
                 'status' => 0
             ]);
         }
+    }
+
+    public function statistique($codeSalleClasse,$typeBulletin)
+    {
+        $inscritRepository = new inscritRepository();
+        $annee = $this->getCodeAnnee();
+        $inscrits = $inscritRepository->findAllByClasse($codeSalleClasse);
+        $tab=[];
+        $data = [];
+        foreach ($inscrits as $inscrit) {
+            $notematiere =$typeBulletin=='C1' ?
+            Bulletin1Factory::getBulletin($inscrit->matricule, $annee):
+            ($typeBulletin=='C2' ?Bulletin2Factory::getBulletin($inscrit->matricule, $annee):
+            Bulletin3Factory::getBulletin($inscrit->matricule, $annee));
+            $tab[] = $notematiere->getPoints();
+            $data[] = $notematiere;
+        }
+        $data = array_map(function ($bulletin) use ($tab) {
+            $bulletin->setTabPoints($tab);
+            return $bulletin;
+        }, $data);
+      
+        $statistiques=BulletinFactory::getStatistiques($data);
+        $this->response($statistiques);
     }
 }

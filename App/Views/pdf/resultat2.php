@@ -114,7 +114,36 @@
             <?php endforeach ?>
         </tbody>
     </table>
-
+    <?php if($paramettre->statistiques):?>
+        <pagebreak/>
+    <div class="statistiques">
+        <h2>Statistiques</h2>
+<table class="table table-bordered">
+    <tr>
+        <th><?=__("Effectif")?></th>
+        <th><?=__("Admis")?></th>
+        <th><?=__("Non Admis")?></th>
+        <th><?=__("Mention Tres Faible")?></th>
+        <th><?=__("Mention Faible")?></th>
+        <th><?=__("Mention Passable")?></th>
+        <th><?=__("Mention Bien")?></th>
+        <th><?=__("Mention Assez Bien")?></th>
+        <th><?=__("Mention Tres Bien")?></th>
+    </tr>
+    <tr>
+        <td><?= $statistiques->effectif ?></td>
+        <td><?= $statistiques->admis ?></td>
+        <td><?= $statistiques->nonAdmis ?></td>
+        <td><?= $statistiques->mentionTresFaible ?></td>
+        <td><?= $statistiques->mentionFaible ?></td>
+        <td><?= $statistiques->mentionPassable ?></td>
+        <td><?= $statistiques->mentionBien ?></td>
+        <td><?= $statistiques->mentionAssezBien ?></td>
+        <td><?= $statistiques->mentionTresBien ?></td>
+    </tr>
+</table>
+    </div>
+    <?php endif?>
 </body>
 
 </html>

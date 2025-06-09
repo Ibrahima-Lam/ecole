@@ -3,7 +3,6 @@
 namespace App\Controllers\https;
 
 use App\Controllers\interfaces\EleveControllerInterfaces;
-use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\correspondanceRepository;
 use App\Models\Repositories\NoteRepository;
@@ -84,32 +83,6 @@ class EleveController extends Controller implements EleveControllerInterfaces
         $this->render("eleve/liste", ["data" => $data, 'subsidebar' => $this->subsidebar(null, 10)]);
     }
 
-/*     public function profil(string $matricule): void
-    {
-        $model = new EleveRepository();
-       
-        
-        $data = $model->findOneByMatricule($matricule);
-        $model2 = new inscritRepository();
-        $inscription = $model2->findOneByCodeAndAnnee($matricule, $this->getCodeAnnee());
-        $this->render("eleve/profil", ["data" => $data, 'inscription' => $inscription, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 1)]);
-    } */
-  /*   public function inscrit()
-    {
-        $model = new inscritRepository();
-        $eleves = $model->findAllByAnnee($this->getCodeAnnee());
-        $model = new AnneeScolaireRepository();
-        $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
-        $this->render('eleve/inscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 11)]);
-    } */
-    /* public function noninscrit()
-    {
-        $model = new EleveRepository();
-        $eleves = $model->findAllNonInscritsByAnnee($this->getCodeAnnee());
-        $model = new AnneeScolaireRepository();
-        $anneescolaire = $model->findOneByCodeAnnee($this->getCodeAnnee());
-        $this->render('eleve/noninscritliste', ['eleves' => $eleves, 'anneescolaire' => $anneescolaire,'subsidebar' => $this->subsidebar(null, 12)]);
-    } */
     public function correspondant($matricule)
     {
         $eleveRepository = new EleveRepository();
