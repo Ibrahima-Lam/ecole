@@ -1,4 +1,7 @@
 <?php
+
+use Core\Services\Container;
+use Core\Services\Logger;
 require_once 'translate.php';
 require_once '../vendor/autoload.php';
 $p = $_GET["p"] ?? "home/index";
@@ -22,7 +25,12 @@ if (strtoupper($args[0]) == strtoupper('api')) {
 unset($args[0]);
 unset($args[1]);
 if (class_exists($controller)) {
-    $instance = new $controller;
+    /* $instance = new $controller; */
+    $container=new Container();
+    $container->bind(Logger::class, function () {
+        return new Logger();
+    });
+   $instance= $container->make($controller);
     if (method_exists($instance, $methode)) {
         call_user_func_array([$instance, $methode], $args ?? []);
     } else {

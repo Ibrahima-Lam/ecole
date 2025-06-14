@@ -4762,3 +4762,14 @@ INSERT INTO correspondance (matricule, idCorrespondant) VALUES ('5d202', '9');
 UPDATE correspondance SET matricule = '5d203', idCorrespondant = '9' WHERE idCorrespondance = '9';
 -- 2025-06-08 13:07:27
 DELETE FROM correspondance WHERE idCorrespondance = '9';
+-- 2025-06-10 18:46:40
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni,statutEleve) values('C14300','Ciré Abou Lam','سيري أبو لام ','M','2000-01-01','Boghe','Thialgou','3271499407','actif');
+-- 2025-06-10 18:47:14
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','C14300','A24255LM','58','passant','2025-06-10');
+-- 2025-06-10 18:48:07
+insert into note(matricule,codeExamen,note) values('C14300','A24255LMMATH5LMC1','13');
+delete from inscrit where idInscrit='334'
+-- 2025-06-10 19:13:36
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','C14300','A24255LM','58','passant','2025-06-10');
+delete from note where idNote='1634' 
+delete from inscrit where idInscrit='335'
