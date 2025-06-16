@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Factories;
 
+use App\Models\Repositories\ExamenRepository;
 use App\Services\Providers\Bulletin1Provider;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ClasseMatiereRepository;
@@ -31,9 +32,10 @@ class Bulletin1Factory extends BulletinFactory
             $matieres=$model->findByClasse($eleve->codeClasse);
             $model=new NoteRepository();
             $notes=$model->findAllByMatriculeAndAnnee($eleve->matricule,$annee);
-            
+            $model=new ExamenRepository();
+            $examens=$model->findAllByClasse($eleve->codeSalleClasse);
         }else return null;
-        return new Bulletin1Provider($eleve,$matieres,$notes);
+        return new Bulletin1Provider($eleve,$matieres,$examens,$notes);
        
     }
 

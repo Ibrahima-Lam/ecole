@@ -68,7 +68,7 @@ class Container
      *
      * @param string $class
      * @return object
-     * @throws Exception
+     * @throws \Exception
      */
     protected function build(string $class)
     {
@@ -104,27 +104,34 @@ class Container
     }
 
     public function call($callable, array $parameters = [])
-    {
-        $reflection = new \ReflectionFunction(\Closure::fromCallable($callable));
-        $args = [];
+{
+    $reflection = new \ReflectionFunction(\Closure::fromCallable($callable));
+    $args = [];
 
-        foreach ($reflection->getParameters() as $param) {
-            $name = $param->getName();
-            $type = $param->getType();
+   
 
-            if (isset($parameters[$name])) {
-                $args[] = $parameters[$name];
-            } elseif ($type !== null && class_exists($type->getName())) {
-                $args[] = $this->make($type->getName());
-            } elseif ($param->isDefaultValueAvailable()) {
-                $args[] = $param->getDefaultValue();
-            } else {
-                throw new \Exception("Cannot resolve parameter \${$name}");
-            }
+    $index = 0;
+    foreach ($reflection->getParameters() as $param) {
+        $name = $param->getName();
+        $type = $param->getType();
+        $useAssociative = array_is_list($parameters) === false;
+        if ($useAssociative && isset($parameters[$name])) {
+            $args[] = $parameters[$name];
+        } elseif (!$useAssociative&&isset($parameters[$index]) && !($type !== null && class_exists($type->getName()))) {
+            $args[] = $parameters[$index];
+            $index++;
+        } elseif ($type !== null && class_exists($type->getName())) {
+            $args[] = $this->make($type->getName());
+        } elseif ($param->isDefaultValueAvailable()) {
+            $args[] = $param->getDefaultValue();
+          
+        } else {
+            throw new \Exception("Impossible de résoudre \${$name}");
         }
-
-        return $callable(...$args);
     }
+
+    return $callable(...$args);
+}
 }
 
 /* 

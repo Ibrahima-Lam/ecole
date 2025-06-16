@@ -4773,3 +4773,1320 @@ delete from inscrit where idInscrit='334'
 insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','C14300','A24255LM','58','passant','2025-06-10');
 delete from note where idNote='1634' 
 delete from inscrit where idInscrit='335'
+-- 2025-06-15 15:39:34
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D1PC5DD3','PC5D','A24255D1','D3','','1','','');
+-- 2025-06-15 16:11:10
+insert into note(matricule,codeExamen,note) values('5d1001','A24255D1PC5DD3','9');
+-- 2025-06-15 16:11:10
+insert into note(matricule,codeExamen,note) values('5d1002','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:10
+insert into note(matricule,codeExamen,note) values('5d1003','A24255D1PC5DD3','11');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1004','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1005','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1006','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1007','A24255D1PC5DD3','11');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1008','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:11
+insert into note(matricule,codeExamen,note) values('5d1009','A24255D1PC5DD3','12');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1010','A24255D1PC5DD3','11.5');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1011','A24255D1PC5DD3','15.5');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1012','A24255D1PC5DD3','17.5');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1013','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1014','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1015','A24255D1PC5DD3','07');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1016','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:12
+insert into note(matricule,codeExamen,note) values('5d1017','A24255D1PC5DD3','18');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1018','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1019','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1020','A24255D1PC5DD3','16.5');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1021','A24255D1PC5DD3','15');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1022','A24255D1PC5DD3','14');
+-- 2025-06-15 16:11:13
+insert into note(matricule,codeExamen,note) values('5d1023','A24255D1PC5DD3','14');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1024','A24255D1PC5DD3','15.5');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1025','A24255D1PC5DD3','13');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1026','A24255D1PC5DD3','18');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1027','A24255D1PC5DD3','17');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1028','A24255D1PC5DD3','10.5');
+-- 2025-06-15 16:11:14
+insert into note(matricule,codeExamen,note) values('5d1029','A24255D1PC5DD3','10');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1030','A24255D1PC5DD3','16.5');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1031','A24255D1PC5DD3','18');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1032','A24255D1PC5DD3','13');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1033','A24255D1PC5DD3','12');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1034','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:15
+insert into note(matricule,codeExamen,note) values('5d1035','A24255D1PC5DD3','9.5');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1036','A24255D1PC5DD3','17.75');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1037','A24255D1PC5DD3','16.5');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1038','A24255D1PC5DD3','13.5');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1039','A24255D1PC5DD3','7');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1040','A24255D1PC5DD3','10');
+-- 2025-06-15 16:11:16
+insert into note(matricule,codeExamen,note) values('5d1041','A24255D1PC5DD3','17.5');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1042','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1043','A24255D1PC5DD3','13');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1044','A24255D1PC5DD3','14');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1045','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1046','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:17
+insert into note(matricule,codeExamen,note) values('5d1047','A24255D1PC5DD3','11');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1048','A24255D1PC5DD3','14.5');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1049','A24255D1PC5DD3','09');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1050','A24255D1PC5DD3','17.5');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1051','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1052','A24255D1PC5DD3','19.75');
+-- 2025-06-15 16:11:18
+insert into note(matricule,codeExamen,note) values('5d1053','A24255D1PC5DD3','11.5');
+-- 2025-06-15 16:11:19
+insert into note(matricule,codeExamen,note) values('5d1054','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:19
+insert into note(matricule,codeExamen,note) values('5d1055','A24255D1PC5DD3','5');
+-- 2025-06-15 16:11:19
+insert into note(matricule,codeExamen,note) values('5d1056','A24255D1PC5DD3','14');
+-- 2025-06-15 16:11:19
+insert into note(matricule,codeExamen,note) values('5d1057','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:19
+insert into note(matricule,codeExamen,note) values('5d1058','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1059','A24255D1PC5DD3','16');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1060','A24255D1PC5DD3','13');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1061','A24255D1PC5DD3','12');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1062','A24255D1PC5DD3','');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1063','A24255D1PC5DD3','11.75');
+-- 2025-06-15 16:11:20
+insert into note(matricule,codeExamen,note) values('5d1064','A24255D1PC5DD3','10');
+-- 2025-06-15 16:56:50
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 16:56:50
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 16:56:50
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 16:56:51
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 16:56:51
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 16:56:51
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 16:56:51
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 16:56:51
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 16:56:51
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 16:56:51
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 16:56:51
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 16:56:51
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 16:56:51
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 16:56:51
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 16:56:51
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 16:56:51
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 16:56:51
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 16:56:52
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 16:56:52
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 16:56:52
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 16:56:52
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 16:56:52
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 16:56:52
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 16:56:52
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 16:56:52
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 16:56:52
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 16:56:52
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 16:56:52
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 16:56:53
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 16:56:53
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 16:56:53
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 16:56:53
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 16:56:53
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 16:56:53
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 16:56:53
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 16:56:53
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 16:56:53
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 16:56:53
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 16:56:53
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 16:56:53
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 16:56:53
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 16:56:53
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 16:56:54
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 16:56:54
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 16:56:54
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 16:56:54
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 16:56:54
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 16:56:54
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 16:56:54
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 16:56:54
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 16:56:54
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 16:56:54
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 16:56:54
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 16:56:54
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 16:56:55
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 16:56:55
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 16:56:55
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 16:56:55
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 16:56:55
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 16:56:55
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 16:56:55
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 16:56:55
+update note set note='0' where idNote='1696' ;
+-- 2025-06-15 16:56:55
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 16:56:55
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 16:57:49
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 16:57:49
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 16:57:49
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 16:57:49
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 16:57:49
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 16:57:49
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 16:57:50
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 16:57:50
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 16:57:50
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 16:57:50
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 16:57:50
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 16:57:50
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 16:57:50
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 16:57:50
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 16:57:50
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 16:57:50
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 16:57:50
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 16:57:50
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 16:57:50
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 16:57:50
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 16:57:50
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 16:57:50
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 16:57:51
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 16:57:51
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 16:57:51
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 16:57:51
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 16:57:51
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 16:57:51
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 16:57:51
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 16:57:51
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 16:57:51
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 16:57:51
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 16:57:51
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 16:57:51
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 16:57:52
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 16:57:52
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 16:57:52
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 16:57:52
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 16:57:52
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 16:57:52
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 16:57:52
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 16:57:52
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 16:57:52
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 16:57:52
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 16:57:52
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 16:57:52
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 16:57:53
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 16:57:53
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 16:57:53
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 16:57:53
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 16:57:53
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 16:57:53
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 16:57:53
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 16:57:53
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 16:57:53
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 16:57:53
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 16:57:53
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 16:57:53
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 16:57:53
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 16:57:54
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 16:57:54
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 16:57:54
+update note set note='0' where idNote='1696' ;
+-- 2025-06-15 16:57:54
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 16:57:54
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:01:05
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 17:01:05
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 17:01:05
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 17:01:05
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 17:01:05
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 17:01:05
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 17:01:05
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 17:01:05
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 17:01:05
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 17:01:05
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 17:01:05
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 17:01:05
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 17:01:06
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 17:01:06
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 17:01:06
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 17:01:06
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 17:01:06
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 17:01:06
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 17:01:06
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 17:01:06
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 17:01:06
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 17:01:06
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 17:01:06
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 17:01:06
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 17:01:06
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 17:01:07
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 17:01:07
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 17:01:07
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 17:01:07
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 17:01:07
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 17:01:07
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 17:01:07
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 17:01:07
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 17:01:07
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 17:01:07
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 17:01:07
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 17:01:07
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 17:01:07
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 17:01:07
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 17:01:07
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 17:01:08
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 17:01:08
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 17:01:08
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 17:01:08
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 17:01:08
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 17:01:08
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 17:01:08
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 17:01:08
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 17:01:08
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 17:01:08
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 17:01:08
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 17:01:08
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 17:01:09
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 17:01:09
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 17:01:09
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 17:01:09
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 17:01:09
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 17:01:09
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 17:01:09
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 17:01:09
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 17:01:09
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 17:01:09
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:01:09
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:01:58
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 17:01:58
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 17:01:58
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 17:01:58
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 17:01:59
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 17:01:59
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 17:01:59
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 17:01:59
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 17:01:59
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 17:01:59
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 17:01:59
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 17:01:59
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 17:01:59
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 17:01:59
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 17:01:59
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 17:01:59
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 17:01:59
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 17:01:59
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 17:02:00
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 17:02:00
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 17:02:00
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 17:02:00
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 17:02:00
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 17:02:00
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 17:02:00
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 17:02:00
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 17:02:00
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 17:02:00
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 17:02:00
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 17:02:00
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 17:02:00
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 17:02:00
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 17:02:01
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 17:02:01
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 17:02:01
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 17:02:01
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 17:02:01
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 17:02:01
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 17:02:01
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 17:02:01
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 17:02:01
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 17:02:01
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 17:02:01
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 17:02:01
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 17:02:01
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 17:02:01
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 17:02:01
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 17:02:02
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 17:02:02
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 17:02:02
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 17:02:02
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 17:02:02
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 17:02:02
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 17:02:02
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 17:02:02
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 17:02:02
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 17:02:02
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 17:02:02
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 17:02:02
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 17:02:02
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 17:02:03
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 17:02:03
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:02:03
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:04:25
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 17:04:25
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 17:04:25
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 17:04:25
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 17:04:25
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 17:04:25
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 17:04:26
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 17:04:26
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 17:04:26
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 17:04:26
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 17:04:26
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 17:04:26
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 17:04:26
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 17:04:26
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 17:04:26
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 17:04:26
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 17:04:26
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 17:04:26
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 17:04:26
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 17:04:27
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 17:04:27
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 17:04:27
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 17:04:27
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 17:04:27
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 17:04:27
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 17:04:27
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 17:04:27
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 17:04:27
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 17:04:27
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 17:04:27
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 17:04:27
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 17:04:28
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 17:04:28
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 17:04:28
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 17:04:28
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 17:04:28
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 17:04:28
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 17:04:28
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 17:04:28
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 17:04:28
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 17:04:28
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 17:04:28
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 17:04:28
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 17:04:28
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 17:04:29
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 17:04:29
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 17:04:29
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 17:04:29
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 17:04:29
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 17:04:29
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 17:04:29
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 17:04:29
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 17:04:29
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 17:04:29
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 17:04:29
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 17:04:29
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 17:04:29
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 17:04:30
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 17:04:30
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 17:04:30
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 17:04:30
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 17:04:30
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:04:30
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:08:03
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 17:08:03
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 17:12:15
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:12:15
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:14:41
+update note set note='9' where idNote='1635' ;
+-- 2025-06-15 17:14:41
+update note set note='15' where idNote='1636' ;
+-- 2025-06-15 17:14:41
+update note set note='11' where idNote='1637' ;
+-- 2025-06-15 17:14:41
+update note set note='16' where idNote='1638' ;
+-- 2025-06-15 17:14:41
+update note set note='15' where idNote='1639' ;
+-- 2025-06-15 17:14:41
+update note set note='15' where idNote='1640' ;
+-- 2025-06-15 17:14:41
+update note set note='11' where idNote='1641' ;
+-- 2025-06-15 17:14:41
+update note set note='16' where idNote='1642' ;
+-- 2025-06-15 17:14:42
+update note set note='12' where idNote='1643' ;
+-- 2025-06-15 17:14:42
+update note set note='11.5' where idNote='1644' ;
+-- 2025-06-15 17:14:42
+update note set note='15.5' where idNote='1645' ;
+-- 2025-06-15 17:14:42
+update note set note='17.5' where idNote='1646' ;
+-- 2025-06-15 17:14:42
+update note set note='15' where idNote='1647' ;
+-- 2025-06-15 17:14:42
+update note set note='16' where idNote='1648' ;
+-- 2025-06-15 17:14:42
+update note set note='7' where idNote='1649' ;
+-- 2025-06-15 17:14:42
+update note set note='16' where idNote='1650' ;
+-- 2025-06-15 17:14:42
+update note set note='18' where idNote='1651' ;
+-- 2025-06-15 17:14:42
+update note set note='15' where idNote='1652' ;
+-- 2025-06-15 17:14:42
+update note set note='0' where idNote='1653' ;
+-- 2025-06-15 17:14:42
+update note set note='16.5' where idNote='1654' ;
+-- 2025-06-15 17:14:42
+update note set note='15' where idNote='1655' ;
+-- 2025-06-15 17:14:42
+update note set note='14' where idNote='1656' ;
+-- 2025-06-15 17:14:43
+update note set note='14' where idNote='1657' ;
+-- 2025-06-15 17:14:43
+update note set note='15.5' where idNote='1658' ;
+-- 2025-06-15 17:14:43
+update note set note='13' where idNote='1659' ;
+-- 2025-06-15 17:14:43
+update note set note='18' where idNote='1660' ;
+-- 2025-06-15 17:14:43
+update note set note='17' where idNote='1661' ;
+-- 2025-06-15 17:14:43
+update note set note='10.5' where idNote='1662' ;
+-- 2025-06-15 17:14:43
+update note set note='10' where idNote='1663' ;
+-- 2025-06-15 17:14:43
+update note set note='16.5' where idNote='1664' ;
+-- 2025-06-15 17:14:43
+update note set note='18' where idNote='1665' ;
+-- 2025-06-15 17:14:43
+update note set note='13' where idNote='1666' ;
+-- 2025-06-15 17:14:43
+update note set note='12' where idNote='1667' ;
+-- 2025-06-15 17:14:43
+update note set note='16' where idNote='1668' ;
+-- 2025-06-15 17:14:43
+update note set note='9.5' where idNote='1669' ;
+-- 2025-06-15 17:14:43
+update note set note='17.75' where idNote='1670' ;
+-- 2025-06-15 17:14:43
+update note set note='16.5' where idNote='1671' ;
+-- 2025-06-15 17:14:44
+update note set note='13.5' where idNote='1672' ;
+-- 2025-06-15 17:14:44
+update note set note='7' where idNote='1673' ;
+-- 2025-06-15 17:14:44
+update note set note='10' where idNote='1674' ;
+-- 2025-06-15 17:14:44
+update note set note='17.5' where idNote='1675' ;
+-- 2025-06-15 17:14:44
+update note set note='16' where idNote='1676' ;
+-- 2025-06-15 17:14:44
+update note set note='13' where idNote='1677' ;
+-- 2025-06-15 17:14:44
+update note set note='14' where idNote='1678' ;
+-- 2025-06-15 17:14:44
+update note set note='0' where idNote='1679' ;
+-- 2025-06-15 17:14:44
+update note set note='16' where idNote='1680' ;
+-- 2025-06-15 17:14:44
+update note set note='11' where idNote='1681' ;
+-- 2025-06-15 17:14:44
+update note set note='14.5' where idNote='1682' ;
+-- 2025-06-15 17:14:44
+update note set note='9' where idNote='1683' ;
+-- 2025-06-15 17:14:44
+update note set note='17.5' where idNote='1684' ;
+-- 2025-06-15 17:14:44
+update note set note='0' where idNote='1685' ;
+-- 2025-06-15 17:14:44
+update note set note='19.75' where idNote='1686' ;
+-- 2025-06-15 17:14:45
+update note set note='11.5' where idNote='1687' ;
+-- 2025-06-15 17:14:45
+update note set note='0' where idNote='1688' ;
+-- 2025-06-15 17:14:45
+update note set note='5' where idNote='1689' ;
+-- 2025-06-15 17:14:45
+update note set note='14' where idNote='1690' ;
+-- 2025-06-15 17:14:45
+update note set note='0' where idNote='1691' ;
+-- 2025-06-15 17:14:45
+update note set note='0' where idNote='1692' ;
+-- 2025-06-15 17:14:45
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 17:14:45
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 17:14:45
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 17:14:45
+update note set note='0' where idNote='1696' ;
+-- 2025-06-15 17:14:45
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:14:45
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:19:11
+update note set note='16' where idNote='1693' ;
+-- 2025-06-15 17:19:11
+update note set note='13' where idNote='1694' ;
+-- 2025-06-15 17:19:11
+update note set note='12' where idNote='1695' ;
+-- 2025-06-15 17:19:12
+update note set note='0' where idNote='1696' ;
+-- 2025-06-15 17:19:12
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:19:12
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:19:25
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:20:49
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:21:25
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:21:55
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:22:32
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 17:22:53
+update note set note='0' where idNote='1696' ;
+-- 2025-06-15 17:22:54
+update note set note='11.75' where idNote='1697' ;
+-- 2025-06-15 17:22:54
+update note set note='10' where idNote='1698' ;
+-- 2025-06-15 19:41:53
+update examen set codeExamen='A24255D1PC5DD3',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D3',
+        dateExamen='',statutExamen='0',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD3';
+-- 2025-06-15 19:57:39
+update examen set codeExamen='A24255D1PC5DD3',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D3',
+        dateExamen='',statutExamen='1',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD3';
+-- 2025-06-15 20:29:15
+update examen set codeExamen='A24255D1PC5DD3',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D3',
+        dateExamen='',statutExamen='0',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD3';
+-- 2025-06-15 23:22:52
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24252AS2MATH2ASD3','MATH2AS','A24252AS2','D3','','1','','');
+-- 2025-06-15 23:27:21
+insert into note(matricule,codeExamen,note) values('2AS201','A24252AS2MATH2ASD3','11');
+-- 2025-06-15 23:27:21
+insert into note(matricule,codeExamen,note) values('2AS202','A24252AS2MATH2ASD3','8.5');
+-- 2025-06-15 23:27:21
+insert into note(matricule,codeExamen,note) values('2AS203','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:21
+insert into note(matricule,codeExamen,note) values('2AS204','A24252AS2MATH2ASD3','11');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS205','A24252AS2MATH2ASD3','10');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS206','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS207','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS208','A24252AS2MATH2ASD3','15');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS209','A24252AS2MATH2ASD3','7');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS210','A24252AS2MATH2ASD3','8');
+-- 2025-06-15 23:27:22
+insert into note(matricule,codeExamen,note) values('2AS211','A24252AS2MATH2ASD3','8');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS212','A24252AS2MATH2ASD3','8.5');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS213','A24252AS2MATH2ASD3','9.5');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS214','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS215','A24252AS2MATH2ASD3','13');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS216','A24252AS2MATH2ASD3','8');
+-- 2025-06-15 23:27:23
+insert into note(matricule,codeExamen,note) values('2AS217','A24252AS2MATH2ASD3','7');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS218','A24252AS2MATH2ASD3','12');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS219','A24252AS2MATH2ASD3','13');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS220','A24252AS2MATH2ASD3','6');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS221','A24252AS2MATH2ASD3','18.5');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS222','A24252AS2MATH2ASD3','16');
+-- 2025-06-15 23:27:24
+insert into note(matricule,codeExamen,note) values('2AS223','A24252AS2MATH2ASD3','12.6');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS224','A24252AS2MATH2ASD3','6');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS225','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS226','A24252AS2MATH2ASD3','8');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS227','A24252AS2MATH2ASD3','0');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS228','A24252AS2MATH2ASD3','13.5');
+-- 2025-06-15 23:27:25
+insert into note(matricule,codeExamen,note) values('2AS229','A24252AS2MATH2ASD3','19.5');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS230','A24252AS2MATH2ASD3','17.5');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS231','A24252AS2MATH2ASD3','9.5');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS232','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS233','A24252AS2MATH2ASD3','7');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS234','A24252AS2MATH2ASD3','10');
+-- 2025-06-15 23:27:26
+insert into note(matricule,codeExamen,note) values('2AS235','A24252AS2MATH2ASD3','7');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS236','A24252AS2MATH2ASD3','5');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS237','A24252AS2MATH2ASD3','13');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS238','A24252AS2MATH2ASD3','7');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS239','A24252AS2MATH2ASD3','10');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS240','A24252AS2MATH2ASD3','12');
+-- 2025-06-15 23:27:27
+insert into note(matricule,codeExamen,note) values('2AS241','A24252AS2MATH2ASD3','15');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS242','A24252AS2MATH2ASD3','10');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS243','A24252AS2MATH2ASD3','11.5');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS244','A24252AS2MATH2ASD3','6');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS245','A24252AS2MATH2ASD3','10');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS246','A24252AS2MATH2ASD3','8.5');
+-- 2025-06-15 23:27:28
+insert into note(matricule,codeExamen,note) values('2AS247','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS248','A24252AS2MATH2ASD3','11');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS249','A24252AS2MATH2ASD3','15');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS250','A24252AS2MATH2ASD3','0');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS251','A24252AS2MATH2ASD3','0');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS252','A24252AS2MATH2ASD3','8');
+-- 2025-06-15 23:27:29
+insert into note(matricule,codeExamen,note) values('2AS253','A24252AS2MATH2ASD3','0');
+-- 2025-06-15 23:27:30
+insert into note(matricule,codeExamen,note) values('2AS254','A24252AS2MATH2ASD3','11');
+-- 2025-06-15 23:27:30
+insert into note(matricule,codeExamen,note) values('2AS255','A24252AS2MATH2ASD3','8.5');
+-- 2025-06-15 23:27:30
+insert into note(matricule,codeExamen,note) values('2AS256','A24252AS2MATH2ASD3','9');
+-- 2025-06-15 23:27:30
+insert into note(matricule,codeExamen,note) values('2AS257','A24252AS2MATH2ASD3','13');
+-- 2025-06-15 23:28:48
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D2MATH5DD3','MATH5D','A24255D2','D3','','1','','');
+-- 2025-06-15 23:29:12
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D2PC5DD3','PC5D','A24255D2','D3','','1','','');
+-- 2025-06-15 23:31:23
+insert into note(matricule,codeExamen,note) values('5d201','A24255D2PC5DD3','11');
+-- 2025-06-15 23:31:23
+insert into note(matricule,codeExamen,note) values('5d202','A24255D2PC5DD3','14.5');
+-- 2025-06-15 23:31:23
+insert into note(matricule,codeExamen,note) values('5d203','A24255D2PC5DD3','11.75');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d204','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d205','A24255D2PC5DD3','9.75');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d206','A24255D2PC5DD3','6.25');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d207','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d208','A24255D2PC5DD3','9.25');
+-- 2025-06-15 23:31:24
+insert into note(matricule,codeExamen,note) values('5d209','A24255D2PC5DD3','11');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d210','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d211','A24255D2PC5DD3','11.5');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d212','A24255D2PC5DD3','14.25');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d213','A24255D2PC5DD3','6.5');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d214','A24255D2PC5DD3','6.25');
+-- 2025-06-15 23:31:25
+insert into note(matricule,codeExamen,note) values('5d215','A24255D2PC5DD3','12');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d216','A24255D2PC5DD3','10');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d217','A24255D2PC5DD3','9.75');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d218','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d219','A24255D2PC5DD3','10.75');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d220','A24255D2PC5DD3','9');
+-- 2025-06-15 23:31:26
+insert into note(matricule,codeExamen,note) values('5d221','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d222','A24255D2PC5DD3','17');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d223','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d224','A24255D2PC5DD3','6');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d225','A24255D2PC5DD3','11.6');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d226','A24255D2PC5DD3','7.5');
+-- 2025-06-15 23:31:27
+insert into note(matricule,codeExamen,note) values('5d227','A24255D2PC5DD3','4');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d228','A24255D2PC5DD3','9.5');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d229','A24255D2PC5DD3','11.5');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d230','A24255D2PC5DD3','5');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d231','A24255D2PC5DD3','18');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d232','A24255D2PC5DD3','17');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d233','A24255D2PC5DD3','8');
+-- 2025-06-15 23:31:28
+insert into note(matricule,codeExamen,note) values('5d234','A24255D2PC5DD3','16.25');
+-- 2025-06-15 23:31:29
+insert into note(matricule,codeExamen,note) values('5d235','A24255D2PC5DD3','17.5');
+-- 2025-06-15 23:31:29
+insert into note(matricule,codeExamen,note) values('5d236','A24255D2PC5DD3','19');
+-- 2025-06-15 23:31:29
+insert into note(matricule,codeExamen,note) values('5d237','A24255D2PC5DD3','8');
+-- 2025-06-15 23:31:29
+insert into note(matricule,codeExamen,note) values('5d238','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:29
+insert into note(matricule,codeExamen,note) values('5d239','A24255D2PC5DD3','11.25');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d240','A24255D2PC5DD3','11.25');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d241','A24255D2PC5DD3','10.75');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d242','A24255D2PC5DD3','18');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d243','A24255D2PC5DD3','12.5');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d244','A24255D2PC5DD3','14.5');
+-- 2025-06-15 23:31:30
+insert into note(matricule,codeExamen,note) values('5d245','A24255D2PC5DD3','19');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d246','A24255D2PC5DD3','7');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d247','A24255D2PC5DD3','11');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d248','A24255D2PC5DD3','10.5');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d249','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d250','A24255D2PC5DD3','6');
+-- 2025-06-15 23:31:31
+insert into note(matricule,codeExamen,note) values('5d251','A24255D2PC5DD3','5');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d252','A24255D2PC5DD3','17');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d253','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d254','A24255D2PC5DD3','11.5');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d255','A24255D2PC5DD3','16');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d256','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:32
+insert into note(matricule,codeExamen,note) values('5d257','A24255D2PC5DD3','14.75');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d258','A24255D2PC5DD3','16.75');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d259','A24255D2PC5DD3','6.75');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d260','A24255D2PC5DD3','6.5');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d261','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d262','A24255D2PC5DD3','');
+-- 2025-06-15 23:31:33
+insert into note(matricule,codeExamen,note) values('5d263','A24255D2PC5DD3','10.5');
+-- 2025-06-15 23:31:34
+insert into note(matricule,codeExamen,note) values('5d2064','A24255D2PC5DD3','5');
+-- 2025-06-15 23:34:21
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D3PC5DD3','PC5D','A24255D3','D3','','1','','');
+-- 2025-06-15 23:35:12
+insert into note(matricule,codeExamen,note) values('5d301','A24255D3PC5DD3','7.5');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d302','A24255D3PC5DD3','7.5');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d303','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d304','A24255D3PC5DD3','9');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d305','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d306','A24255D3PC5DD3','10');
+-- 2025-06-15 23:35:13
+insert into note(matricule,codeExamen,note) values('5d307','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d308','A24255D3PC5DD3','8');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d309','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d310','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d311','A24255D3PC5DD3','8.5');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d312','A24255D3PC5DD3','9');
+-- 2025-06-15 23:35:14
+insert into note(matricule,codeExamen,note) values('5d313','A24255D3PC5DD3','8.5');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d314','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d315','A24255D3PC5DD3','11.5');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d316','A24255D3PC5DD3','11.5');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d317','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d318','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:15
+insert into note(matricule,codeExamen,note) values('5d319','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:16
+insert into note(matricule,codeExamen,note) values('5d320','A24255D3PC5DD3','12');
+-- 2025-06-15 23:35:16
+insert into note(matricule,codeExamen,note) values('5d321','A24255D3PC5DD3','10.5');
+-- 2025-06-15 23:35:16
+insert into note(matricule,codeExamen,note) values('5d322','A24255D3PC5DD3','9.5');
+-- 2025-06-15 23:35:16
+insert into note(matricule,codeExamen,note) values('5d323','A24255D3PC5DD3','14');
+-- 2025-06-15 23:35:16
+insert into note(matricule,codeExamen,note) values('5d324','A24255D3PC5DD3','5');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d325','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d326','A24255D3PC5DD3','6.5');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d327','A24255D3PC5DD3','10.5');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d328','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d329','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d330','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:17
+insert into note(matricule,codeExamen,note) values('5d331','A24255D3PC5DD3','10');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d332','A24255D3PC5DD3','5');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d333','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d334','A24255D3PC5DD3','10');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d335','A24255D3PC5DD3','12.5');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d336','A24255D3PC5DD3','11');
+-- 2025-06-15 23:35:18
+insert into note(matricule,codeExamen,note) values('5d337','A24255D3PC5DD3','17.5');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d338','A24255D3PC5DD3','14');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d339','A24255D3PC5DD3','11');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d340','A24255D3PC5DD3','14.5');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d341','A24255D3PC5DD3','12');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d342','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:19
+insert into note(matricule,codeExamen,note) values('5d343','A24255D3PC5DD3','6.5');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d344','A24255D3PC5DD3','8');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d345','A24255D3PC5DD3','8.5');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d346','A24255D3PC5DD3','11.5');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d347','A24255D3PC5DD3','12');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d348','A24255D3PC5DD3','7.5');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d349','A24255D3PC5DD3','5');
+-- 2025-06-15 23:35:20
+insert into note(matricule,codeExamen,note) values('5d350','A24255D3PC5DD3','8.5');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d351','A24255D3PC5DD3','');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d352','A24255D3PC5DD3','11.5');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d353','A24255D3PC5DD3','10.5');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d354','A24255D3PC5DD3','9');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d355','A24255D3PC5DD3','10.5');
+-- 2025-06-15 23:35:21
+insert into note(matricule,codeExamen,note) values('5d356','A24255D3PC5DD3','7');
+-- 2025-06-15 23:35:22
+insert into note(matricule,codeExamen,note) values('5d357','A24255D3PC5DD3','16.5');
+-- 2025-06-15 23:35:22
+insert into note(matricule,codeExamen,note) values('5d358','A24255D3PC5DD3','11.5');
+-- 2025-06-15 23:35:22
+insert into note(matricule,codeExamen,note) values('5d359','A24255D3PC5DD3','8.5');
+-- 2025-06-15 23:35:22
+insert into note(matricule,codeExamen,note) values('5d360','A24255D3PC5DD3','6.5');
+-- 2025-06-15 23:35:22
+insert into note(matricule,codeExamen,note) values('5d361','A24255D3PC5DD3','9.5');
+-- 2025-06-16 14:45:50
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values ('A24255D1MATH5DD3','MATH5D','A24255D1','D3','','1','','');
+-- 2025-06-16 14:59:05
+update examen set codeExamen='A24255D1PC5DD3',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D3',
+        dateExamen='',statutExamen='1',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD3';
+-- 2025-06-16 15:01:48
+update examen set codeExamen='A24255D1PC5DD3',codeClasseMatiere='PC5D',codeSalleClasse='A24255D1',codeEvaluation='D3',
+        dateExamen='',statutExamen='0',heureDebutExamen='00:00:00',heureFinExamen='00:00:00' where codeExamen='A24255D1PC5DD3';

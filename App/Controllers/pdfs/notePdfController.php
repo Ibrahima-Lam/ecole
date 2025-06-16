@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\pdfs;
 
+use App\Models\Repositories\ClasseMatiereRepository;
 use Core\Controllers\Controller;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
@@ -9,6 +10,7 @@ use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\MatiereRepository;
 use App\Services\Providers\ClasseResultatProvider;
+use Src\Factories\ReleveParamettreFactory;
 
 class NotePdfController extends Controller
 {
@@ -47,9 +49,9 @@ class NotePdfController extends Controller
 
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
-        $model2 = new MatiereRepository();
-        $matiere = $model2->findOne($codeMatiere);
-        $notes = $this->noteRepository->findAllByClasse($codeSalleClasse);
+        $model2 = new ClasseMatiereRepository();
+        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
         usort($examens, function ($a, $b) {
@@ -59,7 +61,7 @@ class NotePdfController extends Controller
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
-        $paramettre =NoteParamettreFactory::getNoteParam();
+        $paramettre =ReleveParamettreFactory::getReleveParam();
         $pseudo=$salleClasse->pseudoSalleClasse;
         $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);
     }

@@ -13,7 +13,7 @@ $evaluations??=[];
         <option value=""><?=__("Toutes les classes")?>
         </option>
         <?php foreach ($classes as $classe): ?>
-          <option value="<?= $classe->codeSalleClasse ?>"><?= $classe->codeClasse ?><?= $classe->indiceSalleClasse ?></option>
+          <option value="<?= $classe->codeSalleClasse ?>"><?= htmlspecialchars($classe->pseudoSalleClasse) ?></option>
         <?php endforeach ?>
       </select>
 
@@ -21,7 +21,7 @@ $evaluations??=[];
         <option value=""><?=__("Toutes les matières")?>
         </option>
         <?php foreach ($matieres as $matiere): ?>
-          <option value="<?= $matiere->codeMatiere ?>"><?= $matiere->codeMatiere ?></option>
+          <option value="<?= $matiere->codeMatiere ?>"><?= htmlspecialchars($matiere->codeMatiere) ?></option>
         <?php endforeach ?>
       </select>
       
@@ -29,8 +29,15 @@ $evaluations??=[];
         <option value=""><?=__("Toutes les évaluations")?>
         </option>
         <?php foreach ($evaluations as $evaluation): ?>
-          <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->nomEvaluation ?></option>
+          <option value="<?= $evaluation->codeEvaluation ?>"><?= htmlspecialchars($evaluation->nomEvaluation) ?></option>
         <?php endforeach ?>
+      </select> <select name="statut" id="statut" class="field">
+        <option value=""><?=__("Tous les statuts")?>
+        </option>
+        <option value="1"><?=__("Ouvert")?>
+        </option>
+        <option value="0"><?=__("Fermer")?>
+        </option>
       </select>
       <input type="date" name="date" id="date" class="field" placeholder="Date">
       <input type="search" name="examen" id="examen" class="field" placeholder="Code Examen">
@@ -40,34 +47,43 @@ $evaluations??=[];
     <table class="table table-striped my-10" id="table">
         <thead>
             <tr>
-                <th>Code</th>
-                <th>Classe</th>
-                <th>Matiere</th>
-                <th>Type</th>
-                <th>Date</th>
-                <th>Actions</th>   
+                <th><?=__("Code")?>
+                </th>
+                <th><?=__("Classe")?>
+                </th>
+                <th><?=__("Matiere")?>
+                </th>
+                <th><?=__("Type")?>
+                </th>
+                <th><?=__("Date")?>
+                </th>
+                <th><?=__("Statut")?>
+                </th>
+                <th><?=__("Actions")?>
+                </th>   
             </tr>
         </thead>
         <tbody>
             <?php
            
             foreach ($data as $examen): ?>
-                <tr>
-                    <td><?= $examen->codeExamen ?></td>
-                    <td><?= $examen->codeClasse ?><?= $examen->indiceSalleClasse ?></td>
-                    <td><?= $examen->codeMatiere ?></td>
-                    <td><?= $examen->nomEvaluation ?></td>
-                    <td><?= $examen->dateExamen ?></td>
+                <tr class="<?= $examen->statutExamen==1?'':'text-warning' ?>">
+                    <td><?= htmlspecialchars($examen->codeExamen) ?></td>
+                    <td><?=htmlspecialchars($examen->pseudoSalleClasse)?></td>
+                    <td><?= htmlspecialchars($examen->codeMatiere) ?></td>
+                    <td><?= htmlspecialchars($examen->nomEvaluation) ?></td>
+                    <td><?= htmlspecialchars($examen->dateExamen) ?></td>
+                    <td><?= htmlspecialchars(_($examen->statutExamen==1?"Ouvert":"Fermer")) ?></td>
                     <td>
                         <div class="center">
-                        <a href="?p=note/examen/<?= $examen->codeExamen ?>"><i class="fa fa-list text-info"></i></a>
+                        <a href="?p=note/examen/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-list text-info"></i></a>
                         <?php if($_admin):?>
-                            <a class="show" title="importer les notes" href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="fa fa-file text-info"></i></a>
-                            <a class="addnote" title="Ajouter plusieurs notes" href="?p=note/addAll/<?= $examen->codeExamen ?>"><i class="fa fa-layer-group text-success"></i></a>
+                            <a class="show" title="importer les notes" href="?p=note/formulaire/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-file text-info"></i></a>
+                            <a class="addnote" title="Ajouter plusieurs notes" href="?p=note/addAll/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-layer-group text-success"></i></a>
 
-                            <a class="add" title="Ajouter des notes" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-plus text-success"></i></a>
-                            <a class="edit" title="Editer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-edit text-primary"></i></a>
-                            <a class="delete" title="Supprimer" data-code="<?= $examen->codeExamen ?>"><i class="fa fa-trash text-danger"></i></a>
+                            <a class="add" title="Ajouter des notes" data-code="<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-plus text-success"></i></a>
+                            <a class="edit" title="Editer" data-code="<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-edit text-primary"></i></a>
+                            <a class="delete" title="Supprimer" data-code="<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-trash text-danger"></i></a>
                            
                         <?php endif?> </div>
                     </td>
@@ -75,6 +91,11 @@ $evaluations??=[];
             <?php endforeach ?>
         </tbody>
     </table>
+</div>
+<div class="fixed-action">
+    <?php if($_admin):?>
+    <button class="btn btn-primary circle add" id="add"><i class="fa fa-plus"></i></button>
+    <?php endif?>
 </div>
 
 

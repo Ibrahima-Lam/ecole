@@ -34,34 +34,35 @@ class ExamenApiController extends Controller
         $date=$_GET['date'] ?? null;
         $codeMatiere=$_GET['matiere'] ?? null;
         $codeEvaluation=$_GET['evaluation'] ?? null;
+        $statut=$_GET['statut'] ?? null;
         $annee=$this->getCodeAnnee();
         $data =$filter_annee ? $this->examenRepository->findAllByAnnee($annee) : $this->examenRepository->findAll();
         $admin=UserFactory::isAdmin();
      if ($codeSalleClasse){
         $data =array_filter($data, function($note) use ($codeSalleClasse) {
-           return 
-           strtolower($note->codeSalleClasse) == strtolower($codeSalleClasse) ;
+           return strtolower($note->codeSalleClasse) == strtolower($codeSalleClasse) ;
            });
      }
      if ($codeMatiere){
         $data =array_filter($data, function($note) use ($codeMatiere) {
-           return 
-           strtolower($note->codeMatiere) == strtolower($codeMatiere) ;
+           return   strtolower($note->codeMatiere) == strtolower($codeMatiere) ;
            });
      }
      if ($codeEvaluation){
         $data =array_filter($data, function($note) use ($codeEvaluation) {
-           return 
-           $note->codeEvaluation == $codeEvaluation ;
+           return $note->codeEvaluation == $codeEvaluation ;
            });
      }
       if ($date){
         $data =array_filter($data, function($note) use ($date) {
-           return 
-           $note->dateExamen == $date ;
+           return $note->dateExamen == $date ;
            });
      }
-
+     if ($statut!=null){
+        $data =array_filter($data, function($note) use ($statut) {
+           return $note->statutExamen == $statut ;
+           });
+     }
 
        if($search){
            $data =array_filter($data, function($note) use ($search) {
@@ -69,12 +70,14 @@ class ExamenApiController extends Controller
        }
        
        $data=array_reduce($data, function($a,$b) use ($admin) {
-           $new="<tr>
+         $class=$b->statutExamen==1?'':'text-warning';
+        $new="<tr class=".$class.">
             <td>".$b->codeExamen."</td>
-            <td>".$b->codeSalleClasse."</td>
+            <td>".$b->pseudoSalleClasse."</td>
             <td>".$b->codeMatiere."</td>
             <td>".$b->codeEvaluation."</td>
             <td>".$b->dateExamen."</td>
+            <td>"._($b->statutExamen==1?"Ouvert":"Fermer")."</td>
             <td>";
             $new .= "<div class='center'>";
             $new .= "<a href='?p=note/examen/".$b->codeExamen."'><i class='fa fa-list'></i></a>";
@@ -214,15 +217,25 @@ class ExamenApiController extends Controller
         $matiereRepository = new ClasseMatiereRepository();
         $evaluationRepository = new EvaluationRepository();
        
-        $salleClasse=$salleclasseRepository->findOneByCode($examen->codeSalleClasse??$cl);
+        $salleClasse=$salleclasseRepository->findOneByCode($examen->codeSalleClasse??$cl??'');
         $salleclasses =$salleClasse ? [$salleClasse] : [];
+        if(!$salleclasses){
+            $salleclasses=$salleclasseRepository->findAll();
+        }
         $salleclasses=array_map(function ($salleClasse) {
             $salleClasse->libelleSalleClasse=$salleClasse->pseudoSalleClasse;
             return $salleClasse;
         }, $salleclasses);
         $classeHtml=htmlService::options($salleclasses, 'codeSalleClasse', 'libelleSalleClasse', $examen->codeSalleClasse ?? null,[],!empty($cl));
-        $matieres=$matiereRepository->findByClasse($examen->codeClasse??$salleClasse->codeClasse) ?? [];
-        $matiereHtml=htmlService::options($matieres, 'codeClasseMatiere', 'nomMatiere', $examen->codeClasseMatiere ?? null,[],!empty($mt));
+        $matieres=$matiereRepository->findByClasse($examen->codeClasse??$salleClasse?->codeClasse??'') ?? [];
+        if(!$matieres){
+            $matieres=$matiereRepository->findAll();
+        }
+        $matieres=array_map(function ($matiere) {
+            $matiere->libelleMatiere=$matiere->codeMatiere." - ".$matiere->codeClasse;
+            return $matiere;
+        }, $matieres);
+        $matiereHtml=htmlService::options($matieres, 'codeClasseMatiere', 'libelleMatiere', $examen->codeClasseMatiere ?? null,[],!empty($mt));
         $evaluations=$evaluationRepository->findAll();
         $evaluationHtml=htmlService::options($evaluations, 'codeEvaluation', 'nomEvaluation', $examen->codeEvaluation ?? null);
         $statut=[

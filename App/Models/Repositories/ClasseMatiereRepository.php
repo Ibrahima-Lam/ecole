@@ -18,6 +18,11 @@ class ClasseMatiereRepository extends Repository
         $sql = "SELECT * FROM classe_matiere_view where codeClasseMatiere='$codeClasseMatiere' order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
+    } public function findOneByClasseAndMatiere(string $codeClasse, string $codeMatiere): false|stdClass
+    {
+        $sql = "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeMatiere='$codeMatiere' order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $result = $this->db->selectOne($sql, stdClass::class);
+        return $result;
     }
     public function findByClasse(string $codeClasse): array
     {

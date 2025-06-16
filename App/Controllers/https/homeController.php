@@ -4,6 +4,8 @@ namespace App\Controllers\https;
 
 use App\Models\Repositories\SalleClasseRepository;
 use Core\Controllers\Controller;
+use Core\Services\Logger;
+use Core\Services\Request;
 
 
 class homeController extends Controller
@@ -13,6 +15,11 @@ class homeController extends Controller
     public function __construct()
     {
         $this->salleClasseRepository = new SalleClasseRepository();
+    }
+
+    public function teste(Request $request){
+       
+       echo $request->get('p');
     }
     public function index()
     {

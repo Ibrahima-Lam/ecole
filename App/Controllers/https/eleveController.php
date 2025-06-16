@@ -5,6 +5,7 @@ namespace App\Controllers\https;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\correspondanceRepository;
+use App\Models\Repositories\ExamenRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\Factories\Bulletin1Factory;
@@ -169,14 +170,17 @@ class EleveController extends Controller implements EleveControllerInterfaces
         (!$eleve) && die("<p class='text-center'>".__("eleve non inscrit")."</p>");
         $matieres = [];
         $notes = [];
+        $examens = [];
         if ($eleve) {
             $model = new ClasseMatiereRepository();
             $matieres = $model->findByClasse($eleve->codeClasse);
             $model = new NoteRepository();
             $notes = $model->findAllByMatriculeAndAnnee($eleve->matricule, $annee);
+            $model=new ExamenRepository();
+            $examens=$model->findAllByClasse($eleve->codeSalleClasse);
 
         }
-        $notematieres = new ResultatProvider($eleve, $matieres, $notes);
+        $notematieres = new ResultatProvider($eleve, $matieres,$examens, $notes);
 
         $this->render("eleve/resultat", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 2)]);
     }

@@ -30,6 +30,14 @@ $notes = $notes ?? [];
             <option value="<?= $evaluation->codeEvaluation ?>"><?= $evaluation->nomEvaluation ?></option>
         <?php endforeach ?>
     </select>
+    <select name="statut" id="statut" class="field">
+        <option value=""><?=__("Tous les statuts")?>
+        </option>
+        <option value="1"><?=__("Ouvert")?>
+        </option>
+        <option value="0"><?=__("Fermer")?>
+        </option>
+      </select>
     <input type="search" name="matricule" id="matricule" class="field" placeholder="Matricule , NNI ou Code Examen">
 </div>
 <br>
@@ -44,12 +52,13 @@ $notes = $notes ?? [];
             <th><?=__("Date de l'examen")?></th>
             <th><?=__("Date de creation")?></th>
             <th><?=__("Date de modification")?></th>
+            <th><?=__("Statut")?></th>
             <th><?=__("Actions")?></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($notes as $note): ?>
-            <tr>
+            <tr class="<?= $note->statutExamen==1?'':'text-warning' ?>">
                 <td><?= $note->matricule; ?></td>
                 <td><?= $note->nom; ?></td>
                 <td><?= $note->codeExamen; ?></td>
@@ -57,6 +66,7 @@ $notes = $notes ?? [];
                 <td><?= $note->dateExamen; ?></td>
                 <td><?= $note->createdAt; ?></td>
                 <td><?= $note->updatedAt; ?></td>
+                <td><?= _($note->statutExamen==1?"Ouvert":"Fermer"); ?></td>
                 <td>
                 <div class="center">
                      <?php if($_admin):?>

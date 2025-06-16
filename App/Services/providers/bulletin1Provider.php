@@ -4,8 +4,8 @@ namespace App\Services\Providers;
 
 class Bulletin1Provider extends BulletinProvider{
   
-    public function __construct(\stdClass $eleve, array $matieres, array $notes, array $moyennes=[]){
-        parent::__construct($eleve, $matieres, $notes);
+    public function __construct(\stdClass $eleve, array $matieres,$examens, array $notes, array $moyennes=[]){
+        parent::__construct($eleve, $matieres,$examens, $notes);
         $this->moyennes=$moyennes;
     }
    

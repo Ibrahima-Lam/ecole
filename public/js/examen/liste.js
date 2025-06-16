@@ -11,6 +11,7 @@ let params={
     codeMatiere: null,
     codeEvaluation: null,
     date: null,
+    statut: null,
     codeExamen: null
 }
 
@@ -38,6 +39,7 @@ const classe=document.getElementById('classe');
 const matiere=document.getElementById('matiere');
 const evaluation=document.getElementById('evaluation');
 const date=document.getElementById('date');
+const statut=document.getElementById('statut');
 const codeExamen=document.getElementById('examen');
 
 classe?.addEventListener('change',async function () {
@@ -60,6 +62,12 @@ evaluation?.addEventListener('change',async function () {
 
 date?.addEventListener('change',async function () {
     params.date=this.value
+    await getData()
+    renderTable()
+})
+
+statut?.addEventListener('change',async function () {
+    params.statut=this.value
     await getData()
     renderTable()
 })
@@ -106,7 +114,7 @@ async function renderTable() {
     if(params.codeMatiere)url+=`&matiere=${params.codeMatiere}`;
     if(params.codeEvaluation)url+=`&evaluation=${params.codeEvaluation}`;
     if(params.codeExamen)url+=`&search=${params.codeExamen}`;
-    console.log(params.codeExamen);
+    if(params.statut)url+=`&statut=${params.statut}`;
     
    await fetchText(url).then(res => tbody.innerHTML = res);
     document.querySelectorAll(".edit").forEach(function (element) {
@@ -139,6 +147,13 @@ const closeNote=document.getElementById('closeNote');
 closeNote?.addEventListener('click',function () {
     noteDialog.close();
 })
+
+const add=document.getElementById('add');
+add?.addEventListener('click',function () {
+    new FormExamen(dialog);
+    dialog.showModal();
+})
+
 
 
 

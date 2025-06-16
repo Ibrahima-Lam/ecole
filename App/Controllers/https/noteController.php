@@ -2,6 +2,7 @@
 
 namespace App\Controllers\https;
 
+use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
@@ -14,6 +15,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Src\Factories\NoteParamettreFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Src\Factories\ReleveParamettreFactory;
 
 
 class NoteController extends Controller
@@ -213,12 +215,11 @@ $writer->save('php://output');
     {
         $model = new SalleClasseRepository();
         $salleClasse = $model->findOneByCode($codeSalleClasse);
-
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
-        $model2 = new MatiereRepository();
-        $matiere = $model2->findOne($codeMatiere);
-        $notes = $this->noteRepository->findAllByClasse($codeSalleClasse);
+        $model2 = new ClasseMatiereRepository();
+        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
         usort($examens, function ($a, $b) {
@@ -229,7 +230,7 @@ $writer->save('php://output');
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
     
-        $paramettre =NoteParamettreFactory::getNoteParam();
+        $paramettre =ReleveParamettreFactory::getReleveParam();
     
         $this->render("note/releve", compact("data", "paramettre", "salleClasse"));
     }
@@ -240,9 +241,9 @@ $writer->save('php://output');
 
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
-        $model2 = new MatiereRepository();
-        $matiere = $model2->findOne($codeMatiere);
-        $notes = $this->noteRepository->findAllByClasse($codeSalleClasse);
+        $model2 = new ClasseMatiereRepository();
+        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
         usort($examens, function ($a, $b) {
@@ -252,7 +253,7 @@ $writer->save('php://output');
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
         $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
-        $paramettre = NoteParamettreFactory::getNoteParam();
+        $paramettre =   ReleveParamettreFactory::getReleveParam();
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();

@@ -6,7 +6,7 @@ use Core\Controllers\Controller;
 use Src\Paramettres\ClasseParamettre;
 use Src\Factories\BulletinParamettreFactory;
 use Src\Factories\ResultatParamettreFactory;
-
+use Src\Factories\ReleveParamettreFactory;
 class ParamettreApiController extends Controller
 {
   
@@ -53,6 +53,15 @@ class ParamettreApiController extends Controller
         }
         $this->response(
             ResultatParamettreFactory::getResultatParam()->getArray()
+        );
+    }
+     public function releve($set=false){
+        if($set){
+            ReleveParamettreFactory::setReleveParam($_REQUEST);
+         
+        }
+        $this->response(
+            ReleveParamettreFactory::getReleveParam()->getArray()
         );
     }
 }

@@ -344,6 +344,9 @@ create table evaluation(
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir1','1er devoir',1,1,'devoir');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir2','2eme devoir',2,1,'devoir');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir3','3eme devoir',3,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir4','4eme devoir',4,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir5','5eme devoir',5,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir6','6eme devoir',6,1,'devoir');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos1','1er composition',1,1,'composition');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos2','2eme composition',2,2,'composition');
 insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos3','3eme composition',3,3,'composition');

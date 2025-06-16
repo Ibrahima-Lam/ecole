@@ -10,11 +10,13 @@ const tbody = noteTable.querySelector('tbody');
 const matiere=document.getElementById('matiere');
 const evaluation=document.getElementById('evaluation');
 const matricule=document.getElementById('matricule');
+const statut=document.getElementById('statut');
 const params={
     classe:classe.value,
     matiere:matiere.value,
     evaluation:evaluation.value,
-    matricule:matricule.value
+    matricule:matricule.value,
+    statut:statut.value
 }
 
 window?.addEventListener('load',async function () {
@@ -39,7 +41,10 @@ matricule?.addEventListener('change',function () {
     renderTable()
 })
 
-
+statut?.addEventListener('change',function () {
+    params.statut=this.value
+    renderTable()
+})
 
 matiere?.addEventListener('change',function () {
     params.matiere=this.value
@@ -96,6 +101,7 @@ async function renderTable(){
     if(params.matiere)url+=`&matiere=${params.matiere}`;
     if(params.evaluation)url+=`&evaluation=${params.evaluation}`;
     if(params.matricule)url+=`&search=${params.matricule}`;
+    if(params.statut)url+=`&statut=${params.statut}`;
    await fetchText(url).then(res => tbody.innerHTML = res);
 
     tbody.querySelectorAll(".edit").forEach(function (element) {

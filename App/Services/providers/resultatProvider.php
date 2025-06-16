@@ -5,15 +5,17 @@ class ResultatProvider{
 
     public \stdClass $eleve;
     public array $matieres=[];
+    public array $examens=[];
     public array $notes=[];
 
-    public function __construct(\stdClass $eleve, array $matieres, array $notes){
+    public function __construct(\stdClass $eleve, array $matieres,array $examens, array $notes){
         $this->eleve=$eleve;
         $this->matieres=$matieres;
+        $this->examens=$examens;
         $this->notes=$notes;
     }
 
-    public function getMatieresWithNotes():array{
+    public function getMatieresWithNotes($ouvert=false):array{
         
         $matieresWithNotes=[];
        
@@ -23,7 +25,7 @@ class ResultatProvider{
             $matiereNote->matiere=$matiere;
             $matiereNote->notes=[];
             foreach($this->notes as $note){
-                if($note->statutExamen=='0')continue;
+                if($note->statutExamen=='0' && $ouvert)continue;
                 if($matiere->codeMatiere==$note->codeMatiere){
                     $matiereNote->notes[]=$note;
                 }

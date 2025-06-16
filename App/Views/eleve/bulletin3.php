@@ -43,6 +43,9 @@
                 <th>I1</th>
                 <th>I2</th>
                 <th>I3</th>
+                <th>I4</th>
+                <th>I5</th>
+                <th>I6</th>
                 <th>
                     <span>Interro.</span>
                     <br>
@@ -82,14 +85,17 @@
                             </div>
                         
                      </td>
-                    <td><?=$matiere->d1?></td>
-                    <td><?=$matiere->d2?></td>
-                    <td><?=$matiere->d3?></td>
+                    <td class="<?=$matiere->i1?->statutExamen==0?"text-warning":""?>"><?=$matiere->d1?></td>
+                    <td class="<?=$matiere->i2?->statutExamen==0?"text-warning":""?>"><?=$matiere->d2?></td>
+                    <td class="<?=$matiere->i3?->statutExamen==0?"text-warning":""?>"><?=$matiere->d3?></td>
+                    <td class="<?=$matiere->i4?->statutExamen==0?"text-warning":""?>"><?=$matiere->d4?></td>
+                    <td class="<?=$matiere->i5?->statutExamen==0?"text-warning":""?>"><?=$matiere->d5?></td>
+                    <td class="<?=$matiere->i6?->statutExamen==0?"text-warning":""?>"><?=$matiere->d6?></td>
                    
                     <td> <span> <?=$matiere->interrogation?> </span> <br> <span> <?=$matiere->totalInterrogation?> </span> </td>
-                    <td> <span> <?=$matiere->c1?> </span> <br> <span> <?=$matiere->c1x1?> </span> </td>
-                    <td> <span> <?=$matiere->c2?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
-                    <td> <span> <?=$matiere->c3?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
+                    <td class="<?=$matiere->e1?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c1?> </span> <br> <span> <?=$matiere->c1x1?> </span> </td>
+                    <td class="<?=$matiere->e2?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c2?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
+                    <td  class="<?=$matiere->e3?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c3?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
                     <td><?=$matiere->total?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
@@ -99,6 +105,9 @@
             <?php } ?>
             <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

@@ -1,10 +1,33 @@
-import { fetchJson, fetchText } from "../src/fetch.js";
+import { fetchJson, fetchText,fetchAllJson } from "../src/fetch.js";
 import { Spinner } from "../src/spinner.js";
 const spinner = new Spinner();
 const forms = document.querySelectorAll('form')
 const checkAll= document.getElementById('checkAll');
 const save = document.getElementById('save');
 const checkboxes = document.querySelectorAll('.check');
+const inputs=document.querySelectorAll('.note')
+inputs.forEach((input,key) => {
+    input?.addEventListener('keydown',function(e){
+        if(e.key==="Enter"||e.key==="Tab"||e.key==="ArrowDown"){
+            e.preventDefault()
+          if(inputs[key+1])inputs[key+1].focus()
+        }
+        if(e.key==="ArrowUp"){
+            e.preventDefault()
+          if(inputs[key-1])inputs[key-1].focus()
+        }
+    })
+
+    input?.addEventListener('paste',function(e){
+    e.preventDefault()
+        let text=e.clipboardData.getData('text')
+       let tab=text.split('\n')
+       for(let i=0;i<tab.length;i++){
+        if(inputs[key+i])inputs[key+i].value=tab[i]
+       }
+    })
+})
+
 
 checkAll?.addEventListener('change', function() {
     checkboxes.forEach(checkbox => {
@@ -35,25 +58,16 @@ window?.addEventListener('load',function(e){
 })
 
 save?.addEventListener('click', async function (e) {
-    spinner.show();
-    let count=0;
-  let frms= Array.from(forms).filter(form => form.check.checked)
   
+ 
+  let frms= Array.from(forms).filter(form => form.check.checked)
+  let urls=[]
   for(let form of frms){
     const data = new FormData(form);
     const dataString = (new URLSearchParams(data)).toString();
-   
     let url = form.edit.value ? `?p=api/note/update/${form.id.value}&${dataString}` : `?p=api/note/insert&${dataString}`;
-  await  fetchJson(url).then(data => {
-        if (data?.status) {
-            console.log(data?.message ?? 'Enregistrement effectué');
-            count++;
-        } else {
-            console.log(data?.message ?? 'Erreur lors de l\'enregistrement');
-        }
-    }); 
+    urls.push(url);
   }
-   
-  spinner.hide();
+  await fetchAllJson(urls,{show:true})
    window.location.reload();
 })

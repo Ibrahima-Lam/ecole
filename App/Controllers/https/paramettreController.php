@@ -6,7 +6,7 @@ use Core\caches\Cookie;
 use Src\Paramettres\ClasseParamettre;
 use Src\Factories\BulletinParamettreFactory;
 use Src\Factories\ResultatParamettreFactory;
-
+use Src\Factories\ReleveParamettreFactory;
 class ParamettreController extends Controller
 {
     public Cookie $cookie;
@@ -35,5 +35,10 @@ class ParamettreController extends Controller
         
         $paramettre=ResultatParamettreFactory::getResultatParam();
         $this->render('paramettre/resultat',['paramettre'=>$paramettre]);
+    }  public function releve(): void
+    {
+        
+        $paramettre=ReleveParamettreFactory::getReleveParam();
+        $this->render('paramettre/releve',['paramettre'=>$paramettre]);
     }
 }

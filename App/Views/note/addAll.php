@@ -32,7 +32,7 @@
                     <td><?= $row['num'] ?></td>
                     <td><?= $row['nom'] ?></td>
                     <td><?= $codeExamen ?></td>
-                    <td><input type="text" class="field" name="note" value="<?= $row['note'] ?? 0 ?>"></td>
+                    <td><input type="text" class="field note" name="note" value="<?= $row['note'] ?? '' ?>"></td>
                     <td><?= $row['note2'] ?? null ?></td>
                     </form>
                 </tr>

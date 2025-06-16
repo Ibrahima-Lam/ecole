@@ -37,6 +37,7 @@ class NoteApiController extends Controller
         $codeSalleClasse=$_GET['classe'] ?? null;
         $codeMatiere=$_GET['matiere'] ?? null;
         $codeEvaluation=$_GET['evaluation'] ?? null;
+        $statut=$_GET['statut'] ?? null;
         $annee=$this->getCodeAnnee();
         $data =$filter_annee ? $this->noteRepository->findAllByAnnee($annee) : $this->noteRepository->findAll();
         $admin=UserFactory::isAdmin();
@@ -58,7 +59,12 @@ class NoteApiController extends Controller
            $note->codeEvaluation == $codeEvaluation ;
            });
      }
-
+     if ($statut!=null){
+        $data =array_filter($data, function($note) use ($statut) {
+           return 
+           $note->statutExamen == $statut ;
+           });
+     }
 
        if($search){
            $data =array_filter($data, function($note) use ($search) {
@@ -69,7 +75,8 @@ class NoteApiController extends Controller
        }
        
        $data=array_reduce($data, function($a,$b) use ($admin) {
-           $new="<tr>
+        $class=$b->statutExamen==1?'':'text-warning';
+        $new="<tr class=".$class.">
             <td>".$b->matricule."</td>
             <td>".$b->nom."</td>
             <td>".$b->codeExamen."</td>
@@ -77,6 +84,7 @@ class NoteApiController extends Controller
             <td>".$b->dateExamen."</td>
             <td>".$b->createdAt."</td>
             <td>".$b->updatedAt."</td>
+            <td>"._($b->statutExamen==1?"Ouvert":"Fermer")."</td>
             <td>";
             if($admin){
                   $new .= "<div class='center'> <button class=\"btn circle edit\" data-id=".$b->idNote.">
@@ -102,19 +110,20 @@ class NoteApiController extends Controller
         try {
             extract($_REQUEST);
             $note=str_replace(',', '.', $note);
+            $note=str_replace(';', '.', $note);
             $res = $this->noteRepository->insert($matricule, $codeExamen, $note);
             if($res){
                 $data= $this->noteRepository->findLastInserted();
                 $this->response([
                     "status" =>1,
-                    "message" => "Note ajoutée avec succès",
+                    "message" => __("Note ajoutée avec succès"),
                     "data" => $data,
                     'response' => "ok"
                 ]);
             }else{
                 $this->response([
                     "status" => 0,
-                    "message" => "Erreur lors de l'ajout de la note",
+                    "message" => __("Erreur lors de l'ajout de la note"),
                     'response' => "ko"
                 ]);
             }
@@ -132,19 +141,20 @@ class NoteApiController extends Controller
         try {
             extract($_REQUEST);
             $note=str_replace(',', '.', $note);
+            $note=str_replace(';', '.', $note);
             $res = $this->noteRepository->update($id, $note);
             if($res){
                 $data= $this->noteRepository->findOneById($id);
                 $this->response([
                     "status" =>1,
-                    "message" => "Note modifiée avec succès",
+                    "message" => __("Note modifiée avec succès"),
                     "data" => $data,
                     'response' => "ok"
                 ]);
             }else{
                 $this->response([
                     "status" => 0,
-                    "message" => "Erreur lors de la modification de la note",
+                    "message" => __("Erreur lors de la modification de la note"),
                     'response' => "ko"
                 ]);
             }
@@ -164,13 +174,13 @@ class NoteApiController extends Controller
             if($res){
                 $this->response([
                     "status" =>1,
-                    "message" => "Note supprimée avec succès",
+                    "message" => __("Note supprimée avec succès"),
                     'response' => "ok"
                 ]);
             }else{
                 $this->response([
                     "status" => 0,
-                    "message" => "Erreur lors de la suppression de la note",
+                    "message" => __("Erreur lors de la suppression de la note"),
                     'response' => "ko"
                 ]);
             }
@@ -263,21 +273,21 @@ class NoteApiController extends Controller
       <input type='hidden' name='edit' value='{$id}'>
       <input type='hidden' name='id' value='{$id}'>
             <div class='form-group'>
-                <label for='matricule'>Matricule</label>
+                <label for='matricule'>".__("Matricule")."</label>
                 <input type='text' id='matricule' name='matricule' class='form-control' value='{$matricule}' placeholder='Matricule'>
             </div>
             <div class='form-group'>
-                <label for='codeExamen'>Code Examen</label>
+                <label for='codeExamen'>".__("Code Examen")."</label>
                 <select name='codeExamen' id='codeExamen' class='form-control'>
                     '.$examensHtml.'
                 </select>
             </div>
             <div class='form-group'>
-                <label for='note'>Note</label>
+                <label for='note'>".__("Note")."</label>
                 <input type='text' id='note' name='note' class='form-control' value='$note' placeholder='Note'>
             </div>
             <div class='form-action'>
-                <button type='submit' class='btn btn-primary'>Enregistrer</button>
+                <button type='submit' class='btn btn-primary'>".__("Enregistrer")."</button>
             </div>
         </form>";
         return $this->response($html);

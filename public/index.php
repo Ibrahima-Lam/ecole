@@ -2,6 +2,7 @@
 
 use Core\Services\Container;
 use Core\Services\Logger;
+use Core\Services\Request;
 require_once 'translate.php';
 require_once '../vendor/autoload.php';
 $p = $_GET["p"] ?? "home/index";
@@ -30,9 +31,13 @@ if (class_exists($controller)) {
     $container->bind(Logger::class, function () {
         return new Logger();
     });
+    $container->singleton(Request::class, function () {
+        return new Request();
+    });
    $instance= $container->make($controller);
     if (method_exists($instance, $methode)) {
-        call_user_func_array([$instance, $methode], $args ?? []);
+        // call_user_func_array([$instance, $methode], $args ?? []);
+        $container->call([$instance,$methode],array_values($args??[]));
     } else {
         header("HTTP/1.0 404 Not Found");
     }
