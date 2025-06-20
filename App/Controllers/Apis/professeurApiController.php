@@ -3,11 +3,11 @@
 namespace App\Controllers\apis;
 
 use App\Models\Repositories\ProfesseurRepository;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;
 
-class ProfesseurApiController extends Controller implements EleveControllerInterfaces
+class ProfesseurApiController extends ApiController implements EleveControllerInterfaces
 {
     public function liste(): void
     {

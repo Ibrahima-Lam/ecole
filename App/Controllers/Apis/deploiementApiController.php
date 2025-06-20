@@ -6,9 +6,9 @@ use App\Models\Repositories\classeMatiereRepository;
 use App\Models\Repositories\MatiereRepository;
 use App\Models\Repositories\examenRepository;
 use App\Models\Repositories\noteRepository;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 
-class deploiementApiController extends Controller
+class deploiementApiController extends ApiController
 {
     public function inscrit($annee=null)
     {

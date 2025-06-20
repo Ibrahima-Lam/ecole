@@ -2,7 +2,7 @@
 
 namespace App\Models\Repositories;
 
-use Core\Services\Database;
+use Core\Data\Database;
 
 abstract class Repository
 {

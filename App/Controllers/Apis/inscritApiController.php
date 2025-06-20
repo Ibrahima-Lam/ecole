@@ -4,14 +4,14 @@ namespace App\Controllers\Apis;
 
 use App\Models\Repositories\InscritRepository;
 use App\Services\factories\UserFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use Core\Services\html\htmlService;
 use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\EleveRepository;
 use Core\Caches\Session;
 
-class inscritApiController extends Controller
+class inscritApiController extends ApiController
 {
     private $inscritRepository;
     private $annee;

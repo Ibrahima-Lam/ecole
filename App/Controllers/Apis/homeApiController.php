@@ -10,10 +10,10 @@ use App\Services\factories\DarkFactory;
 use App\Services\factories\LangueFactory;
 use App\Services\factories\AnneeFactory;
 use Core\Caches\Session;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Services\factories\UserFactory;
 
-class homeApiController extends Controller
+class homeApiController extends ApiController
 {
     public function session($key, $value): void
     {

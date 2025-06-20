@@ -74,7 +74,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($notematieres->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
+            <?php foreach ($notematieres->getNotes() as $matiere) { ?>
                 <tr>
                     <td>
                     
@@ -85,17 +85,17 @@
                             </div>
                         
                      </td>
-                    <td class="<?=$matiere->i1?->statutExamen==0?"text-warning":""?>"><?=$matiere->d1?></td>
-                    <td class="<?=$matiere->i2?->statutExamen==0?"text-warning":""?>"><?=$matiere->d2?></td>
-                    <td class="<?=$matiere->i3?->statutExamen==0?"text-warning":""?>"><?=$matiere->d3?></td>
-                    <td class="<?=$matiere->i4?->statutExamen==0?"text-warning":""?>"><?=$matiere->d4?></td>
-                    <td class="<?=$matiere->i5?->statutExamen==0?"text-warning":""?>"><?=$matiere->d5?></td>
-                    <td class="<?=$matiere->i6?->statutExamen==0?"text-warning":""?>"><?=$matiere->d6?></td>
+                    <td class="<?=$matiere->i1?->statutExamen==0?"text-warning":""?>"><?=$matiere->i1?->note?:""?></td>
+                    <td class="<?=$matiere->i2?->statutExamen==0?"text-warning":""?>"><?=$matiere->i2?->note?:""?></td>
+                    <td class="<?=$matiere->i3?->statutExamen==0?"text-warning":""?>"><?=$matiere->i3?->note?:""?></td>
+                    <td class="<?=$matiere->i4?->statutExamen==0?"text-warning":""?>"><?=$matiere->i4?->note?:""?></td>
+                    <td class="<?=$matiere->i5?->statutExamen==0?"text-warning":""?>"><?=$matiere->i5?->note?:""?></td>
+                    <td class="<?=$matiere->i6?->statutExamen==0?"text-warning":""?>"><?=$matiere->i6?->note?:""?></td>
                    
-                    <td> <span> <?=$matiere->interrogation?> </span> <br> <span> <?=$matiere->totalInterrogation?> </span> </td>
-                    <td class="<?=$matiere->e1?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c1?> </span> <br> <span> <?=$matiere->c1x1?> </span> </td>
-                    <td class="<?=$matiere->e2?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c2?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
-                    <td  class="<?=$matiere->e3?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c3?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
+                    <td> <span> <?=$matiere->mi?> </span> <br> <span> <?=$matiere->miX3?> </span> </td>
+                    <td class="<?=$matiere->c1?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c1?->note?> </span> <br> <span> <?=$matiere->c1x1?> </span> </td>
+                    <td class="<?=$matiere->c2?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c2?->note?> </span> <br> <span> <?=$matiere->c2x2?> </span> </td>
+                    <td  class="<?=$matiere->c3?->statutExamen==0?"text-warning":""?>"> <span> <?=$matiere->c3?->note?> </span> <br> <span> <?=$matiere->c3x3?> </span> </td>
                     <td><?=$matiere->total?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
@@ -133,11 +133,13 @@
             <td><strong><?=$notematieres->getMoyenne(2)?></strong></td>
             <th dir="rtl">المعدل</th>
         </tr>
+        <?php if($paramettre->rang):?>
           <tr>
             <th>Rang</th>
-            <td><strong><?=$notematieres->getRang([])?></strong></td>
+            <td><strong><?=$notematieres->getRang()?></strong></td>
             <th dir="rtl">الترتيب</th>
         </tr> 
+        <?php endif?>
         <tr>
             <th>Decision</th>
             <td><strong><?=$notematieres->getDecision()?></strong></td>

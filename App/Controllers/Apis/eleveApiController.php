@@ -7,12 +7,12 @@ use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\ProfesseurRepository;
 use App\Services\factories\NomFactory;
 use App\Services\factories\NoninscritFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;
 use App\Services\factories\UserFactory;
 
-class EleveApiController extends Controller implements EleveControllerInterfaces
+class EleveApiController extends ApiController implements EleveControllerInterfaces
 {
     public function liste(): void
     {

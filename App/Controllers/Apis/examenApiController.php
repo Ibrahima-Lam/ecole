@@ -6,12 +6,12 @@ use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\EvaluationRepository;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Services\factories\UserFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Models\Repositories\ExamenRepository;
 use Core\Services\html\htmlService;
 use Core\Services\Sql\SqlErreurMessage;
 
-class ExamenApiController extends Controller
+class ExamenApiController extends ApiController
 {
     private $examenRepository;
     public function __construct()

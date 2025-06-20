@@ -41,6 +41,7 @@
             <tr>
                 <th><?=__("Matiere")?></th>
                 <th><?=__("Interrogations")?></th>
+                <th><?=__("MI")?></th>
                 <th><?=__("Composition")?></th>
                 <th><?=__("MD")?></th>
                 <th><?=__("Coefficient")?></th>
@@ -49,7 +50,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($notematieres->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
+            <?php foreach ($notematieres->getNotes() as $matiere) { ?>
                 <tr>
                     <td>
                     
@@ -60,8 +61,9 @@
                             </div>
                         
                      </td>
-                    <td><?=$matiere->d1?></td>
-                    <td><?=$matiere->c1?></td>
+                    <td><?=$matiere->i1?->note?></td>
+                    <td><?=$matiere->mi?></td>
+                    <td><?=$matiere->c1?->note?></td>
                     <td><?=$matiere->moyenne?></td>
                     <td><?=$matiere->matiere->coefficientClasseMatiere ?></td>
                     <td><?=$matiere->points?></td>
@@ -73,6 +75,7 @@
         <tfoot>
         <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -91,11 +94,13 @@
             <td><strong><?=$notematieres->getMoyenne(2)?></strong></td>
             <th dir="rtl">المعدل</th>
         </tr>
-          <tr>
+        <?php if($paramettre->rang){ ?>
+        <tr>
             <th>Rang</th>
             <td><strong><?=$notematieres->getRang()?></strong></td>
             <th dir="rtl">الترتيب</th>
         </tr> 
+        <?php } ?>
         <tr>
             <th>Decision</th>
             <td><strong><?=$notematieres->getDecision()?></strong></td>

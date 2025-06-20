@@ -1,11 +1,11 @@
 <?php
 namespace App\Controllers\Apis;
 
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 
 
 
-class statistiqueApiController extends Controller
+class statistiqueApiController extends ApiController
 {
    
 }

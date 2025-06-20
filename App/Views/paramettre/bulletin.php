@@ -1,7 +1,7 @@
 <h2 class="title-center my-10 text-center">Paramettre des bulletins</h2>
 
-<form class="form" id="form" action="" method="post">
-<ul class="list-group">
+<form class="form width-full" id="form" action="" method="post">
+<ul class="list-group grid-2">
     <li class="list-group-item">
         <label for="matricule">Matricule</label>
         <input type="checkbox" name="matricule" id="matricule" value="true" <?=$paramettre->matricule?'checked' : ''?>>
@@ -30,6 +30,34 @@
     <li class="list-group-item">
         <label for="merite">Merite</label>
         <input type="checkbox" name="merite" id="merite" value="true" <?=$paramettre->merite?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="rang">Rang</label>
+        <input type="checkbox" name="rang" id="rang" value="true" <?=$paramettre->rang?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="decision">Decision</label>
+        <input type="checkbox" name="decision" id="decision" value="true" <?=$paramettre->decision?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="mention">Mention</label>
+        <input type="checkbox" name="mention" id="mention" value="true" <?=$paramettre->mention?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="mention_decision">Mention Decision</label>
+        <input type="checkbox" name="mention_decision" id="mention_decision" value="true" <?=$paramettre->mention_decision?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="absences">Absences</label>
+        <input type="checkbox" name="absences" id="absences" value="true" <?=$paramettre->absences?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="observations">Observations</label>
+        <input type="checkbox" name="observations" id="observations" value="true" <?=$paramettre->observations?'checked' : ''?>>
+    </li>
+    <li class="list-group-item">
+        <label for="image">Image</label>
+        <input type="checkbox" name="image" id="image" value="true" <?=$paramettre->image?'checked' : ''?>>
     </li>
     <li class="list-group-item">
         <label for="striped">Striped</label>

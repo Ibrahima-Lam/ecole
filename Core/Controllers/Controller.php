@@ -11,6 +11,9 @@ use Core\Services\html\htmlService;
 
 class Controller
 {
+    public function __construct() {
+    
+    }
 
     protected function getCodeAnnee()
     {
@@ -87,7 +90,7 @@ class Controller
             require $path;
 
         $content = ob_get_clean();
-        require_once 'layout.php';
+        require_once 'layouts/layout.php';
     }
 
     public function renderPDF(string $file, array $data = [], array $options = [])
@@ -96,7 +99,7 @@ class Controller
             $this->redirect("?p=home/login");
         ob_start(); 
         extract($data);
-        require "../App/views/$file.php";
+        require "../App/pdfViews/$file.php";
         $content = ob_get_clean();
         $mpdf = new \Mpdf\Mpdf([
             'mode' => 'utf-8',
@@ -106,7 +109,7 @@ class Controller
             'useKashida' => 75,
             ...$options,
         ]);
-
+      
         $mpdf->WriteHTML($content);
         $mpdf->Output($options['name'] ?? 'document.pdf', $options['dest']??\Mpdf\Output\Destination::INLINE);
     }

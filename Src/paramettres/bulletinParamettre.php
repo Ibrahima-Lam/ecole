@@ -11,6 +11,13 @@ class bulletinParamettre{
     public  $nom_isme=true;
     public  $nni=false;
     public  $merite=false;
+    public  $rang=true;
+    public  $decision=true;
+    public  $mention=true;
+    public  $mention_decision=false;
+    public  $absences=true;
+    public  $observations=true;
+    public  $image=false;
     public  $striped=true;
     public  $bordered=false;
 
@@ -31,6 +38,13 @@ class bulletinParamettre{
         $this->isme = $data['isme']??false;
         $this->nom_isme = $data['nom_isme']??false;
         $this->merite = $data['merite']??false;
+        $this->rang = $data['rang']??false; 
+        $this->decision = $data['decision']??true;
+        $this->mention = $data['mention']??true;
+        $this->mention_decision = $data['mention_decision']??true;
+        $this->absences = $data['absences']??true;
+        $this->observations = $data['observations']??true;
+        $this->image = $data['image']??false;
         $this->striped = $data['striped']??false;
         $this->bordered = $data['bordered']??false;
         $this->sort = $data['sort']??$this->sort;
@@ -48,12 +62,33 @@ class bulletinParamettre{
             'nom_isme' => $this->nom_isme,
             'nni' => $this->nni,
             'merite' => $this->merite,
+            'rang' => $this->rang,
+            'decision' => $this->decision,
+            'mention' => $this->mention,
+            'mention_decision' => $this->mention_decision,
+            'absences' => $this->absences,
+            'observations' => $this->observations,
+            'image' => $this->image,
             'striped' => $this->striped,
             'bordered' => $this->bordered,
             'orientation' => $this->orientation,
             'sort' => $this->sort,
             'order' => $this->order
         ];
+    }
+
+    public static function getEtablissementName()
+    {
+        return self::ETABLISSEMENT;
+    }
+
+    public static function getEtablissementNameArabe()
+    {
+        return self::ETABLISSEMENT_ARABE;
+    }
+    public static function AnneeScolaire()
+    {
+        return '2024-2025';
     }
 }
      

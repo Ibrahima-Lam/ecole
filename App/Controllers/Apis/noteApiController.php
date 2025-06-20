@@ -3,7 +3,7 @@
 namespace App\Controllers\Apis;
 
 use App\Services\factories\UserFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
 use Core\Services\Sql\SqlErreurMessage;
@@ -12,7 +12,7 @@ use App\Models\Repositories\inscritRepository;
 use Src\Paramettres\NoteParamettre;
 use Src\Factories\NoteParamettreFactory;
 
-class NoteApiController extends Controller
+class NoteApiController extends ApiController
 {
     private NoteRepository $noteRepository;
     private ExamenRepository $examenRepository;

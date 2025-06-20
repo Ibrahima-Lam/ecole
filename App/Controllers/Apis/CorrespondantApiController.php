@@ -4,10 +4,10 @@ namespace App\Controllers\apis;
 
 use App\Models\Repositories\CorrespondantRepository;
 use App\Services\factories\UserFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use Core\Services\Sql\SqlErreurMessage;
 
-class CorrespondantApiController extends Controller 
+class CorrespondantApiController extends ApiController 
 {
     public function liste(): void
     {

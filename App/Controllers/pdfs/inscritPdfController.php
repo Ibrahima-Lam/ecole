@@ -1,14 +1,14 @@
 <?php
 namespace App\Controllers\pdfs;
 
-use Core\Controllers\Controller;
+use App\Controllers\src\pdfController;
 use App\Models\Repositories\inscritRepository;
 use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\SalleClasseRepository; 
 use Src\Paramettres\ClasseParamettre; 
 use Core\Caches\Session; 
 
-class inscritPdfController extends Controller 
+class inscritPdfController extends pdfController 
 {
     private $inscritRepository;
     

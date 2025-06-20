@@ -8,11 +8,11 @@ use App\Services\Factories\Bulletin1Factory;
 use App\Services\Factories\Bulletin2Factory;
 use App\Services\Factories\Bulletin3Factory;
 use App\Services\Factories\BulletinFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use Core\Services\Sql\SqlErreurMessage;
 
 
-class salleClasseApiController extends Controller
+class salleClasseApiController extends ApiController
 {
     public function liste($annee = null)
     {

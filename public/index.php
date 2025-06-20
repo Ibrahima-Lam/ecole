@@ -1,55 +1,29 @@
 <?php
 
-use Core\Services\Container;
-use Core\Services\Logger;
-use Core\Services\Request;
-require_once 'translate.php';
+use App\Middlewares\AuthMiddleware;
+use App\Routes\Router;
+use App\Services\Providers\bulletinServiceProvider;
+use App\Services\Providers\ClasseBulletinServiceProvider;
+use Core\src\Container;
+use Core\src\Logger;
+use Core\src\Request;
+use App\Services\src\AnneeScolaireService;
+use App\Services\src\EleveService;
+use App\Services\src\UserService;
+
 require_once '../vendor/autoload.php';
-$p = $_GET["p"] ?? "home/index";
-$args = explode("/", $p);
-$class = $args[0] ?? 'home';
+require_once './src/functions.php';
 
-$controller = "App\Controllers\https\\" . $class . "Controller";
-$methode = $args[1] ?? "index";
 
-if (strtoupper($args[0]) == strtoupper('api')) {
-    $class = $args[1] ?? null;
-    $methode = $args[2] ?? "index";
-    $controller = "App\Controllers\apis\\" . $class . "ApiController";
-    unset($args[2]);
-} elseif (strtoupper($args[0]) == strtoupper('pdf')) {
-    $class = $args[1] ?? null;
-    $methode = $args[2] ?? "index";
-    $controller = "App\Controllers\pdfs\\" . $class . "PdfController";
-    unset($args[2]);
-}
-unset($args[0]);
-unset($args[1]);
-if (class_exists($controller)) {
-    /* $instance = new $controller; */
-    $container=new Container();
-    $container->bind(Logger::class, function () {
-        return new Logger();
-    });
-    $container->singleton(Request::class, function () {
-        return new Request();
-    });
-   $instance= $container->make($controller);
-    if (method_exists($instance, $methode)) {
-        // call_user_func_array([$instance, $methode], $args ?? []);
-        $container->call([$instance,$methode],array_values($args??[]));
-    } else {
-        header("HTTP/1.0 404 Not Found");
-    }
-} else {
-    header("HTTP/1.0 404 Not Found");
-}
+$router=new Router();
 
-/* try {
-    if (class_exists($controller) && method_exists($instance, $methode)) {
-    } else {
-        echo "error 404";
-    }
-} catch (\Throwable $th) {
-    echo "error 404 " . $th;
-} */
+$router->bind(Request::class, fn()=> new Request());
+$router->bind(Logger::class, fn()=> new Logger());
+$router->bind(AnneeScolaireService::class, fn()=> new AnneeScolaireService());
+$router->bind(UserService::class, fn()=> new UserService());
+$router->bind(EleveService::class, fn($cn)=> new EleveService($cn->make(AnneeScolaireService::class)));
+$router->bind(bulletinServiceProvider::class, fn($cn)=> new bulletinServiceProvider($cn->make(AnneeScolaireService::class)));
+$router->bind(ClasseBulletinServiceProvider::class, fn($cn)=> new ClasseBulletinServiceProvider($cn->make(AnneeScolaireService::class)));
+$router->useMiddleware(AuthMiddleware::class);
+$router->run();
+

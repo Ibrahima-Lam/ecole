@@ -1,13 +1,13 @@
 <?php
 namespace App\Controllers\Apis;
 
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 
 use Src\Paramettres\ClasseParamettre;
 use Src\Factories\BulletinParamettreFactory;
 use Src\Factories\ResultatParamettreFactory;
 use Src\Factories\ReleveParamettreFactory;
-class ParamettreApiController extends Controller
+class ParamettreApiController extends ApiController
 {
   
     

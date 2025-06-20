@@ -2,10 +2,10 @@
 
 namespace App\Controllers\Apis;
 
-use Core\Controllers\Controller;
+use App\Controllers\src\ApiController;
 use App\Models\Repositories\ClasseMatiereRepository;
 
-class ClassematiereApiController extends Controller {
+class ClassematiereApiController extends ApiController {
 
     public function liste(): void {
         $model = new ClasseMatiereRepository();

@@ -35,6 +35,12 @@ class NoteRepository extends Repository
         $sql = "select * from note_view where codeSalleClasse='$codeSalleClasse' and codeMatiere='$codeMatiere'";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
+    } 
+     public function findAllByMatriculeAndClasse($matricule,$codeSalleClasse):array
+    {
+        $sql = "select * from note_view where codeSalleClasse='$codeSalleClasse' and matricule='$matricule'";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
     }
     public function findAllByCodeExamen($codeExamen):array
     {

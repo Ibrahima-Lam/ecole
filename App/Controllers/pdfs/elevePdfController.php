@@ -4,15 +4,23 @@ namespace App\Controllers\pdfs;
 
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use App\Models\Repositories\EleveRepository;
-use App\Services\Factories\Bulletin1Factory;
-use App\Services\Factories\Bulletin2Factory;
-use App\Services\Factories\Bulletin3Factory;
+use App\Models\Repositories\inscritRepository;
+use App\Services\Providers\bulletinServiceProvider;
+use App\Services\Providers\ClasseBulletinServiceProvider;
+use App\Services\src\AnneeScolaireService;
+use App\Services\src\EleveService;
 use Src\Factories\BulletinParamettreFactory;
-use Core\Controllers\Controller;
+use App\Controllers\src\pdfController;
 
-class ElevePdfController extends Controller implements EleveControllerInterfaces
+class ElevePdfController extends pdfController implements EleveControllerInterfaces
 {
-
+   
+    private $inscritRepository;
+    public function __construct(private EleveService $eleveService)
+    {
+        parent::__construct();
+        $this->inscritRepository = new inscritRepository();
+    }
     public function liste(): void
     {
         $model = new EleveRepository();
@@ -20,31 +28,52 @@ class ElevePdfController extends Controller implements EleveControllerInterfaces
         $this->renderPDF("pdf/eleves", ["data" => $data]);
     }
 
-    public function bulletin1(string $matricule): void
-    { $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $annee = $this->getCodeAnnee();
-        $bulletin= Bulletin1Factory::getBulletin($matricule,$annee);
-        $tab = Bulletin1Factory::getPoints($matricule, $annee);
-        $bulletin->setTabPoints($tab);
-        $this->renderPDF("pdf/bulletin1", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['name'=>"Bulletin1_".$matricule.".pdf"]);
-    } 
-     public function bulletin2(string $matricule): void
-    { $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $annee = $this->getCodeAnnee();
-        $bulletin= Bulletin2Factory::getBulletin($matricule,$annee);
-        $tab = Bulletin3Factory::getPoints($matricule, $annee);
-        $bulletin->setTabPoints($tab);
-        $this->renderPDF("pdf/bulletin2", ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['name'=>"Bulletin2_".$matricule.".pdf"]); 
-    }
-    public function bulletin3(string $matricule): void
-    {
+    public function bulletin1(bulletinServiceProvider $bulletinServiceProvider,ClasseBulletinServiceProvider $classeBulletinServiceProvider, string $matricule): void
+    { 
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $annee = $this->getCodeAnnee();
-    $bulletin= Bulletin3Factory::getBulletin($matricule,$annee);
-    $tab = Bulletin3Factory::getPoints($matricule, $annee);
-   
-    $bulletin->setTabPoints($tab);
-    $file=$paramettre->orientation=='landscape' ? 'pdf/bulletin3Landscape' : 'pdf/bulletin3';
-    $this->renderPDF($file, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation' => $paramettre->orientation,'name'=>"Bulletin3_".$matricule.".pdf"]); 
+        $bulletinServiceProvider->setMatricule($matricule);
+        $tab=[];
+        if ($paramettre->rang) {
+            $classeBulletinServiceProvider->setSalleClasse($this->eleveService->getInscrit($matricule)->codeSalleClasse);
+            $tab = $classeBulletinServiceProvider->getPoints1();
+        }
+        $bulletin=$bulletinServiceProvider->getBulletin1($tab);
+        $view="bulletins/bulletin1";
+        if($paramettre->orientation=="landscape"){
+            $view="bulletins/bulletin1Landscape";
+        }
+        $this->renderPDF($view, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation'=>$paramettre->orientation,'name'=>"Bulletin1_".$matricule.".pdf"]);
+    } 
+     public function bulletin2(bulletinServiceProvider $bulletinServiceProvider,ClasseBulletinServiceProvider $classeBulletinServiceProvider, string $matricule): void
+    { 
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $bulletinServiceProvider->setMatricule($matricule);
+        $tab=[];
+        if ($paramettre->rang) {
+            $classeBulletinServiceProvider->setSalleClasse($this->eleveService->getInscrit($matricule)->codeSalleClasse);
+            $tab = $classeBulletinServiceProvider->getPoints2();
+        }
+        $bulletin=$bulletinServiceProvider->getBulletin2($tab);
+        $view="bulletins/bulletin2";
+        if($paramettre->orientation=="landscape"){
+            $view="bulletins/bulletin2Landscape";
+        }
+        $this->renderPDF($view, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation'=>$paramettre->orientation,'name'=>"Bulletin2_".$matricule.".pdf"]); 
+    }
+    public function bulletin3(bulletinServiceProvider $bulletinServiceProvider,ClasseBulletinServiceProvider $classeBulletinServiceProvider,string $matricule): void
+    {
+    $paramettre = BulletinParamettreFactory::getBulletinParam();
+    $bulletinServiceProvider->setMatricule($matricule);
+    $tab=[];
+    if ($paramettre->rang) {
+        $classeBulletinServiceProvider->setSalleClasse($this->eleveService->getInscrit($matricule)->codeSalleClasse);
+        $tab = $classeBulletinServiceProvider->getPoints3();
+    }
+    $bulletin=$bulletinServiceProvider->getBulletin3($tab);
+    $view="bulletins/bulletin3";
+    if($paramettre->orientation=="landscape"){
+        $view="bulletins/bulletin3Landscape";
+    }
+    $this->renderPDF($view, ['bulletin'=>$bulletin, 'paramettre' => $paramettre],['orientation'=>$paramettre->orientation,'name'=>"Bulletin3_".$matricule.".pdf"]); 
 }
 }

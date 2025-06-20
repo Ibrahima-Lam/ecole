@@ -769,6 +769,15 @@ td .btn {
     margin: 5px;
     padding: 10px;
 }
+.grid-2{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.width-full{
+    width: 100%;
+}
 
 .form-group {
     position: relative;
@@ -776,6 +785,9 @@ td .btn {
     margin: 10px 0;
     display: block;
     width: 100%;
+}
+.grid-2 .form-group{
+    width: 45%;
 }
 
 .form-group label {
@@ -881,6 +893,12 @@ td .field {
     justify-content: space-between;
 }
 
+.dialog-big{
+    left: calc(50% - 300px);
+    min-width: 600px;
+    min-height: 400px;
+}
+
 [dir='rtl'] .dialog{
     left: auto;
     right: calc(50% - 150px);
@@ -905,6 +923,12 @@ td .field {
     display: block;
     padding: 5px;
     overflow: auto;
+}
+
+ .dialog-big .dialog-body ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .dialog-body ul {

@@ -135,7 +135,7 @@ $title = __("Relevé de notes");
 </div>
 
 
-<dialog class="dialog" id="parametreDialog">
+<dialog class="dialog dialog-big" id="parametreDialog">
     <div class="dialog-content">
         <div class="dialog-header">
             <h3 class="title text-center"><?=__("Paraméttre")?></h3>
@@ -143,7 +143,7 @@ $title = __("Relevé de notes");
         <div class="dialog-body">
            
 <form class="form" id="paramettreForm">
-<ul class="list-group">
+<ul class="list-group grid-2">
     <li class="list-group-item">
         <label for="matricule"><?=__("Matricule")?></label>
         <input type="checkbox" name="matricule" id="matricule" value="true" <?=$paramettre->matricule?'checked' : ''?>>
@@ -220,9 +220,10 @@ $title = __("Relevé de notes");
             <option value="DESC" <?=$paramettre->order=='DESC'?'selected' : ''?>><?=__("DESC")?></option>
         </select>
     </li>
-    
+    <li>
+        <button type="submit" class="btn btn-primary"><?=__("Enregistrer")?></button>
+    </li>
 </ul>
-<button type="submit" class="btn btn-primary"><?=__("Enregistrer")?></button>
 </form>
         </div>
         <div class="dialog-footer">
