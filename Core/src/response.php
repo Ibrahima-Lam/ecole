@@ -2,26 +2,10 @@
 namespace Core\src;
 class Response
 {
+    public $controller;
+    public $method;
+    public $args;
+    public $namespace;
    
 
- 
-
-    public function json($data)
-    {
-        if (!($_auth??true)){echo json_encode(["error"=>"Unauthorized"]);
-        exit();}
-        if (is_scalar($data))
-            echo $data;
-        else
-            echo json_encode($data, true);
-        return $this;
-    }  public function text($data)
-    {
-        if (!($_auth??true)){echo print_r(["error"=>"Unauthorized"]);exit();}
-        if (is_scalar($data))
-            echo $data;
-        else
-            echo print_r($data, true);
-        return $this;
-    }
 }

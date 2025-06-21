@@ -205,27 +205,15 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }
 
-    public function resultat(string $matricule): void
+    public function resultat(bulletinServiceProvider $bulletinServiceProvider, ClasseBulletinServiceProvider $classeBulletinServiceProvider, EleveService $eleveService, string $matricule): void
     {
-        $annee = $this->getCodeAnnee();
-        $model = new inscritRepository();
-        $eleve = $model->findOne($matricule);
+        $trimestre = $_REQUEST['trimestre'] ?? 3;
+        $eleve = $eleveService->getInscrit($matricule);
         (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
-        $matieres = [];
-        $notes = [];
-        $examens = [];
-        if ($eleve) {
-            $model = new ClasseMatiereRepository();
-            $matieres = $model->findByClasse($eleve->codeClasse);
-            $model = new NoteRepository();
-            $notes = $model->findAllByMatriculeAndAnnee($eleve->matricule, $annee);
-            $model = new ExamenRepository();
-            $examens = $model->findAllByClasse($eleve->codeSalleClasse);
-
-        }
-        $notematieres = new ResultatProvider($eleve, $matieres, $examens, $notes);
-
-        $this->render("eleve/resultat", ["eleve" => $eleve, 'notematieres' => $notematieres, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($matricule, 2)]);
+        $bulletinServiceProvider->setMatricule($matricule);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $bulletin =$trimestre == 3 ? $bulletinServiceProvider->getBulletin3() :($trimestre == 2 ? $bulletinServiceProvider->getBulletin2() : $bulletinServiceProvider->getBulletin1());
+        $this->render("eleve/resultat", ["eleve" => $eleve, 'trimestre'=>$trimestre, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 2)]);
     }
     public function form(): void
     {

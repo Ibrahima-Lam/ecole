@@ -28,6 +28,17 @@ class ElevePdfController extends pdfController implements EleveControllerInterfa
         $this->renderPDF("pdf/eleves", ["data" => $data]);
     }
 
+    public function resultat(bulletinServiceProvider $bulletinServiceProvider, EleveService $eleveService, string $matricule)
+    {
+        $trimestre = $_REQUEST['trimestre'] ?? 3;
+        $eleve = $eleveService->getInscrit($matricule);
+        (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
+        $bulletinServiceProvider->setMatricule($matricule);
+        $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $bulletin =$trimestre == 3 ? $bulletinServiceProvider->getBulletin3() :($trimestre == 2 ? $bulletinServiceProvider->getBulletin2() : $bulletinServiceProvider->getBulletin1());
+      return pdf("bulletins/resultateleve", ["eleve" => $eleve, 'trimestre'=>$trimestre, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee()],['name'=>"Releve_".$matricule.".pdf"]);
+    }
+
     public function bulletin1(bulletinServiceProvider $bulletinServiceProvider,ClasseBulletinServiceProvider $classeBulletinServiceProvider, string $matricule): void
     { 
         $paramettre = BulletinParamettreFactory::getBulletinParam();

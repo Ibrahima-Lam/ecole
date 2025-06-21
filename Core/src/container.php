@@ -10,6 +10,14 @@ class Container
     // Stocke les singletons instanciés
     protected $instances = [];
 
+    private static $_instance;
+    public static function getInstance()
+    {
+        if (!self::$_instance) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
     /**
      * Enregistrer un binding (classe ou interface)
      *

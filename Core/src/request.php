@@ -10,13 +10,63 @@ class Request
     protected array $post;
     protected array $server;
     private $annee;
-
+    public $controller;
+    public $method;
+    public $args;
+    public $namespace;
     public function __construct()
     {
         $this->get = $_GET;
         $this->post = $_POST;
         $this->server = $_SERVER;
         $this->annee=AnneeFactory::getAnnee();
+        $this->setParam();
+    }
+
+    public function setParam(){
+        $p = $_GET["p"] ?? "home/index";
+        $args = explode("/", $p);
+        $zone = strtolower($args[0] ?? 'web');
+
+        $class = $args[1] ?? 'home';
+        $method = $args[2] ?? 'index';
+        $remainingArgs = array_slice($args, 3);
+
+        switch ($zone) {
+            case 'api':
+                $namespace = "App\Controllers\apis\\";
+                $class = ucfirst($class) . "ApiController";
+                break;
+            case 'pdf':
+                $namespace = "App\Controllers\pdfs\\";
+                $class = ucfirst($class) . "PdfController";
+                break;
+            default:
+                $namespace = "App\Controllers\web\\";
+                $class = ucfirst($zone) . "Controller"; // zone devient class dans ce cas
+                $method = $args[1] ?? "index";
+                $remainingArgs = array_slice($args, 2);
+        }
+        $this->controller=$namespace.$class;
+        $this->method=$method;
+        $this->args=$remainingArgs;
+        $this->namespace=$namespace;
+    }
+
+    public function getController(){
+        return $this->controller;
+    }
+
+    public function getNamespace(){
+        return $this->namespace;
+    }
+
+    public function getMethod(){
+        return $this->method;
+    }
+
+    public function getArgs(){
+        return $this->args;
     }
 
     public function getAnnee(){

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultat du 2eme Trimestre de la <?=$salleclasse->codeClasse.$salleclasse->indiceSalleClasse ?></title>
+    <title><?=__format("Resultat du 2eme Trimestre de la %s",$salleclasse->pseudoSalleClasse)?></title>
     <link rel="stylesheet" href="css/pdfstyle.css">
 </head>
 
 <body>
 
-    <h2 class="title-center my-10 text-center">Résultat du 2ème Trimestre de la <?=$salleclasse->codeClasse.$salleclasse->indiceSalleClasse ?></h2>
+    <h2 class="title-center my-10 text-center"><?=__format("Résultat du 2ème Trimestre de la %s",$salleclasse->pseudoSalleClasse)?></h2>
     <table class="table <?= $paramettre->striped ? 'table-striped' : '' ?> table-bordered">
         <thead>
             <tr>
@@ -86,9 +86,9 @@
                         <?php endif?>
                     </td>
 
-                    <?php foreach ($bulletin->getMatieresWithNotesAndMoyenne() as $matiere) { ?>
+                    <?php foreach ($bulletin->getNotes() as $matiere) { ?>
                         <td><span>
-                                <?= $matiere->c2 ?? 0 ?>
+                                <?= $matiere->c2?->note ?? 0 ?>
                             </span>
                             <br>
 

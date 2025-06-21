@@ -17,7 +17,7 @@ class bulletinServiceProvider
     private const COEFF_C2=2;
     private const COEFF_C3=3;
     private const COEFF_INTERRO=3;
-    private const COEFF_TOTAL_C1=4;
+    private const COEFF_TOTAL_C1=1;
     private const COEFF_TOTAL_C2=6;
     private const COEFF_TOTAL_C3=9;
     public const INTERRO_MAX=1;
@@ -41,8 +41,9 @@ class bulletinServiceProvider
     protected $points_tab1=[];
     protected $points_tab2=[];
     protected $absences;
-    public function __construct(private AnneeScolaireService $anneeScolaireService,$matricule=null) {
+    public function __construct(private AnneeScolaireService $anneeScolaireService,$matricule=null,$matieres=[]) {
     $this->matricule=$matricule;
+    $this->matieres=$matieres;
     
     if($matricule)$this->setData();
     }
@@ -61,7 +62,7 @@ public function setInterroParams($interro_params){
         $this->eleve=$ripos->findOneByMatriculeAndAnnee($this->matricule,$this->anneeScolaireService->getCodeAnnee());
         if(!$this->eleve)return;
         $ripos2= new ClasseMatiereRepository();
-        $this->matieres=$ripos2->findByClasse($this->eleve->codeClasse);
+     if(!$this->matieres) $this->matieres=$ripos2->findByClasse($this->eleve->codeClasse);
       
         $ripos3=new ExamenRepository();
         foreach ($this->matieres as $matiere) {
@@ -105,7 +106,7 @@ public function setInterroParams($interro_params){
             $element->mi=$this->getInterogationMoyenne1($matiere->codeMatiere);
            
             $element->miX3=$element->mi*self::COEFF_INTERRO;
-            $element->total=($element->c1?->note??0)*self::COEFF_C1+($element->c2?->note??0);
+            $element->total=($element->c1?->note??0)*self::COEFF_C1;
             $element->moyenne=$element->total/self::COEFF_TOTAL_C1;
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;

@@ -11,6 +11,7 @@ class ResultatParamettre{
     public  $merite=false;
     public  $striped=true;
     public  $bordered=false;
+    public  $rang=false;
 
     public  $statistiques=true;
 

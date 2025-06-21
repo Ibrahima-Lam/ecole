@@ -3,17 +3,18 @@
 namespace App\Middlewares;
 
 use App\Controllers\web\homeController;
-use App\Services\factories\UserFactory;
+use App\Services\factories\LicenceFactory;
 use Core\src\Request;
 use Core\src\Response;
 
-class AuthMiddleware
+class LicenceMiddleware implements MiddlewareInterface
 {
     public function handle(Request $request,Response $response,callable $next)
     {
-        $user=UserFactory::getUser();
-        if (!$user) {
-            return (new homeController())->login();
+
+       
+        if (!LicenceFactory::isValid()) {
+            return (new homeController())->licence();
         }
         return $next();
     }

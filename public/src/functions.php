@@ -6,7 +6,7 @@ use App\Services\factories\DarkFactory;
 use App\Services\factories\LangueFactory;
 use App\Services\factories\UserFactory;
 use Core\Services\html\htmlService;
-use Core\src\Response;
+use Core\src\ResponseApi;
 use Core\src\View;
 putenv("LANGUAGE=en_US");
 bindtextdomain("messages", "./locales");
@@ -43,10 +43,10 @@ function view($path,$data=[]){
     $view=new View($params);
     $view->render($path,$data);
 }
-function pdf($file,$data=[]){
+function pdf($file,$data=[],$options=[]){
     global $params;
     $view=new View($params);
-    $view->renderPDF($file,$data);
+    $view->renderPDF($file,$data,$options);
 }
 function raw($file,$data=[]){
     global $params;
@@ -59,7 +59,7 @@ function rawPDF($file,$data=[]){
     $view->rawPDF($file,$data);
 }
 function response(){
-    $response=new Response();
+    $response=new ResponseApi();
  return $response;
 }
 

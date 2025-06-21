@@ -64,8 +64,7 @@ class Controller
     }
     public function render(string $file, array $data = [])
     {
-        if (!UserFactory::getUser())
-            $this->redirect("?p=home/login");
+       
 
         ob_start();
         extract($data);
@@ -95,8 +94,7 @@ class Controller
 
     public function renderPDF(string $file, array $data = [], array $options = [])
     {
-        if (!UserFactory::getUser())
-            $this->redirect("?p=home/login");
+       
         ob_start(); 
         extract($data);
         require "../App/pdfViews/$file.php";
@@ -116,8 +114,7 @@ class Controller
 
     public function response(mixed $data)
     {
-        if (!UserFactory::getUser())
-            $this->response("Unauthorized");
+     
         if (is_scalar($data))
             echo $data;
         else

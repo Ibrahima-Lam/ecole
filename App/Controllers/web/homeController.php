@@ -19,6 +19,9 @@ class homeController extends WebController
     public function teste(){
     return "test";
     }
+ public function licence(){
+    echo 'licence';
+    }
     public function index()
     {
         $annee=$this->getCodeAnnee();
