@@ -38,6 +38,7 @@ let values;
 window?.addEventListener('load',async function (e) {
     spinner.show();
     let data=await fetchJson('?p=api/salleclasse/statistique/<?=$code?>/<?=$typeBulletin?>');
+    console.log(data);
     spinner.hide();
     labels = ["Effectif","Admis", "Non admis","Tres Bien","Bien","Assez Bien","Passable","Faible","Tres Faible"];
     values = [data.effectif,data.admis, data.nonAdmis,data.mentionTresBien,data.mentionBien,data.mentionAssezBien,data.mentionPassable,data.mentionFaible,data.mentionTresFaible];

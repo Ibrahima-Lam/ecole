@@ -18,7 +18,7 @@ class Bulletin3Factory extends BulletinFactory
         $notes=[];
         if( $eleve ) {
             $model= new ClasseMatiereRepository();
-            $matieres=$model->findByClasse($eleve->codeClasse);
+            $matieres=$model->findAllByClasseAndAnnee($eleve->codeClasse,$annee);
             $model=new NoteRepository();
             $notes=$model->findAllByMatriculeAndAnnee($eleve->matricule,$annee);
             $model=new ExamenRepository();

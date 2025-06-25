@@ -4,22 +4,29 @@ namespace App\Controllers\Apis;
 
 use App\Controllers\src\ApiController;
 use App\Models\Repositories\ClasseMatiereRepository;
+use App\Services\src\AnneeScolaireService;
+use App\Services\src\ClasseMatiereService;
+use Core\Services\Sql\SqlErreurMessage;
+use Core\src\Request;
 
 class ClassematiereApiController extends ApiController {
 
+    private $classeMatiereRepository;
+    public function __construct(private AnneeScolaireService $anneeScolaireService,private ClasseMatiereService $classeMatiereService)
+    {
+        $this->classeMatiereRepository = new ClasseMatiereRepository();
+    }
     public function liste(): void {
-        $model = new ClasseMatiereRepository();
-        $data = $model->findAll();
+        $data = $this->classeMatiereRepository->findAll();
         $this->response($data);
     }
 
     public function insert(): void {
+       try {
         extract($_REQUEST);
-        $model = new ClasseMatiereRepository();
-        $code=$matiere.$classe;
-        $res = $model->insert($code,$classe, $matiere, $horaire, $coefficient,$date);
+        $res = $this->classeMatiereService->insert($classe, $matiere, $horaire, $coefficient,$annee,$statut);
         if ($res) {
-            $data = $model->findOne($code);
+            $data = $this->classeMatiereRepository->findOne($code);
             $this->response([
                 "data" => $data,
                 'response' => "ok",
@@ -33,14 +40,23 @@ class ClassematiereApiController extends ApiController {
                 'status' => 0
             ]);
         }
+       } catch (\PDOException $e) {
+           $this->response([
+               'response' => "ko",
+               'message' => SqlErreurMessage::getMessage($e->errorInfo[1]),
+               'error' => $e->getMessage(),
+               'code' => $e->errorInfo[1],
+               'status' => 0
+           ]);
+       }
     }
 
     public function update(): void {
-        extract($_REQUEST);
-        $model = new ClasseMatiereRepository();
-        $res = $model->update($code,$classe, $matiere, $horaire, $coefficient,$date);
+        try {
+            extract($_REQUEST);
+        $res = $this->classeMatiereService->update($code,$classe, $matiere, $horaire, $coefficient,$annee,$statut);
         if ($res) {
-            $data = $model->findOne($code);
+            $data = $this->classeMatiereService->findOne($code);
             $this->response([
                 "data" => $data,
                 'response' => "ok",
@@ -54,11 +70,20 @@ class ClassematiereApiController extends ApiController {
                 'status' => 0
             ]);
         }
+    } catch (\PDOException $e) {
+        $this->response([
+            'response' => "ko",
+            'message' => SqlErreurMessage::getMessage($e->errorInfo[1]),
+            'error' => $e->getMessage(),
+            'code' => $e->errorInfo[1],
+            'status' => 0
+        ]);
+    }
     }
 
     public function delete($code): void {
-        $model = new ClasseMatiereRepository();
-        $res = $model->delete($code);
+        try {
+            $res = $this->classeMatiereService->delete($code);
         if ($res) {
             $this->response([
                 'response' => "ok",
@@ -72,5 +97,42 @@ class ClassematiereApiController extends ApiController {
                 'status' => 0
             ]);
         }
+    } catch (\PDOException $e) {
+        $this->response([
+            'response' => "ko",
+            'message' => SqlErreurMessage::getMessage($e->errorInfo[1]),
+            'error' => $e->getMessage(),
+            'code' => $e->errorInfo[1],
+            'status' => 0
+        ]);
     }
+}
+
+public function import(Request $request): void {
+    try {
+        extract($_REQUEST);
+    $res = $this->classeMatiereService->import($request);
+    if ($res) {
+        $this->response([
+            'response' => "ok",
+            'message' => "La classe matiere a ete importee",
+            'status' => 1
+        ]);
+    }else{
+        $this->response([
+            'response' => "error",
+            'message' => "La classe matiere n'a pas ete importee",
+            'status' => 0
+        ]);
+    }
+} catch (\PDOException $e) {
+    $this->response([
+        'response' => "ko",
+        'message' => SqlErreurMessage::getMessage($e->errorInfo[1]),
+        'error' => $e->getMessage(),
+        'code' => $e->errorInfo[1],
+        'status' => 0
+    ]);
+}
+}
 }

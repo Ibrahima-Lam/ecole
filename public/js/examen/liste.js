@@ -141,6 +141,11 @@ async function renderTable() {
             noteDialog.showModal();
         });
     });
+document.querySelectorAll('.examen-row').forEach(row => {
+    row.addEventListener('dblclick', () => {
+        window.location.href = '?p=examen/details/' + row.getAttribute('data-code');
+    });
+});
 }
 
 const closeNote=document.getElementById('closeNote');

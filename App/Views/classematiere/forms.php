@@ -4,14 +4,16 @@
     <thead>
         <tr>
             <th></th>
-            <th>Statut</th>
-            <th>code</th>
-            <th>code de la classe</th>
-            <th>code de la matiere</th>
-            <th>Horaire</th>
-            <th>Coefficient</th>
-            <th>date</th>
-            <th>Actions</th>
+            <th><?=__("Statut")?></th>
+            <th><?=__("code")?></th>
+            <th><?=__("code de la classe")?></th>
+            <th><?=__("code de la matiere")?></th>
+            <th><?=__("Horaire")?></th>
+            <th><?=__("Coefficient")?></th>
+            <th><?=__("Annee S.")?></th>
+            <th><?=__("Statut")?></th>
+            <th><?=__("Actions")?>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -20,9 +22,10 @@
             $checked = !empty($matiere->codeClasseMatiere)
             ?>
             <tr>
-                <form action="" class="form" method="post">
+                <form action="" class="form classematiereform" method="post">
                     <input type="hidden" name="edit" value="<?= $matiere->codeClasseMatiere ?? null ?>">
                     <input type="hidden" name="code" value="<?= $matiere->codeClasseMatiere ?? null ?>">
+                    <input type="hidden" name="annee" value="<?= $anneescolaire->codeAnnee ?? null ?>">
                     <td><input type="checkbox" class="check" name="check" value="true"></td>
                     <td>
                         <?php if ($checked): ?>
@@ -33,15 +36,23 @@
                     </td>
                     <td><?= $matiere->codeClasseMatiere ?? '' ?></td>
                     <td><select name="classe" class="field">
-                        <option ><?= $matiere->codeClasse ?? '' ?></option>
+                        <option  selected ><?= $matiere->codeClasse ?? ''?></option>
                     </select></td>
                     <td><select name="matiere" class="field">
-                        <option ><?= $matiere->codeMatiere ?? '' ?></option>
+                        <option selected ><?= $matiere->codeMatiere ?? '' ?></option>
                     </select>
                 </td>
                     <td><input type="text" name="horaire" class="field" value="<?= $matiere->horaireClasseMatiere ?? '' ?>"></td>
                     <td><input type="text" name="coefficient" class="field" value="<?= $matiere->coefficientClasseMatiere ?? '' ?>"></td>
-                    <td><input type="date" name="date" class="field" value="<?= $matiere->dateClasseMatiere ?? '2024-10-01' ?>"></td>
+                  <td>
+                  <?= $anneescolaire->nomAnnee ?? '' ?>
+                  </td>
+                  <td>
+                    <select name="statut" class="field">
+                        <option value="1" <?= ($matiere->statutClasseMatiere??-1)==1?'selected':'' ?>><?=__("Ouvert")?></option>
+                        <option value="0" <?= ($matiere->statutClasseMatiere??-1)==0?'selected':'' ?>><?=__("Fermer")?></option>
+                    </select>
+                  </td>
                     <td>
                     <button type="submit"><i class="fa fa-paper-plane btn btn-success"></i></button>
                     <?php if($checked&&$_admin):?>
@@ -53,4 +64,36 @@
         <?php endforeach ?>
     </tbody>
 </table>
-<div class="right"><button class="btn btn-success my-10" id="send" disabled>Envoyer Tous</button></div>
+<div class="right"><button class="btn btn-success my-10" id="send" disabled><?=__("Envoyer Tous")?></button></div>
+
+<br>
+<br><?php if($length<=5):?>
+    
+    <h3 class="title text-center"><?=__("Importer des coefficients ")?></h3>
+    <div class="table-container">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <form action="?p=classematiere/import" method="post" id="importform">
+                        <td><input type="hidden" name="classe" value="<?= $codeC ?? null ?>"></td>
+                        <td><input type="hidden" name="matiere" value="<?= $codeM ?? null ?>"></td>
+                        <td><select name="annee" class="field" required>
+                            <option value=""><?=__("Annee Scolaire")?></option>
+                            <option value="none"><?=__("Application")?></option>
+                            <?php foreach ($annees as $annee): ?>
+                                <?php
+                                if($annee['codeAnnee']==$anneescolaire->codeAnnee){
+                                    continue;
+                                }
+                                ?>
+                                <option value="<?= $annee['codeAnnee'] ?>"><?= $annee['nomAnnee'] ?></option>
+                            <?php endforeach ?>
+                        </select></td>
+                        <td><input id="import" type="submit" name='import' class="btn btn-success" value="<?=__("Importer")?>"></td>
+                        <td><input id="importtous" type="submit" name='importtous' class="btn btn-success" value="<?=__("Importer Tous")?>"></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<?php endif?>

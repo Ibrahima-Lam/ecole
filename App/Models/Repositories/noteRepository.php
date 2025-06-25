@@ -89,6 +89,12 @@ class NoteRepository extends Repository
         $result = $this->db->exec($sql);
         return $result;
     }
+ public function deleteAllByCodeExamen($codeExamen):bool
+    {
+        $sql = "delete from note where codeExamen='$codeExamen' ";
+        $result = $this->db->exec($sql);
+        return $result;
+    }
 
 
 

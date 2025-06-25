@@ -63,10 +63,10 @@ class FormElement{
             }else{
                 alert(data?.message ?? "Error");
             }    
-        }).catch((error) => {
+        })/* .catch((error) => {
             alert("Error " + error);
             console.log(error);
-        });
+        }); */
     }
      static async submitAll(forms){
         spinner.show()
@@ -88,7 +88,7 @@ class FormElement{
 }
 
 
-const forms=document.querySelectorAll('form')
+const forms=document.querySelectorAll('.classematiereform')
 forms.forEach(element => {
     new FormElement(element)
 });
@@ -106,3 +106,33 @@ send?.addEventListener('click', function (e) {
     FormElement.submitAll(frms)
 })
 
+const importform=document.getElementById('importform')
+const importtous=document.getElementById('importtous')
+const importone=document.getElementById('import')
+importtous?.addEventListener('click',function (e) {
+    importdata(e,'tous')
+})
+importone?.addEventListener('click',function (e) {
+    importdata(e,'one')
+})
+
+async function importdata(e,type) {
+    e.preventDefault()
+    let data = new FormData(importform)
+    if(!confirm("Êtes-vous sûr de vouloir importer les coefficients des matières pour cette annee ?")) return;
+   if(type=='tous') data.append('importtous', 'true')
+    else data.append('import', 'true')
+    let dtSring = new URLSearchParams(data).toString();
+    let url = "?p=api/classematiere/import&"+dtSring
+spinner.show()
+   await fetchJson(url).then((data) => {
+        console.log(data);
+        if(data?.status ?? 0){
+            alert(data?.message ?? "Success");
+            window.location.reload();
+        }else{
+            alert(data?.message ?? "Error");
+        }    
+    })
+    spinner.hide()
+}

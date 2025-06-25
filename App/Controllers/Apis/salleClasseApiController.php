@@ -9,11 +9,21 @@ use App\Services\Factories\Bulletin2Factory;
 use App\Services\Factories\Bulletin3Factory;
 use App\Services\Factories\BulletinFactory;
 use App\Controllers\src\ApiController;
+use App\Services\Providers\ClasseBulletinServiceProvider;
+use App\Services\src\SalleClasseService;
 use Core\Services\Sql\SqlErreurMessage;
+use Src\Factories\BulletinParamettreFactory;
+use Src\Factories\ResultatParamettreFactory;
 
 
 class salleClasseApiController extends ApiController
 {
+    private $salleClasseService;
+    public function __construct(SalleClasseService $salleClasseService)
+    {
+        parent::__construct();
+        $this->salleClasseService = $salleClasseService;
+    }
     public function liste($annee = null)
     {
         $model = new SalleClasseRepository();
@@ -122,27 +132,25 @@ class salleClasseApiController extends ApiController
         }
     }
 
-    public function statistique($codeSalleClasse,$typeBulletin)
+    public function statistique(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse, $typeBulletin)
     {
-        $inscritRepository = new inscritRepository();
-        $annee = $this->getCodeAnnee();
-        $inscrits = $inscritRepository->findAllByClasse($codeSalleClasse);
+        $typeBulletin=intval($typeBulletin);
+        $paramettre = ResultatParamettreFactory::getResultatParam();
+        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
         $tab=[];
-        $data = [];
-        foreach ($inscrits as $inscrit) {
-            $notematiere =$typeBulletin=='C1' ?
-            Bulletin1Factory::getBulletin($inscrit->matricule, $annee):
-            ($typeBulletin=='C2' ?Bulletin2Factory::getBulletin($inscrit->matricule, $annee):
-            Bulletin3Factory::getBulletin($inscrit->matricule, $annee));
-            $tab[] = $notematiere->getPoints();
-            $data[] = $notematiere;
+        if ($paramettre->rang) {
+         $tab = match ($typeBulletin) {
+             1 => $classeBulletinServiceProvider->getPoints1(),
+             2 => $classeBulletinServiceProvider->getPoints2(),
+             default => $classeBulletinServiceProvider->getPoints3(),
+            };
         }
-        $data = array_map(function ($bulletin) use ($tab) {
-            $bulletin->setTabPoints($tab);
-            return $bulletin;
-        }, $data);
-      
-        $statistiques=BulletinFactory::getStatistiques($data);
+        match ($typeBulletin) {
+            1 => $classeBulletinServiceProvider->getBulletins1($tab),
+            2 => $classeBulletinServiceProvider->getBulletins2($tab),
+            default => $classeBulletinServiceProvider->getBulletins3($tab),
+        };
+       $statistiques=$classeBulletinServiceProvider->getStatistiques($typeBulletin,$tab);
         $this->response($statistiques);
     }
 }

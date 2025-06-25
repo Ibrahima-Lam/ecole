@@ -14,6 +14,11 @@ class AnneeScolaireService
     public static function setCodeAnnee($codeAnnee){
         return AnneeFactory::setAnnee($codeAnnee);
     }
+
+    public static function getAll(){
+        $ripos=new AnneeScolaireRepository();
+        return $ripos->findAll();
+    }
    
     
 }

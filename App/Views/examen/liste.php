@@ -67,7 +67,7 @@ $evaluations??=[];
             <?php
            
             foreach ($data as $examen): ?>
-                <tr class="<?= $examen->statutExamen==1?'':'text-warning' ?>">
+                <tr class="examen-row <?= $examen->statutExamen==1?'':'text-warning' ?>" data-code="<?= htmlspecialchars($examen->codeExamen) ?>">
                     <td><?= htmlspecialchars($examen->codeExamen) ?></td>
                     <td><?=htmlspecialchars($examen->pseudoSalleClasse)?></td>
                     <td><?= htmlspecialchars($examen->codeMatiere) ?></td>
@@ -76,7 +76,7 @@ $evaluations??=[];
                     <td><?= htmlspecialchars(_($examen->statutExamen==1?"Ouvert":"Fermer")) ?></td>
                     <td>
                         <div class="center">
-                        <a href="?p=note/examen/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-list text-info"></i></a>
+                        <a href="?p=examen/details/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-list text-info"></i></a>
                         <?php if($_admin):?>
                             <a class="show" title="importer les notes" href="?p=note/formulaire/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-file text-info"></i></a>
                             <a class="addnote" title="Ajouter plusieurs notes" href="?p=note/addAll/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-layer-group text-success"></i></a>

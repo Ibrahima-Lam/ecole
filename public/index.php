@@ -6,6 +6,8 @@ use App\Controllers\web\homeController;
 use App\Routes\Router;
 use App\Services\Providers\bulletinServiceProvider;
 use App\Services\Providers\ClasseBulletinServiceProvider;
+use App\Services\src\ClasseMatiereService;
+use App\Services\src\ExamenService;
 use App\Services\src\SalleClasseService;
 use Core\src\Logger;
 use Core\src\Request;
@@ -29,6 +31,8 @@ $router->bind(EleveService::class, fn($cn)=> new EleveService($cn->make(AnneeSco
 $router->bind(bulletinServiceProvider::class, fn($cn)=> new bulletinServiceProvider($cn->make(AnneeScolaireService::class)));
 $router->bind(ClasseBulletinServiceProvider::class, fn($cn)=> new ClasseBulletinServiceProvider($cn->make(AnneeScolaireService::class)));
 $router->bind(SalleClasseService::class, fn($cn)=> new SalleClasseService($cn->make(AnneeScolaireService::class)));
+$router->bind(ClasseMatiereService::class, fn($cn)=> new ClasseMatiereService($cn->make(AnneeScolaireService::class)));
+$router->bind(ExamenService::class, fn($cn)=> new ExamenService($cn->make(AnneeScolaireService::class),$cn->make(SalleClasseService::class),$cn->make(ClasseMatiereService::class)));
 
 $router->excludeMiddlewareFor(homeController::class);
 $router->excludeMiddlewareFor(homeApiController::class);

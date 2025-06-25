@@ -37,8 +37,8 @@ class ExamenRepository extends Repository
         return $result;
     }
 
-    public function insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen): bool{
-        $sql = "insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen) values (:codeExamen,:codeClasseMatiere,:codeSalleClasse,:codeEvaluation,:dateExamen,:statutExamen,:heureDebutExamen,:heureFinExamen)";
+    public function insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen,$trimestreExamen): bool{
+        $sql = "insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen,trimestreExamen) values (:codeExamen,:codeClasseMatiere,:codeSalleClasse,:codeEvaluation,:dateExamen,:statutExamen,:heureDebutExamen,:heureFinExamen,:trimestreExamen)";
         $result = $this->db->prepare($sql)->execute([
             'codeExamen' => $codeExamen,
             'codeClasseMatiere' => $codeClasseMatiere,
@@ -48,13 +48,14 @@ class ExamenRepository extends Repository
             'statutExamen' => $statutExamen,
             'heureDebutExamen' => $heureDebutExamen,
             'heureFinExamen' => $heureFinExamen,
+            'trimestreExamen' => $trimestreExamen,
         ]);
         return $result;
     }
 
-    public function update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen): bool{
+    public function update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen): bool{
         $sql = 'update examen set codeExamen=:newCodeExamen,codeClasseMatiere=:codeClasseMatiere,codeSalleClasse=:codeSalleClasse,codeEvaluation=:codeEvaluation,
-        dateExamen=:dateExamen,statutExamen=:statutExamen,heureDebutExamen=:heureDebutExamen,heureFinExamen=:heureFinExamen where codeExamen=:oldCode';
+        dateExamen=:dateExamen,statutExamen=:statutExamen,heureDebutExamen=:heureDebutExamen,heureFinExamen=:heureFinExamen,trimestreExamen=:trimestreExamen where codeExamen=:oldCode';
         $result = $this->db->prepare($sql)->execute([
             'newCodeExamen' => $newCodeExamen,
             'codeClasseMatiere' => $codeClasseMatiere,
@@ -64,6 +65,7 @@ class ExamenRepository extends Repository
             'statutExamen' => $statutExamen,
             'heureDebutExamen' => $heureDebutExamen,
             'heureFinExamen' => $heureFinExamen,
+            'trimestreExamen' => $trimestreExamen,
             'oldCode' => $oldCode,
         ]);
         return $result;

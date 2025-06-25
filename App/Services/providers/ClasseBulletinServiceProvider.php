@@ -22,7 +22,7 @@ class ClasseBulletinServiceProvider
 
     public function setMatieres(){
       if ($this->salleclasse) {
-        $this->matieres=(new ClasseMatiereRepository())->findByClasse($this->salleclasse->codeClasse);
+        $this->matieres=(new ClasseMatiereRepository())->findAllByClasseAndAnnee($this->salleclasse->codeClasse,$this->anneeScolaireService->getCodeAnnee());
       }
     }
     public function setSalleClasse($codeSalleClasse){
@@ -94,15 +94,14 @@ class ClasseBulletinServiceProvider
   
     return $points;
   }
-  public function getStatistiques($type):ClasseStatistiqueProviderEntity{
+  public function getStatistiques($type,$tab=[]):ClasseStatistiqueProviderEntity{
     $data=[];
-    if($type==1){
-      $data=$this->getBulletins1();
-    }elseif($type==2){
-      $data=$this->getBulletins2();
-    }elseif($type==3){
-      $data=$this->getBulletins3();
-    }
+    match ($type) {
+        1 => $data=$this->getBulletins1($tab),
+        2 => $data=$this->getBulletins2($tab),
+        default => $data=$this->getBulletins3($tab),
+    };
+    
     $statistiques=new ClasseStatistiqueProviderEntity();
     $statistiques->effectif=count($data);
     $statistiques->admis=count(array_filter($data, function ($bulletin) {return $bulletin->getDecision()==BulletinProvider::DECISION_ADMIS;}));

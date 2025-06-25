@@ -11,6 +11,8 @@ export default class FormExamen {
             ...params
         };
         this.init();
+        let closeDialog = this.dialog.querySelector('#close');
+        closeDialog?.addEventListener('click', () => this.dialog.close());
     }
 
   async  init() {

@@ -33,6 +33,11 @@ document.querySelectorAll(".delete").forEach(function (element) {
         FormDialog.onDelete(codeExamen);
     });
 });
+document.querySelectorAll('.examen-row').forEach(row => {
+    row.addEventListener('dblclick', () => {
+        window.location.href = '?p=examen/details/' + row.getAttribute('data-code');
+    });
+});
 
 class FormDialog {
     constructor(dialog,params={}) {

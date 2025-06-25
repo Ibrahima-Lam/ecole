@@ -8,13 +8,14 @@ use App\Models\Repositories\SalleClasseRepository;
 use App\Services\factories\UserFactory;
 use App\Controllers\src\ApiController;
 use App\Models\Repositories\ExamenRepository;
+use App\Services\src\AnneeScolaireService;
 use Core\Services\html\htmlService;
 use Core\Services\Sql\SqlErreurMessage;
 
 class ExamenApiController extends ApiController
 {
     private $examenRepository;
-    public function __construct()
+    public function __construct( private AnneeScolaireService $anneeScolaireService)
     {
         $this->examenRepository = new ExamenRepository();
     }
@@ -70,8 +71,9 @@ class ExamenApiController extends ApiController
        }
        
        $data=array_reduce($data, function($a,$b) use ($admin) {
-         $class=$b->statutExamen==1?'':'text-warning';
-        $new="<tr class=".$class.">
+       $class="examen-row ";
+        $class.=$b->statutExamen==1?'':'text-warning';
+        $new="<tr class=".$class." data-code=".$b->codeExamen.">
             <td>".$b->codeExamen."</td>
             <td>".$b->pseudoSalleClasse."</td>
             <td>".$b->codeMatiere."</td>
@@ -80,7 +82,7 @@ class ExamenApiController extends ApiController
             <td>"._($b->statutExamen==1?"Ouvert":"Fermer")."</td>
             <td>";
             $new .= "<div class='center'>";
-            $new .= "<a href='?p=note/examen/".$b->codeExamen."'><i class='fa fa-list'></i></a>";
+            $new .= "<a href='?p=examen/details/".$b->codeExamen."'><i class='fa fa-list'></i></a>";
             if($admin){
                 $new .= "<a class='show' title='importer les notes' href='?p=note/formulaire/".$b->codeExamen."'><i class='fa fa-file'></i></a>";
                 $new .= "<a class='addnote' title='Ajouter plusieurs notes' href='?p=note/addAll/".$b->codeExamen."'><i class='fa fa-layer-group text-success'></i></a>";
@@ -122,19 +124,19 @@ class ExamenApiController extends ApiController
             
             extract($_REQUEST);
             $codeExamen=$codeSalleClasse.$codeClasseMatiere.$codeEvaluation;
-            $res = $this->examenRepository->insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen);
+            $res = $this->examenRepository->insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen,$trimestreExamen);
             if ($res) {
                 $data=$this->examenRepository->findOne($codeExamen);
                 $this->response([
                     "data" => $data,
                     'response' => "ok",
-                    'message' => "L'examens a ete ajoutee",
+                    'message' => __("L'examens a ete ajoutee"),
                     'status' => 1
                 ]);
             }else{
                 $this->response([
                     'response' => "error",
-                    'message' => "L'examens n'a pas ete ajoutee",
+                    'message' => __("L'examens n'a pas ete ajoutee"),
                     'status' => 0
                 ]);
             }
@@ -153,7 +155,7 @@ class ExamenApiController extends ApiController
         try {
             extract($_REQUEST);
             $newCodeExamen=$codeExamen;
-            $res = $this->examenRepository->update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen);
+            $res = $this->examenRepository->update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen);
             if ($res) {
                 $data=$this->examenRepository->findOne($newCodeExamen);
                 $this->response([
@@ -227,9 +229,9 @@ class ExamenApiController extends ApiController
             return $salleClasse;
         }, $salleclasses);
         $classeHtml=htmlService::options($salleclasses, 'codeSalleClasse', 'libelleSalleClasse', $examen->codeSalleClasse ?? null,[],!empty($cl));
-        $matieres=$matiereRepository->findByClasse($examen->codeClasse??$salleClasse?->codeClasse??'') ?? [];
+        $matieres=$matiereRepository->findAllByClasseAndAnnee($examen->codeClasse??$salleClasse?->codeClasse??'',$this->anneeScolaireService->getCodeAnnee()) ?? [];
         if(!$matieres){
-            $matieres=$matiereRepository->findAll();
+            $matieres=$matiereRepository->findAllByAnnee($this->anneeScolaireService->getCodeAnnee());
         }
         $matieres=array_map(function ($matiere) {
             $matiere->libelleMatiere=$matiere->codeMatiere." - ".$matiere->codeClasse;
@@ -249,6 +251,21 @@ class ExamenApiController extends ApiController
             ],
         ];
         $statutHtml=htmlService::options($statut,'value','label', $examen->statutExamen ?? null);
+        $trimestre=[
+            [
+                'value' => 1,
+                'label' => '1'
+            ],
+            [
+                'value' => 2,
+                'label' => '2'
+            ],
+            [
+                'value' => 3,
+                'label' => '3'
+            ],
+        ];
+        $trimestreHtml=htmlService::options($trimestre,'value','label', $examen->trimestreExamen ?? 1);
         $html='<form action="" class="form">
             <input type="hidden" name="edit" value="'.$code.'">
             <input type="hidden" name="codeExamen" value="'.$code.'">
@@ -286,6 +303,12 @@ class ExamenApiController extends ApiController
                 <label for="statutExamen">Statut</label>
                 <select name="statutExamen" id="statutExamen">
                     '.$statutHtml.'
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trimestreExamen">Trimestre</label>
+                <select name="trimestreExamen" id="trimestreExamen">
+                    '.$trimestreHtml.'
                 </select>
             </div>
             <div class="form-action">

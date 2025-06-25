@@ -45,11 +45,11 @@ create table serie(
     cycle Enum('college','lycee') not null,
     Constraint serie_pkey Primary Key (codeSerie)
 );
-insert into serie(codeSerie,nomSerie,cycle) values('belingue','Belingue','college');
+insert into serie(codeSerie,nomSerie,cycle) values('bilingue','Bilingue','college');
 insert into serie(codeSerie,nomSerie,cycle) values('C','Mathematiques','lycee');
 insert into serie(codeSerie,nomSerie,cycle) values('D','Sciences','lycee');
-insert into serie(codeSerie,nomSerie,cycle) values('LM','Lettres Modernes','lycee');
-insert into serie(codeSerie,nomSerie,cycle) values('LO','Religion','lycee');
+insert into serie(codeSerie,nomSerie,cycle) values('A','Lettres Modernes','lycee');
+insert into serie(codeSerie,nomSerie,cycle) values('O','Religion','lycee');
 
 create table classe(
     codeClasse varchar(10) not null,
@@ -59,22 +59,23 @@ create table classe(
     Constraint classe_pkey Primary Key (codeClasse),
     Constraint classe_serie_fkey Foreign Key (codeSerie) References serie(codeSerie)
 );
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('1AS','1 Année Secondaire','1','belingue');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('2AS','2 Année Secondaire','2','belingue');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('3AS','3 Année Secondaire','3','belingue');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('4AS','4 Année Secondaire','4','belingue');
+
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('1AS','1 Année Secondaire','1','bilingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('2AS','2 Année Secondaire','2','bilingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('3AS','3 Année Secondaire','3','bilingue');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('4AS','4 Année Secondaire','4','bilingue');
 insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5D','5 Année Secondaire SN','5','D');
 insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6D','6 Année Secondaire SN','6','D');
 insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7D','7 Année Secondaire SN','7','D');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5C','5 Année Secondaire Mathematiques','5','C');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6C','6 Année Secondaire Mathematiques','6','C');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7C','7 Année Secondaire Mathematiques','7','C');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5LM','5 Année Secondaire LM','5','LM');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6LM','6 Année Secondaire LM','6','LM');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7LM','7 Année Secondaire LM','7','LM');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5LO','5 Année Secondaire LO','5','LO');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6LO','6 Année Secondaire LO','6','LO');
-insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7LO','7 Année Secondaire LO','7','LO');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5C','5 Année Secondaire Math','5','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6C','6 Année Secondaire Math','6','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7C','7 Année Secondaire Math','7','C');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5A','5 Année Secondaire A','5','A');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6A','6 Année Secondaire A','6','A');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7A','7 Année Secondaire A','7','A');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('5O','5 Année Secondaire O','5','O');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('6O','6 Année Secondaire O','6','O');
+insert into classe(codeClasse,nomClasse,niveau,codeSerie) values('7O','7 Année Secondaire O','7','O');
 
 
 create table anneeScolaire(
@@ -237,7 +238,7 @@ create table matiere(
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere)
- values('math','Mathematiques','الرياضيات','FR'),
+ values('MATH','Mathematiques','الرياضيات','FR'),
 ('PC','Physique Chimie','الفيزياء و الكيمياء','FR'),
 ('FR','Français','الفراسية','FR'),
 ('EN','Anglais','الانجليزية','EN'),
@@ -254,34 +255,49 @@ insert into matiere (codeMatiere,nomMatiere,ismeMatiere,langueMatiere)
 
 
 create table classe_matiere(
-    codeClasseMatiere varchar(10) not null,
+    codeClasseMatiere varchar(20) not null,
     codeClasse varchar(10) not null,
     codeMatiere varchar(5) not null,
     horaireClasseMatiere int(2) not null,
     coefficientClasseMatiere int(2) not null,
-    dateClasseMatiere date not null,
-    
+    codeAnnee varchar(4) not null,
+    statutClasseMatiere enum('0','1') default '1',
     Constraint classe_matiere_pkey Primary Key (codeClasseMatiere),
-    Constraint classe_matiere_unique Unique (codeClasse,codeMatiere,dateClasseMatiere),
+    Constraint classe_matiere_unique Unique (codeClasse,codeMatiere,codeAnnee),
     Constraint fk_classe_matiere_classe_code FOREIGN KEY (codeClasse) REFERENCES classe(codeClasse)
 );
+ALTER TABLE classe_matiere
+modify COLUMN codeClasseMatiere varchar(20) ;
+
+alter table classe_matiere drop column codeAnnee;
+
+ALTER TABLE classe_matiere
+ADD COLUMN codeAnnee VARCHAR(4) NOT NULL;
+ALTER TABLE classe_matiere
+ADD COLUMN statutClasseMatiere enum('0','1') default '1';
+
+-- insert into classe_matiere (codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,statutClasseMatiere) values('PC5D','PC5D','PC',2,2,'1');
+
+
 LOAD DATA INFILE 'c:/Users/MULTI MEDIA/Desktop/ecole/classe-matiere.csv'
 INTO TABLE classe_matiere
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1     LINES
-(codeClasseMatiere, codeClasse, codeMatiere, horaireClasseMatiere, coefficientClasseMatiere, dateClasseMatiere);
+(codeClasseMatiere, codeClasse, codeMatiere, horaireClasseMatiere, coefficientClasseMatiere, codeAnnee);
 
 create view classe_matiere_view as select
-  cm.codeClasse as codeClasse,cm.codeClasseMatiere as codeClasseMatiere,cm.horaireClasseMatiere,cm.coefficientClasseMatiere,dateClasseMatiere,
+  cm.codeClasse as codeClasse,cm.codeClasseMatiere as codeClasseMatiere,cm.horaireClasseMatiere,cm.coefficientClasseMatiere,cm.statutClasseMatiere,
   m.codeMatiere as codeMatiere, m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
  c.nomClasse as nomClasse,c.niveau as niveauClasse,
- s.codeSerie as codeSerie,s.nomSerie as nomSerie, s.cycle as cycle
+ s.codeSerie as codeSerie,s.nomSerie as nomSerie, s.cycle as cycle,
+ a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee
   from classe_matiere cm 
 join matiere m on m.codeMatiere=cm.codeMatiere 
 join classe c on c.codeClasse=cm.codeClasse
-join serie s on s.codeSerie=c.codeSerie;
+join serie s on s.codeSerie=c.codeSerie
+left join anneescolaire a on a.codeAnnee=cm.codeAnnee;
 
 
 create table professeur_matiere(
@@ -353,13 +369,14 @@ insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficien
 
 create table examen(
     codeExamen varchar(20) not null,
-    codeClasseMatiere varchar(10) not null,
+    codeClasseMatiere varchar(20) not null,
     codeSalleClasse varchar(10) not null,
     codeEvaluation varchar(10) not null,
     dateExamen date ,
     heureDebutExamen time ,
     heureFinExamen time ,
     statutExamen enum('0','1') default '1',
+    trimestreExamen enum('1','2','3') default '1',
     Constraint salle_classe_examen_pkey Primary Key (codeExamen),
     Constraint salle_classe_examen_unique Unique (codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen),
     Constraint salle_classe_examen_classe_fkey Foreign Key (codeClasseMatiere) References classe_matiere(codeClasseMatiere),
@@ -370,6 +387,7 @@ alter table examen  modify column dateExamen date ;
 alter table examen  modify column heureDebutExamen time ;
 alter table examen  modify column heureFinExamen time ;
 alter table examen add column codeSalleClasse varchar(10) not null after dateExamen;
+alter table examen add column trimestreExamen enum('1','2','3') default '1' not null after statutExamen;
 alter table examen add statutExamen enum('0','1') default '1' not null after heureFinExamen;
 insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1C1','PC5D','A24255D1','compos1','2024-10-01','10:00:00','12:00:00');
 insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,heureDebutExamen,heureFinExamen) values('2425PC5D1D1','PC5D','A24255D1','devoir1','2024-10-01','10:00:00','12:00:00');
@@ -380,9 +398,10 @@ alter table examen add constraint salle_classe_examen_unique Unique (codeClasseM
 create view examen_view as select
   e.codeExamen as codeExamen, e.codeClasseMatiere as codeClasseMatiere, e.codeSalleClasse as codeSalleClasse, e.codeEvaluation as codeEvaluation,
   e.dateExamen as dateExamen, e.heureDebutExamen as heureDebutExamen, e.heureFinExamen as heureFinExamen, e.statutExamen as statutExamen,
- ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
+  e.trimestreExamen as trimestreExamen, ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
   ev.typeEvaluation as typeEvaluation,
   cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
+  cm.statutClasseMatiere as statutClasseMatiere,
    m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
    sc.indiceSalleClasse as indiceSalleClasse,sc.codeAnnee as codeAnnee,
    case when sc.indiceSalleClasse is null then c.codeClasse else concat(c.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse
@@ -417,8 +436,8 @@ insert into note (matricule,codeExamen,note) values('Mat5d101','2425PC5D1D1',14.
 create  view note_view as select
   n.idNote as idNote, n.matricule as matricule,n.note as note,n.createdAt as createdAt,n.updatedAt as updatedAt,
   e.nom as nom, e.isme as isme,e.nni as nni,e.adresse as adresse,e.dateNaissance as dateNaissance,e.sexe as sexe,e.imagePath as imagePath,
-  cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,
-  ex.codeExamen as codeExamen,ex.codeClasseMatiere as codeClasseMatiere,ex.dateExamen as dateExamen,ex.heureDebutExamen as heureDebutExamen,ex.heureFinExamen as heureFinExamen,ex.codeSalleClasse as codeSalleClasse,ex.statutExamen as statutExamen,
+  cm.codeClasse as codeClasse,cm.codeMatiere as codeMatiere,cm.horaireClasseMatiere as horaireClasseMatiere,cm.coefficientClasseMatiere as coefficientClasseMatiere,cm.statutClasseMatiere as statutClasseMatiere,
+  ex.codeExamen as codeExamen,ex.codeClasseMatiere as codeClasseMatiere,ex.dateExamen as dateExamen,ex.heureDebutExamen as heureDebutExamen,ex.heureFinExamen as heureFinExamen,ex.codeSalleClasse as codeSalleClasse,ex.statutExamen as statutExamen,ex.trimestreExamen as trimestreExamen,
   ev.codeEvaluation as codeEvaluation, ev.nomEvaluation as nomEvaluation, ev.indiceEvaluation as indiceEvaluation, ev.coefficientEvaluation as coefficientEvaluation,
   ev.typeEvaluation as typeEvaluation,
   a.codeAnnee as codeAnnee, a.nomAnnee as nomAnnee,

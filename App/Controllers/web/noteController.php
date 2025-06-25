@@ -11,6 +11,7 @@ use App\Models\Repositories\MatiereRepository;
 use App\Models\Repositories\EvaluationRepository;
 use App\Services\Providers\ClasseResultatProvider;
 use App\Controllers\src\WebController;
+use App\Services\src\AnneeScolaireService;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Src\Factories\NoteParamettreFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -26,7 +27,7 @@ class NoteController extends WebController
     private $evaluationRepository;
     private $inscritRepository;
     private $examenRepository;
-    public function __construct()
+    public function __construct(private AnneeScolaireService $anneeScolaireService)
     {
         $this->noteRepository = new NoteRepository();
         $this->salleClasseRepository = new SalleClasseRepository();
@@ -218,7 +219,7 @@ $writer->save('php://output');
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
-        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $matiere = $model2->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
         $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
@@ -242,7 +243,7 @@ $writer->save('php://output');
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
-        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $matiere = $model2->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
         $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);

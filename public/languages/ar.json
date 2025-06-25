@@ -100,7 +100,20 @@
     "Bulletin de Notes":"كشف الدرجات",
     "Directeur Général":" المدير العام",
     "Directeur Des Etudes":"مديرة الدراسية",
-    "Parent D'élève":"والد التلميذ"
+    "Parent D'élève":"والد التلميذ",
+    "Plannings":"الجدول الدراسي",
+    "Planning":"الجدول الدراسي",
+    "Absences":"الغيابات",
+    "Absence":"غياب",
+    "Correspondances":"الترجمة",
+    "Correspondants":"الترجمة",
+    "Avis":"الرأي",
+    "Aide":"المساعدة",
+    "Statistiques":"الإحصائيات",
+    "Statistique":"إحصائية",
+    "Statistiques des absences":"إحصائية الغيابات",
+    "Statistique des absences":"إحصائية الغيابات"
+ 
 
     
 }

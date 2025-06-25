@@ -9,7 +9,6 @@ use App\Models\Repositories\ExamenRepository;
 use Core\Services\Sql\SqlErreurMessage;
 use Core\Services\html\htmlService;
 use App\Models\Repositories\inscritRepository;
-use Src\Paramettres\NoteParamettre;
 use Src\Factories\NoteParamettreFactory;
 
 class NoteApiController extends ApiController
@@ -181,6 +180,31 @@ class NoteApiController extends ApiController
                 $this->response([
                     "status" => 0,
                     "message" => __("Erreur lors de la suppression de la note"),
+                    'response' => "ko"
+                ]);
+            }
+        } catch (\PDOException $th) {
+            $this->response([
+                "status" => 0,
+                "message" => SQLErreurMessage::getMessage($th->errorInfo[1]),
+                "error" => $th->getMessage(),
+                'response' => "error"
+            ]);
+        }
+    }
+ public function deleteNotes($codeExamen){
+        try {
+            $res = $this->noteRepository->deleteAllByCodeExamen($codeExamen);
+            if($res){
+                $this->response([
+                    "status" =>1,
+                    "message" => __("Notes supprimées avec succès"),
+                    'response' => "ok"
+                ]);
+            }else{
+                $this->response([
+                    "status" => 0,
+                    "message" => __("Erreur lors de la suppression des notes"),
                     'response' => "ko"
                 ]);
             }

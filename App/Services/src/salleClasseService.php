@@ -20,7 +20,7 @@ class SalleClasseService
     public function getMatiere($codeSalleClasse)
     {
        $inscritRepository=new ClasseMatiereRepository();
-       return $inscritRepository->findByClasse($this->getSalleClasse($codeSalleClasse)->codeClasse);
+       return $inscritRepository->findAllByClasseAndAnnee($this->getSalleClasse($codeSalleClasse)->codeClasse,$this->anneeScolaireService->getCodeAnnee());
     }
 
    

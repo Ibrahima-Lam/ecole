@@ -7,19 +7,19 @@
 
         <tr>
 
-            <th>code</th>
+            <th><?=__("code")?></th>
 
-            <th>Nom de la matiere</th>
+            <th><?=__("Nom de la matiere")?></th>
 
-            <th>Nom en Arabe</th>
+            <th><?=__("Nom en Arabe")?></th>
 
-            <th>code de la classe</th>
+            <th><?=__("code de la classe")?></th>
 
-            <th>Nom de la classe</th>
+            <th><?=__("Nom de la classe")?></th>
 
-            <th>Horaire</th>
+            <th><?=__("Horaire")?></th>
 
-            <th>Coefficient</th>
+            <th><?=__("Coefficient")?></th>
 
 
         </tr>
@@ -32,20 +32,19 @@
 
             <tr>
 
-                <td><?= $matiere->codeClasseMatiere ?></td>
+                <td><?= htmlspecialchars($matiere->codeClasseMatiere) ?></td>
 
-                <td><?= $matiere->nomMatiere ?></td>
+                <td><a href="?p=classematiere/matiere/<?= htmlspecialchars($matiere->codeMatiere) ?>"><?= htmlspecialchars($matiere->nomMatiere) ?></a></td>
 
-                <td dir="rtl"><?= $matiere->ismeMatiere ?></td>
+                <td dir="rtl"> <a href="?p=classematiere/matiere/<?= htmlspecialchars($matiere->codeMatiere) ?>"><?= htmlspecialchars($matiere->ismeMatiere) ?></a></td>
 
-                <td><?= $matiere->codeClasse ?></td>
+                <td><a href="?p=classematiere/classe/<?= htmlspecialchars($matiere->codeClasse) ?>"><?= htmlspecialchars($matiere->codeClasse) ?></a></td>
 
-                <td><?= $matiere->nomClasse ?></td>
+                <td><a href="?p=classematiere/classe/<?= htmlspecialchars($matiere->codeClasse) ?>"><?= htmlspecialchars($matiere->nomClasse) ?></a></td>
 
-                <td><?= $matiere->horaireClasseMatiere ?></td>
+                <td><?= htmlspecialchars($matiere->horaireClasseMatiere) ?></td>
 
-                <td><?= $matiere->coefficientClasseMatiere ?></td>
-
+                <td><?= htmlspecialchars($matiere->coefficientClasseMatiere) ?></td>
 
             </tr>
 
@@ -73,10 +72,10 @@
 <div class="center">
     <?php if (isset($codeM) && $_admin): ?>
 
-        <a href="?p=classematiere/matiereform/<?= $codeM ?>" class="link">Editer en fonction de la matiere</a>
+        <a href="?p=classematiere/matiereform/<?= $codeM ?>" class="link"><?=__("Editer en fonction de la matiere")?></a>
 
     <?php elseif (isset($codeC) && $_admin): ?>
-        <a href="?p=classematiere/classeform/<?= $codeC ?>" class="link">Editer en fonction de la classe</a>
+        <a href="?p=classematiere/classeform/<?= $codeC ?>" class="link"><?=__("Editer en fonction de la classe")?></a>
 
     <?php endif ?>
 

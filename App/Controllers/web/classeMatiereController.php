@@ -6,21 +6,27 @@ use App\Models\Repositories\ClasseMatiereRepository;
 use App\Models\Repositories\ClasseRepository;
 use App\Models\Repositories\MatiereRepository;
 use App\Controllers\src\WebController;
+use App\Services\src\AnneeScolaireService;
+use App\Services\src\ClasseMatiereService;
+use Core\src\Request;
 
 class ClasseMatiereController extends WebController
 {
+    public function __construct(private AnneeScolaireService $anneeScolaireService,private ClasseMatiereService $classeMatiereService)
+    {
+        parent::__construct();
+    }
     public function liste(): void
     {
-        $model = new ClasseMatiereRepository();
-        $data = $model->findAll();
-        $this->render('classematiere/matiere', ['data' => $data]);
+        $data = $this->classeMatiereService->findAllByAnnee();
+        $anneescolaire=$this->anneeScolaireService->getAnnee();
+        $this->render('classematiere/matiere', ['data' => $data,'anneescolaire'=>$anneescolaire]);
     }
 
     function matiere(string $codeMatiere): void
     {
         try {
-            $model = new ClasseMatiereRepository();
-            $data = $model->findByMatiere($codeMatiere);
+            $data = $this->classeMatiereService->findAllByMatiereAndAnnee($codeMatiere);
             $this->render('classematiere/matiere', ['data' => $data, 'codeM' => $codeMatiere]);
         } catch (\Exception $e) {
 
@@ -30,8 +36,7 @@ class ClasseMatiereController extends WebController
 
     function classe(string $codeClasse): void
     {
-        $model = new ClasseMatiereRepository();
-        $data = $model->findByClasse($codeClasse);
+        $data = $this->classeMatiereService->findAllByClasseAndAnnee($codeClasse);
         $coeffients = 0;
         $horaires = 0;
        foreach ($data as $value) {
@@ -43,9 +48,9 @@ class ClasseMatiereController extends WebController
 
     function matiereform(string $codeMatiere): void
     {
-        $model = new ClasseMatiereRepository();
-        $data = $model->findAll();
+        $data = $this->classeMatiereService->findAllByAnnee();
         $model2 = new ClasseRepository();
+        $length=count($data);
         $classes = $model2->findAll();
         $list = [];
         foreach ($classes as $classe) {
@@ -73,14 +78,15 @@ class ClasseMatiereController extends WebController
             }
             return -$sort;
         });
-        $this->render('classematiere/forms', ['data' => $list]);
+        $anneescolaire=$this->anneeScolaireService->getAnnee();
+        $this->render('classematiere/forms', ['data' => $list,'annees'=>$this->anneeScolaireService->getAll(),'codeM'=>$codeMatiere,'length'=>$length,'anneescolaire'=>$anneescolaire]);
     }
 
     public function classeform(string $codeClasse): void
     {
-        $model = new ClasseMatiereRepository();
-        $data = $model->findAll();
+        $data = $this->classeMatiereService->findAllByClasseAndAnnee($codeClasse);
         $model2 = new MatiereRepository();
+        $length=count($data);
         $matieres = $model2->findAll();
         $list = [];
         foreach ($matieres as $matiere) {
@@ -108,6 +114,12 @@ class ClasseMatiereController extends WebController
              }
              return -$sort;
          });
-        $this->render('classematiere/forms', ['data' => $list]);
+         $anneescolaire=$this->anneeScolaireService->getAnnee();
+        $this->render('classematiere/forms', ['data' => $list,'annees'=>$this->anneeScolaireService->getAll(),'codeC'=>$codeClasse,'length'=>$length,'anneescolaire'=>$anneescolaire]);
+    }
+    public function import(Request $request){
+       
+     $this->classeMatiereService->import($request);
+     $this->redirect('?p=classeMatiere/liste');
     }
 }

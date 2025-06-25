@@ -62,7 +62,7 @@ public function setInterroParams($interro_params){
         $this->eleve=$ripos->findOneByMatriculeAndAnnee($this->matricule,$this->anneeScolaireService->getCodeAnnee());
         if(!$this->eleve)return;
         $ripos2= new ClasseMatiereRepository();
-     if(!$this->matieres) $this->matieres=$ripos2->findByClasse($this->eleve->codeClasse);
+     if(!$this->matieres) $this->matieres=$ripos2->findAllByClasseAndAnnee($this->eleve->codeClasse,$this->anneeScolaireService->getCodeAnnee());
       
         $ripos3=new ExamenRepository();
         foreach ($this->matieres as $matiere) {

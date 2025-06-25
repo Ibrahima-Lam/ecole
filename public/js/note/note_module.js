@@ -70,4 +70,16 @@ export class NoteFormDialog {
             });
         }
     }
+     static onDeleteAll(codeExamen) {
+        if (confirm('Voulez-vous vraiment supprimer ces notes ?')) {
+            fetchJson(`?p=api/note/deleteNotes/${codeExamen}`).then(data => {
+                if (data?.status) {
+                    alert(data?.message ?? 'Notes supprimées');
+                    window.location.reload();
+                } else {
+                    alert(data?.message ?? 'Erreur lors de la suppression');
+                }
+            });
+        }
+    }
 }

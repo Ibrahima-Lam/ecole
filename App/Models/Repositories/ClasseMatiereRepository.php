@@ -12,53 +12,70 @@ class ClasseMatiereRepository extends Repository
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
+  public function findAllByAnnee(?string $codeAnnee): array
+    {
+        $sql =$codeAnnee?
+         "SELECT * FROM classe_matiere_view where codeAnnee='$codeAnnee' order by coefficientClasseMatiere desc,horaireClasseMatiere desc":
+         "SELECT * FROM classe_matiere_view where codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
+    }
 
     public function findOne(string $codeClasseMatiere): false|stdClass
     {
         $sql = "SELECT * FROM classe_matiere_view where codeClasseMatiere='$codeClasseMatiere' order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
-    } public function findOneByClasseAndMatiere(string $codeClasse, string $codeMatiere): false|stdClass
+    }
+    public function findOneByClasseAndMatiereAndAnnee(string $codeClasse, string $codeMatiere,?string $codeAnnee): false|stdClass
     {
-        $sql = "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeMatiere='$codeMatiere' order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $sql =$codeAnnee?
+         "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeMatiere='$codeMatiere' and codeAnnee='$codeAnnee' order by coefficientClasseMatiere desc,horaireClasseMatiere desc":
+         "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeMatiere='$codeMatiere' and codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
     }
-    public function findByClasse(string $codeClasse): array
+    public function findAllByClasseAndAnnee(string $codeClasse,?string $codeAnnee): array
     {
-        $sql = "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse'order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $sql =$codeAnnee?
+         "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeAnnee='$codeAnnee'order by coefficientClasseMatiere desc,horaireClasseMatiere desc":
+         "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
-    public function findByMatiere(string $codeMatiere): array
+    public function findAllByMatiereAndAnnee(string $codeMatiere,?string $codeAnnee): array
     {
-        $sql = "SELECT * FROM classe_matiere_view where codeMatiere='$codeMatiere'order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $sql =$codeAnnee?
+         "SELECT * FROM classe_matiere_view where codeMatiere='$codeMatiere' and codeAnnee='$codeAnnee'order by coefficientClasseMatiere desc,horaireClasseMatiere desc":
+         "SELECT * FROM classe_matiere_view where codeMatiere='$codeMatiere' and codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
-    public function insert(string $codeClasseMatiere, string $codeClasse, string $codeMatiere, int $horaireClasseMatiere, int $coefficientClasseMatiere, string $dateClasseMatiere): bool
+    public function insert(string $codeClasseMatiere, string $codeClasse, string $codeMatiere, int $horaireClasseMatiere, int $coefficientClasseMatiere, ?string $codeAnnee,?int $statutClasseMatiere): bool
     {
-        $sql = "insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,dateClasseMatiere) values(:codeClasseMatiere,:codeClasse,:codeMatiere,:horaireClasseMatiere,:coefficientClasseMatiere,:dateClasseMatiere)";
+        $sql = "insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values(:codeClasseMatiere,:codeClasse,:codeMatiere,:horaireClasseMatiere,:coefficientClasseMatiere,:codeAnnee,:statutClasseMatiere)";
         $result = $this->db->prepare($sql)->execute([
             "codeClasseMatiere" => $codeClasseMatiere,
             "codeClasse" => $codeClasse,
             "codeMatiere" => $codeMatiere,
             "horaireClasseMatiere" => $horaireClasseMatiere,
             "coefficientClasseMatiere" => $coefficientClasseMatiere,
-            "dateClasseMatiere" => $dateClasseMatiere
+            "codeAnnee" => $codeAnnee,
+            "statutClasseMatiere" => $statutClasseMatiere
         ]);
         return $result;
     }
-    public function update(string $codeClasseMatiere, string $codeClasse, string $codeMatiere, int $horaireClasseMatiere, int $coefficientClasseMatiere, string $dateClasseMatiere): bool
+    public function update(string $codeClasseMatiere, string $codeClasse, string $codeMatiere, int $horaireClasseMatiere, int $coefficientClasseMatiere, ?string $codeAnnee,?int $statutClasseMatiere): bool
     {
-        $sql = "update classe_matiere set codeClasse=:codeClasse,codeMatiere=:codeMatiere,horaireClasseMatiere=:horaireClasseMatiere,coefficientClasseMatiere=:coefficientClasseMatiere,dateClasseMatiere=:dateClasseMatiere where codeClasseMatiere=:codeClasseMatiere";
+        $sql = "update classe_matiere set codeClasse=:codeClasse,codeMatiere=:codeMatiere,horaireClasseMatiere=:horaireClasseMatiere,coefficientClasseMatiere=:coefficientClasseMatiere,codeAnnee=:codeAnnee,statutClasseMatiere=:statutClasseMatiere where codeClasseMatiere=:codeClasseMatiere";
         $result = $this->db->prepare($sql)->execute([
             "codeClasseMatiere" => $codeClasseMatiere,
             "codeClasse" => $codeClasse,
             "codeMatiere" => $codeMatiere,
             "horaireClasseMatiere" => $horaireClasseMatiere,
             "coefficientClasseMatiere" => $coefficientClasseMatiere,
-            "dateClasseMatiere" => $dateClasseMatiere
+            "codeAnnee" => $codeAnnee,
+            "statutClasseMatiere" => $statutClasseMatiere
         ]);
         return $result;
     }

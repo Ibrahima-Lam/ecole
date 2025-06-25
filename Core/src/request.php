@@ -9,6 +9,8 @@ class Request
     protected array $get;
     protected array $post;
     protected array $server;
+    protected array $files;
+    protected array $request;
     private $annee;
     public $controller;
     public $method;
@@ -19,6 +21,8 @@ class Request
         $this->get = $_GET;
         $this->post = $_POST;
         $this->server = $_SERVER;
+        $this->files = $_FILES;
+        $this->request = $_REQUEST;
         $this->annee=AnneeFactory::getAnnee();
         $this->setParam();
     }
@@ -71,6 +75,10 @@ class Request
 
     public function getAnnee(){
         return $this->annee;
+    }
+
+    public function request($key){
+        return $this->request[$key]??null;
     }
 
     public function get($key){

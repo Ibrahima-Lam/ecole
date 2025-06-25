@@ -6098,3 +6098,595 @@ update eleve set imagePath='img_5d1052.jpg' where matricule='5d1052';
 update eleve set matricule='5d1001645166666664',nom='Adja Papa Amadou Diaw',isme='اجا بابا امدو جاو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000001',statutEleve='actif' where matricule='5d1001';
 -- 2025-06-19 21:53:11
 update eleve set matricule='5d1001',nom='Adja Papa Amadou Diaw',isme='اجا بابا امدو جاو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000001',statutEleve='actif' where matricule='5d10016451';
+-- 2025-06-21 21:49:07
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN1AS','1AS','EN','2','1','2024-10-01');
+-- 2025-06-21 22:09:48
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='1',coefficientClasseMatiere='1',codeAnnee='2425' where codeClasseMatiere='INFO1AS';
+-- 2025-06-21 22:09:58
+update classe_matiere set codeClasse='1AS',codeMatiere='INFO',horaireClasseMatiere='1',coefficientClasseMatiere='1',codeAnnee='' where codeClasseMatiere='INFO1AS';
+-- 2025-06-21 22:25:16
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR3AS','3AS','AR','5','5','');
+-- 2025-06-21 22:25:16
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN3AS','3AS','EN','2','1','');
+-- 2025-06-21 22:25:16
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS3AS','3AS','EPS','2','1','');
+-- 2025-06-21 22:25:16
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR3AS','3AS','FR','4','3','');
+-- 2025-06-21 22:25:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG3AS','3AS','HG','3','2','');
+-- 2025-06-21 22:25:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC3AS','3AS','IC','1','1','');
+-- 2025-06-21 22:25:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR3AS','3AS','IR','4','3','');
+-- 2025-06-21 22:25:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC3AS','3AS','PC','2','2','');
+-- 2025-06-21 22:25:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN3AS','3AS','SN','3','2','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR5C','5C','AR','3','3','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR5LO','5LO','AR','4','5','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR6C','6C','AR','2','2','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR6D','6D','AR','2','2','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR6LM','6LM','AR','5','5','');
+-- 2025-06-21 22:29:18
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR6LO','6LO','AR','5','6','');
+-- 2025-06-21 22:29:19
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR7C','7C','AR','3','3','');
+-- 2025-06-21 22:29:19
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR7D','7D','AR','3','2','');
+-- 2025-06-21 22:29:19
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR7LM','7LM','AR','6','6','');
+-- 2025-06-21 22:29:19
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('AR7LO','7LO','AR','6','6','');
+-- 2025-06-21 22:33:21
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN5C','5C','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN5LO','5LO','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN6C','6C','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN6D','6D','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN6LM','6LM','EN','3','3','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN6LO','6LO','EN','2','1','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN7C','7C','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN7D','7D','EN','2','2','');
+-- 2025-06-21 22:33:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EN7LM','7LM','EN','3','4','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR5C','5C','FR','3','3','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR5LO','5LO','FR','4','5','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR6C','6C','FR','2','2','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR6D','6D','FR','2','2','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR6LM','6LM','FR','5','5','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR6LO','6LO','FR','2','2','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR7C','7C','FR','3','3','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR7D','7D','FR','3','2','');
+-- 2025-06-21 22:38:20
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR7LM','7LM','FR','6','6','');
+-- 2025-06-21 22:38:21
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('FR7LO','7LO','FR','2','2','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO5C','5C','PHILO','2','2','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO5LO','5LO','PHILO','3','3','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO6C','6C','PHILO','2','2','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO6D','6D','PHILO','2','2','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO6LM','6LM','PHILO','4','4','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO6LO','6LO','PHILO','4','3','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO7LM','7LM','PHILO','6','5','');
+-- 2025-06-21 22:41:05
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PHILO7LO','7LO','PHILO','4','4','');
+-- 2025-06-22 11:43:23
+update eleve set matricule='5d1052',nom='Mouhaadji Abdrahmani Diallo',isme='مجايج عبد رحمن جلو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000052',statutEleve='actif' where matricule='5d1052';
+-- 2025-06-22 11:46:09
+update eleve set matricule='5d1052',nom='Mouhaadji Abdrahmani Diallo',isme='مهاج عبد رحمن جلو',sexe='M',dateNaissance='2010-12-31',lieuNaissance='',adresse='Boghe',nni='00000052',statutEleve='actif' where matricule='5d1052';
+-- 2025-06-22 12:03:40
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG5C','5C','HG','2','2','');
+-- 2025-06-22 12:03:40
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG5LO','5LO','HG','2','3','');
+-- 2025-06-22 12:03:40
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG6C','6C','HG','2','2','');
+-- 2025-06-22 12:03:40
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG6D','6D','HG','2','2','');
+-- 2025-06-22 12:03:40
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG6LM','6LM','HG','4','4','');
+-- 2025-06-22 12:03:41
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG6LO','6LO','HG','2','3','');
+-- 2025-06-22 12:03:41
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG7LM','7LM','HG','4','4','');
+-- 2025-06-22 12:03:41
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('HG7LO','7LO','HG','3','3','');
+-- 2025-06-22 12:05:52
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC5C','5C','IC','1','1','');
+-- 2025-06-22 12:05:52
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC5LO','5LO','IC','1','1','');
+-- 2025-06-22 12:05:52
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC6C','6C','IC','1','1','');
+-- 2025-06-22 12:05:52
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC6D','6D','IC','1','1','');
+-- 2025-06-22 12:05:52
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC6LM','6LM','IC','1','1','');
+-- 2025-06-22 12:05:53
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IC6LO','6LO','IC','1','1','');
+-- 2025-06-22 12:09:46
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR5C','5C','IR','2','2','');
+-- 2025-06-22 12:09:46
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR5LO','5LO','IR','4','3','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR6C','6C','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR6D','6D','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR6LM','6LM','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR6LO','6LO','IR','3','3','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR7C','7C','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR7D','7D','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR7LM','7LM','IR','2','2','');
+-- 2025-06-22 12:09:47
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('IR7LO','7LO','IR','4','4','');
+-- 2025-06-22 12:11:49
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('LEG5LO','5LO','LEG','5','4','');
+-- 2025-06-22 12:11:49
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('LEG6LO','6LO','LEG','4','6','');
+-- 2025-06-22 12:11:49
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('LEG7LO','7LO','LEG','6','6','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC5C','5C','PC','5','5','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC5LO','5LO','PC','2','2','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC6C','6C','PC','6','6','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC6D','6D','PC','5','6','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC6LM','6LM','PC','2','2','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC6LO','6LO','PC','2','1','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC7C','7C','PC','7','7','');
+-- 2025-06-23 20:01:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('PC7D','7D','PC','7','7','');
+-- 2025-06-23 20:05:31
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN5C','5C','SN','3','3','');
+-- 2025-06-23 20:05:31
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN5LO','5LO','SN','2','2','');
+-- 2025-06-23 20:05:31
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN6C','6C','SN','3','3','');
+-- 2025-06-23 20:05:31
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN6D','6D','SN','6','6','');
+-- 2025-06-23 20:05:32
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN6LM','6LM','SN','2','2','');
+-- 2025-06-23 20:05:32
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN6LO','6LO','SN','2','1','');
+-- 2025-06-23 20:05:32
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN7C','7C','SN','4','4','');
+-- 2025-06-23 20:05:32
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN7D','7D','SN','7','8','');
+-- 2025-06-23 20:05:32
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('SN7LO','7LO','SN','2','2','');
+-- 2025-06-23 20:08:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS5C','5C','EPS','2','1','');
+-- 2025-06-23 20:08:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS5LO','5LO','EPS','2','1','');
+-- 2025-06-23 20:08:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS6C','6C','EPS','2','1','');
+-- 2025-06-23 20:08:43
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS6D','6D','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS6LM','6LM','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS6LO','6LO','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS7C','7C','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS7D','7D','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS7LM','7LM','EPS','2','1','');
+-- 2025-06-23 20:08:44
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee) values('EPS7LO','7LO','EPS','2','1','');
+-- 2025-06-23 20:33:29
+update classe_matiere set codeClasse='6LO',codeMatiere='SN',horaireClasseMatiere='2',coefficientClasseMatiere='1',codeAnnee='2324',statutClasseMatiere='0' where codeClasseMatiere='SN6LO';
+-- 2025-06-23 20:33:37
+update classe_matiere set codeClasse='6LO',codeMatiere='SN',horaireClasseMatiere='2',coefficientClasseMatiere='1',codeAnnee='2324',statutClasseMatiere='1' where codeClasseMatiere='SN6LO';
+-- 2025-06-23 21:26:28
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A2425SN7LO','7LO','SN','2','2','2425','1');
+-- 2025-06-23 21:27:09
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A2425SN7LM','7LM','SN','2','2','2425','1');
+-- 2025-06-23 21:34:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A2425SN6C','6C','SN','3','3','2425','1');
+delete from classe_matiere where codeClasseMatiere='A2425SN7LO'
+-- 2025-06-23 22:53:39
+update classe_matiere set codeClasse='6C',codeMatiere='SN',horaireClasseMatiere='3',coefficientClasseMatiere='4',codeAnnee='2425',statutClasseMatiere='1' where codeClasseMatiere='A2425SN6C';
+-- 2025-06-23 23:04:59
+update classe_matiere set codeClasse='6C',codeMatiere='SN',horaireClasseMatiere='3',coefficientClasseMatiere='4',codeAnnee='2425',statutClasseMatiere='1' where codeClasseMatiere='A2425SN6C';
+-- 2025-06-23 23:17:23
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CAR','6C','AR','2','2','2425','1');
+delete from classe_matiere where codeClasseMatiere='A24256CAR'
+-- 2025-06-23 23:18:51
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CAR','6C','AR','2','2','2425','1');
+delete from classe_matiere where codeClasseMatiere='A24256CAR'
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CMATH','6C','MATH','7','7','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CPC','6C','PC','6','6','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CAR','6C','AR','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CEN','6C','EN','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CFR','6C','FR','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CHG','6C','HG','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CIR','6C','IR','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CPHILO','6C','PHILO','2','2','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CEPS','6C','EPS','2','1','2425','1');
+-- 2025-06-23 23:43:37
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256CIC','6C','IC','1','1','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CMATH','5C','MATH','6','6','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CPC','5C','PC','5','5','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CAR','5C','AR','3','3','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CFR','5C','FR','3','3','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CSN','5C','SN','3','3','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CEN','5C','EN','2','2','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CHG','5C','HG','2','2','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CIR','5C','IR','2','2','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CPHILO','5C','PHILO','2','2','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CEPS','5C','EPS','2','1','2425','1');
+-- 2025-06-23 23:47:08
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255CIC','5C','IC','1','1','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CMATH','7C','MATH','8','8','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DSN','7D','SN','7','8','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CPC','7C','PC','7','7','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DPC','7D','PC','7','7','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMFR','7LM','FR','6','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMAR','7LM','AR','6','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DSN','6D','SN','6','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOLEG','7LO','LEG','6','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOAR','7LO','AR','6','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DSN','5D','SN','5','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOAR','6LO','AR','5','6','2425','1');
+-- 2025-06-23 23:53:55
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DMATH','7D','MATH','5','6','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DPC','6D','PC','5','6','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOLEG','6LO','LEG','4','6','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASAR','1AS','AR','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASAR','2AS','AR','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASMATH','1AS','MATH','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASMATH','2AS','MATH','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASMATH','3AS','MATH','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASMATH','4AS','MATH','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMPHILO','7LM','PHILO','6','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMFR','5LM','FR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMFR','6LM','FR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMAR','5LM','AR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMAR','6LM','AR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASAR','3AS','AR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASAR','4AS','AR','5','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOFR','5LO','FR','4','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOAR','5LO','AR','4','5','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASFR','1AS','FR','5','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASFR','2AS','FR','5','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOLEG','5LO','LEG','5','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DMATH','6D','MATH','5','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DPC','5D','PC','5','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOPHILO','7LO','PHILO','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CSN','7C','SN','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOIR','7LO','IR','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMHG','5LM','HG','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMHG','6LM','HG','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMHG','7LM','HG','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DMATH','5D','MATH','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMPHILO','6LM','PHILO','4','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMEN','7LM','EN','3','4','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOPHILO','6LO','PHILO','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASIR','2AS','IR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASIR','3AS','IR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASIR','4AS','IR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOIR','5LO','IR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASFR','3AS','FR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASFR','4AS','FR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASIR','1AS','IR','4','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOIR','6LO','IR','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CFR','7C','FR','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DFR','5D','FR','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CAR','7C','AR','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DAR','5D','AR','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMEN','5LM','EN','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMEN','6LM','EN','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOHG','7LO','HG','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOPHILO','5LO','PHILO','3','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOHG','5LO','HG','2','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOHG','6LO','HG','2','3','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASSN','3AS','SN','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASSN','4AS','SN','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMMATH','5LM','MATH','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DFR','7D','FR','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DAR','7D','AR','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASHG','3AS','HG','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASHG','4AS','HG','3','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMSN','5LM','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMSN','6LM','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASSN','1AS','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASSN','2AS','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CIR','7C','IR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DIR','5D','IR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DIR','6D','IR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DIR','7D','IR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOSN','5LO','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DFR','6D','FR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOSN','7LO','SN','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMMATH','6LM','MATH','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMMATH','7LM','MATH','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOFR','6LO','FR','2','2','2425','1');
+-- 2025-06-23 23:53:56
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOFR','7LO','FR','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DAR','6D','AR','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASHG','1AS','HG','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASHG','2AS','HG','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOMATH','5LO','MATH','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOMATH','6LO','MATH','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DHG','5D','HG','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOMATH','7LO','MATH','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DHG','6D','HG','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMPC','5LM','PC','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMPC','6LM','PC','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASPC','3AS','PC','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CEN','7C','EN','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASPC','4AS','PC','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DEN','5D','EN','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DEN','6D','EN','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DEN','7D','EN','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOEN','5LO','EN','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOPC','5LO','PC','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMPHILO','5LM','PHILO','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMIR','5LM','IR','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DPHILO','5D','PHILO','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMIR','6LM','IR','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DPHILO','6D','PHILO','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMIR','7LM','IR','2','2','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257DEPS','7D','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOEPS','5LO','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOEPS','6LO','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LOEPS','7LO','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOSN','6LO','SN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASEN','1AS','EN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASEN','2AS','EN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASEN','3AS','EN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASEN','4AS','EN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOEN','6LO','EN','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMEPS','5LM','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMEPS','6LM','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257LMEPS','7LM','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOPC','6LO','PC','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASEPS','1AS','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASEPS','2AS','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASEPS','3AS','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASEPS','4AS','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24257CEPS','7C','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DEPS','5D','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DEPS','6D','EPS','2','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LMIC','5LM','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LMIC','6LM','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASIC','1AS','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24252ASIC','2AS','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24253ASIC','3AS','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24254ASIC','4AS','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255DIC','5D','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256DIC','6D','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24255LOIC','5LO','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24256LOIC','6LO','IC','1','1','2425','1');
+-- 2025-06-23 23:53:57
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A24251ASINFO','1AS','INFO','1','1','2425','1');
+-- 2025-06-24 16:00:22
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:21:38
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:32:50
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:33:29
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:35:17
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:35:34
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:37:21
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+delete from classe_matiere where codeClasseMatiere='A22235DPC'
+-- 2025-06-24 16:40:39
+insert into classe_matiere(codeClasseMatiere,codeClasse,codeMatiere,horaireClasseMatiere,coefficientClasseMatiere,codeAnnee,statutClasseMatiere) values('A22235DPC','5D','PC','2','2','2223','1');
+-- 2025-06-25 13:38:23
+update examen set codeExamen='A24255D1PC5DC1',codeClasseMatiere='A24255DSN',codeSalleClasse='A24255D1',codeEvaluation='C1',
+        dateExamen='2024-12-26',statutExamen='0',heureDebutExamen='08:00:00',heureFinExamen='10:00:00' where codeExamen='A24255D1PC5DC1';
+-- 2025-06-25 13:38:43
+update examen set codeExamen='A24255D1PC5DC1',codeClasseMatiere='A24255DSN',codeSalleClasse='A24255D1',codeEvaluation='C1',
+        dateExamen='2024-12-26',statutExamen='1',heureDebutExamen='08:00:00',heureFinExamen='10:00:00' where codeExamen='A24255D1PC5DC1';
+-- 2025-06-25 13:40:49
+update examen set codeExamen='A24255D1PC5DC1',codeClasseMatiere='A24255DSN',codeSalleClasse='A24255D1',codeEvaluation='C1',
+        dateExamen='2024-12-26',statutExamen='0',heureDebutExamen='08:00:00',heureFinExamen='10:00:00' where codeExamen='A24255D1PC5DC1';
+-- 2025-06-25 13:41:04
+update examen set codeExamen='A24255D1PC5DC1',codeClasseMatiere='A24255DSN',codeSalleClasse='A24255D1',codeEvaluation='C1',
+        dateExamen='2024-12-26',statutExamen='1',heureDebutExamen='08:00:00',heureFinExamen='10:00:00' where codeExamen='A24255D1PC5DC1';
+delete from note where codeExamen='A24255D1MATH5DC1' 
+-- 2025-06-25 14:27:47
+update examen set codeExamen='A24255D1PC5DC1',codeClasseMatiere='A24255DSN',codeSalleClasse='A24255D1',codeEvaluation='C1',
+        dateExamen='2024-12-26',statutExamen='1',heureDebutExamen='08:00:00',heureFinExamen='10:00:00',trimestreExamen='2' where codeExamen='A24255D1PC5DC1';
