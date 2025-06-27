@@ -27,7 +27,7 @@ class ExamenRepository extends Repository
        return $result;
    }
    public function findAllByClasseAndMatiere($classe,$matiere): array{
-       $sql = "select * from examen_view where codeSalleClasse='$classe' and codeMatiere='$matiere'";
+       $sql = "select * from examen_view where codeSalleClasse='$classe' and codeMatiere='$matiere' order by typeEvaluation desc,indiceEvaluation asc";
        $result = $this->db->selectAll($sql, stdClass::class);
        return $result;
    }
@@ -53,20 +53,15 @@ class ExamenRepository extends Repository
         return $result;
     }
 
-    public function update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen): bool{
-        $sql = 'update examen set codeExamen=:newCodeExamen,codeClasseMatiere=:codeClasseMatiere,codeSalleClasse=:codeSalleClasse,codeEvaluation=:codeEvaluation,
-        dateExamen=:dateExamen,statutExamen=:statutExamen,heureDebutExamen=:heureDebutExamen,heureFinExamen=:heureFinExamen,trimestreExamen=:trimestreExamen where codeExamen=:oldCode';
+    public function update($oldCode, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen): bool{
+        $sql = 'update examen set dateExamen=:dateExamen,heureDebutExamen=:heureDebutExamen,heureFinExamen=:heureFinExamen,statutExamen=:statutExamen,trimestreExamen=:trimestreExamen where codeExamen=:oldCode';
         $result = $this->db->prepare($sql)->execute([
-            'newCodeExamen' => $newCodeExamen,
-            'codeClasseMatiere' => $codeClasseMatiere,
-            'codeSalleClasse' => $codeSalleClasse,
-            'codeEvaluation' => $codeEvaluation,
+            'oldCode' => $oldCode,
             'dateExamen' => $dateExamen,
-            'statutExamen' => $statutExamen,
             'heureDebutExamen' => $heureDebutExamen,
             'heureFinExamen' => $heureFinExamen,
+            'statutExamen' => $statutExamen,
             'trimestreExamen' => $trimestreExamen,
-            'oldCode' => $oldCode,
         ]);
         return $result;
     }

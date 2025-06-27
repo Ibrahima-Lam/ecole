@@ -8,20 +8,16 @@ use App\Controllers\src\WebController;
 use App\Models\Repositories\AnneeScolaireRepository;
 use App\Models\Repositories\SalleRepository;
 use App\Models\Repositories\ClasseRepository;
+use App\Services\src\AnneeScolaireService;
 use Core\Caches\Session;
 
 class salleClasseController extends WebController
 {
-    private $annee;
 
-    public function __construct()
+    public function __construct(private AnneeScolaireService $anneeScolaireService)
     {
-        $session = new Session();
-        $this->annee = $session->get("anneescolaire");
-        if (!$this->annee) {
-            $this->annee = (new AnneeScolaireRepository())->findLastAnneeScolaire()->codeAnnee;
-            $session->set("anneescolaire", $this->annee);
-        }
+        parent::__construct();
+       
     }
 
     private function subsidebar(?string $code, int $active = 1): string
@@ -47,6 +43,8 @@ class salleClasseController extends WebController
             $html .= "<li><a href='?p=examen/classe/$code'class='$class'>".__("Les Examens")."</a></li>";
             $class = $active == 6 ? "active" : "";
             $html .= "<li><a href='?p=salleclasse/releves/$code'class='$class'>".__("Les Relevés")."</a></li>";
+            $class = $active == 7 ? "active" : "";
+            $html .= "<li><a href='?p=salleclasse/matiere/$code'class='$class'>".__("Les Matieres")."</a></li>";
             $html .= "<li>
             <a href='#'>".__("Resultat")." </a>&nbsp;
             <a href='?p=pdf/salleclasse/resultat1/$code' target='_blank'>C1</a>
@@ -65,7 +63,7 @@ class salleClasseController extends WebController
             $html .= "<a href='?p=pdf/salleclasse/minibulletin2/$code' target='_blank'>C2</a>";
             $html .= "<a href='?p=pdf/salleclasse/minibulletin3/$code' target='_blank'>C3</a>";
             $html .= "</li>";
-            $class = $active == 7 ? "active" : "";
+            $class = $active == 8 ? "active" : "";
             $html .= "<li><a href='#' class='$class'>".__("Statistiques")." </a>&nbsp;
             <a href='?p=salleclasse/statistique/$code/C1' >C1</a>
             <a href='?p=salleclasse/statistique/$code/C2' >C2</a>
@@ -83,9 +81,9 @@ class salleClasseController extends WebController
     public function liste(): void
     {
         $model = new SalleClasseRepository();
-    $data = $model->findAll($this->annee);
+    $data = $model->findAll($this->anneeScolaireService->getCodeAnnee());
     $anneeScolaire = new AnneeScolaireRepository();
-    $annee = $anneeScolaire->findOneByCodeAnnee($this->annee);
+    $annee = $anneeScolaire->findOneByCodeAnnee($this->anneeScolaireService->getCodeAnnee());
     $classe = new ClasseRepository();
         $classes=$classe->findAll();
     $salleRip= new SalleRepository();
@@ -104,13 +102,21 @@ class salleClasseController extends WebController
         $model = new ClasseMatiereRepository();
         $salleClasse = new SalleClasseRepository();
         $salleClasse = $salleClasse->findOneByCode($code);
-        $matieres=$model->findByClasse($salleClasse->codeClasse);
+        $matieres=$model->findAllByClasseAndAnnee($salleClasse->codeClasse,$this->anneeScolaireService->getCodeAnnee());
         $this->render("salleclasse/releves", ["matieres" => $matieres,'salleclasse'=>$salleClasse,'subsidebar'=>$this->subsidebar($code,6)]);
+    }
+     public function matiere($code): void
+    {
+        $model = new ClasseMatiereRepository();
+        $salleClasse = new SalleClasseRepository();
+        $salleClasse = $salleClasse->findOneByCode($code);
+        $matieres=$model->findAllByClasseAndAnnee($salleClasse->codeClasse,$this->anneeScolaireService->getCodeAnnee());
+        $this->render("salleclasse/matiere", ["matieres" => $matieres,'salleclasse'=>$salleClasse,'subsidebar'=>$this->subsidebar($code,7)]);
     }
     public function statistique($code,$typeBulletin): void
     {
         $salleClasse = new SalleClasseRepository();
         $salleClasse = $salleClasse->findOneByCode($code);
-        $this->render("salleclasse/statistique", ["typeBulletin" => $typeBulletin,'salleclasse'=>$salleClasse,'code'=>$code,'subsidebar'=>$this->subsidebar($code,7)]);
+        $this->render("salleclasse/statistique", ["typeBulletin" => $typeBulletin,'salleclasse'=>$salleClasse,'code'=>$code,'subsidebar'=>$this->subsidebar($code,active: 8)]);
     }
 }

@@ -4,6 +4,15 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+.width-100px,.table td .width-100px,.table th .width-100px{
+    width: 100px;
+}
+.width-50px,.table td .width-50px,.table th .width-50px{
+    width: 50px;
+}
+.p5,.table td .p5,.table th .p5{
+    padding: 5px;
+}
 
 canvas {
     border: 1px solid #ccc;
@@ -565,6 +574,11 @@ td .btn {
     color: white;
 }
 
+.dark .btn{
+    
+    color: white;
+}
+
 .spinner{
     position: fixed;
     top: 50%;
@@ -798,6 +812,9 @@ td .btn {
     font-weight: bold;
     color: black;
 }
+.dark .form-group label{
+    color: white;
+}
 
 .form-group input,
 .form-group select,
@@ -816,6 +833,36 @@ td .btn {
 .field {
     width: 200px;
   
+}
+.field-animated{
+    animation: fieldAnimated 0.5s ease-in-out;
+}
+
+@keyframes fieldAnimated {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.popover{
+    position: absolute;
+    top: 100px;
+    left: 85%;
+    width: 200px;
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+    z-index: 5;
+}
+.relative{
+    position: relative;
 }
 
 .width-300 {
@@ -886,7 +933,7 @@ td .field {
     min-width: 300px;
     min-height: 300px;
     background-color: ghostwhite;
-    position: absolute;
+    position: fixed;
     top: 5vh;
     left: calc(50% - 150px);
     transition: top 0.5s 0.5s;
@@ -913,6 +960,9 @@ td .field {
     padding: 5px;
     background-color: whitesmoke;
     box-shadow: 0 0 2px gray;
+}
+.dark .dialog{
+    color: black;
 }
 
 .dialog-body {

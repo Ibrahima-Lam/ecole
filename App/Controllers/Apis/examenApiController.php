@@ -80,6 +80,7 @@ class ExamenApiController extends ApiController
             <td>".$b->codeEvaluation."</td>
             <td>".$b->dateExamen."</td>
             <td>"._($b->statutExamen==1?"Ouvert":"Fermer")."</td>
+            <td>".$b->trimestreExamen."</td>
             <td>";
             $new .= "<div class='center'>";
             $new .= "<a href='?p=examen/details/".$b->codeExamen."'><i class='fa fa-list'></i></a>";
@@ -123,14 +124,14 @@ class ExamenApiController extends ApiController
         try {
             
             extract($_REQUEST);
-            $codeExamen=$codeSalleClasse.$codeClasseMatiere.$codeEvaluation;
+            $codeExamen="{$codeSalleClasse}0{$codeClasseMatiere}0{$codeEvaluation}";
             $res = $this->examenRepository->insert($codeExamen,$codeClasseMatiere,$codeSalleClasse,$codeEvaluation,$dateExamen,$heureDebutExamen,$heureFinExamen,$statutExamen,$trimestreExamen);
             if ($res) {
                 $data=$this->examenRepository->findOne($codeExamen);
                 $this->response([
                     "data" => $data,
                     'response' => "ok",
-                    'message' => __("L'examens a ete ajoutee"),
+                    'message' => __("L'examen a été ajouté"),
                     'status' => 1
                 ]);
             }else{
@@ -154,20 +155,19 @@ class ExamenApiController extends ApiController
     public function update($oldCode){
         try {
             extract($_REQUEST);
-            $newCodeExamen=$codeExamen;
-            $res = $this->examenRepository->update($oldCode,$newCodeExamen, $codeClasseMatiere, $codeSalleClasse, $codeEvaluation, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen);
+            $res = $this->examenRepository->update($oldCode, $dateExamen, $heureDebutExamen, $heureFinExamen, $statutExamen,$trimestreExamen);
             if ($res) {
-                $data=$this->examenRepository->findOne($newCodeExamen);
+                $data=$this->examenRepository->findOne($oldCode);
                 $this->response([
                     "data" => $data,
                     'response' => "ok",
-                    'message' => "L'examens a ete modifiee",
+                    'message' => __("L'examen a été modifié"),
                     'status' => 1
                 ]);
             }else{
                 $this->response([
                     'response' => "error",
-                    'message' => "L'examens n'a pas ete modifiee",
+                    'message' => __("L'examens n'a pas été modifié"),
                     'status' => 0
                 ]);
             }
@@ -187,13 +187,13 @@ class ExamenApiController extends ApiController
             if ($res) {
                 $this->response([
                     'response' => "ok",
-                    'message' => "L'examens a ete supprimee",
+                    'message' => __("L'examens a été supprimé"),
                     'status' => 1
                 ]);
             }else{
                 $this->response([
                     'response' => "error",
-                    'message' => "L'examens n'a pas ete supprimee",
+                    'message' => __("L'examens n'a pas été supprimé"),
                     'status' => 0
                 ]);
             }
@@ -238,16 +238,17 @@ class ExamenApiController extends ApiController
             return $matiere;
         }, $matieres);
         $matiereHtml=htmlService::options($matieres, 'codeClasseMatiere', 'libelleMatiere', $examen->codeClasseMatiere ?? null,[],!empty($mt));
+     
         $evaluations=$evaluationRepository->findAll();
         $evaluationHtml=htmlService::options($evaluations, 'codeEvaluation', 'nomEvaluation', $examen->codeEvaluation ?? null);
         $statut=[
             [
                 'value' => 1,
-                'label' => 'ouvert'
+                'label' =>__( 'ouvert')
             ],
             [
                 'value' => 0,
-                'label' => 'ferme'
+                'label' =>__( 'fermé')
             ],
         ];
         $statutHtml=htmlService::options($statut,'value','label', $examen->statutExamen ?? null);
@@ -268,8 +269,8 @@ class ExamenApiController extends ApiController
         $trimestreHtml=htmlService::options($trimestre,'value','label', $examen->trimestreExamen ?? 1);
         $html='<form action="" class="form">
             <input type="hidden" name="edit" value="'.$code.'">
-            <input type="hidden" name="codeExamen" value="'.$code.'">
-            <div class="form-group">
+            <input type="hidden" name="codeExamen" value="'.$code.'">';
+            $html.=!$code?'<div class="form-group">
                 <label for="codeSalleClasse">Classe</label>
                 <select name="codeSalleClasse" id="codeSalleClasse">
                     '.$classeHtml.'
@@ -286,8 +287,8 @@ class ExamenApiController extends ApiController
                 <select name="codeEvaluation" id="codeEvaluation">
                     '.$evaluationHtml.'
                 </select>
-            </div>
-             <div class="form-group">
+            </div>':'';
+           $html.=' <div class="form-group">
                 <label for="dateExamen">Date</label>
                 <input type="date" name="dateExamen" id="dateExamen" value="'.($examen->dateExamen??'').'">
             </div>

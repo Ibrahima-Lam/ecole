@@ -59,6 +59,8 @@ $evaluations??=[];
                 </th>
                 <th><?=__("Statut")?>
                 </th>
+                <th><?=__("Trimestre")?>
+                </th>
                 <th><?=__("Actions")?>
                 </th>   
             </tr>
@@ -74,6 +76,7 @@ $evaluations??=[];
                     <td><?= htmlspecialchars($examen->nomEvaluation) ?></td>
                     <td><?= htmlspecialchars($examen->dateExamen) ?></td>
                     <td><?= htmlspecialchars(_($examen->statutExamen==1?"Ouvert":"Fermer")) ?></td>
+                    <td><?= htmlspecialchars($examen->trimestreExamen) ?></td>
                     <td>
                         <div class="center">
                         <a href="?p=examen/details/<?= htmlspecialchars($examen->codeExamen) ?>"><i class="fa fa-list text-info"></i></a>

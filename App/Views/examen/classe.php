@@ -46,7 +46,7 @@ $classe ??= null;
                                             href="?p=note/formulaire/<?= $examen->codeExamen ?>"><i class="fa fa-file"></i></a>
                                         <a class="addnote" title="<?=__("Ajouter une note")?>" data-code="<?= $examen->codeExamen ?>"><i
                                                 class="fa fa-plus text-success"></i></a>
-                                        <a class="addnote" title="<?=__("Ajouter plusieurs notes")?>"
+                                        <a  title="<?=__("Ajouter plusieurs notes")?>"
                                             href="?p=note/addAll/<?= $examen->codeExamen ?>"><i
                                                 class="fa fa-layer-group text-success"></i></a>
                                         <a class="edit" title="<?=__("Editer")?>" data-code="<?= $examen->codeExamen ?>"><i
@@ -70,7 +70,7 @@ $classe ??= null;
             <i class="fa fa-plus"></i>
         </button>
         <a id="paramettre" title="ajouter plusieurs examens" class="btn btn-primary circle"
-            href="?p=examen/forms/<?= $classe->codeSalleClasse ?>"><i class="fa fa-briefcase"></i></a>
+            href="?p=examen/forms/<?= $classe->codeSalleClasse ?>"><i class="fa fa-sticky-note"></i></a>
     <?php endif ?>
 </div>
 

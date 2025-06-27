@@ -357,18 +357,18 @@ create table evaluation(
     typeEvaluation enum('composition','devoir') not null
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir1','1er devoir',1,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir2','2eme devoir',2,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir3','3eme devoir',3,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir4','4eme devoir',4,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir5','5eme devoir',5,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('devoir6','6eme devoir',6,1,'devoir');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos1','1er composition',1,1,'composition');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos2','2eme composition',2,2,'composition');
-insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('compos3','3eme composition',3,3,'composition');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D1','1er devoir',1,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D2','2eme devoir',2,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D3','3eme devoir',3,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D4','4eme devoir',4,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D5','5eme devoir',5,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('D6','6eme devoir',6,1,'devoir');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('C1','1er composition',1,1,'composition');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('C2','2eme composition',2,2,'composition');
+insert into evaluation (codeEvaluation,nomEvaluation,indiceEvaluation,coefficientEvaluation,typeEvaluation) values('C3','3eme composition',3,3,'composition');
 
 create table examen(
-    codeExamen varchar(20) not null,
+    codeExamen varchar(40) not null,
     codeClasseMatiere varchar(20) not null,
     codeSalleClasse varchar(10) not null,
     codeEvaluation varchar(10) not null,
@@ -382,7 +382,11 @@ create table examen(
     Constraint salle_classe_examen_classe_fkey Foreign Key (codeClasseMatiere) References classe_matiere(codeClasseMatiere),
     Constraint salle_classe_examen_examen_fkey Foreign Key (codeEvaluation) References evaluation(codeEvaluation)
 );
-alter table examen  modify column codeExamen varchar(20) not null ;
+
+
+alter table examen  modify column codeExamen varchar(40) not null ;
+alter table note  modify column codeExamen varchar(40) not null ;
+
 alter table examen  modify column dateExamen date ;
 alter table examen  modify column heureDebutExamen time ;
 alter table examen  modify column heureFinExamen time ;
@@ -414,7 +418,7 @@ create view examen_view as select
 create table note(
     idNote int(10) AUTO_INCREMENT,
     matricule varchar(10) not null,
-    codeExamen varchar(20) not null,
+    codeExamen varchar(40) not null,
     note float(4,2) not null,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

@@ -220,15 +220,17 @@ public function setInterroParams($interro_params){
         $notes=$this->notes[$codeMatiere]??[];
       
         if(empty($notes))return 0;
-        $examens=array_filter($this->examens[$codeMatiere],fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=2);
+        $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=2&&$exam->trimestreExamen==1;
+        $examens=array_filter($this->examens[$codeMatiere],$callBack);
        
-        $notes=array_map(function ($note) {
-            if($note->typeEvaluation!='devoir'||$note->statutExamen==0)return 0;
+        $notes=array_map(function ($note)use ($callBack) {
+            if(!$callBack($note))return 0;
             return $note->note;
         },$notes);
         sort($notes,SORT_NUMERIC);
         $notes=array_reverse($notes);
         $notes[]=0;
+        
         
         switch ($this->interro_params) {
             case self::INTERRO_MAX:
@@ -242,12 +244,12 @@ public function setInterroParams($interro_params){
     } 
     private function getInterogationMoyenne2($codeMatiere):float{
         $notes=$this->notes[$codeMatiere]??[];
-      
         if(empty($notes))return 0;
-        $examens=array_filter($this->examens[$codeMatiere],fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=4);
+        $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=4&&$exam->trimestreExamen<=2;
+        $examens=array_filter($this->examens[$codeMatiere],$callBack);
        
-        $notes=array_map(function ($note) {
-            if($note->typeEvaluation!='devoir'||$note->statutExamen==0)return 0;
+        $notes=array_map(function ($note)use ($callBack) {
+            if(!$callBack($note))return 0;
             return $note->note;
         },$notes);
         sort($notes,SORT_NUMERIC);

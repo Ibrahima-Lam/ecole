@@ -27,14 +27,17 @@ class NoteController extends WebController
     private $evaluationRepository;
     private $inscritRepository;
     private $examenRepository;
+    private $classeMatiereRepository;
     public function __construct(private AnneeScolaireService $anneeScolaireService)
     {
+        parent::__construct();
         $this->noteRepository = new NoteRepository();
         $this->salleClasseRepository = new SalleClasseRepository();
         $this->matiereRepository = new MatiereRepository();
         $this->evaluationRepository = new EvaluationRepository();
         $this->examenRepository = new ExamenRepository();
         $this->inscritRepository = new inscritRepository();
+        $this->classeMatiereRepository = new ClasseMatiereRepository();
     }
     public function liste()
     {
@@ -115,7 +118,109 @@ $writer->save('php://output');
     {
         $cols = array_map('strtoupper', range('a', 'z'));
         $rows = range(1, 100);
-        $this->render("note/formulaire", compact("cols", "rows", "codeExamen"));
+        $this->middleware('role')->render("note/formulaire", compact("cols", "rows", "codeExamen"));
+    }
+
+    public function matiere_file_form($codeSalleClasse,$codeMatiere)
+    {
+        $cols=array_map('strtoupper', range('a', 'z'));
+        $rows=range(1,200);
+        $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
+        $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+        $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+        $this->middleware('role')->render("note/matiere_file_form", compact("salleClasse","classeMatiere","codeSalleClasse","codeMatiere","examens","cols","rows"));
+    }
+
+
+    public function traitement_matiere_file($codeSalleClasse,$codeMatiere)
+    {
+        $numColonne = $_POST['numColonne'];
+        $noteColonne1 = $_POST['noteColonne1'];
+        $noteColonne2 = $_POST['noteColonne2'];
+        $premierLigne = $_POST['premierLigne'];
+        $dernierLigne = $_POST['dernierLigne'];
+        $spreadsheet = IOFactory::load($_FILES['fichier']['tmp_name']);
+        $worksheet = $spreadsheet->getActiveSheet();
+        $data = $worksheet->toArray();
+        $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
+      $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
+      $matieres = $this->matiereRepository->findAll();
+
+      $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+      $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+      $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+
+      $cols = array_map('strtoupper', range('a', 'z'));
+      $numColonne = array_search($numColonne, $cols);
+      $noteColonne1 = array_search($noteColonne1, $cols);
+      $noteColonne2 = array_search($noteColonne2, $cols);
+
+      $data=array_slice($data,$premierLigne-1, $dernierLigne-$premierLigne+1);
+
+     
+     $tab=[];
+     foreach ($data as $value) {
+        $num=$value[$numColonne];
+        $k=1;
+        for($i=$noteColonne1;$i<=$noteColonne2;$i++){
+            $tab[$num]["note$k"]=$value[$i];
+            $k++;
+        }
+     }
+     
+     $data=[];
+      foreach ($inscrits as $inscrit) {
+        $data[$inscrit->matricule]=[];
+        $key=1;
+        foreach ($examens as $examen) {
+            $data[$inscrit->matricule][$examen->codeExamen]['db_note']=null;
+            $data[$inscrit->matricule][$examen->codeExamen]['file_note']=null;
+            $data[$inscrit->matricule][$examen->codeExamen]['id']=null;
+            foreach ($notes as $note) {
+                if($note->matricule==$inscrit->matricule && $note->codeExamen==$examen->codeExamen){
+                    $data[$inscrit->matricule][$examen->codeExamen]['db_note']=$note->note;
+                    $data[$inscrit->matricule][$examen->codeExamen]['id']=$note->idNote;
+                }
+            }
+            $data[$inscrit->matricule][$examen->codeExamen]['file_note']=$tab[$inscrit->matricule]["note$key"]??$tab[$inscrit->numeroInscrit]["note$key"]??null;
+            $key++;
+           
+        }
+      }
+      $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+
+        $this->middleware('role')->render("note/matiere_forms", compact("salleClasse","classeMatiere","codeSalleClasse","codeMatiere","examens","inscrits","data","sallesClasse","matieres"));
+    }
+    public function matiere_forms($codeSalleClasse,$codeMatiere)
+    {
+        $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
+        $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+     
+     if(!$classeMatiere){
+       $this->responseError(__("Classe matiere non trouvee"));
+     }
+        $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
+        $matieres = $this->matiereRepository->findAll();
+      $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+      $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+      $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
+      $data=[];
+      foreach ($inscrits as $inscrit) {
+        $data[$inscrit->matricule]=[];
+        foreach ($examens as $examen) {
+            $data[$inscrit->matricule][$examen->codeExamen]['db_note']=null;
+            $data[$inscrit->matricule][$examen->codeExamen]['file_note']=null;
+            $data[$inscrit->matricule][$examen->codeExamen]['id']=null;
+            foreach ($notes as $note) {
+                if($note->matricule==$inscrit->matricule && $note->codeExamen==$examen->codeExamen){
+                    $data[$inscrit->matricule][$examen->codeExamen]['db_note']=$note->note;
+                    $data[$inscrit->matricule][$examen->codeExamen]['id']=$note->idNote;
+                }
+            }
+        }
+      }
+      
+        $this->middleware('role')->render("note/matiere_forms", compact("salleClasse","classeMatiere","codeSalleClasse","codeMatiere","examens","inscrits","data","sallesClasse","matieres"));
     }
 
     public function imported()
@@ -168,7 +273,7 @@ $writer->save('php://output');
         }
 
         $data = $tab;
-        $this->render("note/exported", compact("data", "codeExamen"));
+        $this->middleware('role')->render("note/exported", compact("data", "codeExamen"));
 
     }
      public function addAll($codeExamen)
@@ -205,7 +310,7 @@ $writer->save('php://output');
         }
 
         $data = $tab;
-        $this->render("note/addAll", compact("data", "codeExamen"));
+        $this->middleware('role')->render("note/addAll", compact("data", "codeExamen"));
 
     }
     
@@ -271,7 +376,7 @@ $writer->save('php://output');
         }
 
         $sheet->setCellValue('B2', 'Classe : ');
-        $sheet->setCellValue('C2',  $salleClasse->codeClasse . $salleClasse->indiceSalleClasse);
+        $sheet->setCellValue('C2',  $salleClasse->pseudoSalleClasse);
         $sheet->setCellValue('E2', 'Matière : ' );
         $sheet->setCellValue('F2', $matiere->nomMatiere );
         
@@ -295,7 +400,7 @@ $writer->save('php://output');
         }
         // Créer le fichier Excel
     $writer = new Xlsx($spreadsheet);
-    $filename = "Releve_{$salleClasse->codeClasse}{$salleClasse->indiceSalleClasse}_{$matiere->codeMatiere}.xlsx";
+    $filename = "Releve_{$salleClasse->pseudoSalleClasse}_{$matiere->codeMatiere}.xlsx";
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     header('Content-Disposition: attachment;filename="' . $filename . '"');
     header('Cache-Control: max-age=0');

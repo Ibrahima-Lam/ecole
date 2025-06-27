@@ -5,10 +5,10 @@ use App\Models\Repositories\ClasseMatiereRepository;
 use App\Controllers\src\pdfController;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
+use App\Services\src\AnneeScolaireService;
 use Src\Factories\NoteParamettreFactory;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\inscritRepository;
-use App\Models\Repositories\MatiereRepository;
 use App\Services\Providers\ClasseResultatProvider;
 use Src\Factories\ReleveParamettreFactory;
 
@@ -16,8 +16,7 @@ class NotePdfController extends pdfController
 {
     private NoteRepository $noteRepository;
     private ExamenRepository $examenRepository;
-
-    public function __construct()
+    public function __construct(private AnneeScolaireService $anneeScolaireService)
     {
         $this->noteRepository = new NoteRepository();
         $this->examenRepository = new ExamenRepository();
@@ -50,7 +49,7 @@ class NotePdfController extends pdfController
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
-        $matiere = $model2->findOneByClasseAndMatiere($salleClasse->codeClasse,$codeMatiere);
+        $matiere = $model2->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
         $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);

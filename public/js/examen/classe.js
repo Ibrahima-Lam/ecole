@@ -1,5 +1,6 @@
 
 import {fetchJson,fetchText} from '../src/fetch.js'
+import {NoteFormDialog} from '../note/note_module.js'
 
 const dialog=document.getElementById('dialog');
 const add=document.getElementById('add');
@@ -21,6 +22,17 @@ document.querySelectorAll(".edit").forEach(function (element) {
     element?.addEventListener("click", function (e) {
         let codeExamen = element.dataset.code;
         new FormDialog(dialog,{
+            codeExamen:codeExamen
+        });
+        dialog.showModal();
+    });
+});
+
+const addNote=document.querySelectorAll('.addnote')
+addNote.forEach(element => {
+    element?.addEventListener("click", function (e) {
+        let codeExamen = element.dataset.code;
+        new NoteFormDialog(dialog,{
             codeExamen:codeExamen
         });
         dialog.showModal();

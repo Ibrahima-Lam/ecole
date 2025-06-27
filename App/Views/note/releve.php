@@ -58,7 +58,9 @@ $title = __("Relevé de notes");
                         <td><?= $eleve->numeroInscrit ?></td>
                     <?php endif?>
                     <?php if($paramettre->nom):?>
-                        <td><?= $eleve->nom ?>
+                        <td>
+                            <a href="?p=eleve/profil/<?=$eleve->matricule?>"><?= $eleve->nom ?></a>
+                        
                     <?php if($paramettre->nom_isme):?>
                         <br>
                         <?= $eleve->isme ?>

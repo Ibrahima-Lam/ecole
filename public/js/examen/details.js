@@ -38,16 +38,19 @@ form?.addEventListener('submit',async function(e){
     window.location.reload();
 });
 
-const deleteNotes = document.querySelectorAll('.deleteNotes');
+const deleteNotes = document.querySelectorAll('.delete');
     deleteNotes.forEach(function(button) {
-        button?.addEventListener('click', function() {
-            NoteFormDialog.onDeleteAll(this.dataset.code);
+
+        button?.addEventListener('click', function(e) {
+            e.preventDefault();
+            NoteFormDialog.onDelete(this.dataset.id);
         });
     });
 
 const editNote = document.querySelectorAll('.edit');
     editNote.forEach(function(button) {
-        button?.addEventListener('click', function() {
+        button?.addEventListener('click', function(e) {
+            e.preventDefault();
             new NoteFormDialog(dialog,{
                 idNote: this.dataset.id
             });

@@ -74,11 +74,22 @@ class NoteRepository extends Repository
         return $result;
     }
 
-    public function update($id,$note):bool
+    public function updateNote($id,$note):bool
     {
         $sql = "update note set note=:note where idNote='$id' ";
         $result = $this->db->prepare($sql)->execute([
             "note" => $note
+        ]);
+        return $result;
+    } 
+    
+    public function update($id,$matricule,$codeExamen,$note):bool
+    {
+        $sql = "update note set note=:note,matricule=:matricule,codeExamen=:codeExamen where idNote='$id' ";
+        $result = $this->db->prepare($sql)->execute([
+            "note" => $note,
+            "matricule" => $matricule,
+            "codeExamen" => $codeExamen
         ]);
         return $result;
     }

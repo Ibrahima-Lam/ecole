@@ -40,9 +40,10 @@
         <thead>
             <tr>
                 <th><?=__("Matiere")?></th>
-                <th><?=__("Interrogations")?></th>
+                <th><?=__("I1")?></th>
+                <th><?=__("I2")?></th>
                 <th><?=__("MI")?></th>
-                <th><?=__("Composition")?></th>
+                <th><?=__("C1")?></th>
                 <th><?=__("MD")?></th>
                 <th><?=__("Coefficient")?></th>
                 <th><?=__("MD*Coeff")?></th>
@@ -62,6 +63,7 @@
                         
                      </td>
                     <td><?=$matiere->i1?->note?></td>
+                    <td><?=$matiere->i2?->note?></td>
                     <td><?=$matiere->mi?></td>
                     <td><?=$matiere->c1?->note?></td>
                     <td><?=$matiere->moyenne?></td>

@@ -5,10 +5,10 @@ use App\Services\factories\UserFactory;
 class UserService
 {
     public static function getUser(){
-        UserFactory::getUser();
+        return UserFactory::getUser();
     }
    public static function isAdmin(){
-    UserFactory::isAdmin();
+    return UserFactory::isAdmin();
    }
    public static function setUser($name, $password){
     UserFactory::setUser($name, $password);

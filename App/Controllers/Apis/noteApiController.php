@@ -141,7 +141,7 @@ class NoteApiController extends ApiController
             extract($_REQUEST);
             $note=str_replace(',', '.', $note);
             $note=str_replace(';', '.', $note);
-            $res = $this->noteRepository->update($id, $note);
+            $res =isset($force,$matricule,$codeExamen) ? $this->noteRepository->update($id, $matricule, $codeExamen, $note) : $this->noteRepository->updateNote($id, $note);
             if($res){
                 $data= $this->noteRepository->findOneById($id);
                 $this->response([

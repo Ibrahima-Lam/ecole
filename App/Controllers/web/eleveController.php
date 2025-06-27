@@ -217,7 +217,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
     }
     public function form(): void
     {
-        $this->render("eleve/form");
+        $this->middleware("role")->render("eleve/form");
     }
     public function traitement(): void
     {
@@ -235,7 +235,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $cols = range('a', 'z');
         $cols = array_map('strtoupper', $cols);
         $rows = range(1, 100);
-        $this->render("eleve/import", compact("cols", "rows"));
+        $this->middleware("role")->render("eleve/import", compact("cols", "rows"));
     }
     public function traitementExcel(): void
     {
@@ -318,7 +318,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
 
         $model = new SalleClasseRepository();
         $classes = $model->findAll($this->getCodeAnnee());
-        $this->render("eleve/inscrire", ["data" => $eleves, "classes" => $classes]);
+        $this->middleware("role")->render("eleve/inscrire", ["data" => $eleves, "classes" => $classes]);
 
     }
 
