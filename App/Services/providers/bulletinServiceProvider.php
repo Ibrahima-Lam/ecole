@@ -9,31 +9,10 @@ use App\Services\src\AnneeScolaireService;
 use Core\Services\Request;
 use stdClass;
 
-class bulletinServiceProvider 
+class bulletinServiceProvider extends InterrogationServiceProvider
 {
-   
     
-    private const COEFF_C1=1;
-    private const COEFF_C2=2;
-    private const COEFF_C3=3;
-    private const COEFF_INTERRO=3;
-    private const COEFF_TOTAL_C1=1;
-    private const COEFF_TOTAL_C2=6;
-    private const COEFF_TOTAL_C3=9;
-    public const INTERRO_MAX=1;
-    public const INTERRO_SOMME2=2;
-    public const INTERRO_SOMME3=3;
-    public const INTERRO_SOMME4=4;
-    public const INTERRO_SOMME5=5;
-    public const INTERRO_SOMME6=6;
-    public const INTERRO_SOMME=-1;
-
-    private int $interro_params=self::INTERRO_SOMME;
-    private $matricule;
-    public $eleve;
-    private $matieres;
-    private $examens=[];
-    private $notes=[];
+   
     private $bulletin3;
     private $bulletin2;
     private $bulletin1;
@@ -41,22 +20,20 @@ class bulletinServiceProvider
     protected $points_tab1=[];
     protected $points_tab2=[];
     protected $absences;
+
+    protected $matricule;
+    public $eleve;
     public function __construct(private AnneeScolaireService $anneeScolaireService,$matricule=null,$matieres=[]) {
     $this->matricule=$matricule;
     $this->matieres=$matieres;
-    
     if($matricule)$this->setData();
     }
-   
-public function setInterroParams($interro_params){
-    $this->interro_params=$interro_params;
-}
-
     public function setMatricule($matricule) {
         $this->matricule=$matricule;
         $this->setData();
     }
-   private function setData(){
+
+   protected function setData(){
     if($this->matricule){
         $ripos=new inscritRepository();
         $this->eleve=$ripos->findOneByMatriculeAndAnnee($this->matricule,$this->anneeScolaireService->getCodeAnnee());
@@ -93,21 +70,11 @@ public function setInterroParams($interro_params){
         foreach ($this->matieres as $key => $matiere) {
             $element=new stdClass();
             $element->matiere=$matiere;
-            $element->i1=$this->notes[$matiere->codeMatiere]['D1']??null;
-            $element->i2=$this->notes[$matiere->codeMatiere]['D2']??null;
-            $element->i3=$this->notes[$matiere->codeMatiere]['D3']??null;
-            $element->i4=$this->notes[$matiere->codeMatiere]['D4']??null;
-            $element->i5=$this->notes[$matiere->codeMatiere]['D5']??null;
-            $element->i6=$this->notes[$matiere->codeMatiere]['D6']??null;
-
-            $element->c1=$this->notes[$matiere->codeMatiere]['C1']??null;
-            $element->c2=$this->notes[$matiere->codeMatiere]['C2']??null;
-            $element->c3=$this->notes[$matiere->codeMatiere]['C3']??null;
-            $element->mi=$this->getInterogationMoyenne1($matiere->codeMatiere);
+            $element=$this->constructElement($element,$matiere->codeMatiere);
+            $element->mi=$this->getInterogationMoyenne1($matiere->codeMatiere,$matiere->codeMatiere);
            
             $element->miX3=$element->mi*self::COEFF_INTERRO;
-            $element->total=($element->c1?->note??0)*self::COEFF_C1;
-            $element->moyenne=$element->total/self::COEFF_TOTAL_C1;
+            [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C1_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
@@ -135,21 +102,11 @@ public function setInterroParams($interro_params){
         foreach ($this->matieres as $key => $matiere) {
             $element=new stdClass();
             $element->matiere=$matiere;
-            $element->i1=$this->notes[$matiere->codeMatiere]['D1']??null;
-            $element->i2=$this->notes[$matiere->codeMatiere]['D2']??null;
-            $element->i3=$this->notes[$matiere->codeMatiere]['D3']??null;
-            $element->i4=$this->notes[$matiere->codeMatiere]['D4']??null;
-            $element->i5=$this->notes[$matiere->codeMatiere]['D5']??null;
-            $element->i6=$this->notes[$matiere->codeMatiere]['D6']??null;
-
-            $element->c1=$this->notes[$matiere->codeMatiere]['C1']??null;
-            $element->c2=$this->notes[$matiere->codeMatiere]['C2']??null;
-            $element->c3=$this->notes[$matiere->codeMatiere]['C3']??null;
-            $element->mi=$this->getInterogationMoyenne2($matiere->codeMatiere);
+           $element=$this->constructElement($element,$matiere->codeMatiere);
+            $element->mi=$this->getInterogationMoyenne2($matiere->codeMatiere,$matiere->codeMatiere);
            
             $element->miX3=$element->mi*self::COEFF_INTERRO;
-            $element->total=($element->c1?->note??0)*self::COEFF_C1+($element->c2?->note??0)*self::COEFF_C2+$element->miX3;
-            $element->moyenne=$element->total/self::COEFF_TOTAL_C2;
+            [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C2_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
@@ -178,21 +135,11 @@ public function setInterroParams($interro_params){
         foreach ($this->matieres as $key => $matiere) {
             $element=new stdClass();
             $element->matiere=$matiere;
-            $element->i1=$this->notes[$matiere->codeMatiere]['D1']??null;
-            $element->i2=$this->notes[$matiere->codeMatiere]['D2']??null;
-            $element->i3=$this->notes[$matiere->codeMatiere]['D3']??null;
-            $element->i4=$this->notes[$matiere->codeMatiere]['D4']??null;
-            $element->i5=$this->notes[$matiere->codeMatiere]['D5']??null;
-            $element->i6=$this->notes[$matiere->codeMatiere]['D6']??null;
-
-            $element->c1=$this->notes[$matiere->codeMatiere]['C1']??null;
-            $element->c2=$this->notes[$matiere->codeMatiere]['C2']??null;
-            $element->c3=$this->notes[$matiere->codeMatiere]['C3']??null;
-            $element->mi=$this->getInterogationMoyenne3($matiere->codeMatiere);
+          $element=$this->constructElement($element,$matiere->codeMatiere);
+            $element->mi=$this->getInterogationMoyenne3($matiere->codeMatiere,$matiere->codeMatiere);
            
             $element->miX3=$element->mi*self::COEFF_INTERRO;
-            $element->total=($element->c1?->note??0)*self::COEFF_C1+($element->c2?->note??0)*self::COEFF_C2+($element->c3?->note??0)*self::COEFF_C3+$element->miX3;
-            $element->moyenne=$element->total/self::COEFF_TOTAL_C3;
+            [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C3_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
@@ -216,93 +163,7 @@ public function setInterroParams($interro_params){
 
 
   
-    private function getInterogationMoyenne1($codeMatiere):float{
-        $notes=$this->notes[$codeMatiere]??[];
-      
-        if(empty($notes))return 0;
-        $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=2&&$exam->trimestreExamen==1;
-        $examens=array_filter($this->examens[$codeMatiere],$callBack);
-       
-        $notes=array_map(function ($note)use ($callBack) {
-            if(!$callBack($note))return 0;
-            return $note->note;
-        },$notes);
-        sort($notes,SORT_NUMERIC);
-        $notes=array_reverse($notes);
-        $notes[]=0;
-        
-        
-        switch ($this->interro_params) {
-            case self::INTERRO_MAX:
-                return max($notes);
-            case self::INTERRO_SOMME2:
-                $notes=array_slice($notes,0,2);
-                return array_sum($notes)/2;
-            default:
-                return array_sum($notes)/(count($examens)?:1);
-        }
-    } 
-    private function getInterogationMoyenne2($codeMatiere):float{
-        $notes=$this->notes[$codeMatiere]??[];
-        if(empty($notes))return 0;
-        $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=4&&$exam->trimestreExamen<=2;
-        $examens=array_filter($this->examens[$codeMatiere],$callBack);
-       
-        $notes=array_map(function ($note)use ($callBack) {
-            if(!$callBack($note))return 0;
-            return $note->note;
-        },$notes);
-        sort($notes,SORT_NUMERIC);
-        $notes=array_reverse($notes);
-        $notes[]=0;
-        
-        switch ($this->interro_params) {
-            case self::INTERRO_MAX:
-                return max($notes);
-            case self::INTERRO_SOMME2:
-                $notes=array_slice($notes,0,2);
-                return array_sum($notes)/2;
-            default:
-                return array_sum($notes)/(count($examens)?:1);
-        }
-    } 
-    private function getInterogationMoyenne3($codeMatiere):float{
-        $notes=$this->notes[$codeMatiere]??[];
-      
-        if(empty($notes))return 0;
-        $examens=array_filter($this->examens[$codeMatiere],fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0);
-       
-        $notes=array_map(function ($note) {
-            if($note->typeEvaluation!='devoir'||$note->statutExamen==0)return 0;
-            return $note->note;
-        },$notes);
-        sort($notes,SORT_NUMERIC);
-        $notes=array_reverse($notes);
-        $notes[]=0;
-      
-        
-        switch ($this->interro_params) {
-            case self::INTERRO_MAX:
-                return max($notes);
-            case self::INTERRO_SOMME2:
-                $notes=array_slice($notes,0,2);
-                return array_sum($notes)/2;
-            case self::INTERRO_SOMME3:
-                $notes=array_slice($notes,0,3);
-                return array_sum($notes)/3;
-            case self::INTERRO_SOMME4:
-                $notes=array_slice($notes,0,4);
-                return array_sum($notes)/4;
-            case self::INTERRO_SOMME5:
-                $notes=array_slice($notes,0,5);
-                return array_sum($notes)/5;
-            case self::INTERRO_SOMME6:
-                $notes=array_slice($notes,0,6);
-                return array_sum($notes)/6;
-            default:
-                return array_sum($notes)/(count($examens)?:1);
-        }
-    }
+ 
    
 
 }

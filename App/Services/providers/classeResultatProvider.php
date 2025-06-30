@@ -1,107 +1,197 @@
 <?php
 namespace App\Services\Providers;
 
+use App\Models\Repositories\ClasseMatiereRepository;
+use App\Models\Repositories\ExamenRepository;
+use App\Models\Repositories\inscritRepository;
+use App\Models\Repositories\NoteRepository;
+use App\Models\Repositories\SalleClasseRepository;
 use stdClass;
 
-class ClasseResultatProvider
+class ClasseResultatProvider extends InterrogationServiceProvider
 {
-    private const COEFF_INTERRO=3;
-    private const COEFF_C1=1;
-    private const COEFF_C2=2;
-    private const COEFF_C3=3;
-    private const COEFF_TOTAL=9;
     public $eleves=[];
     public $matiere;
-    public $notes=[];
-    public $examens=[];
-
-    private $interrogations=[];
-    private $codeInterros=[];
-
+    
     private $statistiques;
-    public function __construct($matiere,$eleves,$notes,$examens)
+    private $md_statistique;
+    private $mi_statistique;
+    private $i1_statistique;
+    private $i2_statistique;
+    private $i3_statistique;
+    private $i4_statistique;
+    private $i5_statistique;
+    private $i6_statistique;
+    private $c1_statistique;
+    private $c2_statistique;
+    private $c3_statistique;
+    private $codeSalleClasse;
+    private $codeAnnee;
+    private $codeMatiere;
+    private $type;
+    private $salleClasse;
+    public function __construct($codeSalleClasse,$codeMatiere,$codeAnnee,$type=self::C3_TYPE)
     {
-        $this->matiere=$matiere;
-        $this->eleves=$eleves;
-        $this->notes=$notes;
-        $this->examens=$examens;
-        $this->statistiques=new stdClass();
-        $this->interrogations=array_filter($examens,function ($exam) {
-            return $exam->typeEvaluation == 'devoir'&&$exam->statutExamen!=0;
-        });
-        $this->codeInterros=array_map(function ($exam) {
-            return $exam->codeEvaluation;
-        }, $this->interrogations);
+        $this->codeSalleClasse=$codeSalleClasse;
+        $this->codeAnnee=$codeAnnee;
+        $this->type=$type;     
+        $this->codeMatiere=$codeMatiere; 
+        $this->statistiques=new StatistiqueService(); 
+        $this->md_statistique=new stdClass();
+        $this->mi_statistique=new stdClass();
+        $this->i1_statistique=new stdClass();
+        $this->i2_statistique=new stdClass();
+        $this->i3_statistique=new stdClass();
+        $this->i4_statistique=new stdClass();
+        $this->i5_statistique=new stdClass();
+        $this->i6_statistique=new stdClass();
+        $this->c1_statistique=new stdClass();
+        $this->c2_statistique=new stdClass();
+        $this->c3_statistique=new stdClass();
+        $this->setData();
+    }
+
+    public function setType($type){
+        $this->type=$type;
+    }
+
+    protected function setData(){
+        $ripos=new inscritRepository();
+        $this->eleves=$ripos->findAllByClasse($this->codeSalleClasse);
+        if(!$this->eleves)return;
+        $ripos1=new SalleClasseRepository();
+        $this->salleClasse=$ripos1->findOneByCode($this->codeSalleClasse);
+        $ripos2= new ClasseMatiereRepository();
+      $this->matiere=$ripos2->findOneByClasseAndMatiereAndAnnee($this->salleClasse->codeClasse,$this->codeMatiere,$this->codeAnnee);
+      if(!$this->matiere) die("matiere non trouvée");
+      $this->matieres[$this->matiere->codeMatiere]=$this->matiere;
+        $ripos3=new ExamenRepository();
+        $this->examens[$this->matiere->codeMatiere]=$ripos3->findAllByClasseAndMatiere($this->codeSalleClasse,$this->matiere->codeMatiere);
+        $ripos4=new NoteRepository();
+        $notes=$ripos4->findAllByClasseAndMatiere($this->codeSalleClasse,$this->matiere->codeMatiere);
+        foreach ($this->eleves as  $eleve) {
+            foreach ($this->examens[$this->matiere->codeMatiere] as $examen) {
+               foreach ($notes as $note) {
+                   if($note->codeExamen==$examen->codeExamen&&$eleve->matricule==$note->matricule){
+                       $this->notes[$eleve->matricule][$examen->codeEvaluation]=$note;
+                       unset($note);
+                       continue;
+                   }
+               }
+            }
+        }
+       
     }
     public function getClasseResultat()
     {
         $data=[];
        
         foreach($this->eleves as $eleve){
-            $eleve->matiere=$this->matiere;
-            $eleve->notes=[];
-            $notes=[];
-                foreach($this->notes as $note){
-                    if($note->matricule==$eleve->matricule && $note->codeMatiere==$this->matiere->codeMatiere){
-                        $eleve->notes[$note->codeEvaluation]=$note;
-                      if($note->statutExamen)  $notes[$note->codeEvaluation]=$note;
-                    }
-                
-            }
-            $eleve->moyenneInterro=$this->getMoyenneInterro($notes);
-            $eleve->total=(($eleve->notes['C1']?->note??0)*self::COEFF_C1+($eleve->notes['C2']?->note??0)*self::COEFF_C2+($eleve->notes['C3']?->note??0)*self::COEFF_C3+$eleve->moyenneInterro*self::COEFF_INTERRO);
-            $eleve->moyenne=$eleve->total/self::COEFF_TOTAL;
+          
+                 $eleve=$this->constructElement($eleve,$eleve->matricule);  
+             
+          
+            $eleve->mi=$this->type==self::C1_TYPE?$this->getInterogationMoyenne1($eleve->matricule,$this->matiere->codeMatiere):
+             ($this->type==self::C2_TYPE?$this->getInterogationMoyenne2($eleve->matricule,$this->matiere->codeMatiere):
+          $this->getInterogationMoyenne3($eleve->matricule,$this->matiere->codeMatiere));
+          $eleve->miX3=$eleve->mi*self::COEFF_INTERRO;
+          [$eleve->total,$eleve->moyenne]=$this->getTotalAndMoyenne($eleve,self::C3_TYPE);
             $eleve->coefficient=$this->matiere->coefficientClasseMatiere;
             $eleve->points=$eleve->moyenne*$eleve->coefficient;
-
-            $eleve->moyenneInterro=round($eleve->moyenneInterro,2);
+            $eleve->mi=round($eleve->mi,2);
+            $eleve->miX3=round($eleve->miX3,2);
             $eleve->points=round($eleve->points,2);
             $eleve->moyenne=round($eleve->moyenne,2);
             $eleve->total=round($eleve->total,2);
             $data[]=$eleve;
         }
-        $this->setStatistiques($data);
+       
+        $service=new StatistiqueService();
+        $service->process($data);
+        $this->statistiques = $service->statistiques;
+           
         return $data;
     }
 
     public function getStatistiques() {
+      
         return $this->statistiques;
     }
-
-    private function setStatistiques($data) {
-        $this->statistiques->i1=0;
-        $this->statistiques->i2=0;
-        $this->statistiques->i3=0;
-        $this->statistiques->i4=0;
-        $this->statistiques->admis=0;
-        $this->statistiques->nonAdmis=0;
-        foreach ($data as  $value) {
-            if ($value->moyenne<5) {
-                $this->statistiques->i1++;
-            } elseif ($value->moyenne<10) {
-                $this->statistiques->i2++;
-            }elseif ($value->moyenne<15) {
-                $this->statistiques->i3++;
-            }else{
-                $this->statistiques->i4++;
-            }
-        }
-        $this->statistiques->admis= $this->statistiques->i3+ $this->statistiques->i4;
-        $this->statistiques->nonAdmis= $this->statistiques->i1+ $this->statistiques->i2;
-    }
-    private function getMoyenneInterro($notes)
-    {
-        $moyenneInterro=0;
-        $total=count($this->codeInterros)?:1;
-        foreach($this->codeInterros as $code){
-            $moyenneInterro+=$notes[$code]?->note??0;
-        }
-        $moyenneInterro/=$total;
     
-        return $moyenneInterro;
-    }
+    
+   
 
 }
+
+class StatistiqueService
+{
+    public array $statistiques=[];
+    private array $fields = ['i1','i2','i3','i4','i5','i6','c1','c2','c3','mi', 'moyenne'];
+    private array $intervals = [];
+
+    public function __construct()
+    {
+       
+        $this->intervals = [
+            'note_egale_0' => fn($n) => $n == 0,
+            'note_entre_0_et_5' => fn($n) => $n > 0 && $n < 5,
+            'note_entre_5_et_10' => fn($n) => $n >= 5 && $n < 10,
+            'note_entre_10_et_15' => fn($n) => $n >= 10 && $n < 15,
+            'note_entre_15_et_20' => fn($n) => $n >= 15 && $n <= 20,
+            'note_inferieure_10' => fn($n) => $n < 10,
+            'note_superieure_ou_egale_10' => fn($n) => $n >= 10,
+            'max_note' => 20,
+            'min_note' => 0,
+        ];
+        foreach ($this->fields as $field) {
+            $this->statistiques[$field] = [];
+            foreach ($this->intervals as $key => $callback) {
+                $this->statistiques[$field][$key] = 0;
+            }
+        }
+
+        // Initialiser tous les compteurs à 0
+       
+    }
+  
+    
+    private function getNote($value, string $field): float
+    {
+       
+        $note = $value->$field ?? 0;
+        if (is_object($note)) {
+            return $note->note ?? 0;
+        }
+        return floatval($note);
+    }
+   
+    
+
+    public function process(array $data): void
+    {
+        $this->statistiques['total'] = count($data);
+$tab=$data; 
+        foreach ($data as $item) {
+            foreach ($this->fields as $field) {
+                $note = $this->getNote($item, $field);
+                foreach ($this->intervals as $key => $callback) {
+                    if($key=='max_note'){
+                        $this->statistiques[$field][$key] = max(array_map(fn($e)=>$this->getNote($e,$field),$tab));
+                        continue;
+                    }
+                   elseif($key=='min_note'){
+                    $this->statistiques[$field][$key] = min(array_map(fn($e)=>$this->getNote($e,$field),$tab));
+                        continue;
+                    }
+                   elseif($callback($note)) {
+                        $this->statistiques[$field][$key] += 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
                    
    
                   

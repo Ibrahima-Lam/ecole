@@ -21,7 +21,9 @@
         </td>
     </tr>
 </table>
-
+<?php
+$examens=$data->examens[$data->matiere->codeMatiere];
+?>
 <div class="table-container">
     <table class="table <?=$paramettre->striped?'table-striped':''?> <?=$paramettre->bordered?'table-bordered':''?>">
         <thead>
@@ -38,7 +40,7 @@
                 <?php if($paramettre->isme):?>
                     <th>Nom en Arabe</th>
                 <?php endif?>
-                <?php foreach ($data->examens as $examen) : ?>
+                <?php foreach ($examens as $examen) : ?>
                     <th><?= $examen->codeEvaluation ?></th>
                 <?php endforeach; ?>
                 <?php if($paramettre->moyenne_interro):?>
@@ -78,11 +80,11 @@
                     <?php if($paramettre->isme):?>
                         <td><?= $eleve->isme ?></td>
                     <?php endif?>
-                    <?php foreach ($data->examens as $examen) : ?>
-                        <td><?= $eleve->notes[$examen->codeEvaluation]->note??0 ?></td>
+                    <?php foreach ($examens as $examen) : ?>
+                        <td><?= $data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0 ?></td>
                     <?php endforeach; ?>
                     <?php if($paramettre->moyenne_interro):?>
-                        <td><?= $eleve->moyenneInterro??0 ?></td>
+                        <td><?= $eleve->mi??0 ?></td>
                     <?php endif?>
                     <?php if($paramettre->total):?>
                         <td><?= $eleve->total??0 ?></td>
@@ -104,31 +106,97 @@
 <br>
 <br>
 <?php if($paramettre->statistiques):?>
-    <h3 class="text-center my-10"><?=_("Total des Moyennes") ?></h3>
+    <pagebreak/>  
+    <?php
+    $statistiques=$data->getStatistiques();
+    ?>
+    <h3 class="text-center my-10"><?=_("Statistiques des Moyennes") ?></h3>
     <div class="table-container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th><?=__format('%s a %s',0,5) ?></th>
-                    <th><?=__format('%s a %s',5,10) ?></th>
-                    <th><?=__format('%s a %s',10,15) ?></th>
-                    <th><?=__format('%s a %s',15,20) ?></th>
-                    <th><?=_('Admis') ?></th>
-                    <th><?=_('Non Admis') ?></th>
-                </tr>
+    <?php
+$rows = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'c1', 'c2', 'c3', 'mi', 'moyenne'];
+$labels = [
+    'note_egale_0',
+    'note_entre_0_et_5',
+    'note_entre_5_et_10',
+    'note_entre_10_et_15',
+    'note_entre_15_et_20',
+    'note_superieure_ou_egale_10',
+    'note_inferieure_10',
+    'min_note',
+    'max_note',
+];
+?>
+
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>Indice</th>
+            <th>= 0</th>
+            <th>0–5</th>
+            <th>5–10</th>
+            <th>10–15</th>
+            <th>15–20</th>
+            <th>≥ 10</th>
+            <th>&lt; 10</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($rows as $row): ?>
+            <tr>
+                <td><?= strtoupper($row) ?></td>
+                <?php foreach ($labels as $key): ?>
+                    <td><?= $statistiques[$row][$key] ?? 0 ?></td>
+                <?php endforeach; ?>
+                <td><?= $statistiques['total'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php
+$labels = [
+    'note_egale_0',
+    'note_entre_0_et_5',
+    'note_entre_5_et_10',
+    'note_entre_10_et_15',
+    'note_entre_15_et_20',
+    'note_superieure_ou_egale_10',
+    'note_inferieure_10',
     
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?=$data->getStatistiques()->i1 ?></td>
-                    <td><?=$data->getStatistiques()->i2 ?></td>
-                    <td><?=$data->getStatistiques()->i3 ?></td>
-                    <td><?=$data->getStatistiques()->i4 ?></td>
-                    <td><?=$data->getStatistiques()->admis ?></td>
-                    <td><?=$data->getStatistiques()->nonAdmis ?></td>
-                </tr>
-            </tbody>
-        </table>
+];
+?>
+<br>
+<h3 class="title text-center"><?=__("En pourcentage")?>
+</h3>
+<br>
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>Indice</th>
+            <th>= 0</th>
+            <th>0–5</th>
+            <th>5–10</th>
+            <th>10–15</th>
+            <th>15–20</th>
+            <th>≥ 10</th>
+            <th>&lt; 10</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($rows as $row): ?>
+            <tr>
+                <td><?= strtoupper($row) ?></td>
+                <?php foreach ($labels as $key): ?>
+                    <td><?= round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2) ?>%</td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
     </div>
 <?php endif?>
 </body>

@@ -2,16 +2,37 @@
 $title = __("Relevé de notes");
 
 ?>
+<input type="hidden"id="codeSalleClasse" name="codeSalleClasse" value="<?= $codeSalleClasse ?>">
+<input type="hidden"id="codeMatiere" name="codeMatiere" value="<?= $codeMatiere ?>">
+
+<div class="space-between">
+    <p><?=__("La classe")?>
+    </p>
+    <select class="field width-100px" id="changeSalleClasse">
+        <?php foreach ($sallesClasse as $sc): ?>
+            <option value="<?= $sc->codeSalleClasse ?>" <?= $sc->codeSalleClasse == $codeSalleClasse ? 'selected' : '' ?>><?= $sc->pseudoSalleClasse ?></option>
+        <?php endforeach ?>
+    </select> 
+    <p>
+        <?=__("La matiere")?></p>
+    <select class="field width-100px" id="changeMatiere">
+        <?php foreach ($matieres as $matiere): ?>
+            <option value="<?= $matiere->codeMatiere ?>" <?= $matiere->codeMatiere == $codeMatiere ? 'selected' : '' ?>><?= $matiere->codeMatiere ?></option>
+        <?php endforeach ?>
+    </select>
+</div>
 <h2 class="text-center my-10"><?=__("Relevé de notes")?></h2>
 <div class="space-around my-10">
     <p>
-        <strong><?=__("Classe")?> :</strong> <?= $salleClasse->codeClasse. $salleClasse->indiceSalleClasse ?>
+        <strong><?=__("Classe")?> :</strong> <a class='link-default' href="?p=salleClasse/profil/<?= $codeSalleClasse ?>"><?= $salleClasse->pseudoSalleClasse ?></a>
     </p>
     <p>
         <strong><?=__("Matière")?> :</strong> <?= $data->matiere->nomMatiere ?>
     </p>
 </div>
-
+<?php
+$examens=$data->examens[$data->matiere->codeMatiere];
+?>
 <div class="table-container">
     <table class="table table-striped">
         <thead>
@@ -28,8 +49,8 @@ $title = __("Relevé de notes");
                 <?php if($paramettre->isme):?>
                     <th><?=__("Nom en Arabe")?></th>
                 <?php endif?>
-                <?php foreach ($data->examens as $examen) : ?>
-                    <th><?= $examen->codeEvaluation ?></th>
+                <?php foreach ($examens as $examen) : ?>
+                    <th><a href="?p=examen/details/<?= $examen->codeExamen ?>"><?= $examen->codeEvaluation ?></a></th>
                 <?php endforeach; ?>
                 <?php if($paramettre->moyenne_interro):?>
                     <th><?=__("MI")?></th>
@@ -70,23 +91,23 @@ $title = __("Relevé de notes");
                     <?php if($paramettre->isme):?>
                         <td><?= $eleve->isme ?></td>
                     <?php endif?>
-                    <?php foreach ($data->examens as $examen) : ?>
-                        <td class="<?=!$examen->statutExamen?"text-warning":""?>"><?= $eleve->notes[$examen->codeEvaluation]->note??0 ?></td>
+                    <?php foreach ($examens as $examen) : ?>
+                        <td title="<?= $examen->codeEvaluation ?>" data-codeExamen="<?= $examen?->codeExamen ?>" data-id="<?=$data->notes[$eleve->matricule][$examen->codeEvaluation]?->idNote??"" ?>" class="clickable td-note <?=!$examen->statutExamen?"text-warning":""?>"><?= $data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0 ?></td>
                     <?php endforeach; ?>
                     <?php if($paramettre?->moyenne_interro):?>
-                        <td><?= $eleve?->moyenneInterro??0 ?></td>
+                        <td title="MI"><?= $eleve?->mi??0 ?></td>
                     <?php endif?>
                     <?php if($paramettre?->total):?>
-                        <td><?= $eleve?->total??0 ?></td>
+                        <td title="Total"><?= $eleve?->total??0 ?></td>
                     <?php endif?>
                     <?php if($paramettre?->moyenne):?>
-                        <td><?= $eleve?->moyenne??0 ?></td>
+                        <td title="Moyenne"><?= $eleve?->moyenne??0 ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->coefficient):?>
-                        <td><?= $eleve?->coefficient??0 ?></td>
+                        <td title="Coefficient"><?= $eleve?->coefficient??0 ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->points):?>
-                        <td><?= $eleve?->points??0 ?></td>
+                        <td title="Points"><?= $eleve?->points??0 ?></td>
                     <?php endif?> 
                 </tr>
             <?php endforeach; ?>
@@ -96,31 +117,94 @@ $title = __("Relevé de notes");
 <br>
 <br>
 <?php if($paramettre->statistiques):?>
-    <h3 class="text-center my-10"><?=_("Total des Moyennes") ?></h3>
+    <?php
+    $statistiques=$data->getStatistiques();
+    ?>
+    <h3 class="text-center my-10"><?=_("Statistiques des Moyennes") ?></h3>
     <div class="table-container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th><?=__format('%s a %s',0,5) ?></th>
-                    <th><?=__format('%s a %s',5,10) ?></th>
-                    <th><?=__format('%s a %s',10,15) ?></th>
-                    <th><?=__format('%s a %s',15,20) ?></th>
-                    <th><?=_('Admis') ?></th>
-                    <th><?=_('Non Admis') ?></th>
-                </tr>
+    <?php
+$rows = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'c1', 'c2', 'c3', 'mi', 'moyenne'];
+$labels = [
+    'note_egale_0',
+    'note_entre_0_et_5',
+    'note_entre_5_et_10',
+    'note_entre_10_et_15',
+    'note_entre_15_et_20',
+    'note_superieure_ou_egale_10',
+    'note_inferieure_10',
+    'min_note',
+    'max_note',
+];
+?>
+
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>Indice</th>
+            <th>= 0</th>
+            <th>0–5</th>
+            <th>5–10</th>
+            <th>10–15</th>
+            <th>15–20</th>
+            <th>≥ 10</th>
+            <th>&lt; 10</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($rows as $row): ?>
+            <tr>
+                <td><?= strtoupper($row) ?></td>
+                <?php foreach ($labels as $key): ?>
+                    <td><?= $statistiques[$row][$key] ?? 0 ?></td>
+                <?php endforeach; ?>
+                <td><?= $statistiques['total'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php
+$labels = [
+    'note_egale_0',
+    'note_entre_0_et_5',
+    'note_entre_5_et_10',
+    'note_entre_10_et_15',
+    'note_entre_15_et_20',
+    'note_superieure_ou_egale_10',
+    'note_inferieure_10',
     
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?=$data->getStatistiques()->i1 ?></td>
-                    <td><?=$data->getStatistiques()->i2 ?></td>
-                    <td><?=$data->getStatistiques()->i3 ?></td>
-                    <td><?=$data->getStatistiques()->i4 ?></td>
-                    <td><?=$data->getStatistiques()->admis ?></td>
-                    <td><?=$data->getStatistiques()->nonAdmis ?></td>
-                </tr>
-            </tbody>
-        </table>
+];
+?>
+<br>
+<br>
+<table class='table table-bordered'>
+    <thead>
+        <tr>
+            <th>Indice</th>
+            <th>= 0</th>
+            <th>0–5</th>
+            <th>5–10</th>
+            <th>10–15</th>
+            <th>15–20</th>
+            <th>≥ 10</th>
+            <th>&lt; 10</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($rows as $row): ?>
+            <tr>
+                <td><?= strtoupper($row) ?></td>
+                <?php foreach ($labels as $key): ?>
+                    <td><?= round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2) ?>%</td>
+                <?php endforeach; ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
     </div>
 <?php endif?>
 
@@ -260,4 +344,24 @@ $title = __("Relevé de notes");
     dialogParametre.close();
     window.location.reload();
 });
+
+document.querySelector('#changeSalleClasse')?.addEventListener('change', function (e) {
+       
+        let url = '?p=note/releve/' + e.target.value + '/' + document.querySelector('#codeMatiere').value
+        window.location.href = url
+    })
+    document.querySelector('#changeMatiere')?.addEventListener('change', function (e) {
+        
+        let url = '?p=note/releve/' + document.querySelector('#codeSalleClasse').value + '/' + e.target.value
+        window.location.href = url
+    })
+
+    document.querySelectorAll('.td-note')?.forEach(td => {
+        td.addEventListener('dblclick', function() {
+            const codeExamen = this.getAttribute('data-codeExamen');
+            const idNote = this.getAttribute('data-id');
+            const url = '?p=examen/details/' + codeExamen + '#note' + idNote;
+            window.location.href = url;
+        });
+    });
 </script>

@@ -127,13 +127,20 @@ $writer->save('php://output');
         $rows=range(1,200);
         $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
         $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+        if (!$classeMatiere) {
+                                    $this->renderError(__($salleClasse->pseudoSalleClasse." - ".$codeMatiere." <br> Cette classe avec cette matiere n'est pas disponible ! "));
+
+        }
         $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
-        $this->middleware('role')->render("note/matiere_file_form", compact("salleClasse","classeMatiere","codeSalleClasse","codeMatiere","examens","cols","rows"));
+        $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
+        $matieres = $this->matiereRepository->findAll();
+        $this->middleware('role')->render("note/matiere_file_form", compact("salleClasse","classeMatiere","codeSalleClasse","codeMatiere","examens","cols","rows","sallesClasse","matieres"));
     }
 
 
     public function traitement_matiere_file($codeSalleClasse,$codeMatiere)
     {
+
         $numColonne = $_POST['numColonne'];
         $noteColonne1 = $_POST['noteColonne1'];
         $noteColonne2 = $_POST['noteColonne2'];
@@ -145,7 +152,11 @@ $writer->save('php://output');
         $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
       $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
       $matieres = $this->matiereRepository->findAll();
+      $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+      if (!$classeMatiere) {
+                                    $this->renderError(__($salleClasse->pseudoSalleClasse." - ".$codeMatiere." <br> Cette classe avec cette matiere n'est pas disponible ! "));
 
+        }
       $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
       $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
       $inscrits = $this->inscritRepository->findAllByClasse($codeSalleClasse);
@@ -163,7 +174,7 @@ $writer->save('php://output');
         $num=$value[$numColonne];
         $k=1;
         for($i=$noteColonne1;$i<=$noteColonne2;$i++){
-            $tab[$num]["note$k"]=$value[$i];
+            $tab[$num]["note$k"]=$value[$i]??null;
             $k++;
         }
      }
@@ -196,9 +207,11 @@ $writer->save('php://output');
         $salleClasse = $this->salleClasseRepository->findOneByCode($codeSalleClasse);
         $classeMatiere = $this->classeMatiereRepository->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
      
-     if(!$classeMatiere){
-       $this->responseError(__("Classe matiere non trouvee"));
-     }
+        if (!$classeMatiere) {
+                        $this->renderError(__($salleClasse->pseudoSalleClasse." - ".$codeMatiere." <br> Cette classe avec cette matiere n'est pas disponible ! "));
+
+        }
+     
         $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
         $matieres = $this->matiereRepository->findAll();
       $examens = $this->examenRepository->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
@@ -325,6 +338,9 @@ $writer->save('php://output');
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
         $matiere = $model2->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
+        if (!$matiere) {
+            $this->renderError(__($salleClasse->pseudoSalleClasse." - ".$codeMatiere." <br> Cette classe avec cette matiere n'est pas disponible ! "));
+        }
         $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
@@ -334,32 +350,30 @@ $writer->save('php://output');
             }
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
-        $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
+        $data = new ClasseResultatProvider($codeSalleClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
     
         $paramettre =ReleveParamettreFactory::getReleveParam();
-    
-        $this->render("note/releve", compact("data", "paramettre", "salleClasse"));
+        $sallesClasse = $this->salleClasseRepository->findAll($this->anneeScolaireService->getCodeAnnee());
+        $matieres = $this->matiereRepository->findAll();
+        $this->render("note/releve", compact("data", "paramettre", "salleClasse","codeSalleClasse","codeMatiere","sallesClasse","matieres"));
     }
     public function releveExcel($codeSalleClasse, $codeMatiere)
     {
         $model = new SalleClasseRepository();
         $salleClasse = $model->findOneByCode($codeSalleClasse);
 
-        $model1 = new inscritRepository();
-        $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
         $matiere = $model2->findOneByClasseAndMatiereAndAnnee($salleClasse->codeClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
-        $notes = $this->noteRepository->findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere);
         $model3 = new ExamenRepository();
         $examens = $model3->findAllByClasseAndMatiere($codeSalleClasse, $codeMatiere);
+      
         usort($examens, function ($a, $b) {
             if ($a->typeEvaluation != $b->typeEvaluation) {
                 return $a->typeEvaluation == 'composition' ? 1 : -1;
             }
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
-        $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
-        $paramettre =   ReleveParamettreFactory::getReleveParam();
+        $data = new ClasseResultatProvider($codeSalleClasse,$codeMatiere,$this->anneeScolaireService->getCodeAnnee());
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -367,13 +381,18 @@ $writer->save('php://output');
         $cols=range('a','z');
         $cols=array_map('strtoupper', $cols);
         $labels=[];
-        if($paramettre->matricule) $labels[]='Matricule';
-        if($paramettre->numero) $labels[]='Numero';
-        if($paramettre->nom) $labels[]='Nom';
-        if($paramettre->isme) $labels[]='Nom en Arabe';
-        foreach ($data->examens as $examen) {
+        $labels[]='Matricule';
+        $labels[]='Numero';
+        $labels[]='Nom';
+        $labels[]='Nom en Arabe';
+        foreach ($examens as $examen) {
             $labels[] = $examen->codeEvaluation;
         }
+        $labels[]='MI';
+        $labels[]='Tot.';
+        $labels[]='Moy.';
+        $labels[]='Coeff.';
+        $labels[]='Pts';
 
         $sheet->setCellValue('B2', 'Classe : ');
         $sheet->setCellValue('C2',  $salleClasse->pseudoSalleClasse);
@@ -381,24 +400,38 @@ $writer->save('php://output');
         $sheet->setCellValue('F2', $matiere->nomMatiere );
         
         $row = 5;
-        // Définir les en-têtes
+      
         foreach ($labels as $key => $value) {
             $sheet->setCellValue($cols[$key].$row, $value);
         }
+        $sheet->getStyle('A'.$row.':'.$cols[count($labels)-1].$row)
+      ->getFill()
+      ->setFillType('solid')
+      ->getStartColor()
+      ->setARGB('FFCCFFCC');
 
-        foreach ($data->getClasseResultat() as $key => $value) {
+        foreach ($data->getClasseResultat() as $key => $eleve) {
             $row++;
+            
             $i=0;
-            if($paramettre->matricule) $sheet->setCellValue($cols[$i++].$row, $value->matricule);
-            if($paramettre->numero) $sheet->setCellValue($cols[$i++].$row, $value->numeroInscrit);
-            if($paramettre->nom) $sheet->setCellValue($cols[$i++].$row, $value->nom);
-            if($paramettre->isme) $sheet->setCellValue($cols[$i++].$row, $value->isme);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->matricule);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->numeroInscrit);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->nom);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->isme);
 
-            foreach ($data->examens as $examen) {
-                $sheet->setCellValue($cols[$i++].$row, $value->notes[$examen->codeEvaluation]->note??0);
+            foreach ($examens as $examen) {
+                $value=$data->notes[$eleve->matricule][$examen->codeEvaluation]??null;
+               
+                $sheet->setCellValue($cols[$i++].$row, $value?->note??0);
             }
+            $sheet->setCellValue($cols[$i++].$row, $eleve->mi??0);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->total??0);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->moyenne??0);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->coefficient??0);
+            $sheet->setCellValue($cols[$i++].$row, $eleve->points??0);
         }
-        // Créer le fichier Excel
+$sheet->getStyle('A1:'.$cols[count($labels)-1].$row)->getBorders()->getAllBorders()->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+ 
     $writer = new Xlsx($spreadsheet);
     $filename = "Releve_{$salleClasse->pseudoSalleClasse}_{$matiere->codeMatiere}.xlsx";
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -407,9 +440,10 @@ $writer->save('php://output');
     
     // Sauvegarder le fichier
     $writer->save('php://output');
-    
+     
    
     }
+    
     }
 
 

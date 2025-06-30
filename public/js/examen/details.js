@@ -99,6 +99,15 @@ deleteExamenNotes?.addEventListener('click', function() {
     NoteFormDialog.onDeleteAll(this.dataset.code);
 });
 
+window.addEventListener('load', function() {
+  let id=window.location.hash.substring(1);
+  if(id){
+    document.getElementById(id)?.classList.add('note-target');
+    let a=document.getElementById(id);
+    a?.scrollIntoView({ behavior: 'smooth',block: 'center' });
+  }
+});
+
 
 
 

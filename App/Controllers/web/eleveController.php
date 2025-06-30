@@ -88,6 +88,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
             $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>" . __("Bulletin C3") . "</a></li>";
             $class = $active == 6 ? "active" : "";
             $html .= "<li><a href='?p=eleve/correspondant/$matricule'class='$class'>" . __("Correspondant") . "</a></li>";
+            $html.='<hr>';
         }
         $class = $active == 10 ? "active" : "";
         $html .= "<li><a href='?p=eleve/liste' class='$class'>" . __("Eleves") . "</a></li>";
@@ -165,7 +166,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
     {
         $bulletinServiceProvider->setMatricule($matricule);
         $eleve = $eleveService->getInscrit($matricule);
-        (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
+        (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $tab = [];
         if ($paramettre->rang) {
@@ -180,7 +181,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
     {
        $bulletinServiceProvider->setMatricule($matricule);
         $eleve = $eleveService->getInscrit($matricule);
-        (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
+        (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $tab = [];
         if ($paramettre->rang) {
@@ -193,7 +194,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
     public function bulletin3(bulletinServiceProvider $bulletinServiceProvider, ClasseBulletinServiceProvider $classeBulletinServiceProvider, EleveService $eleveService, string $matricule): void
     {
         $eleve = $eleveService->getInscrit($matricule);
-        (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
+        (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $bulletinServiceProvider->setMatricule($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $tab = [];
@@ -209,7 +210,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
     {
         $trimestre = $_REQUEST['trimestre'] ?? 3;
         $eleve = $eleveService->getInscrit($matricule);
-        (!$eleve) && die("<p class='text-center'>" . __("eleve non inscrit") . "</p>");
+        (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $bulletinServiceProvider->setMatricule($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $bulletin =$trimestre == 3 ? $bulletinServiceProvider->getBulletin3() :($trimestre == 2 ? $bulletinServiceProvider->getBulletin2() : $bulletinServiceProvider->getBulletin1());

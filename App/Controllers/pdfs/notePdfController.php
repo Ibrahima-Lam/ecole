@@ -59,7 +59,7 @@ class NotePdfController extends pdfController
             }
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
-        $data = new ClasseResultatProvider($matiere, $inscrits, $notes, $examens);
+        $data = new ClasseResultatProvider($codeSalleClasse,$codeMatiere, $this->anneeScolaireService->getCodeAnnee());
         $paramettre =ReleveParamettreFactory::getReleveParam();
         $pseudo=$salleClasse->pseudoSalleClasse;
         $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);

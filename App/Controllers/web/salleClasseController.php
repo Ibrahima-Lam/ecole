@@ -69,6 +69,7 @@ class salleClasseController extends WebController
             <a href='?p=salleclasse/statistique/$code/C2' >C2</a>
             <a href='?p=salleclasse/statistique/$code/C3' >C3</a>
             </li>";
+            $html.='<hr>';
 
         }
         $class = $active == 10 ? "active" : "";

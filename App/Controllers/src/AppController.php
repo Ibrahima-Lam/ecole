@@ -13,7 +13,7 @@ class AppController extends Controller
         $this->addMiddleware('role',function(){
             $service = new UserService();
             if(!$service->isAdmin()){
-                $this->responseError(__("Acces non autorise"));
+                $this->renderError(__("Acces non autorise"));
             }
         });
     }
@@ -22,10 +22,8 @@ class AppController extends Controller
             $this->middleware[$middleware]=$callback;
         }
 
-        public function responseError($message){
-            http_response_code(500);
-            echo $message;
-            exit;
+        public function renderError($message){
+           $this->render('app/error',compact('message'));
         }
 
         public function middleware($middleware):self{

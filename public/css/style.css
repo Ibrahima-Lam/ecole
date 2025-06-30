@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 .width-100px,.table td .width-100px,.table th .width-100px{
     width: 100px;
 }
@@ -14,10 +17,29 @@
     padding: 5px;
 }
 
+.message-error{
+    background-color: rgb(228, 147, 147);
+    padding: 10px 0;
+    margin: 10px 0;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 2px gray;
+    border-radius: 5px;
+
+}
+
 canvas {
     border: 1px solid #ccc;
     display: block;
     margin: 20px auto;
+    animation: canvas-animation 1s ease-in-out;
+  }
+  @keyframes canvas-animation {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
 .dark canvas{
@@ -251,7 +273,16 @@ canvas {
     border-radius: 5px;
     padding: 10px;
     z-index: 5;
-   
+   animation: sidebar-animation 0.5s ease-in-out;
+}
+
+@keyframes sidebar-animation {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 [dir='rtl'] .sidebar {
@@ -333,6 +364,16 @@ canvas {
     border-radius: 5px;
     padding: 10px;
     z-index: 5;
+    animation: subsidebar-animation 0.3s ease-in;
+}
+
+@keyframes subsidebar-animation {
+    0% {
+        transform: translateX(50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 [dir='rtl'] .subsidebar {
@@ -437,6 +478,41 @@ i {
     text-align: right;
 }
 
+.table .clickable,.clickable{
+    cursor: pointer;
+}
+
+.table.table-striped tr.clickable:hover,.clickable:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+
+
+.table .note-target,
+.table.table-striped tr.note-target,
+.table.table-striped tr.note-target:nth-child(even),
+.table.table-striped tr.note-target:nth-child(odd),
+.table.table-bordered tr.note-target{
+    background-color: green;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    animation: note-target-animation 0.5s ease-in-out;
+}
+
+@keyframes note-target-animation {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 th.left,td.left{
     text-align: left;
     
@@ -454,6 +530,16 @@ th.left,td.left{
 
 .table tr {
     font-size: 14px;
+    animation: table-row 0.5s ease-in-out;
+}
+
+@keyframes table-row {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .table tbody tr:hover {
@@ -529,7 +615,7 @@ td .btn {
     color: gray;
 }
 
-.btn-primary {
+.btn-primary,.btn-primary {
     background-color: blue;
     color: white;
 }
@@ -571,6 +657,10 @@ td .btn {
 
 .btn-default:hover {
     background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.btn.link{
     color: white;
 }
 
@@ -699,6 +789,10 @@ td .btn {
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease-in-out;
+}
+.link-default{
+    color: cornflowerblue;
+    text-decoration: none;
 }
 .dark .link{
     color: white;
@@ -938,6 +1032,18 @@ td .field {
     left: calc(50% - 150px);
     transition: top 0.5s 0.5s;
     justify-content: space-between;
+    animation: dialog-animation 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+@keyframes dialog-animation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .dialog-big{
@@ -960,9 +1066,6 @@ td .field {
     padding: 5px;
     background-color: whitesmoke;
     box-shadow: 0 0 2px gray;
-}
-.dark .dialog{
-    color: black;
 }
 
 .dialog-body {
@@ -1026,6 +1129,10 @@ td .field {
 
 .dialog .form {
     width: 97%;
+}
+
+.dark .dialog,.dark .dialog-body,.dark .dialog-head .title,.dark .dialog-body .form-group label {
+    color: black !important;
 }
 
 .fixed-action {
@@ -1435,6 +1542,8 @@ dd {
     padding:20px 5px;
     z-index: 1;
    }
+ 
+  
 
    [dir='rtl'] .container {
     left: auto;
@@ -1485,11 +1594,9 @@ dd {
     background-color: white;
     z-index: 10;
     box-shadow: 0 0 10px 0 gray;
-    transition: all 0.3s ease-in-out
+   
 }
-    .dialog-body{
-        overflow: auto;
-    }
+
     .dialog .form{
         overflow: auto;
         width: 98%;

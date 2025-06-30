@@ -62,7 +62,7 @@ $title = "Relevé de notes";
         </thead>
         <tbody>
             <?php foreach ($notes as $note): ?>
-                <tr class="note <?= $note->statutExamen==0?'text-warning':'' ?>" data-matricule="<?= $note->matricule ?>">
+                <tr id="note<?= $note->idNote ?>" class="note clickable <?= $note->statutExamen==0?'text-warning':'' ?>" data-matricule="<?= $note->matricule ?>">
                     <td><?= $note->matricule ?></td>
                     <td><?= $note->numeroInscrit ?></td>
                     <td>
