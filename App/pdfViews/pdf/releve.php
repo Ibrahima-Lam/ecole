@@ -11,13 +11,13 @@
 <table class="space-around my-10">
     <tr>
         <td>
-            <strong>Classe :</strong> <?= $salleClasse->codeClasse. $salleClasse->indiceSalleClasse ?>
+            <strong>Classe :</strong> <?= htmlspecialchars($salleClasse->codeClasse. $salleClasse->indiceSalleClasse) ?>
         </td>
         <td>
-            <strong>Matière :</strong> <?= $data->matiere->nomMatiere ?>
+            <strong>Matière :</strong> <?= htmlspecialchars($data->matiere->nomMatiere) ?>
         </td>
         <td>
-            <strong>Date :</strong> <?= date('d/m/Y') ?>
+            <strong>Date :</strong> <?= htmlspecialchars(date('d/m/Y')) ?>
         </td>
     </tr>
 </table>
@@ -41,7 +41,7 @@ $examens=$data->examens[$data->matiere->codeMatiere];
                     <th>Nom en Arabe</th>
                 <?php endif?>
                 <?php foreach ($examens as $examen) : ?>
-                    <th><?= $examen->codeEvaluation ?></th>
+                    <th><?= htmlspecialchars($examen->codeEvaluation) ?></th>
                 <?php endforeach; ?>
                 <?php if($paramettre->moyenne_interro):?>
                     <th><?=__("MI")?></th>
@@ -64,39 +64,39 @@ $examens=$data->examens[$data->matiere->codeMatiere];
             <?php foreach ($data->getClasseResultat() as $eleve) : ?>
                 <tr>
                     <?php if($paramettre->matricule):?>
-                        <td><?= $eleve->matricule ?></td>
+                        <td><?= htmlspecialchars($eleve->matricule) ?></td>
                     <?php endif?>
                     <?php if($paramettre->numero):?>
-                        <td><?= $eleve->numeroInscrit ?></td>
+                        <td><?= htmlspecialchars($eleve->numeroInscrit) ?></td>
                     <?php endif?>
                     <?php if($paramettre->nom):?>
-                        <td><?= $eleve->nom ?>
+                        <td><?= htmlspecialchars($eleve->nom) ?>
                     <?php if($paramettre->nom_isme):?>
                         <br>
-                        <?= $eleve->isme ?>
+                        <?= htmlspecialchars($eleve->isme) ?>
                     <?php endif?>
                     </td>
                     <?php endif?>
                     <?php if($paramettre->isme):?>
-                        <td><?= $eleve->isme ?></td>
+                        <td><?= htmlspecialchars($eleve->isme) ?></td>
                     <?php endif?>
                     <?php foreach ($examens as $examen) : ?>
-                        <td><?= $data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0 ?></td>
+                        <td><?= htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0) ?></td>
                     <?php endforeach; ?>
                     <?php if($paramettre->moyenne_interro):?>
-                        <td><?= $eleve->mi??0 ?></td>
+                        <td><?= htmlspecialchars($eleve->mi??0) ?></td>
                     <?php endif?>
                     <?php if($paramettre->total):?>
-                        <td><?= $eleve->total??0 ?></td>
+                        <td><?= htmlspecialchars($eleve->total??0) ?></td>
                     <?php endif?>
                         <?php if($paramettre->moyenne):?>
-                        <td><?= $eleve->moyenne??0 ?></td>
+                        <td><?= htmlspecialchars($eleve->moyenne??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre->coefficient):?>
-                        <td><?= $eleve->coefficient??0 ?></td>
+                        <td><?= htmlspecialchars($eleve->coefficient??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre->points):?>
-                        <td><?= $eleve->points??0 ?></td>
+                        <td><?= htmlspecialchars($eleve->points??0) ?></td>
                     <?php endif?> 
                 </tr>
             <?php endforeach; ?>
@@ -146,11 +146,11 @@ $labels = [
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= strtoupper($row) ?></td>
+                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= $statistiques[$row][$key] ?? 0 ?></td>
+                    <td><?= htmlspecialchars($statistiques[$row][$key] ?? 0) ?></td>
                 <?php endforeach; ?>
-                <td><?= $statistiques['total'] ?></td>
+                <td><?= htmlspecialchars($statistiques['total']) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
@@ -188,9 +188,9 @@ $labels = [
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= strtoupper($row) ?></td>
+                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2) ?>%</td>
+                    <td><?= htmlspecialchars(round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2)) ?>%</td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>

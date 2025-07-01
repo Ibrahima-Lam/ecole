@@ -1,4 +1,4 @@
-import { fetchJson, fetchText,fetchAllJson } from "../../js/src/fetch.js";
+import { fetchJson, fetchText,fetchAllJson } from "../src/fetch.js";
 import { Spinner } from "../src/spinner.js";
 const spinner = new Spinner();
 const forms = document.querySelectorAll('form')
@@ -22,9 +22,23 @@ inputs.forEach((input,key) => {
     e.preventDefault()
         let text=e.clipboardData.getData('text')
        let tab=text.split('\n')
-       for(let i=0;i<tab.length;i++){
-        if(inputs[key+i])inputs[key+i].value=tab[i]
-       }
+       for (let i = 0; i < tab.length; i++) {
+        let elmt = inputs[key + i]
+        let checkbox = checkboxes[key + i]
+        if (elmt) {
+            if (checkbox) checkbox.checked = true
+            elmt.value = tab[i]
+            elmt.classList.add('field-animated')
+            setTimeout(() => {
+                elmt.classList.remove('field-animated')
+            }, 500);
+        }
+    }
+    updateCheckAll()
+    checkOutAllNote()
+    })
+    input?.addEventListener('input',function(e){
+        checkOutAllNote()
     })
 })
 
@@ -42,6 +56,13 @@ checkboxes.forEach(checkbox => {
     });
 });
 
+function updateCheckAll() {
+    const checkeds = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .length;
+    const allChecked = checkeds === checkboxes.length;
+    checkAll.checked = allChecked;
+}
 function updateSaveButton() {
     const checkeds= Array.from(checkboxes)
             .filter(cb => cb.checked)
@@ -59,7 +80,7 @@ window?.addEventListener('load',function(e){
 
 save?.addEventListener('click', async function (e) {
     
-  let frms= Array.from(forms).filter(form => form.check.checked)
+  let frms= Array.from(forms).filter(form => form.check.checked&&form.note.value!="")
   let urls=[]
   for(let form of frms){
     const data = new FormData(form);
@@ -71,4 +92,36 @@ save?.addEventListener('click', async function (e) {
   }
     await fetchAllJson(urls,{show:true})
     window.location.reload();
+})
+
+changeExamen?.addEventListener('change', function (e) {
+    let codeExamen = e.target.value;
+     let codes=document.querySelectorAll('.codes')
+     codes.forEach(code=>{
+        code.textContent=codeExamen
+     })
+
+     forms.forEach(form=>{
+        form.codeExamen.value=codeExamen
+     })
+   
+})
+
+const dbNotes=document.querySelectorAll('.dbNote')
+function checkOutAllNote() {
+   forms.forEach((form,index)=> {
+    let inputNote = form.note
+    let span = dbNotes[index]
+    let text = span.innerText
+    span.classList.remove('text-danger')
+    span.classList.remove('text-warning')
+    if (text != '' && +text != +inputNote.value) {
+       if(inputNote.value!='') span.classList.add('text-danger')
+      else span.classList.add('text-warning')
+    } 
+   })
+}
+
+window?.addEventListener('load',function(e){
+    checkOutAllNote()
 })

@@ -117,7 +117,7 @@ $writer->save('php://output');
     public function formulaire($codeExamen = null)
     {
         $cols = array_map('strtoupper', range('a', 'z'));
-        $rows = range(1, 100);
+        $rows = range(1, 200);
         $this->middleware('role')->render("note/formulaire", compact("cols", "rows", "codeExamen"));
     }
 
@@ -249,8 +249,13 @@ $writer->save('php://output');
         $data = $worksheet->toArray();
 
         $examen = $this->examenRepository->findOne($codeExamen);
+        if (!$examen) {
+            $this->renderError(__('Examen non trouvé !'));
+        }
         $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
         $eleves = $this->inscritRepository->findAllByClasse($examen->codeSalleClasse);
+        $examens=$this->examenRepository->findAllByClasseAndMatiere($examen->codeSalleClasse,$examen->codeMatiere);
+       
         $cols = array_map('strtoupper', range('a', 'z'));
         $numColonne = array_search($numColonne, $cols);
         $nomColonne = array_search($nomColonne, $cols);
@@ -286,7 +291,7 @@ $writer->save('php://output');
         }
 
         $data = $tab;
-        $this->middleware('role')->render("note/exported", compact("data", "codeExamen"));
+        $this->middleware('role')->render("note/imported", compact("data", "examens","examen","codeExamen"));
 
     }
      public function addAll($codeExamen)
@@ -294,8 +299,12 @@ $writer->save('php://output');
         
 
         $examen = $this->examenRepository->findOne($codeExamen);
+        if (!$examen) {
+            $this->renderError(__('Examen non trouvé !'));
+        }
         $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
         $eleves = $this->inscritRepository->findAllByClasse($examen->codeSalleClasse);
+        $examens=$this->examenRepository->findAllByClasseAndMatiere($examen->codeSalleClasse,$examen->codeMatiere);
         $tab = [];
 
         foreach ($eleves as $row) {
@@ -323,7 +332,7 @@ $writer->save('php://output');
         }
 
         $data = $tab;
-        $this->middleware('role')->render("note/addAll", compact("data", "codeExamen"));
+        $this->middleware('role')->render("note/addAll", compact("data", "examen","examens"));
 
     }
     

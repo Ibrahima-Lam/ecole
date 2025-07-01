@@ -42,6 +42,18 @@ class Container
     }
 
     /**
+     * Enregistrer une instance partagée dans le conteneur.
+     *
+     * @param  string  $abstract
+     * @param  mixed   $instance
+     * @return void
+     */
+    public function instance(string $abstract, $instance)
+    {
+        $this->instances[$abstract] = $instance;
+    }
+
+    /**
      * Résoudre une instance
      *
      * @param string $abstract

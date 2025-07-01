@@ -89,7 +89,7 @@
                                         <input type="hidden" name="edit" value="<?= $id ?>">
                                         <input type="hidden" name="id" value="<?= $id ?>">
                                         <input type="hidden" name="codeExamen" value="<?= $examen->codeExamen ?>">
-                                        <input type="checkbox" name="check" <?= $value_db === null ? 'checked' : '' ?>>
+                                        <input type="checkbox" name="check" class="checkCell" <?= $value_db === null ? 'checked' : '' ?>>
                                         <?php if ($value_db): ?>
                                             <i class="fa fa-check text-success"></i>
                                         <?php elseif ($value_db !=''): ?>
@@ -118,6 +118,7 @@
     import { fetchAllJson } from "./js/src/fetch.js";
     // ---------------------------Enregistrer les formulaires--------------------------
     const checkboxCell = document.querySelectorAll('.checkboxCell')
+    const checkRow = document.querySelectorAll('.checkRow')
     const inscritRows = document.querySelectorAll('.inscritRow')
     const forms = []
     for (let row = 0; row < inscritRows.length; row++) {
@@ -206,7 +207,7 @@
         })
     }
     // ---------------------------Cocher une ligne---------------------------
-    const checkRow = document.querySelectorAll('.checkRow')
+   
     for (let index = 0; index < checkRow.length; index++) {
         const element = checkRow[index];
         element.addEventListener('change', function (e) {
@@ -332,5 +333,48 @@
         let url = '?p=note/matiere_forms/' + document.querySelector('#codeSalleClasse').value + '/' + e.target.value
         window.location.href = url
     })
+
+    checkboxCell.forEach(cell=>{
+        cell.addEventListener('change',function(e){
+            updateCheckAll()
+        })
+    })
+    checkRow.forEach(row=>{
+        row.addEventListener('change',function(e){
+            updateCheckAll()
+        })
+    })
+    const checks=document.querySelectorAll('.checkCell')
+    checks.forEach(check=>{
+        check.addEventListener('change',function(e){
+            updateCheckAll()
+        })
+    })
+
+    function updateCheckAll() {
+  let countCheckedRow=0
+  for(let i in forms){
+    let countCheckedCell=0
+    for(let j in forms[i]){
+      if(forms[i][j].check.checked) countCheckedCell++
+    }
+    if(countCheckedCell==forms[i].length){
+        checkRow[i].checked=true
+        countCheckedRow++
+    }else checkRow[i].checked=false
+  }
+let countCheckedCell=0
+  for(let j in checkboxCell ){
+    let countCheckedRow=0
+    for(let i in forms){
+      if(forms[i][j].check.checked) countCheckedRow++
+    }
+    if(countCheckedRow==forms.length){
+        checkboxCell[j].checked=true
+        countCheckedCell++
+    }else checkboxCell[j].checked=false
+  }
+  checkAll.checked=countCheckedRow==forms.length
+}
 
 </script>

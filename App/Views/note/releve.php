@@ -2,32 +2,32 @@
 $title = __("Relevé de notes");
 
 ?>
-<input type="hidden"id="codeSalleClasse" name="codeSalleClasse" value="<?= $codeSalleClasse ?>">
-<input type="hidden"id="codeMatiere" name="codeMatiere" value="<?= $codeMatiere ?>">
+<input type="hidden"id="codeSalleClasse" name="codeSalleClasse" value="<?= htmlspecialchars($codeSalleClasse) ?>">
+<input type="hidden"id="codeMatiere" name="codeMatiere" value="<?= htmlspecialchars($codeMatiere) ?>">
 
 <div class="space-between">
     <p><?=__("La classe")?>
     </p>
     <select class="field width-100px" id="changeSalleClasse">
         <?php foreach ($sallesClasse as $sc): ?>
-            <option value="<?= $sc->codeSalleClasse ?>" <?= $sc->codeSalleClasse == $codeSalleClasse ? 'selected' : '' ?>><?= $sc->pseudoSalleClasse ?></option>
+            <option value="<?= htmlspecialchars($sc->codeSalleClasse) ?>" <?= $sc->codeSalleClasse == $codeSalleClasse ? 'selected' : '' ?>><?= htmlspecialchars($sc->pseudoSalleClasse) ?></option>
         <?php endforeach ?>
     </select> 
     <p>
         <?=__("La matiere")?></p>
     <select class="field width-100px" id="changeMatiere">
         <?php foreach ($matieres as $matiere): ?>
-            <option value="<?= $matiere->codeMatiere ?>" <?= $matiere->codeMatiere == $codeMatiere ? 'selected' : '' ?>><?= $matiere->codeMatiere ?></option>
+            <option value="<?= htmlspecialchars($matiere->codeMatiere) ?>" <?= $matiere->codeMatiere == $codeMatiere ? 'selected' : '' ?>><?= htmlspecialchars($matiere->codeMatiere) ?></option>
         <?php endforeach ?>
     </select>
 </div>
 <h2 class="text-center my-10"><?=__("Relevé de notes")?></h2>
 <div class="space-around my-10">
     <p>
-        <strong><?=__("Classe")?> :</strong> <a class='link-default' href="?p=salleClasse/profil/<?= $codeSalleClasse ?>"><?= $salleClasse->pseudoSalleClasse ?></a>
+        <strong><?=__("Classe")?> :</strong> <a class='link-default' href="?p=salleClasse/profil/<?= htmlspecialchars($codeSalleClasse) ?>"><?= htmlspecialchars($salleClasse->pseudoSalleClasse) ?></a>
     </p>
     <p>
-        <strong><?=__("Matière")?> :</strong> <?= $data->matiere->nomMatiere ?>
+        <strong><?=__("Matière")?> :</strong> <?= htmlspecialchars($data->matiere->nomMatiere) ?>
     </p>
 </div>
 <?php
@@ -50,7 +50,7 @@ $examens=$data->examens[$data->matiere->codeMatiere];
                     <th><?=__("Nom en Arabe")?></th>
                 <?php endif?>
                 <?php foreach ($examens as $examen) : ?>
-                    <th><a href="?p=examen/details/<?= $examen->codeExamen ?>"><?= $examen->codeEvaluation ?></a></th>
+                    <th><a href="?p=examen/details/<?= htmlspecialchars($examen->codeExamen) ?>"><?= htmlspecialchars($examen->codeEvaluation) ?></a></th>
                 <?php endforeach; ?>
                 <?php if($paramettre->moyenne_interro):?>
                     <th><?=__("MI")?></th>
@@ -73,41 +73,41 @@ $examens=$data->examens[$data->matiere->codeMatiere];
             <?php foreach ($data->getClasseResultat() as $eleve) : ?>
                 <tr>
                     <?php if($paramettre->matricule):?>
-                        <td><?= $eleve->matricule ?></td>
+                        <td><?= htmlspecialchars($eleve->matricule) ?></td>
                     <?php endif?>
                     <?php if($paramettre->numero):?>
-                        <td><?= $eleve->numeroInscrit ?></td>
+                        <td><?= htmlspecialchars($eleve->numeroInscrit) ?></td>
                     <?php endif?>
                     <?php if($paramettre->nom):?>
                         <td>
-                            <a href="?p=eleve/profil/<?=$eleve->matricule?>"><?= $eleve->nom ?></a>
+                            <a href="?p=eleve/profil/<?=htmlspecialchars($eleve->matricule)?>"><?= htmlspecialchars($eleve->nom) ?></a>
                         
                     <?php if($paramettre->nom_isme):?>
                         <br>
-                        <?= $eleve->isme ?>
+                        <?= htmlspecialchars($eleve->isme) ?>
                     <?php endif?>
                     </td>
                     <?php endif?>
                     <?php if($paramettre->isme):?>
-                        <td><?= $eleve->isme ?></td>
+                        <td><?= htmlspecialchars($eleve->isme) ?></td>
                     <?php endif?>
                     <?php foreach ($examens as $examen) : ?>
-                        <td title="<?= $examen->codeEvaluation ?>" data-codeExamen="<?= $examen?->codeExamen ?>" data-id="<?=$data->notes[$eleve->matricule][$examen->codeEvaluation]?->idNote??"" ?>" class="clickable td-note <?=!$examen->statutExamen?"text-warning":""?>"><?= $data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0 ?></td>
+                        <td title="<?= htmlspecialchars($examen->codeEvaluation) ?>" data-codeExamen="<?= htmlspecialchars($examen?->codeExamen) ?>" data-id="<?=htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->idNote??"") ?>" class="clickable td-note <?=!$examen->statutExamen?"text-warning":""?>"><?= htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0) ?></td>
                     <?php endforeach; ?>
                     <?php if($paramettre?->moyenne_interro):?>
-                        <td title="MI"><?= $eleve?->mi??0 ?></td>
+                        <td title="MI"><?= htmlspecialchars($eleve?->mi??0) ?></td>
                     <?php endif?>
                     <?php if($paramettre?->total):?>
-                        <td title="Total"><?= $eleve?->total??0 ?></td>
+                        <td title="Total"><?= htmlspecialchars($eleve?->total??0) ?></td>
                     <?php endif?>
                     <?php if($paramettre?->moyenne):?>
-                        <td title="Moyenne"><?= $eleve?->moyenne??0 ?></td>
+                        <td title="Moyenne"><?= htmlspecialchars($eleve?->moyenne??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->coefficient):?>
-                        <td title="Coefficient"><?= $eleve?->coefficient??0 ?></td>
+                        <td title="Coefficient"><?= htmlspecialchars($eleve?->coefficient??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->points):?>
-                        <td title="Points"><?= $eleve?->points??0 ?></td>
+                        <td title="Points"><?= htmlspecialchars($eleve?->points??0) ?></td>
                     <?php endif?> 
                 </tr>
             <?php endforeach; ?>
@@ -156,11 +156,11 @@ $labels = [
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= strtoupper($row) ?></td>
+                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= $statistiques[$row][$key] ?? 0 ?></td>
+                    <td><?= htmlspecialchars($statistiques[$row][$key] ?? 0) ?></td>
                 <?php endforeach; ?>
-                <td><?= $statistiques['total'] ?></td>
+                <td><?= htmlspecialchars($statistiques['total']) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
@@ -196,9 +196,9 @@ $labels = [
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= strtoupper($row) ?></td>
+                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2) ?>%</td>
+                    <td><?= htmlspecialchars(round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2)) ?>%</td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>
@@ -209,7 +209,7 @@ $labels = [
 <?php endif?>
 
 <div class="fixed-action">
-    <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/releve/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>">
+    <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/releve/<?= htmlspecialchars($salleClasse->codeSalleClasse) ?>/<?= htmlspecialchars($data->matiere->codeMatiere) ?>">
         <i class="fa fa-file-pdf"></i>
     </a>
     <button id="excel" class="btn btn-success circle" title="Excel" >
@@ -323,7 +323,7 @@ $labels = [
 <script type="module" defer>
     import {fetchJson} from './js/src/fetch.js'
     document.getElementById('excel')?.addEventListener('click', function() {
-        window.location.href = "?p=note/releveExcel/<?= $salleClasse->codeSalleClasse ?>/<?= $data->matiere->codeMatiere ?>";
+        window.location.href = "?p=note/releveExcel/<?= htmlspecialchars($salleClasse->codeSalleClasse) ?>/<?= htmlspecialchars($data->matiere->codeMatiere) ?>";
     });
 
     document.getElementById('parametre')?.addEventListener('click', function() {

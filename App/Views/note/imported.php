@@ -1,3 +1,15 @@
+
+<div class="space-around my-10">
+    <h3><?=__("Classe")?> <a class="link-default" href="?p=salleclasse/profil/<?= $examen->codeSalleClasse ?>"><?= $examen->pseudoSalleClasse ?></a></h3>
+   <h3><?=__("Matiere")?> : <?= $examen->codeMatiere ?></h3>
+    <select name="" id="changeExamen" class="field">
+        <?php foreach ($examens as $ex): ?>
+            <option value="<?= $ex->codeExamen ?>" <?= $ex->codeExamen == $examen->codeExamen ? 'selected' : '' ?>><?= $ex->codeEvaluation?></option>
+        <?php endforeach ?>
+    </select>
+</div>
+<br>
+
 <div class="table-container">
     <table class="table table-striped">
         <thead>
@@ -31,9 +43,9 @@
                     <td><?= $row['matricule'] ?? null ?></td>
                     <td><?= $row['num'] ?></td>
                     <td><?= $row['nom'] ?></td>
-                    <td><?= $codeExamen ?></td>
+                    <td class="codes"><?= $codeExamen ?></td>
                     <td><input type="text" class="field note" name="note" value="<?= $row['note'] ?? 0 ?>"></td>
-                    <td><?= $row['note2'] ?? null ?></td>
+                    <td class="dbNote"><?= $row['note2'] ?? null ?></td>
                     </form>
                 </tr>
             <?php endforeach ?>
@@ -44,6 +56,6 @@
     <button type="submit" id="save" class="btn btn-success">Enregistrer</button>
 </div>
 
-<script type="module" src="js/note/exported.js" defer></script>
+<script type="module" src="js/note/imported.js" defer></script>
 
     

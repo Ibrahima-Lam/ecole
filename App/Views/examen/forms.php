@@ -9,6 +9,7 @@
                 <th>Heure de début</th>
                 <th>Heure de fin</th>   
                 <th>Statut</th>   
+                <th>Trimestre</th>   
             </tr>
         </thead>
         <tbody>
@@ -39,7 +40,13 @@
                             <option value="0">Fermer</option>
                         </select>
                     </td>
-                    
+                    <td>
+                        <select name="trimestreExamen" class="trimestre field" id="">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
                    </form>
                 </tr>
             <?php endforeach ?>
@@ -51,10 +58,11 @@
 </div>
 
 <script type="module" defer>
-    import{fetchJson} from "./js/src/fetch.js";
+    import{fetchJson,fetchAllJson} from "./js/src/fetch.js";
 
 const evaluations = document.querySelectorAll('.evaluation');
 const statuts = document.querySelectorAll('.statut');
+const trimestres = document.querySelectorAll('.trimestre');
 
 evaluations.forEach(evaluation => {
     evaluation?.addEventListener('change', () => {
@@ -72,28 +80,28 @@ statuts.forEach(statut => {
     })
 })
 
+trimestres.forEach(trimestre => {
+    trimestre?.addEventListener('change', () => {
+        trimestres.forEach(t => {
+            t.value=trimestre.value;
+        })
+    })
+})
+
 const save = document.getElementById('save');
 const forms = document.querySelectorAll('form');
 
 save?.addEventListener('click', async () => {
     let count=0;
+    let urls=[]
     for(const form of forms){
         const data = new FormData(form);
         const dataString = new URLSearchParams(data).toString();
-        await fetchJson('?p=api/examen/insert&'+ dataString).then(data => {
-            if(data.response === "ok"){
-               console.log(data.message);
-               count++;
-            }
-        }).catch(error => {
-            console.log(error);
-            
-        });
+        urls.push('?p=api/examen/insert&'+ dataString);
     }
-    if(count >0){
-        window.history.back();
-    }
-    alert(count);
+  let data=  await fetchAllJson(urls,{show:true});
+  if(data.success>0)history.back()
+   
 })
 
 </script>
