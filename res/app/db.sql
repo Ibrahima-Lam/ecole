@@ -671,3 +671,31 @@ update note set note='10' where idNote='2399' ;
 update note set note='10' where idNote='2396' ;
 -- 2025-06-30 17:52:57
 update note set note='10' where idNote='2395' ;
+delete from note where idNote='1899' 
+delete from note where idNote='1898' 
+delete from note where idNote='1901' 
+delete from note where idNote='1900' 
+delete from note where idNote='1903' 
+delete from note where idNote='1902' 
+delete from note where idNote='1905' 
+delete from note where idNote='1904' 
+delete from note where idNote='1907' 
+delete from note where idNote='1906' 
+delete from note where idNote='1909' 
+delete from note where idNote='1908' 
+delete from note where idNote='1911' 
+delete from note where idNote='1910' 
+-- 2025-07-01 19:29:10
+update note set note='10',matricule='5d313',codeExamen='A24255D30A24255DPC0C3' where idNote='2273' ;
+-- 2025-07-01 19:29:10
+update note set note='10',matricule='5d314',codeExamen='A24255D30A24255DPC0C3' where idNote='2274' ;
+-- 2025-07-01 19:29:10
+update note set note='10',matricule='5d322',codeExamen='A24255D30A24255DPC0C3' where idNote='2281' ;
+-- 2025-07-01 19:29:10
+update note set note='8',matricule='5d343',codeExamen='A24255D3PC5DC2' where idNote='809' ;
+-- 2025-07-01 19:29:10
+update note set note='10',matricule='5d343',codeExamen='A24255D30A24255DPC0C3' where idNote='2301' ;
+-- 2025-07-01 19:36:55
+update note set note='10' where idNote='2292' ;
+delete from note where idNote='1913' 
+delete from note where idNote='1912' 

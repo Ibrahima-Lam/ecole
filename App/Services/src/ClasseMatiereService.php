@@ -2,15 +2,18 @@
 namespace App\Services\src;
 
 use App\Models\Repositories\ClasseMatiereRepository;
+use App\Models\Repositories\inscritRepository;
 use Core\src\Request;
 
 class ClasseMatiereService
 {
     private $repository;
+    private $inscritRepository;
     private $throw=true;
     public function __construct(private AnneeScolaireService $anneeScolaireService)
     {
         $this->repository=new ClasseMatiereRepository();
+        $this->inscritRepository=new inscritRepository();
     }
     public function setThrow($throw): void
     {
@@ -19,6 +22,11 @@ class ClasseMatiereService
     public function findAllByClasseAndAnnee(string $codeClasse): array
     {
         return $this->repository->findAllByClasseAndAnnee($codeClasse, $this->anneeScolaireService->getCodeAnnee());
+    } 
+    public function findAllByInscrit(string $matricule): array
+    {
+        $codeClasse = $this->inscritRepository->findOneByCodeAndAnnee($matricule, $this->anneeScolaireService->getCodeAnnee());
+        return $this->repository->findAllByClasseAndAnnee($codeClasse->codeClasse, $this->anneeScolaireService->getCodeAnnee());
     }
     public function findAllByMatiereAndAnnee(string $codeMatiere): array
     {

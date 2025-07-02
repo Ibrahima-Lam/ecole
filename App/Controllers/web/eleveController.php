@@ -13,10 +13,12 @@ use App\Services\Providers\bulletinServiceProvider;
 use App\Services\Providers\ClasseBulletinServiceProvider;
 use App\Services\Providers\ResultatProvider;
 use App\Services\src\AnneeScolaireService;
+use App\Services\src\ClasseMatiereService;
 use App\Services\src\EleveService;
 use App\Controllers\src\WebController;
 use App\Models\Repositories\EleveRepository;
 use App\Models\Repositories\inscritRepository;
+use Core\src\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Src\Factories\BulletinParamettreFactory;
 
@@ -64,9 +66,11 @@ class EleveController extends WebController implements EleveControllerInterfaces
     private function subsidebar(?string $matricule, int $active = 1): string
     {
         $eleve = null;
+        $inscrit = null;
         if ($matricule) {
             $repos = new EleveRepository();
             $eleve = $repos->findOneByMatricule($matricule);
+            $inscrit = $this->inscritRepository->findOneByCodeAndAnnee($matricule, $this->annee);
         }
         $html = "<div class='subsidebar'>";
         if ($eleve) {
@@ -88,6 +92,10 @@ class EleveController extends WebController implements EleveControllerInterfaces
             $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>" . __("Bulletin C3") . "</a></li>";
             $class = $active == 6 ? "active" : "";
             $html .= "<li><a href='?p=eleve/correspondant/$matricule'class='$class'>" . __("Correspondant") . "</a></li>";
+            if($inscrit){
+                $class = $active == 7 ? "active" : "";
+                $html .= "<li><a href='?p=inscrit/classe/$inscrit->codeSalleClasse'class='$class'>" . __("Collegues") . "</a></li>";
+            }
             $html.='<hr>';
         }
         $class = $active == 10 ? "active" : "";
@@ -206,15 +214,17 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }
 
-    public function resultat(bulletinServiceProvider $bulletinServiceProvider, ClasseBulletinServiceProvider $classeBulletinServiceProvider, EleveService $eleveService, string $matricule): void
+    public function resultat(bulletinServiceProvider $bulletinServiceProvider,ClasseMatiereService $classeMatiereService, Request $request, EleveService $eleveService, string $matricule): void
     {
-        $trimestre = $_REQUEST['trimestre'] ?? 3;
+        $trimestre = $request->get('trimestre') ?? 3;
+        $codeMatiere = $request->get('matiere') ?? null;
         $eleve = $eleveService->getInscrit($matricule);
+        $matieres = $classeMatiereService->findAllByInscrit($matricule);
         (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $bulletinServiceProvider->setMatricule($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $bulletin =$trimestre == 3 ? $bulletinServiceProvider->getBulletin3() :($trimestre == 2 ? $bulletinServiceProvider->getBulletin2() : $bulletinServiceProvider->getBulletin1());
-        $this->render("eleve/resultat", ["eleve" => $eleve, 'trimestre'=>$trimestre, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 2)]);
+        $this->render("eleve/resultat", ["eleve" => $eleve, 'trimestre'=>$trimestre, 'matieres'=>$matieres, 'codeMatiere'=>$codeMatiere, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 2)]);
     }
     public function form(): void
     {

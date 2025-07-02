@@ -28,6 +28,12 @@ class inscritRepository extends Repository
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     } 
+     public function findAllByClasseForBulletin($classe): array
+    {
+        $sql = "select matricule,numeroInscrit,nom,isme,nni,imagePath,codeSalleClasse,pseudoSalleClasse from inscrit_view where codeSalleClasse='$classe' order by numeroInscrit asc";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
+    } 
    
 
     
@@ -40,7 +46,7 @@ class inscritRepository extends Repository
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
     }
-    function findOneByCodeAndAnnee(string $id, string $annee): false|stdClass
+    public function findOneByCodeAndAnnee(string $id, string $annee): false|stdClass
     {
         $sql = "select * from inscrit_view where (matricule='$id'or nni='$id') and codeAnnee='$annee'";
         $result = $this->db->selectOne($sql, stdClass::class);
@@ -49,6 +55,12 @@ class inscritRepository extends Repository
     function findOneByMatriculeAndAnnee(string $id, string $annee): false|stdClass
     {
         $sql = "select * from inscrit_view where matricule='$id' and codeAnnee='$annee'";
+        $result = $this->db->selectOne($sql, stdClass::class);
+        return $result;
+    } 
+    public function findOneByMatriculeAndAnneeForBulletin(string $id, string $annee): false|stdClass
+    {
+        $sql = "select matricule,numeroInscrit,nom,isme,nni,imagePath,codeSalleClasse,pseudoSalleClasse,codeClasse from inscrit_view where matricule='$id' and codeAnnee='$annee'";
         $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
     }

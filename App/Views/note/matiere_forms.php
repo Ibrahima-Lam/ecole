@@ -53,7 +53,7 @@
                 </td>
                 <?php foreach ($examens as $key => $examen): ?>
                     <td data-col="<?= $key ?>">
-                        <input type="checkbox" name="" class="checkboxCell">
+                        <input type="checkbox" name="" class="checkColumn">
                     </td>
                 <?php endforeach ?>
             </tr>
@@ -65,7 +65,6 @@
                     <td><?= $inscrit->numeroInscrit ?></td>
                     <td><?= $inscrit->nom ?></td>
                     <td>
-
                         <input type="checkbox" name="" class="checkRow">
                     </td>
                     <?php foreach ($examens as $key => $examen): ?>
@@ -117,7 +116,7 @@
 <script type="module">
     import { fetchAllJson } from "./js/src/fetch.js";
     // ---------------------------Enregistrer les formulaires--------------------------
-    const checkboxCell = document.querySelectorAll('.checkboxCell')
+    const checkColumn = document.querySelectorAll('.checkColumn')
     const checkRow = document.querySelectorAll('.checkRow')
     const inscritRows = document.querySelectorAll('.inscritRow')
     const forms = []
@@ -196,8 +195,8 @@
         }
     }
     //   ---------------------------coches une colonnes--------------------------
-    for (let index = 0; index < checkboxCell.length; index++) {
-        const element = checkboxCell[index];
+    for (let index = 0; index < checkColumn.length; index++) {
+        const element = checkColumn[index];
         element.addEventListener('change', function (e) {
             for (let index2 = 0; index2 < inscritRows.length; index2++) {
                 const element = inscritRows[index2];
@@ -212,7 +211,7 @@
         const element = checkRow[index];
         element.addEventListener('change', function (e) {
 
-            for (let index2 = 0; index2 < checkboxCell.length; index2++) {
+            for (let index2 = 0; index2 < checkColumn.length; index2++) {
                 let elmt = forms[index][index2].check
                 elmt.checked = e.target.checked
             }
@@ -221,8 +220,9 @@
     // ---------------------------Cocher Tous---------------------------
     const checkAll = document.getElementById('checkAll')
     checkAll.addEventListener('change', function (e) {
-        for (let index = 0; index < checkboxCell.length; index++) {
-            const element = checkboxCell[index];
+       
+        for (let index = 0; index < checkColumn.length; index++) {
+            const element = checkColumn[index];
             element.checked = e.target.checked
             for (let index2 = 0; index2 < checkRow.length; index2++) {
                 checkRow[index2].checked = e.target.checked
@@ -321,6 +321,7 @@
     
     window.addEventListener('DOMContentLoaded', function () {
         checkOutAllNote()
+        checkbuttons()
     })
 
     document.querySelector('#changeSalleClasse')?.addEventListener('change', function (e) {
@@ -334,7 +335,7 @@
         window.location.href = url
     })
 
-    checkboxCell.forEach(cell=>{
+    checkColumn.forEach(cell=>{
         cell.addEventListener('change',function(e){
             updateCheckAll()
         })
@@ -352,29 +353,62 @@
     })
 
     function updateCheckAll() {
-  let countCheckedRow=0
-  for(let i in forms){
-    let countCheckedCell=0
-    for(let j in forms[i]){
-      if(forms[i][j].check.checked) countCheckedCell++
+  let fullRowCount = 0;
+
+  for (let i = 0; i < checkRow.length; i++) {
+    let checkedCellCount = 0;
+    for (let j = 0; j < checkColumn.length; j++) {
+      if (forms[i][j]?.check?.checked) checkedCellCount++;
     }
-    if(countCheckedCell==forms[i].length){
-        checkRow[i].checked=true
-        countCheckedRow++
-    }else checkRow[i].checked=false
+
+    if (checkedCellCount === checkColumn.length) {
+      checkRow[i].checked = true;
+      fullRowCount++;
+    } else {
+      checkRow[i].checked = false;
+    }
   }
-let countCheckedCell=0
-  for(let j in checkboxCell ){
-    let countCheckedRow=0
+
+  let fullColumnCount = 0;
+
+  for (let j = 0; j < checkColumn.length; j++) {
+    let checkedRowCount = 0;
+    for (let i = 0; i < checkRow.length; i++) {
+      if (forms[i][j]?.check?.checked) checkedRowCount++;
+    }
+
+    if (checkedRowCount === checkRow.length) {
+      checkColumn[j].checked = true;
+      fullColumnCount++;
+    } else {
+      checkColumn[j].checked = false;
+    }
+  }
+
+  checkAll.checked = fullRowCount === checkRow.length;
+  checkbuttons();
+}
+
+function checkbuttons(){
+    let anychecked=false
     for(let i in forms){
-      if(forms[i][j].check.checked) countCheckedRow++
+        for(let j in forms[i]){
+            if(forms[i][j].check.checked){
+                anychecked=true
+                break
+            }
+        }
+        if(anychecked) break
     }
-    if(countCheckedRow==forms.length){
-        checkboxCell[j].checked=true
-        countCheckedCell++
-    }else checkboxCell[j].checked=false
-  }
-  checkAll.checked=countCheckedRow==forms.length
+    console.log(anychecked);
+    
+    if(anychecked){
+        document.querySelector('#saveAll').disabled=false
+        document.querySelector('#deleteAll').disabled=false
+    }else{
+        document.querySelector('#saveAll').disabled=true
+        document.querySelector('#deleteAll').disabled=true
+    }
 }
 
 </script>

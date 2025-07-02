@@ -19,8 +19,10 @@ abstract class InterrogationServiceProvider{
     protected const COEFF_C2=2;
     protected const COEFF_C3=3;
     protected const COEFF_INTERRO=3;
-    protected const COEFF_TOTAL_C1=3;
-    protected const COEFF_TOTAL_C2=3;
+    protected const COEFF_TOTAL_C1=5;
+
+    protected const COEFF_TOTAL_C2=5;
+
     protected const COEFF_TOTAL_C3=9;
     public const INTERRO_MAX=1;
     public const INTERRO_SOMME2=2;
@@ -54,27 +56,29 @@ abstract class InterrogationServiceProvider{
         return $element;
     }
 
-    protected function getTotalAndMoyenne($element,$type){
+    protected function getTotalAndMoyenne($element, $type){
+        $type=intval($type);
        $total= match($type){
-            self::C1_TYPE=>$element->mi+($element->c1?->note??0)*2,
-            self::C2_TYPE=>$element->mi+($element->c2?->note??0)*2,
-            self::C3_TYPE=>($element->c1?->note??0)*self::COEFF_C1+($element->c2?->note??0)*self::COEFF_C2+($element->c3?->note??0)*self::COEFF_C3+$element->miX3,
+            self::C1_TYPE=>$element->mi===null?($element->c1?->note??0): $element->mi*2+($element->c1?->note??0)*3,
+            self::C2_TYPE=>$element->mi===null?($element->c1?->note??0)+($element->c2?->note??0)*2: $element->mi*2+($element->c1?->note??0)+($element->c2?->note??0)*2,
+            self::C3_TYPE=>($element->c1?->note??0)*self::COEFF_C1+($element->c2?->note??0)*self::COEFF_C2+($element->c3?->note??0)*self::COEFF_C3+$element->miX3??0,
         }; 
         $moyenne= match($type){
-            self::C1_TYPE=>$total/self::COEFF_TOTAL_C1,
-            self::C2_TYPE=>$total/self::COEFF_TOTAL_C2,
+            self::C1_TYPE=>$element->mi===null?$total:$total/self::COEFF_TOTAL_C1,
+            self::C2_TYPE=>$element->mi===null?$total/3:$total/self::COEFF_TOTAL_C2,
             self::C3_TYPE=>$total/self::COEFF_TOTAL_C3,
         };
         return [$total,$moyenne];
     }
     
       
-    protected function getInterogationMoyenne1($key,$codeMatiere):float{
+    protected function getInterogationMoyenne1($key,$codeMatiere):?float{
         $notes=$this->notes[$key]??[];
       
         if(empty($notes))return 0;
         $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=2&&$exam->trimestreExamen==1;
         $examens=array_filter($this->examens[$codeMatiere],$callBack);
+        if(empty($examens))return null;
        
         $notes=array_map(function ($note)use ($callBack) {
             if(!$callBack($note))return 0;
@@ -95,12 +99,12 @@ abstract class InterrogationServiceProvider{
                 return array_sum($notes)/(count($examens)?:1);
         }
     } 
-    protected function getInterogationMoyenne2($key,$codeMatiere):float{
+    protected function getInterogationMoyenne2($key,$codeMatiere):?float{
         $notes=$this->notes[$key]??[];
         if(empty($notes))return 0;
         $callBack=fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0&&$exam->indiceEvaluation<=4&&$exam->trimestreExamen<=2;
         $examens=array_filter($this->examens[$codeMatiere],$callBack);
-       
+       if(empty($examens))return null;
         $notes=array_map(function ($note)use ($callBack) {
             if(!$callBack($note))return 0;
             return $note->note;
@@ -119,12 +123,12 @@ abstract class InterrogationServiceProvider{
                 return array_sum($notes)/(count($examens)?:1);
         }
     } 
-    protected function getInterogationMoyenne3($key,$codeMatiere):float{
+    protected function getInterogationMoyenne3($key,$codeMatiere):?float{
         $notes=$this->notes[$key]??[];
       
         if(empty($notes))return 0;
         $examens=array_filter($this->examens[$codeMatiere],fn ($exam) => $exam->typeEvaluation=='devoir'&&$exam->statutExamen!=0);
-       
+       if(empty($examens))return null;
         $notes=array_map(function ($note) {
             if($note->typeEvaluation!='devoir'||$note->statutExamen==0)return 0;
             return $note->note;

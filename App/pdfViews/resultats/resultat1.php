@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=__format("Resultat du 1er Trimestre de la",$salleclasse->pseudoSalleClasse)?></title>
+    <title><?=__format("Resultat du 1er Trimestre de la %s",$salleclasse->pseudoSalleClasse)?></title>
     <link rel="stylesheet" href="css/pdfstyle.css">
 </head>
 
 <body>
 
-    <h2 class="title-center my-10 text-center"><?=__format("Resultat du 1er Trimestre de la",$salleclasse->pseudoSalleClasse)?></h2>
+    <h2 class="title-center my-10 text-center"><?=__format("Resultat du 1er Trimestre de la %s",$salleclasse->pseudoSalleClasse)?></h2>
     <table class="table <?= $paramettre->striped ? 'table-striped' : '' ?> table-bordered">
         <thead>
             <tr>
@@ -118,7 +118,7 @@
     <?php if($paramettre->statistiques):?>
         <pagebreak/>
     <div class="statistiques">
-        <h2>Statistiques</h2>
+        <h2><?=__("Statistiques")?> </h2>
 <table class="table table-bordered">
     <tr>
         <th><?=__("Effectif")?></th>

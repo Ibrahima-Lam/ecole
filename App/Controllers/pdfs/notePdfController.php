@@ -6,6 +6,7 @@ use App\Controllers\src\pdfController;
 use App\Models\Repositories\NoteRepository;
 use App\Models\Repositories\ExamenRepository;
 use App\Services\src\AnneeScolaireService;
+use Core\src\Request;
 use Src\Factories\NoteParamettreFactory;
 use App\Models\Repositories\SalleClasseRepository;
 use App\Models\Repositories\inscritRepository;
@@ -41,11 +42,11 @@ class NotePdfController extends pdfController
 
 
 
-    public function releve($codeSalleClasse, $codeMatiere)
+    public function releve(Request $request,$codeSalleClasse, $codeMatiere)
     {
         $model = new SalleClasseRepository();
         $salleClasse = $model->findOneByCode($codeSalleClasse);
-
+        $trimestre=$request->get('trimestre')??3;
         $model1 = new inscritRepository();
         $inscrits = $model1->findAllByClasse($codeSalleClasse);
         $model2 = new ClasseMatiereRepository();
@@ -62,6 +63,6 @@ class NotePdfController extends pdfController
         $data = new ClasseResultatProvider($codeSalleClasse,$codeMatiere, $this->anneeScolaireService->getCodeAnnee());
         $paramettre =ReleveParamettreFactory::getReleveParam();
         $pseudo=$salleClasse->pseudoSalleClasse;
-        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);
+        $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse","trimestre"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);
     }
 }

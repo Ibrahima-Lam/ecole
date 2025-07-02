@@ -30,15 +30,27 @@ class NoteRepository extends Repository
         $sql = "select * from note_view where codeSalleClasse='$codeSalleClasse'";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
-    }  public function findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere):array
+    }
+      public function findAllByClasseAndMatiere($codeSalleClasse,$codeMatiere):array
     {
         $sql = "select * from note_view where codeSalleClasse='$codeSalleClasse' and codeMatiere='$codeMatiere'";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
+    } 
+     public function findAllByClasseAndMatiereForBulletin($codeSalleClasse,$codeMatiere):array
+    {
+        $sql = "select idNote,matricule,codeExamen,note,codeEvaluation,codeMatiere,typeEvaluation,statutExamen,indiceEvaluation,trimestreExamen from note_view where codeSalleClasse='$codeSalleClasse' and codeMatiere='$codeMatiere'";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     } 
      public function findAllByMatriculeAndClasse($matricule,$codeSalleClasse):array
     {
         $sql = "select * from note_view where codeSalleClasse='$codeSalleClasse' and matricule='$matricule'";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
+    }  public function findAllByMatriculeAndClasseForBulletin($matricule,$codeSalleClasse):array
+    {
+        $sql = "select idNote,matricule,codeExamen,note,codeEvaluation,codeMatiere,typeEvaluation,statutExamen,indiceEvaluation,trimestreExamen from note_view where codeSalleClasse='$codeSalleClasse' and matricule='$matricule'";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }

@@ -1,6 +1,13 @@
 import FormModule from './formModule.js';
 import { fetchJson, fetchText } from "../src/fetch.js";
-
+const params={
+    admin: false,
+    sort: 'matricule',
+    order: 'asc',
+    statut: null,
+    cycle: null,
+    search: ''
+}
 let admin = false;
 window?.addEventListener('load', function () {
     admin = document.getElementById('_admin').value;
@@ -9,8 +16,7 @@ window?.addEventListener('load', function () {
 
 let table = document.querySelector("table");
 let data = [];
-let order = 'asc'
-let sort = 'matricule'
+
 
 const inscritRows = document.querySelectorAll('.inscritRow');
 inscritRows.forEach(row => {
@@ -22,13 +28,8 @@ inscritRows.forEach(row => {
 document.getElementById("srch")?.addEventListener("input",async function (e) {
 
     if (e.target.value.length<3&&e.target.value.length>0) return;
-    
-        let tab = new TableData(table, data, {
-            search: e.target.value,
-            admin: admin,
-            sort: sort,
-            order: order
-        });
+    params.search=e.target.value;
+        let tab = new TableData(table, data, {...params});
         tab.create();
         // tab.setFiltering(e.target.value);
     });
@@ -37,21 +38,17 @@ let headers = table.querySelectorAll("thead tr th.sortable");
 headers.forEach(header => {
     header?.addEventListener("click", async function (e) {
         let srt = header.dataset.sort;
-        let ord = order
-        if (sort == srt) {
-            ord = order == 'asc' ? 'desc' : 'asc'
-            order = ord
+        let ord = params.order
+        if (params.sort == srt) {
+            ord = params.order == 'asc' ? 'desc' : 'asc'
+            params.order = ord
         }
-        sort = srt
+        params.sort = srt
         if (data.length == 0) {
             let url = "?p=api/inscrit/liste";
             data = await fetchJson(url);
         }
-        let tab = new TableData(table, data, {
-            sort: srt,
-            order: ord,
-            admin: admin
-        });
+        let tab = new TableData(table, data, params);
         tab.create();
         tab.setSorting(header)
 

@@ -29,7 +29,8 @@ $title = __("Liste des Matieres");
                            <a class="btn btn-info" title="<?=__("ajouter ou modifier les notes pour cette matiere depuis un fichier")?>" href="?p=note/matiere_file_form/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="fa fa-file"></i></a>
                        
                      </div>
-                <?php endif?></td>
+                <?php endif?>
+            </td>
             </tr>
         <?php endforeach; ?>
     </tbody>

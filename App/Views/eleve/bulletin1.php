@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Classe</th>
-                <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->codeClasse.$notematieres->eleve->indiceSalleClasse?></a></center></td>
+                <td colspan="2"><center><a href="?p=salleclasse/profil/<?=$notematieres->eleve->codeSalleClasse?>"><?=$notematieres->eleve->pseudoSalleClasse?></a></center></td>
 
                 <th dir="rtl" class="right">القسم</th>
             </tr>
@@ -77,6 +77,7 @@
         <tfoot>
         <tr>
                 <td><strong>Total</strong></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>

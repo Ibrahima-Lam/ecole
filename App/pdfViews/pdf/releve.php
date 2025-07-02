@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relevé de notes</title>
+    <title><?=__("Relevé de notes")?></title>
     <link rel="stylesheet" href="css/pdfstyle.css">
 </head>
 <body>
-<h2 class="text-center my-10">Relevé de notes</h2>
+<h2 class="text-center my-10"><?=__("Relevé de notes")?></h2>
 <table class="space-around my-10">
     <tr>
         <td>
@@ -32,7 +32,7 @@ $examens=$data->examens[$data->matiere->codeMatiere];
                     <th>Matricule</th>
                 <?php endif?>
                 <?php if($paramettre->numero):?>
-                    <th>Numéro</th>
+                    <th>Num</th>
                 <?php endif?>
                 <?php if($paramettre->nom):?>
                     <th>Nom</th>
@@ -57,6 +57,9 @@ $examens=$data->examens[$data->matiere->codeMatiere];
                 <?php endif?> 
                 <?php if($paramettre->points):?>
                     <th><?=__("Pts")?></th>
+                <?php endif?>
+                  <?php if($paramettre->rang):?>
+                    <th><?=__("rang")?></th>
                 <?php endif?> 
             </tr>
         </thead>
@@ -98,12 +101,17 @@ $examens=$data->examens[$data->matiere->codeMatiere];
                     <?php if($paramettre->points):?>
                         <td><?= htmlspecialchars($eleve->points??0) ?></td>
                     <?php endif?> 
+                     <?php if($paramettre->rang):?>
+                        <td><?= htmlspecialchars($eleve->rang??0) ?></td>
+                    <?php endif?> 
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
 <br>
+<p class="center"><?=__format("NB : Les calculs font référence au %se trimestre !",$trimestre)?></p>
+
 <br>
 <?php if($paramettre->statistiques):?>
     <pagebreak/>  
@@ -120,8 +128,10 @@ $labels = [
     'note_entre_5_et_10',
     'note_entre_10_et_15',
     'note_entre_15_et_20',
-    'note_superieure_ou_egale_10',
+    'note_inferieure_9',
+    'note_superieure_ou_egale_9',
     'note_inferieure_10',
+    'note_superieure_ou_egale_10',
     'min_note',
     'max_note',
 ];
@@ -136,8 +146,10 @@ $labels = [
             <th>5–10</th>
             <th>10–15</th>
             <th>15–20</th>
-            <th>≥ 10</th>
+            <th>&lt; 9</th>
+            <th>≥ 9</th>
             <th>&lt; 10</th>
+            <th>≥ 10</th>
             <th>Min</th>
             <th>Max</th>
             <th>Total</th>
@@ -162,8 +174,10 @@ $labels = [
     'note_entre_5_et_10',
     'note_entre_10_et_15',
     'note_entre_15_et_20',
+    'note_inferieure_9',
+    'note_superieure_ou_egale_9', 
+     'note_inferieure_10',
     'note_superieure_ou_egale_10',
-    'note_inferieure_10',
     
 ];
 ?>
@@ -180,8 +194,10 @@ $labels = [
             <th>5–10</th>
             <th>10–15</th>
             <th>15–20</th>
-            <th>≥ 10</th>
+            <th>&lt; 9</th>
+            <th>≥ 9</th>
             <th>&lt; 10</th>
+              <th>≥ 10</th>
            
         </tr>
     </thead>

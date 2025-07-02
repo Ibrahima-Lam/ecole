@@ -129,21 +129,27 @@
 }
 
 .my-10 {
-    margin: 10px 0;
+    margin: 10px auto;
+}
+.my-15 {
+    margin: 15px auto;
+}
+.my-20 {
+    margin: 20px auto;
 }
 
 .my-5 {
-    margin: 5px 0;
+    margin: 5px auto;
 }
 
 .mx-10 {
-    margin: 0 10px;
+    margin: auto 10px;
 }
 .mx-20 {
-    margin: 0 20px;
+    margin: auto 20px;
 }
 .mx-30 {
-    margin: 0 30px;
+    margin: auto 30px;
 }
 
 .inline-block {

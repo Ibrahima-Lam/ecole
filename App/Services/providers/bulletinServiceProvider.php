@@ -36,17 +36,17 @@ class bulletinServiceProvider extends InterrogationServiceProvider
    protected function setData(){
     if($this->matricule){
         $ripos=new inscritRepository();
-        $this->eleve=$ripos->findOneByMatriculeAndAnnee($this->matricule,$this->anneeScolaireService->getCodeAnnee());
+        $this->eleve=$ripos->findOneByMatriculeAndAnneeForBulletin($this->matricule,$this->anneeScolaireService->getCodeAnnee());
         if(!$this->eleve)return;
         $ripos2= new ClasseMatiereRepository();
-     if(!$this->matieres) $this->matieres=$ripos2->findAllByClasseAndAnnee($this->eleve->codeClasse,$this->anneeScolaireService->getCodeAnnee());
+     if(!$this->matieres) $this->matieres=$ripos2->findAllByClasseAndAnneeForBulletin($this->eleve->codeClasse,$this->anneeScolaireService->getCodeAnnee());
       
         $ripos3=new ExamenRepository();
         foreach ($this->matieres as $matiere) {
-            $this->examens[$matiere->codeMatiere]=$ripos3->findAllByClasseAndMatiere($this->eleve->codeSalleClasse,$matiere->codeMatiere);
+            $this->examens[$matiere->codeMatiere]=$ripos3->findAllByClasseAndMatiereForBulletin($this->eleve->codeSalleClasse,$matiere->codeMatiere);
         }
         $ripos4=new NoteRepository();
-        $notes=$ripos4->findAllByMatriculeAndClasse($this->matricule,$this->eleve->codeSalleClasse);
+        $notes=$ripos4->findAllByMatriculeAndClasseForBulletin($this->matricule,$this->eleve->codeSalleClasse);
         foreach ($this->examens as  $examensmatiere) {
             foreach ($examensmatiere as $examen) {
                foreach ($notes as $note) {
@@ -73,12 +73,12 @@ class bulletinServiceProvider extends InterrogationServiceProvider
             $element=$this->constructElement($element,$matiere->codeMatiere);
             $element->mi=$this->getInterogationMoyenne1($matiere->codeMatiere,$matiere->codeMatiere);
            
-            $element->miX3=$element->mi*self::COEFF_INTERRO;
+            $element->miX3=$element->mi===null?0: $element->mi*self::COEFF_INTERRO;
             [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C1_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
-            $element->mi=round($element->mi,2);
+            $element->mi=round($element->mi??0,2);
             $element->miX3=round($element->miX3,2);
             $element->total=round($element->total,2);
             $element->moyenne=round($element->moyenne,2);
@@ -91,7 +91,9 @@ class bulletinServiceProvider extends InterrogationServiceProvider
             $notes[$key]=$element;
         }
         $points=round($points,2);
-        return new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab1,$this->absences);
+        $bulletin=new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab1,$this->absences);
+        $this->bulletin1=$bulletin;
+        return $bulletin;
     } 
     public function getBulletin2($points_tab=[]):BulletinProviderEntity{
         if($points_tab) $this->points_tab2=$points_tab;
@@ -105,12 +107,12 @@ class bulletinServiceProvider extends InterrogationServiceProvider
            $element=$this->constructElement($element,$matiere->codeMatiere);
             $element->mi=$this->getInterogationMoyenne2($matiere->codeMatiere,$matiere->codeMatiere);
            
-            $element->miX3=$element->mi*self::COEFF_INTERRO;
+            $element->miX3=$element->mi===null?0: $element->mi*self::COEFF_INTERRO;
             [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C2_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
-            $element->mi=round($element->mi,2);
+            $element->mi=round($element->mi??0,2);
             $element->miX3=round($element->miX3,2);
             $element->total=round($element->total,2);
             $element->moyenne=round($element->moyenne,2);
@@ -123,7 +125,9 @@ class bulletinServiceProvider extends InterrogationServiceProvider
             $notes[$key]=$element;
         }
         $points=round($points,2);
-        return new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab2,$this->absences);
+        $bulletin=new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab2,$this->absences);
+        $this->bulletin2=$bulletin;
+        return $bulletin;
     }
     
     public function getBulletin3($points_tab=[]):BulletinProviderEntity{
@@ -138,12 +142,12 @@ class bulletinServiceProvider extends InterrogationServiceProvider
           $element=$this->constructElement($element,$matiere->codeMatiere);
             $element->mi=$this->getInterogationMoyenne3($matiere->codeMatiere,$matiere->codeMatiere);
            
-            $element->miX3=$element->mi*self::COEFF_INTERRO;
+            $element->miX3=$element->mi===null?0: $element->mi*self::COEFF_INTERRO;
             [$element->total,$element->moyenne]=$this->getTotalAndMoyenne($element,self::C3_TYPE);
             $element->points=$element->moyenne*$matiere->coefficientClasseMatiere;
             $points+=$element->points;
             
-            $element->mi=round($element->mi,2);
+            $element->mi=round($element->mi??0,2);
             $element->miX3=round($element->miX3,2);
             $element->total=round($element->total,2);
             $element->moyenne=round($element->moyenne,2);
@@ -157,15 +161,10 @@ class bulletinServiceProvider extends InterrogationServiceProvider
             $notes[$key]=$element;
         }
         $points=round($points,2);
-        return new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab3,$this->absences);
+        $bulletin=new bulletinProviderEntity($this->eleve,$notes,$points,$this->matieres,$this->points_tab3,$this->absences);
+        $this->bulletin3=$bulletin;
+        return $bulletin;
     }
-
-
-
-  
- 
-   
-
 }
 
 ?>

@@ -15,6 +15,7 @@ class ReleveParamettre{
     public  $coefficient=false;
     public  $moyenne_interro=false;
     public  $points=false;
+    public  $rang=true;
     public  $total=false;
     public  $statistiques=true;
 

@@ -5,6 +5,14 @@ import EleveForm from "./eleve_form_module.js";
  * @type {HTMLInputElement} admin
  */
 let admin = false;
+let params = {
+    admin: admin,
+    sort: 'matricule',
+    order: 'asc',
+    statut: null,
+    cycle: null,
+    search: ''
+}
 window?.addEventListener('load', function () {
     admin = document.getElementById('admin').value;
 });
@@ -59,13 +67,8 @@ document.getElementById("add")?.addEventListener("click", function (e) {
 document.getElementById("srch")?.addEventListener("input",async function (e) {
 
 if (e.target.value.length<3&&e.target.value.length>0) return;
-
-    let tab = new TableData(table, data, {
-        search: e.target.value,
-        admin: admin,
-        sort: sort,
-        order: order
-    });
+params.search=e.target.value;
+    let tab = new TableData(table, data,{...params});
     tab.create();
     // tab.setFiltering(e.target.value);
 });
@@ -90,11 +93,9 @@ headers.forEach(header => {
             let url = "?p=api/eleve/liste";
             data = await fetchJson(url);
         }
-        let tab = new TableData(table, data, {
-            sort: srt,
-            order: ord,
-            admin: admin
-        });
+        params.sort=srt;
+        params.order=ord;
+        let tab = new TableData(table, data, params);
         tab.create();
         tab.setSorting(header)
 
@@ -105,10 +106,7 @@ window?.addEventListener('load', function (e) {
     let tab = new TableData(
         table,
         data,
-        {
-            sort: sort,
-            order: order
-        }
+        params
     )
     tab.setSorting(table.querySelector('th.sortable'))
 })

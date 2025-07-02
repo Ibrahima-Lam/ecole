@@ -31,6 +31,11 @@ class ExamenRepository extends Repository
        $result = $this->db->selectAll($sql, stdClass::class);
        return $result;
    }
+   public function findAllByClasseAndMatiereForBulletin($classe,$matiere): array{
+       $sql = "select codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,statutExamen,indiceEvaluation,typeEvaluation,trimestreExamen from examen_view where codeSalleClasse='$classe' and codeMatiere='$matiere' order by typeEvaluation desc,indiceEvaluation asc";
+       $result = $this->db->selectAll($sql, stdClass::class);
+       return $result;
+   }
      public function findAllByMatiereAndAnnee ($matiere,$annee): array{
         $sql = "select * from examen_view where codeMatiere='$matiere' and codeAnnee='$annee'";
         $result = $this->db->selectAll($sql, stdClass::class);

@@ -114,7 +114,7 @@
             <tr>
                 <th>Classe</th>
                 <th></th>
-                <td ><center><strong><?=$bulletin->eleve->codeClasse?><?=$bulletin->eleve->indiceSalleClasse?></strong></center></td>
+                <td ><center><strong><?=$bulletin->eleve->pseudoSalleClasse?></strong></center></td>
                 <th></th>
                 <th dir="rtl" class="right">القسم</th>
             </tr>

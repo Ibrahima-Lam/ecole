@@ -1,26 +1,45 @@
+
+<div class="space-around">
+<?php
+    $trimestre=isset($_REQUEST['trimestre'])?(int)$_REQUEST['trimestre']:3;
+    ?>
+<?php if($_admin):?>
+     <a  class="btn btn-primary link" title="<?=__("importer les notes")?>" href="?p=note/matiere_file_form/<?= htmlspecialchars($codeSalleClasse) ?>/<?= htmlspecialchars($codeMatiere) ?>"><i class="fa fa-file"></i>&nbsp;<span><?=__("Importer les notes")?></span></a>
+     <a class="btn btn-success link" title="<?=__("Ajouter plusieurs notes")?>" href="?p=note/matiere_forms/<?= htmlspecialchars($codeSalleClasse) ?>/<?= htmlspecialchars($codeMatiere) ?>"><i class="fa fa-layer-group"></i>&nbsp;<span><?=__("Ajouter plusieurs notes")?></span></a>
+ 
+     <?php endif?>
+    
+    <select class="field " id="changeSalleClasse">
+        <?php foreach ($sallesClasse as $sc): ?>
+            <option value="<?= htmlspecialchars($sc->codeSalleClasse) ?>" <?= $sc->codeSalleClasse == $codeSalleClasse ? 'selected' : '' ?>><?= htmlspecialchars($sc->pseudoSalleClasse) ?></option>
+        <?php endforeach ?>
+    </select> 
+    <select class="field " id="changeMatiere">
+        <?php foreach ($matieres as $matiere): ?>
+            <option value="<?= htmlspecialchars($matiere->codeMatiere) ?>" <?= $matiere->codeMatiere == $codeMatiere ? 'selected' : '' ?>><?= htmlspecialchars($matiere->codeMatiere) ?></option>
+        <?php endforeach ?>
+    </select>
+   
+    <select class="field width-50px" id="changeTrimestre">
+        <option value="1" <?= $trimestre == 1 ? 'selected' : '' ?>><?=__("Trimestre 1")?></option>
+        <option value="2" <?= $trimestre == 2 ? 'selected' : '' ?>><?=__("Trimestre 2")?></option>
+        <option value="3" <?= $trimestre == 3 ? 'selected' : '' ?>><?=__("Trimestre 3")?></option>
+    </select>
+    <div class="center">
+        <input type="checkbox" id="merite" name="merite" value="1" <?php if(!empty($_REQUEST['merite'])) echo 'checked'; ?>>
+        <label for="merite"><?=__("Tri par merite")?></label>
+    </div>
+
+    </div>
 <?php
 $title = __("Relevé de notes");
 
 ?>
 <input type="hidden"id="codeSalleClasse" name="codeSalleClasse" value="<?= htmlspecialchars($codeSalleClasse) ?>">
 <input type="hidden"id="codeMatiere" name="codeMatiere" value="<?= htmlspecialchars($codeMatiere) ?>">
+<br>
+<p class="center"><?=__format("NB : Les calculs font référence au %se trimestre. Veillez changer le trimestre pour un choix différent!",$trimestre)?></p>
 
-<div class="space-between">
-    <p><?=__("La classe")?>
-    </p>
-    <select class="field width-100px" id="changeSalleClasse">
-        <?php foreach ($sallesClasse as $sc): ?>
-            <option value="<?= htmlspecialchars($sc->codeSalleClasse) ?>" <?= $sc->codeSalleClasse == $codeSalleClasse ? 'selected' : '' ?>><?= htmlspecialchars($sc->pseudoSalleClasse) ?></option>
-        <?php endforeach ?>
-    </select> 
-    <p>
-        <?=__("La matiere")?></p>
-    <select class="field width-100px" id="changeMatiere">
-        <?php foreach ($matieres as $matiere): ?>
-            <option value="<?= htmlspecialchars($matiere->codeMatiere) ?>" <?= $matiere->codeMatiere == $codeMatiere ? 'selected' : '' ?>><?= htmlspecialchars($matiere->codeMatiere) ?></option>
-        <?php endforeach ?>
-    </select>
-</div>
 <h2 class="text-center my-10"><?=__("Relevé de notes")?></h2>
 <div class="space-around my-10">
     <p>
@@ -34,38 +53,41 @@ $title = __("Relevé de notes");
 $examens=$data->examens[$data->matiere->codeMatiere];
 ?>
 <div class="table-container">
-    <table class="table table-striped">
+    <table class="table table-striped" id="tableReleve">
         <thead>
-            <tr>
+            <tr class="tr-copy">
                 <?php if($paramettre->matricule):?>
-                    <th><?=__("Matricule")?></th>
+                    <th class="make-copy"><?=__("Matricule")?></th>
                 <?php endif?>
                 <?php if($paramettre->numero):?>
-                    <th><?=__("Numéro")?></th>
+                    <th class="make-copy"><?=__("Numéro")?></th>
                 <?php endif?>
                 <?php if($paramettre->nom):?>
-                    <th><?=__("Nom")?></th>
+                    <th ><span class="make-copy"><?=__("Nom")?></span><span class="make-copy">&nbsp;</span></th>
                 <?php endif?>
                 <?php if($paramettre->isme):?>
-                    <th><?=__("Nom en Arabe")?></th>
+                    <th class="make-copy"><?=__("Nom en Arabe")?></th>
                 <?php endif?>
                 <?php foreach ($examens as $examen) : ?>
-                    <th><a href="?p=examen/details/<?= htmlspecialchars($examen->codeExamen) ?>"><?= htmlspecialchars($examen->codeEvaluation) ?></a></th>
+                    <th class="make-copy"><a href="?p=examen/details/<?= htmlspecialchars($examen->codeExamen) ?>"><?= htmlspecialchars($examen->codeEvaluation) ?></a></th>
                 <?php endforeach; ?>
                 <?php if($paramettre->moyenne_interro):?>
-                    <th><?=__("MI")?></th>
+                    <th class="make-copy"><?=__("MI")?></th>
                 <?php endif?>
                 <?php if($paramettre->total):?>
-                    <th><?=__("Tot.")?></th>
+                    <th class="make-copy"><?=__("Tot.")?></th>
                 <?php endif?> 
                 <?php if($paramettre->moyenne):?>
-                    <th><?=__("Moy.")?></th>
+                    <th class="make-copy"><?=__("Moy.")?></th>
                 <?php endif?> 
                 <?php if($paramettre->coefficient):?>
-                    <th><?=__("Coefficient")?></th>
+                    <th class="make-copy"><?=__("Coeff.")?></th>
                 <?php endif?>
                  <?php if($paramettre->points):?>
-                    <th><?=__("Points")?></th>
+                    <th class="make-copy"><?=__("Points")?></th>
+                <?php endif?> 
+                  <?php if($paramettre->rang):?>
+                    <th class="make-copy"><?=__("Rang")?></th>
                 <?php endif?> 
             </tr>
         </thead>
@@ -73,41 +95,44 @@ $examens=$data->examens[$data->matiere->codeMatiere];
             <?php foreach ($data->getClasseResultat() as $eleve) : ?>
                 <tr>
                     <?php if($paramettre->matricule):?>
-                        <td><?= htmlspecialchars($eleve->matricule) ?></td>
+                        <td class="make-copy"><?= htmlspecialchars($eleve->matricule) ?></td>
                     <?php endif?>
                     <?php if($paramettre->numero):?>
-                        <td><?= htmlspecialchars($eleve->numeroInscrit) ?></td>
+                        <td class="make-copy"><?= htmlspecialchars($eleve->numeroInscrit) ?></td>
                     <?php endif?>
                     <?php if($paramettre->nom):?>
                         <td>
-                            <a href="?p=eleve/profil/<?=htmlspecialchars($eleve->matricule)?>"><?= htmlspecialchars($eleve->nom) ?></a>
+                            <a href="?p=eleve/profil/<?=htmlspecialchars($eleve->matricule)?>"><span class='make-copy'><?= htmlspecialchars($eleve->nom) ?></span></a>
                         
                     <?php if($paramettre->nom_isme):?>
                         <br>
-                        <?= htmlspecialchars($eleve->isme) ?>
+                        <span class='make-copy'><?= htmlspecialchars($eleve->isme) ?></span>
                     <?php endif?>
                     </td>
                     <?php endif?>
                     <?php if($paramettre->isme):?>
-                        <td><?= htmlspecialchars($eleve->isme) ?></td>
+                        <td class="make-copy"><?= htmlspecialchars($eleve->isme) ?></td>
                     <?php endif?>
                     <?php foreach ($examens as $examen) : ?>
-                        <td title="<?= htmlspecialchars($examen->codeEvaluation) ?>" data-codeExamen="<?= htmlspecialchars($examen?->codeExamen) ?>" data-id="<?=htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->idNote??"") ?>" class="clickable td-note <?=!$examen->statutExamen?"text-warning":""?>"><?= htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0) ?></td>
+                        <td title="<?= htmlspecialchars($examen->codeEvaluation) ?>" data-codeExamen="<?= htmlspecialchars($examen?->codeExamen) ?>" data-id="<?=htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->idNote??"") ?>" class="clickable make-copy td-note <?=!$examen->statutExamen?"text-warning":""?>"><?= htmlspecialchars($data->notes[$eleve->matricule][$examen->codeEvaluation]?->note??0) ?></td>
                     <?php endforeach; ?>
                     <?php if($paramettre?->moyenne_interro):?>
-                        <td title="MI"><?= htmlspecialchars($eleve?->mi??0) ?></td>
+                        <td title="MI" class="make-copy"><?= htmlspecialchars($eleve?->mi??0) ?></td>
                     <?php endif?>
                     <?php if($paramettre?->total):?>
-                        <td title="Total"><?= htmlspecialchars($eleve?->total??0) ?></td>
+                        <td title="Total" class="make-copy"><?= htmlspecialchars($eleve?->total??0) ?></td>
                     <?php endif?>
                     <?php if($paramettre?->moyenne):?>
-                        <td title="Moyenne"><?= htmlspecialchars($eleve?->moyenne??0) ?></td>
+                        <td title="Moyenne" class="make-copy"><?= htmlspecialchars($eleve?->moyenne??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->coefficient):?>
-                        <td title="Coefficient"><?= htmlspecialchars($eleve?->coefficient??0) ?></td>
+                        <td title="Coefficient" class="make-copy"><?= htmlspecialchars($eleve?->coefficient??0) ?></td>
                     <?php endif?> 
                     <?php if($paramettre?->points):?>
-                        <td title="Points"><?= htmlspecialchars($eleve?->points??0) ?></td>
+                        <td title="Points" class="make-copy"><?= htmlspecialchars($eleve?->points??0) ?></td>
+                    <?php endif?>
+                    <?php if($paramettre?->rang):?>
+                        <td title="Rang" class="make-copy"><?= htmlspecialchars($eleve?->rang??0) ?></td>
                     <?php endif?> 
                 </tr>
             <?php endforeach; ?>
@@ -130,8 +155,10 @@ $labels = [
     'note_entre_5_et_10',
     'note_entre_10_et_15',
     'note_entre_15_et_20',
-    'note_superieure_ou_egale_10',
+    'note_inferieure_9',
+    'note_superieure_ou_egale_9',
     'note_inferieure_10',
+    'note_superieure_ou_egale_10',
     'min_note',
     'max_note',
 ];
@@ -146,8 +173,10 @@ $labels = [
             <th>5–10</th>
             <th>10–15</th>
             <th>15–20</th>
-            <th>≥ 10</th>
+            <th>&lt; 9</th>
+            <th>≥ 9</th>
             <th>&lt; 10</th>
+            <th>≥ 10</th>
             <th>Min</th>
             <th>Max</th>
             <th>Total</th>
@@ -156,11 +185,11 @@ $labels = [
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
+                <td class="make-copy"><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= htmlspecialchars($statistiques[$row][$key] ?? 0) ?></td>
+                    <td class="make-copy"><?= htmlspecialchars($statistiques[$row][$key] ?? 0) ?></td>
                 <?php endforeach; ?>
-                <td><?= htmlspecialchars($statistiques['total']) ?></td>
+                <td class="make-copy"><?= htmlspecialchars($statistiques['total']) ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
@@ -172,9 +201,10 @@ $labels = [
     'note_entre_5_et_10',
     'note_entre_10_et_15',
     'note_entre_15_et_20',
-    'note_superieure_ou_egale_10',
+    'note_inferieure_9',
+    'note_superieure_ou_egale_9',
     'note_inferieure_10',
-    
+    'note_superieure_ou_egale_10',
 ];
 ?>
 <br>
@@ -183,22 +213,24 @@ $labels = [
     <thead>
         <tr>
             <th>Indice</th>
-            <th>= 0</th>
-            <th>0–5</th>
-            <th>5–10</th>
-            <th>10–15</th>
-            <th>15–20</th>
-            <th>≥ 10</th>
-            <th>&lt; 10</th>
+            <th class="make-copy">= 0</th>
+            <th class="make-copy">0–5</th>
+            <th class="make-copy">5–10</th>
+            <th class="make-copy">10–15</th>
+            <th class="make-copy">15–20</th>
+            <th class="make-copy">&lt; 9</th>
+            <th class="make-copy">≥ 9</th>
+            <th class="make-copy">&lt; 10</th>
+            <th class="make-copy">≥ 10</th>
            
         </tr>
     </thead>
     <tbody>
         <?php foreach ($rows as $row): ?>
             <tr>
-                <td><?= htmlspecialchars(strtoupper($row)) ?></td>
+                <td class="make-copy"><?= htmlspecialchars(strtoupper($row)) ?></td>
                 <?php foreach ($labels as $key): ?>
-                    <td><?= htmlspecialchars(round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2)) ?>%</td>
+                    <td class="make-copy"><?= htmlspecialchars(round(($statistiques[$row][$key] ?? 0)*100/($statistiques['total']?:1),2)) ?>%</td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach; ?>
@@ -209,13 +241,25 @@ $labels = [
 <?php endif?>
 
 <div class="fixed-action">
-    <a class="btn btn-success circle" target="_blank" title="Imprimer" href="?p=pdf/note/releve/<?= htmlspecialchars($salleClasse->codeSalleClasse) ?>/<?= htmlspecialchars($data->matiere->codeMatiere) ?>">
+    <?php
+    $href="?p=pdf/note/releve/".$salleClasse->codeSalleClasse."/".$data->matiere->codeMatiere;
+    if(!empty($_REQUEST['trimestre'])){
+        $href .= '&trimestre=' . $_REQUEST['trimestre'];
+    }
+    if(!empty($_REQUEST['merite'])){
+        $href .= '&merite=true';
+    }
+    ?>
+    <a class="btn btn-success circle" target="_blank" title="<?=__("Imprimer")?>" href="<?= htmlspecialchars($href) ?>">
         <i class="fa fa-file-pdf"></i>
     </a>
-    <button id="excel" class="btn btn-success circle" title="Excel" >
+    <button id="excel" class="btn btn-success circle" title="<?=__("Excel")?>" >
         <i class="bi-file-earmark-excel"></i>
     </button>
-    <button class="btn btn-primary circle" title="Paramétre" id="parametre">
+    <button id="copy" class="btn btn-primary circle" title="<?=__("Copier")?>" >
+        <i class="bi-clipboard"></i>
+    </button>
+    <button class="btn btn-primary circle" title="<?=__("Paramétre")?>" id="parametre">
         <i class="bi-gear"></i>
     </button>
 </div>
@@ -325,6 +369,27 @@ $labels = [
     document.getElementById('excel')?.addEventListener('click', function() {
         window.location.href = "?p=note/releveExcel/<?= htmlspecialchars($salleClasse->codeSalleClasse) ?>/<?= htmlspecialchars($data->matiere->codeMatiere) ?>";
     });
+    document.getElementById('copy')?.addEventListener('click', function() {
+        const table = document.getElementById('tableReleve');
+       let trs = table.querySelectorAll('tr');
+       let copy = '';
+       trs.forEach(tr => {
+           let tds = tr.querySelectorAll('.make-copy');
+           tds.forEach((td,index) => {
+               copy += td.innerText ;
+               if(index < tds.length - 1){
+                   copy += '\t';
+               }
+           });
+           copy += '\n';
+       });
+       navigator.clipboard.writeText(copy);
+       this.classList.add('copied');
+       setTimeout(() => {
+           this.classList.remove('copied');
+           alert("Copié");
+       }, 2000);
+    });
 
     document.getElementById('parametre')?.addEventListener('click', function() {
         document.getElementById('parametreDialog').showModal();
@@ -344,24 +409,53 @@ $labels = [
     dialogParametre.close();
     window.location.reload();
 });
+const changeTrimestre = document.querySelector('#changeTrimestre');
+const changeSalleClasse = document.querySelector('#changeSalleClasse');
+const changeMatiere = document.querySelector('#changeMatiere');
+const merite = document.querySelector('#merite');
 
-document.querySelector('#changeSalleClasse')?.addEventListener('change', function (e) {
+changeSalleClasse?.addEventListener('change', function (e) {
+    const codeSalleClasse = e.target.value;
+    const codeMatiere = changeMatiere.value;
+    const trimestre = changeTrimestre.value;
        
-        let url = '?p=note/releve/' + e.target.value + '/' + document.querySelector('#codeMatiere').value
+        let url = '?p=note/releve/' + codeSalleClasse + '/' + codeMatiere 
+        if(trimestre){
+            url += '&trimestre=' + trimestre;
+        }
+        if(merite.checked){
+            url += '&merite=true';
+        }
         window.location.href = url
     })
-    document.querySelector('#changeMatiere')?.addEventListener('change', function (e) {
-        
-        let url = '?p=note/releve/' + document.querySelector('#codeSalleClasse').value + '/' + e.target.value
+changeMatiere?.addEventListener('change', function (e) {
+        let url = '?p=note/releve/' + changeSalleClasse.value + '/' + e.target.value
+        const trimestre = changeTrimestre.value;
+        if(trimestre){
+            url += '&trimestre=' + trimestre;
+        }
+        if(merite.checked){
+            url += '&merite=true';
+        }
+        window.location.href = url
+    })
+changeTrimestre?.addEventListener('change', function (e) {
+        let url = '?p=note/releve/' + changeSalleClasse.value + '/' + changeMatiere.value;
+        const trimestre = changeTrimestre.value;
+        if(trimestre){
+            url += '&trimestre=' + trimestre;
+        }
+        if(merite.checked){
+            url += '&merite=true';
+        }
         window.location.href = url
     })
 
-    document.querySelectorAll('.td-note')?.forEach(td => {
-        td.addEventListener('dblclick', function() {
-            const codeExamen = this.getAttribute('data-codeExamen');
-            const idNote = this.getAttribute('data-id');
-            const url = '?p=examen/details/' + codeExamen + '#note' + idNote;
-            window.location.href = url;
-        });
+    merite?.addEventListener('change', function() {
+        let url = '?p=note/releve/' + document.querySelector('#codeSalleClasse').value + '/' + document.querySelector('#codeMatiere').value ;
+        if(this.checked){
+            url += '&merite=true';
+        }
+        window.location.href = url;
     });
 </script>

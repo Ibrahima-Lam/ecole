@@ -42,6 +42,14 @@ class ClasseMatiereRepository extends Repository
          "SELECT * FROM classe_matiere_view where codeClasse='$codeClasse' and codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
+    } public function findAllByClasseAndAnneeForBulletin(string $codeClasse,?string $codeAnnee): array
+    {
+        $projection="codeClasseMatiere,codeMatiere,nomMatiere,ismeMatiere,codeClasse,coefficientClasseMatiere";
+        $sql =$codeAnnee?
+         "SELECT $projection FROM classe_matiere_view where codeClasse='$codeClasse' and codeAnnee='$codeAnnee'order by coefficientClasseMatiere desc,horaireClasseMatiere desc":
+         "SELECT $projection FROM classe_matiere_view where codeClasse='$codeClasse' and codeAnnee is null order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
     }
     public function findAllByMatiereAndAnnee(string $codeMatiere,?string $codeAnnee): array
     {
