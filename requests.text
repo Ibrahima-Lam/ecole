@@ -552,3 +552,26 @@ create view correspondance_view as select
   join eleve e on e.matricule=c.matricule
   join correspondant cor on cor.idCorrespondant=c.idCorrespondant;
 
+create table etablissement(
+    idEtablissement int(6) AUTO_INCREMENT,
+    nomEtablissement varchar(100) not null,
+    ismeEtablissement varchar(100),
+    adresseEtablissement varchar(100) ,
+    villeEtablissement varchar(10),
+    telEtablissement varchar(8),
+    emailEtablissement varchar(100) ,
+    imagePathEtablissement varchar(100),
+    Constraint etablissement_pkey Primary Key (idEtablissement) 
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+create table etablissement(
+    idEtablissement int(6) AUTO_INCREMENT,
+    nomEtablissement varchar(100) not null,
+    ismeEtablissement varchar(100),
+    adresseEtablissement varchar(100) ,
+    villeEtablissement varchar(10),
+    telEtablissement varchar(15),
+    emailEtablissement varchar(100) ,
+    imagePathEtablissement varchar(100),
+    Constraint etablissement_pkey Primary Key (idEtablissement) 
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+alter table etablissement modify column telEtablissement varchar(15);

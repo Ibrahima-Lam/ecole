@@ -1,9 +1,10 @@
 <?php
 namespace Src\paramettres;
 
+use App\Services\src\AnneeScolaireService;
+use App\Services\src\EtablissementService;
+
 class bulletinParamettre{
-    public const ETABLISSEMENT='Lycée de Boghé';
-    public const ETABLISSEMENT_ARABE='الثنوية بوكى';
     public  $matricule=false;
     public  $numero=true;
     public  $nom=true;
@@ -79,16 +80,16 @@ class bulletinParamettre{
 
     public static function getEtablissementName()
     {
-        return self::ETABLISSEMENT;
+        return EtablissementService::getInstance()->getEtablissement()->getNomEtablissement();
     }
 
     public static function getEtablissementNameArabe()
     {
-        return self::ETABLISSEMENT_ARABE;
+        return EtablissementService::getInstance()->getEtablissement()->getIsmeEtablissement();
     }
     public static function AnneeScolaire()
     {
-        return '2024-2025';
+        return AnneeScolaireService::getInstance()->getAnnee()->nomAnnee;
     }
 }
      

@@ -175,4 +175,15 @@
     
     <p> <?=__("NB : Les moyennes sont calculées par la méthode du trimestre")?> <?=__format(" : %s",$trimestre)?></p>
 <br>
-<div style="text-align: right; width: 100%;" ><h4><u><?=__("Signature")?></u></h4></div>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td class="text-center"><h4><?=__format("Date : %s",date("d-m-Y")) ?></h4></td>
+            <td>
+<div class='text-center' ><h4><u><?=__("Signature")?></u></h4></div>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -40,30 +40,38 @@
     
     
     
-    <h3 class='title text-center my-10'> <u><?=htmlspecialchars(__("Relevé ds Notes"), ENT_QUOTES, 'UTF-8')?>
-    </u></h3>
- 
     <div class="space-between text-center">
+      <select  id="changeEleve" class="field">
+        <option value=""><?=__("Choisir un eleve")?></option>
+        <?php foreach($collegues as $collegue):?>
+        <option value="<?=htmlspecialchars($collegue->matricule, ENT_QUOTES, 'UTF-8')?>" <?= $collegue->matricule == $notematieres->eleve->matricule ? "selected" : "" ?>><?=htmlspecialchars($collegue->numeroInscrit."-".$collegue->nom, ENT_QUOTES, 'UTF-8')?></option>
+        <?php endforeach?>
+      </select>
       
-      
-        <p>
-         <?=htmlspecialchars(__("NB : Les moyennes sont calculées par la méthode du trimestre"), ENT_QUOTES, 'UTF-8')?> <?=htmlspecialchars(__format(" : %s",$trimestre), ENT_QUOTES, 'UTF-8')?>
-        </p>
-         <p><?=htmlspecialchars(__('Veuillez changer le trimestre pour s\'y référer le calcul'), ENT_QUOTES, 'UTF-8') ?></p>
-
-    <select class="field" name="trimestre" id="trimestre">
+          <select class="field" name="trimestre" id="trimestre">
         <option value="1" <?= $trimestre == 1 ? "selected" : "" ?>>1er Trimestre</option>
         <option value="2" <?= $trimestre == 2 ? "selected" : "" ?>>2eme Trimestre</option>
         <option value="3" <?= $trimestre == 3 ? "selected" : "" ?>>3eme Trimestre</option>
     </select>
     <select class="field" name="matiere" id="matiereFilter">
-        <option value="">Toutes les matieres</option>
+        <option value=""><?=__("Toutes les matieres")?></option>
         <?php foreach($matieres as $matiere):?>
         <option value="<?=htmlspecialchars($matiere->codeMatiere, ENT_QUOTES, 'UTF-8')?>" <?= $codeMatiere == $matiere->codeMatiere ? "selected" : "" ?>><?=htmlspecialchars($matiere->codeMatiere, ENT_QUOTES, 'UTF-8')?></option>
         <?php endforeach?>
     </select>
     
 </div>
+<br>
+<div class="space-between">
+    <p>
+        <?=htmlspecialchars(__("NB : Les moyennes sont calculées en fonction du trimestre"), ENT_QUOTES, 'UTF-8')?> <?=htmlspecialchars(__format(" : %s",$trimestre), ENT_QUOTES, 'UTF-8')?>
+    <?=htmlspecialchars(__('Veuillez changer le trimestre pour s\'y référer le calcul'), ENT_QUOTES, 'UTF-8') ?>
+    </p>
+    
+</div>
+<br>
+<h3 class='title text-center my-10'> <u><?=htmlspecialchars(__("Relevé ds Notes"), ENT_QUOTES, 'UTF-8')?>
+</u></h3>
     <?php foreach($notematieres->getNotes() as $notematiere):?>
        <?php if($notematiere->matiere->codeMatiere == $codeMatiere || !$codeMatiere ):?>
         
@@ -321,13 +329,32 @@
           document.querySelector('#trimestre')?.addEventListener('change', e =>{
             let trimestre = e.target.value;
             let matiere = document.querySelector('#matiereFilter').value;
-            location.href = `?p=eleve/resultat/${matricule}&trimestre=${trimestre}&matiere=${matiere}`;
+            let url = `?p=eleve/resultat/${matricule}&trimestre=${trimestre}`;
+            if(matiere){
+                url += `&matiere=${matiere}`;
+            }
+            location.href = url;
           })
 
           document.querySelector('#matiereFilter')?.addEventListener('change', e =>{
             let matiere = e.target.value;
             let trimestre = document.querySelector('#trimestre').value;
-            location.href = `?p=eleve/resultat/${matricule}&matiere=${matiere}&trimestre=${trimestre}`;
+            let url = `?p=eleve/resultat/${matricule}&trimestre=${trimestre}`;
+            if(matiere){
+                url += `&matiere=${matiere}`;
+            }
+            location.href = url;
+          })
+          document.querySelector('#changeEleve')?.addEventListener('change', e =>{
+            if(!e.target.value)return;
+            let matricule = e.target.value;
+            let trimestre = document.querySelector('#trimestre').value;
+            let matiere = document.querySelector('#matiereFilter').value;
+            let url = `?p=eleve/resultat/${matricule}&trimestre=${trimestre}`;
+            if(matiere){
+                url += `&matiere=${matiere}`;
+            }
+            location.href = url;
           })
        </script>
     

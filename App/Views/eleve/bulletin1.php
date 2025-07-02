@@ -1,4 +1,15 @@
-<h2 class="title text-center my-10">Bulletin de Notes</h2>
+
+<div class="center">
+      <select  id="changeEleve" class="field">
+        <option value=""><?=__("Choisir un eleve")?></option>
+        <?php foreach($collegues as $collegue):?>
+        <option value="<?=htmlspecialchars($collegue->matricule, ENT_QUOTES, 'UTF-8')?>" <?= $collegue->matricule == $notematieres->eleve->matricule ? "selected" : "" ?>><?=htmlspecialchars($collegue->numeroInscrit."-".$collegue->nom, ENT_QUOTES, 'UTF-8')?></option>
+        <?php endforeach?>
+      </select>
+</div>
+<br>
+<h2 class="title text-center my-10"><?=__("Bulletin de Notes")?></h2>
+<p class="text-center"><u><?=__format("Composition du %ser trimestre",1)?></u></p>
 <?= $subsidebar ?>
 
 <div class="table-container">
@@ -119,3 +130,12 @@
 <div class="fixed-action">
     <a target="_blank" href="?p=pdf/eleve/bulletin1/<?=$eleve->matricule??""?>" class="btn btn-success circle"><i class="fa fa-file-pdf"> </i></a>
 </div>
+
+<script>
+     document.querySelector('#changeEleve')?.addEventListener('change', e =>{
+            if(!e.target.value)return;
+            let matricule = e.target.value;
+            let url = `?p=eleve/bulletin1/${matricule}`;
+            location.href = url;
+          })
+</script>

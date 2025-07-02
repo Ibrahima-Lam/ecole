@@ -6,8 +6,8 @@ use \PDO;
 
 class Database
 {
-    private $pdo;
-    private $prepare;
+    protected $pdo;
+    protected $prepare;
 
     public function __construct()
     {
@@ -29,8 +29,7 @@ class Database
         //$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
     }
 
-
-
+   
 
     public function selectOne(string $req, $mode = PDO::FETCH_OBJ): mixed
     {

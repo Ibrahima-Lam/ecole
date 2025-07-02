@@ -175,6 +175,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $bulletinServiceProvider->setMatricule($matricule);
         $eleve = $eleveService->getInscrit($matricule);
         (!$eleve) && $this->renderError(__("eleve non inscrit!"));
+        $collegues = $eleveService->getCollegues($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $tab = [];
         if ($paramettre->rang) {
@@ -183,13 +184,14 @@ class EleveController extends WebController implements EleveControllerInterfaces
         }
         $bulletin = $bulletinServiceProvider->getBulletin1($tab);
 
-        $this->render("eleve/bulletin1", ["eleve" => $eleve, 'notematieres' => $bulletin, 'paramettre'=>$paramettre,'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
+        $this->render("eleve/bulletin1", ["eleve" => $eleve, 'collegues'=>$collegues,'notematieres' => $bulletin, 'paramettre'=>$paramettre,'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 3)]);
     }
     public function bulletin2(bulletinServiceProvider $bulletinServiceProvider, ClasseBulletinServiceProvider $classeBulletinServiceProvider, EleveService $eleveService,string $matricule): void
     {
        $bulletinServiceProvider->setMatricule($matricule);
         $eleve = $eleveService->getInscrit($matricule);
         (!$eleve) && $this->renderError(__("eleve non inscrit!"));
+        $collegues = $eleveService->getCollegues($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $tab = [];
         if ($paramettre->rang) {
@@ -197,7 +199,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
             $tab = $classeBulletinServiceProvider->getPoints2();
         }
         $bulletin = $bulletinServiceProvider->getBulletin2($tab);
-        $this->render("eleve/bulletin2", ["eleve" => $eleve, 'notematieres' => $bulletin, 'paramettre'=>$paramettre,'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
+        $this->render("eleve/bulletin2", ["eleve" => $eleve, 'collegues'=>$collegues,'notematieres' => $bulletin, 'paramettre'=>$paramettre,'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 4)]);
     }
     public function bulletin3(bulletinServiceProvider $bulletinServiceProvider, ClasseBulletinServiceProvider $classeBulletinServiceProvider, EleveService $eleveService, string $matricule): void
     {
@@ -205,13 +207,14 @@ class EleveController extends WebController implements EleveControllerInterfaces
         (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $bulletinServiceProvider->setMatricule($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
+        $collegues = $eleveService->getCollegues($matricule);
         $tab = [];
         if ($paramettre->rang) {
             $classeBulletinServiceProvider->setSalleClasse($eleve->codeSalleClasse);
             $tab = $classeBulletinServiceProvider->getPoints3();
         }
         $bulletin = $bulletinServiceProvider->getBulletin3($tab);
-        $this->render("eleve/bulletin3", ["eleve" => $eleve, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
+        $this->render("eleve/bulletin3", ["eleve" => $eleve, 'collegues'=>$collegues,'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 5)]);
     }
 
     public function resultat(bulletinServiceProvider $bulletinServiceProvider,ClasseMatiereService $classeMatiereService, Request $request, EleveService $eleveService, string $matricule): void
@@ -219,12 +222,13 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $trimestre = $request->get('trimestre') ?? 3;
         $codeMatiere = $request->get('matiere') ?? null;
         $eleve = $eleveService->getInscrit($matricule);
+        $collegues = $eleveService->getCollegues($matricule);
         $matieres = $classeMatiereService->findAllByInscrit($matricule);
         (!$eleve) && $this->renderError(__("eleve non inscrit!"));
         $bulletinServiceProvider->setMatricule($matricule);
         $paramettre = BulletinParamettreFactory::getBulletinParam();
         $bulletin =$trimestre == 3 ? $bulletinServiceProvider->getBulletin3() :($trimestre == 2 ? $bulletinServiceProvider->getBulletin2() : $bulletinServiceProvider->getBulletin1());
-        $this->render("eleve/resultat", ["eleve" => $eleve, 'trimestre'=>$trimestre, 'matieres'=>$matieres, 'codeMatiere'=>$codeMatiere, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 2)]);
+        $this->render("eleve/resultat", ["eleve" => $eleve, 'collegues'=>$collegues, 'trimestre'=>$trimestre, 'matieres'=>$matieres, 'codeMatiere'=>$codeMatiere, 'notematieres' => $bulletin, 'paramettre' => $paramettre, 'annee' => $this->getNomAnnee(), "subsidebar" => $this->subsidebar($eleve->matricule ?? null, 2)]);
     }
     public function form(): void
     {

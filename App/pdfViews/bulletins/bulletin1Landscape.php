@@ -18,7 +18,7 @@
                     <span>Honneur - fraternité - justice</span><br>
                     <h4 class="title my-10">Ministère de l’Education Nationale Et de la Réforme du Système Educatif
                     </h4>
-                    <p><u>Etablissement : <?= $paramettre::ETABLISSEMENT ?></u></p> 
+                    <p><u>Etablissement : <?= $paramettre::getEtablissementName() ?></u></p> 
 
 
                 </td>
@@ -31,7 +31,7 @@
                     <span dir="rtl" class="text-center mx-10">شرف -الإخاء - العدل </span>
                     <h4 dir="rtl" class="text-center">وزارة التهذيب الوطني وإصلاح النظام التعليمي</h4>
                     <p dir="rtl" class="text-center"><u>المؤسسة
-                        <span dir="rtl" class="text-center mx-10"> : <?= $paramettre::ETABLISSEMENT_ARABE ?></span></u></p>
+                        <span dir="rtl" class="text-center mx-10"> : <?= $paramettre::getEtablissementNameArabe() ?></span></u></p>
 
                 </td>
 

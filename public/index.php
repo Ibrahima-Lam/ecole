@@ -7,6 +7,7 @@ use App\Routes\Router;
 use App\Services\Providers\bulletinServiceProvider;
 use App\Services\Providers\ClasseBulletinServiceProvider;
 use App\Services\src\ClasseMatiereService;
+use App\Services\src\EtablissementService;
 use App\Services\src\ExamenService;
 use App\Services\src\SalleClasseService;
 use Core\src\Logger;
@@ -33,6 +34,7 @@ $router->bind(ClasseBulletinServiceProvider::class, fn($cn)=> new ClasseBulletin
 $router->bind(SalleClasseService::class, fn($cn)=> new SalleClasseService($cn->make(AnneeScolaireService::class)));
 $router->bind(ClasseMatiereService::class, fn($cn)=> new ClasseMatiereService($cn->make(AnneeScolaireService::class)));
 $router->bind(ExamenService::class, fn($cn)=> new ExamenService($cn->make(AnneeScolaireService::class),$cn->make(SalleClasseService::class),$cn->make(ClasseMatiereService::class)));
+$router->singleton(EtablissementService::class, fn()=> EtablissementService::getInstance());
 
 $router->excludeMiddlewareFor(homeController::class);
 $router->excludeMiddlewareFor(homeApiController::class);

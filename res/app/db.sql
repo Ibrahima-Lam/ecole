@@ -699,3 +699,11 @@ update note set note='10',matricule='5d343',codeExamen='A24255D30A24255DPC0C3' w
 update note set note='10' where idNote='2292' ;
 delete from note where idNote='1913' 
 delete from note where idNote='1912' 
+-- 2025-07-02 19:55:54
+INSERT INTO etablissement (nomEtablissement, ismeEtablissement, adresseEtablissement, villeEtablissement, telEtablissement, emailEtablissement, imagePathEtablissement) VALUES ('Lycee de Boghe', 'ثانوية بوغي', 'Boghé', 'Boghé', '45 00 45 00', 'LyceeBoghe@gmail.com', '');
+-- 2025-07-02 20:00:19
+UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé', villeEtablissement = 'Boghé', telEtablissement = '45 00 45', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';
+-- 2025-07-02 20:02:44
+UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé Dow', villeEtablissement = 'Boghé', telEtablissement = '45 00 45', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';
+-- 2025-07-02 22:33:03
+UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé Dow', villeEtablissement = 'Boghé', telEtablissement = '45 00 45 00', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';

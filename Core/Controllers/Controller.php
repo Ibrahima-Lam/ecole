@@ -7,6 +7,7 @@ use App\Services\factories\AnneeFactory;
 use App\Services\factories\DarkFactory;
 use App\Services\factories\LangueFactory;
 use App\Services\factories\UserFactory;
+use App\Services\src\EtablissementService;
 use Core\Services\html\htmlService;
 
 class Controller
@@ -49,12 +50,12 @@ class Controller
 
     private function getSchoolName()
     {
-        $name=file_get_contents('./res/names/fr.txt');
+        $name=EtablissementService::getInstance()->getEtablissement()->getNomEtablissement();
         return $name ?: 'Etablissement';
     }
     private function getSchoolNameAr()
     {
-        $name=file_get_contents('./res/names/ar.txt');
+        $name=EtablissementService::getInstance()->getEtablissement()->getIsmeEtablissement();
         return $name?: 'المدرسة';
     }
 

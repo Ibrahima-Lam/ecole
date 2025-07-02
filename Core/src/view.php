@@ -1,8 +1,8 @@
 <?php
 namespace Core\src;
-class View
+class View extends ResponseApi
 {
-    public function __construct(private array $params=[])
+    public function __construct(protected array $params=[])
     {
     }
 
@@ -24,6 +24,10 @@ class View
         $content = ob_get_clean();
         require_once 'layouts/layout.php';
         return $this;
+    }
+    public function renderError($message){
+        $this->render('app/error', compact('message'));
+        exit();
     }
 
     public function raw($view, $data = [])

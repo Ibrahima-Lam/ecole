@@ -25,4 +25,11 @@ class EleveService
         $eleveRepository=new EleveRepository();
         return $eleveRepository->findOneByMatricule($matricule);
     }
+    public function getCollegues($matricule)
+    {
+        $inscritRepository=new inscritRepository();
+        $inscrit=$inscritRepository->findOneByMatriculeAndAnnee($matricule,$this->anneeScolaireService->getCodeAnnee());
+        (!$inscrit) && die(__("eleve non inscrit!"));
+        return $inscritRepository->findAllByClasse($inscrit->codeSalleClasse);
+    }
 }
