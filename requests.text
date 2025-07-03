@@ -470,10 +470,12 @@ create table cours(
 
 create table absence(
     idAbsence int(6) AUTO_INCREMENT,
-    listeAbsence text not null,
     matricule varchar(10) not null,
-   idCours int not null,
+    nombreAbsence int not null,
+   trimestreAbsence enum('1','2','3') not null,
+   codeAnnee varchar(10) not null,
     Constraint absence_pkey Primary Key (idAbsence),
+    Constraint absence_unique Unique (matricule,codeAnnee,trimestreAbsence)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 DELIMITER //

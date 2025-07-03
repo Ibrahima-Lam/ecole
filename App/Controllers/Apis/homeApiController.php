@@ -2,16 +2,16 @@
 
 namespace App\Controllers\apis;
 
-use App\Models\Repositories\correspondantRepository;
-use App\Models\Repositories\EleveRepository;
-use App\Models\Repositories\ProfesseurRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Services\factories\DarkFactory;
-use App\Services\factories\LangueFactory;
-use App\Services\factories\AnneeFactory;
+use App\Repositories\correspondantRepository;
+use App\Repositories\EleveRepository;
+use App\Repositories\ProfesseurRepository;
+use App\Repositories\SalleClasseRepository;
+use App\Services\storages\DarkStorage;
+use App\Services\storages\LangueStorage;
 use Core\Caches\Session;
 use App\Controllers\src\ApiController;
-use App\Services\factories\UserFactory;
+use App\Services\storages\UserStorage;
+use App\Services\storages\AnneeScolaireStorage;
 
 class homeApiController extends ApiController
 {
@@ -23,8 +23,8 @@ class homeApiController extends ApiController
     }
     public function annee($annee): void
     {
-        AnneeFactory::setAnnee($annee);
-        $this->response(["res" => "ok", "data" => AnneeFactory::getAnnee()]);
+        AnneeScolaireStorage::setAnnee($annee);
+        $this->response(["res" => "ok", "data" => AnneeScolaireStorage::getAnnee()]);
     }
 
     public function translate($text): void
@@ -34,8 +34,8 @@ class homeApiController extends ApiController
 
     public function langue($langue): void
     {
-        LangueFactory::setLangue($langue);
-        $this->response(["res" => "ok", "data" => LangueFactory::getLangue()]);
+        LangueStorage::setLangue($langue);
+        $this->response(["res" => "ok", "data" => LangueStorage::getLangue()]);
     }
 
     public function login() {
@@ -44,7 +44,7 @@ class homeApiController extends ApiController
     if ($password) {
         $password=sha1($password);
     }
-    $res = UserFactory::setUser($name,$password);
+    $res = UserStorage::setUser($name,$password);
     if($res) {
         $this->response(["res" => "ok", "data" => $res]);
     } else {
@@ -52,13 +52,13 @@ class homeApiController extends ApiController
     }
 }
 public function logout() {
-    UserFactory::unsetUser();
+    UserStorage::unsetUser();
     $this->response(["res" => "ok"]);
 }
 
 public function toggleDark() {
-    DarkFactory::toggleDark();
-    $this->response(["res" => "ok", "data" => DarkFactory::getDark()]);
+    DarkStorage::toggleDark();
+    $this->response(["res" => "ok", "data" => DarkStorage::getDark()]);
 }
 
 public function search($search) {

@@ -2,7 +2,7 @@
 
 namespace App\Controllers\apis;
 
-use App\Models\Repositories\professeurMatiereRepository;
+use App\Repositories\professeurMatiereRepository;
 use App\Controllers\src\ApiController;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;

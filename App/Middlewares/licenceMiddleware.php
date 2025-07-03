@@ -2,8 +2,8 @@
 
 namespace App\Middlewares;
 
-use App\Controllers\web\homeController;
-use App\Services\factories\LicenceFactory;
+use App\Controllers\web\administration\homeController;
+use App\Services\storages\LicenceStorage;
 use Core\src\Request;
 use Core\src\Response;
 
@@ -13,7 +13,7 @@ class LicenceMiddleware implements MiddlewareInterface
     {
 
        
-        if (!LicenceFactory::isValid()) {
+        if (!LicenceStorage::isValid()) {
             return (new homeController())->licence();
         }
         return $next();

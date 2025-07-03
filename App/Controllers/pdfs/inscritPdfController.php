@@ -2,9 +2,9 @@
 namespace App\Controllers\pdfs;
 
 use App\Controllers\src\pdfController;
-use App\Models\Repositories\inscritRepository;
-use App\Models\Repositories\AnneeScolaireRepository;
-use App\Models\Repositories\SalleClasseRepository; 
+use App\Repositories\inscritRepository;
+use App\Repositories\AnneeScolaireRepository;
+use App\Repositories\SalleClasseRepository; 
 use Src\Paramettres\ClasseParamettre; 
 use Core\Caches\Session; 
 

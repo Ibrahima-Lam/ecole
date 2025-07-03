@@ -14,9 +14,9 @@ class Router
     private $excludedControllers = [];
     private $excludedMethods = [];
     private $routeMiddlewares = [];
-    public function __construct()
+    public function __construct(Container $container)
     {
-        $this->container = Container::getInstance();
+        $this->container = $container;
     }
     public function bind($key, $value)
     {

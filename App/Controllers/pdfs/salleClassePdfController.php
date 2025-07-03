@@ -2,14 +2,14 @@
 
 namespace App\Controllers\pdfs;
 
-use App\Services\Factories\Bulletin1Factory;
-use App\Services\Factories\Bulletin2Factory;
-use App\Services\Factories\Bulletin3Factory;
-use App\Services\Providers\ClasseBulletinServiceProvider;
+use App\Services\storages\Bulletin1Factory;
+use App\Services\storages\Bulletin2Factory;
+use App\Services\storages\Bulletin3Factory;
+use App\Services\business\ClassebulletinService;
 use App\Controllers\src\pdfController;
-use App\Models\Repositories\InscritRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Models\Repositories\ClasseMatiereRepository;
+use App\Repositories\InscritRepository;
+use App\Repositories\SalleClasseRepository;
+use App\Repositories\ClasseMatiereRepository;
 use App\Services\src\SalleClasseService;
 use Mpdf\Mpdf;
 use Src\Factories\BulletinParamettreFactory;
@@ -27,51 +27,51 @@ class salleClassePdfController extends pdfController
         $this->salleClasseService=$salleClasseService;
     }
 
-    public function resultat1(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse)
+    public function resultat1(ClassebulletinService $classebulletinService,$codeSalleClasse)
     {
         $paramettre = ResultatParamettreFactory::getResultatParam();
         $paramettre->rang=BulletinParamettreFactory::getBulletinParam()->rang;
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints1();
+            $tab = $classebulletinService->getPoints1();
         }
         $salleclasse=$this->salleClasseService->getSalleClasse($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins1($tab);
+        $data=$classebulletinService->getBulletins1($tab);
         $matieres=$this->salleClasseService->getMatiere($codeSalleClasse);
-        $statistiques=$classeBulletinServiceProvider->getStatistiques(1);
+        $statistiques=$classebulletinService->getStatistiques(1);
         $this->renderResultat("resultats/resultat1", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleclasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], $paramettre,"Resultat1_{$salleclasse->pseudoSalleClasse}.pdf" );
     }
 
-    public function resultat2(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse)
+    public function resultat2(ClassebulletinService $classebulletinService,$codeSalleClasse)
     {
         $paramettre = ResultatParamettreFactory::getResultatParam();
         $paramettre->rang=BulletinParamettreFactory::getBulletinParam()->rang;
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints2();
+            $tab = $classebulletinService->getPoints2();
         }
         $salleclasse=$this->salleClasseService->getSalleClasse($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins2($tab);
+        $data=$classebulletinService->getBulletins2($tab);
         $matieres=$this->salleClasseService->getMatiere($codeSalleClasse);
-        $statistiques=$classeBulletinServiceProvider->getStatistiques(2);
+        $statistiques=$classebulletinService->getStatistiques(2);
         $this->renderResultat("resultats/resultat2", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleclasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], $paramettre,"Resultat2_{$salleclasse->pseudoSalleClasse}.pdf" );
     }
 
-    public function resultat3(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse)
+    public function resultat3(ClassebulletinService $classebulletinService,$codeSalleClasse)
     {
         $paramettre = ResultatParamettreFactory::getResultatParam();
         $paramettre->rang=BulletinParamettreFactory::getBulletinParam()->rang;
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints3();
+            $tab = $classebulletinService->getPoints3();
         }
         $salleclasse=$this->salleClasseService->getSalleClasse($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins3($tab);
+        $data=$classebulletinService->getBulletins3($tab);
         $matieres=$this->salleClasseService->getMatiere($codeSalleClasse);
-        $statistiques=$classeBulletinServiceProvider->getStatistiques(3);
+        $statistiques=$classebulletinService->getStatistiques(3);
         $this->renderResultat("resultats/resultat3", ["data" => $data, "matieres" => $matieres, 'salleclasse' => $salleclasse, 'paramettre' => $paramettre,'statistiques'=>$statistiques], $paramettre,"Resultat3_{$salleclasse->pseudoSalleClasse}.pdf" );
     }
 
@@ -87,32 +87,32 @@ class salleClassePdfController extends pdfController
         }
        $this->renderPDF($view, $data,['orientation' => 'landscape', 'name'=>$name,'dest'=>"D"] );
     }
-    public function bulletin1(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function bulletin1(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints1();
+            $tab = $classebulletinService->getPoints1();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins1($tab);
+        $data=$classebulletinService->getBulletins1($tab);
         $view="bulletin1.php";
         if($paramettre->orientation=="landscape"){
             $view="bulletin1Landscape.php";
         }
         $this->renderBulletin($data,$paramettre,$view,"bulletin1_{$salleclasse->pseudoSalleClasse}.pdf");
     }
-    public function bulletin2(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function bulletin2(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints2();
+            $tab = $classebulletinService->getPoints2();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins2($tab);
+        $data=$classebulletinService->getBulletins2($tab);
         $view="bulletin2.php";
         if($paramettre->orientation=="landscape"){
             $view="bulletin2Landscape.php";
@@ -120,16 +120,16 @@ class salleClassePdfController extends pdfController
         $this->renderBulletin($data,$paramettre,$view,"bulletin2_{$salleclasse->pseudoSalleClasse}.pdf");
     }
 
-    public function bulletin3(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function bulletin3(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints3();
+            $tab = $classebulletinService->getPoints3();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins3($tab);
+        $data=$classebulletinService->getBulletins3($tab);
         $view="bulletin3.php";
         if($paramettre->orientation=="landscape"){
             $view="bulletin3Landscape.php";
@@ -163,48 +163,48 @@ class salleClassePdfController extends pdfController
         $mpdf->Output("{$name}", 'D');
     
     }
-    public function minibulletin1(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function minibulletin1(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints1();
+            $tab = $classebulletinService->getPoints1();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins1($tab);
+        $data=$classebulletinService->getBulletins1($tab);
         $view="minibulletin1.php";
         if($paramettre->orientation=="landscape"){
             $view="minibulletin1Landscape.php";
         }
         $this->renderMinibulletin($data,$paramettre,$view,"minibulletin1_{$salleclasse->pseudoSalleClasse}.pdf");
     }
-    public function minibulletin2(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function minibulletin2(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints2();
+            $tab = $classebulletinService->getPoints2();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins2($tab);
+        $data=$classebulletinService->getBulletins2($tab);
         $view="minibulletin2.php";
         if($paramettre->orientation=="landscape"){
             $view="minibulletin2Landscape.php";
         }
         $this->renderMinibulletin($data,$paramettre,$view,"minibulletin2_{$salleclasse->pseudoSalleClasse}.pdf");
     }
-    public function minibulletin3(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse): void
+    public function minibulletin3(ClassebulletinService $classebulletinService,$codeSalleClasse): void
     {
         $paramettre = BulletinParamettreFactory::getBulletinParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
-            $tab = $classeBulletinServiceProvider->getPoints3();
+            $tab = $classebulletinService->getPoints3();
         }
         $salleclasse=$this->classeSalleRepository->findOneByCode($codeSalleClasse);
-        $data=$classeBulletinServiceProvider->getBulletins3($tab);
+        $data=$classebulletinService->getBulletins3($tab);
         $view="minibulletin3.php";
         if($paramettre->orientation=="landscape"){
             $view="minibulletin3Landscape.php";

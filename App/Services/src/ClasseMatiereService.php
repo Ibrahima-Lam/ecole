@@ -1,8 +1,8 @@
 <?php
 namespace App\Services\src;
 
-use App\Models\Repositories\ClasseMatiereRepository;
-use App\Models\Repositories\inscritRepository;
+use App\Repositories\ClasseMatiereRepository;
+use App\Repositories\inscritRepository;
 use Core\src\Request;
 
 class ClasseMatiereService

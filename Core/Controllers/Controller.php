@@ -2,11 +2,11 @@
 
 namespace Core\Controllers;
 
-use App\Models\Repositories\AnneeScolaireRepository;
-use App\Services\factories\AnneeFactory;
-use App\Services\factories\DarkFactory;
-use App\Services\factories\LangueFactory;
-use App\Services\factories\UserFactory;
+use App\Repositories\AnneeScolaireRepository;
+use App\Services\storages\AnneeScolaireStorage;
+use App\Services\storages\DarkStorage;
+use App\Services\storages\LangueStorage;
+use App\Services\storages\UserStorage;
 use App\Services\src\EtablissementService;
 use Core\Services\html\htmlService;
 
@@ -18,18 +18,18 @@ class Controller
 
     protected function getCodeAnnee()
     {
-        return AnneeFactory::getAnnee();
+        return AnneeScolaireStorage::getAnnee();
     }
     protected function getNomAnnee()
     {
         $model = new AnneeScolaireRepository();
-        $annee = AnneeFactory::getAnnee();
+        $annee = AnneeScolaireStorage::getAnnee();
         $anneeScolaire = null;
         if (!$annee) {
 
             $anneeScolaire = $model->findLastAnneeScolaire();
             $annee = $anneeScolaire ? $anneeScolaire->codeAnnee : "2425";
-            AnneeFactory::setAnnee($annee);
+            AnneeScolaireStorage::setAnnee($annee);
         } else {
             $anneeScolaire = $model->findOneByCodeAnnee($annee);
         }
@@ -38,7 +38,7 @@ class Controller
     private function getLangue()
     {
 
-        return LangueFactory::getLangue();
+        return LangueStorage::getLangue();
     }
     private function getAnneeScolaire()
     {
@@ -61,7 +61,7 @@ class Controller
 
     private function isDark()
     {
-        return DarkFactory::getDark() ?? false;
+        return DarkStorage::getDark() ?? false;
     }
     public function render(string $file, array $data = [])
     {
@@ -71,8 +71,8 @@ class Controller
         extract($data);
         $_annee = $this->getAnneeScolaire();
         $_langue = $this->getLangue();
-        $_admin = UserFactory::isAdmin();
-        $_user = UserFactory::getUser();
+        $_admin = UserStorage::isAdmin();
+        $_user = UserStorage::getUser();
         $_dark = $this->isDark();
         $_schoolName = $this->getSchoolName();
         $_schoolNameAr = $this->getSchoolNameAr();

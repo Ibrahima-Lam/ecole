@@ -2,13 +2,13 @@
 
 namespace App\Controllers\Apis;
 
-use App\Services\factories\UserFactory;
+use App\Services\storages\UserStorage;
 use App\Controllers\src\ApiController;
-use App\Models\Repositories\NoteRepository;
-use App\Models\Repositories\ExamenRepository;
+use App\Repositories\NoteRepository;
+use App\Repositories\ExamenRepository;
 use Core\Services\Sql\SqlErreurMessage;
 use Core\Services\html\htmlService;
-use App\Models\Repositories\inscritRepository;
+use App\Repositories\inscritRepository;
 use Src\Factories\NoteParamettreFactory;
 
 class NoteApiController extends ApiController
@@ -39,7 +39,7 @@ class NoteApiController extends ApiController
         $statut=$_GET['statut'] ?? null;
         $annee=$this->getCodeAnnee();
         $data =$filter_annee ? $this->noteRepository->findAllByAnnee($annee) : $this->noteRepository->findAll();
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
      if ($codeSalleClasse){
         $data =array_filter($data, function($note) use ($codeSalleClasse) {
            return 

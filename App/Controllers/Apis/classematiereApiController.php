@@ -3,7 +3,7 @@
 namespace App\Controllers\Apis;
 
 use App\Controllers\src\ApiController;
-use App\Models\Repositories\ClasseMatiereRepository;
+use App\Repositories\ClasseMatiereRepository;
 use App\Services\src\AnneeScolaireService;
 use App\Services\src\ClasseMatiereService;
 use Core\Services\Sql\SqlErreurMessage;

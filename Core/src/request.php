@@ -1,7 +1,7 @@
 <?php
 namespace Core\src;
 
-use App\Services\factories\AnneeFactory;
+use App\Services\storages\AnneeScolaireStorage;
 
 
 class Request
@@ -23,7 +23,7 @@ class Request
         $this->server = $_SERVER;
         $this->files = $_FILES;
         $this->request = $_REQUEST;
-        $this->annee=AnneeFactory::getAnnee();
+        $this->annee=AnneeScolaireStorage::getAnnee();
         $this->setParam();
     }
 
@@ -46,7 +46,7 @@ class Request
                 $class = ucfirst($class) . "PdfController";
                 break;
             default:
-                $namespace = "App\Controllers\web\\";
+                $namespace = "App\Controllers\web\administration\\";
                 $class = ucfirst($zone) . "Controller"; // zone devient class dans ce cas
                 $method = $args[1] ?? "index";
                 $remainingArgs = array_slice($args, 2);

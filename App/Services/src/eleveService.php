@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\src;
-use App\Models\Repositories\EleveRepository;
-use App\Models\Repositories\InscritRepository;
+use App\Repositories\EleveRepository;
+use App\Repositories\InscritRepository;
 class EleveService
 {
     private $anneeScolaireService;

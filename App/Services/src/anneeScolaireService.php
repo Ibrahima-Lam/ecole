@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\src;
-use App\Models\Repositories\AnneeScolaireRepository;
-use App\Services\factories\AnneeFactory;
+use App\Repositories\AnneeScolaireRepository;
+use App\Services\storages\AnneeScolaireStorage;
 class AnneeScolaireService
 {
     private static $_instance ;
@@ -13,14 +13,14 @@ class AnneeScolaireService
         return self::$_instance;
     }
     public static function getCodeAnnee(){
-        return AnneeFactory::getAnnee();
+        return AnneeScolaireStorage::getAnnee();
     }
     public static function getAnnee(){
         $ripos=new AnneeScolaireRepository();
-        return $ripos->findOneByCodeAnnee(AnneeFactory::getAnnee());
+        return $ripos->findOneByCodeAnnee(AnneeScolaireStorage::getAnnee());
     }
     public static function setCodeAnnee($codeAnnee){
-        return AnneeFactory::setAnnee($codeAnnee);
+        return AnneeScolaireStorage::setAnnee($codeAnnee);
     }
 
     public static function getAll(){

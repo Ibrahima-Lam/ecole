@@ -1,9 +1,8 @@
 <?php
 namespace App\Services\src;
 
-use App\Models\Repositories\ExamenRepository;
-use App\Models\Examen;
-use App\Services\Providers\ExamenProvider;
+use App\Repositories\ExamenRepository;
+use App\Entities\ExamenEntity;
 
 class ExamenService
 {
@@ -16,12 +15,12 @@ class ExamenService
     {
         return $this->repository->findOne($codeExamen);
     }
-    public function getExamenProvider(string $codeSalleClasse): ExamenProvider
+    public function getExamenEntity(string $codeSalleClasse): ExamenEntity
     {
         $salleClasse = $this->salleClasseService->getSalleClasse($codeSalleClasse);
         $examens = $this->findAllByClasse($salleClasse->codeSalleClasse);
         $matieres = $this->classeMatiereService->findAllByClasseAndAnnee($salleClasse->codeClasse);
-        return new ExamenProvider($salleClasse,$matieres,$examens);
+        return new ExamenEntity($salleClasse,$matieres,$examens);
     }
     public function findAllByClasse($codeSalleClasse)
     {

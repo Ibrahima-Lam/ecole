@@ -2,12 +2,12 @@
 
 namespace App\Controllers\Apis;
 
-use App\Models\Repositories\ClasseMatiereRepository;
-use App\Models\Repositories\EvaluationRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Services\factories\UserFactory;
+use App\Repositories\ClasseMatiereRepository;
+use App\Repositories\EvaluationRepository;
+use App\Repositories\SalleClasseRepository;
+use App\Services\storages\UserStorage;
 use App\Controllers\src\ApiController;
-use App\Models\Repositories\ExamenRepository;
+use App\Repositories\ExamenRepository;
 use App\Services\src\AnneeScolaireService;
 use Core\Services\html\htmlService;
 use Core\Services\Sql\SqlErreurMessage;
@@ -38,7 +38,7 @@ class ExamenApiController extends ApiController
         $statut=$_GET['statut'] ?? null;
         $annee=$this->getCodeAnnee();
         $data =$filter_annee ? $this->examenRepository->findAllByAnnee($annee) : $this->examenRepository->findAll();
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
      if ($codeSalleClasse){
         $data =array_filter($data, function($note) use ($codeSalleClasse) {
            return strtolower($note->codeSalleClasse) == strtolower($codeSalleClasse) ;

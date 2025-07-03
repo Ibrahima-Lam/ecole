@@ -1,9 +1,9 @@
 <?php
 namespace App\Services\src;
-use App\Models\Repositories\ClasseMatiereRepository;
-use App\Models\Repositories\EleveRepository;
-use App\Models\Repositories\InscritRepository;
-use App\Models\Repositories\SalleClasseRepository;
+use App\Repositories\ClasseMatiereRepository;
+use App\Repositories\EleveRepository;
+use App\Repositories\InscritRepository;
+use App\Repositories\SalleClasseRepository;
 class SalleClasseService
 {
     private $anneeScolaireService;

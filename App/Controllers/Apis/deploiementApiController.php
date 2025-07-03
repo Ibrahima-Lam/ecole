@@ -1,11 +1,11 @@
 <?php
 namespace App\Controllers\Apis;
-use App\Models\Repositories\inscritRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Models\Repositories\classeMatiereRepository;
-use App\Models\Repositories\MatiereRepository;
-use App\Models\Repositories\examenRepository;
-use App\Models\Repositories\noteRepository;
+use App\Repositories\inscritRepository;
+use App\Repositories\SalleClasseRepository;
+use App\Repositories\classeMatiereRepository;
+use App\Repositories\MatiereRepository;
+use App\Repositories\examenRepository;
+use App\Repositories\noteRepository;
 use App\Controllers\src\ApiController;
 
 class deploiementApiController extends ApiController

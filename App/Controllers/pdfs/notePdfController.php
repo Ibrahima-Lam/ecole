@@ -1,16 +1,16 @@
 <?php
 namespace App\Controllers\pdfs;
 
-use App\Models\Repositories\ClasseMatiereRepository;
+use App\Repositories\ClasseMatiereRepository;
 use App\Controllers\src\pdfController;
-use App\Models\Repositories\NoteRepository;
-use App\Models\Repositories\ExamenRepository;
+use App\Repositories\NoteRepository;
+use App\Repositories\ExamenRepository;
 use App\Services\src\AnneeScolaireService;
 use Core\src\Request;
 use Src\Factories\NoteParamettreFactory;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Models\Repositories\inscritRepository;
-use App\Services\Providers\ClasseResultatProvider;
+use App\Repositories\SalleClasseRepository;
+use App\Repositories\inscritRepository;
+use App\Services\business\ClasseResultatService;
 use Src\Factories\ReleveParamettreFactory;
 
 class NotePdfController extends pdfController
@@ -60,7 +60,7 @@ class NotePdfController extends pdfController
             }
             return $a->indiceEvaluation - $b->indiceEvaluation;
         });
-        $data = new ClasseResultatProvider($codeSalleClasse,$codeMatiere, $this->anneeScolaireService->getCodeAnnee());
+        $data = new ClasseResultatService($codeSalleClasse,$codeMatiere, $this->anneeScolaireService->getCodeAnnee());
         $paramettre =ReleveParamettreFactory::getReleveParam();
         $pseudo=$salleClasse->pseudoSalleClasse;
         $this->renderPDF("pdf/releve", compact("data", "paramettre", "salleClasse","trimestre"),['name'=>"releve_{$pseudo}_{$codeMatiere}.pdf"]);

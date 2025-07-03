@@ -2,8 +2,8 @@
 
 namespace App\Controllers\apis;
 
-use App\Models\Repositories\CorrespondantRepository;
-use App\Services\factories\UserFactory;
+use App\Repositories\CorrespondantRepository;
+use App\Services\storages\UserStorage;
 use App\Controllers\src\ApiController;
 use Core\Services\Sql\SqlErreurMessage;
 
@@ -16,7 +16,7 @@ class CorrespondantApiController extends ApiController
         $this->response($data);
     } public function htmlListe(): void
     {
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'idCorrespondant';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? '';

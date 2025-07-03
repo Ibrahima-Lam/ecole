@@ -2,13 +2,13 @@
 
 namespace App\Controllers\Apis;
 
-use App\Models\Repositories\InscritRepository;
-use App\Services\factories\UserFactory;
+use App\Repositories\InscritRepository;
+use App\Services\storages\UserStorage;
 use App\Controllers\src\ApiController;
 use Core\Services\html\htmlService;
-use App\Models\Repositories\AnneeScolaireRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Models\Repositories\EleveRepository;
+use App\Repositories\AnneeScolaireRepository;
+use App\Repositories\SalleClasseRepository;
+use App\Repositories\EleveRepository;
 use Core\Caches\Session;
 
 class inscritApiController extends ApiController
@@ -49,7 +49,7 @@ class inscritApiController extends ApiController
 
     public function htmlListe(): void
     {
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'matricule';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? null;

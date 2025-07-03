@@ -2,17 +2,11 @@
 
 namespace App\Controllers\Apis;
 
-use App\Models\Repositories\inscritRepository;
-use App\Models\Repositories\SalleClasseRepository;
-use App\Services\Factories\Bulletin1Factory;
-use App\Services\Factories\Bulletin2Factory;
-use App\Services\Factories\Bulletin3Factory;
-use App\Services\Factories\BulletinFactory;
+use App\Repositories\SalleClasseRepository;
 use App\Controllers\src\ApiController;
-use App\Services\Providers\ClasseBulletinServiceProvider;
+use App\Services\business\ClassebulletinService;
 use App\Services\src\SalleClasseService;
 use Core\Services\Sql\SqlErreurMessage;
-use Src\Factories\BulletinParamettreFactory;
 use Src\Factories\ResultatParamettreFactory;
 
 
@@ -132,25 +126,25 @@ class salleClasseApiController extends ApiController
         }
     }
 
-    public function statistique(ClasseBulletinServiceProvider $classeBulletinServiceProvider,$codeSalleClasse, $typeBulletin)
+    public function statistique(ClassebulletinService $classebulletinService,$codeSalleClasse, $typeBulletin)
     {
         $typeBulletin=intval($typeBulletin);
         $paramettre = ResultatParamettreFactory::getResultatParam();
-        $classeBulletinServiceProvider->setSalleClasse($codeSalleClasse);
+        $classebulletinService->setSalleClasse($codeSalleClasse);
         $tab=[];
         if ($paramettre->rang) {
          $tab = match ($typeBulletin) {
-             1 => $classeBulletinServiceProvider->getPoints1(),
-             2 => $classeBulletinServiceProvider->getPoints2(),
-             default => $classeBulletinServiceProvider->getPoints3(),
+             1 => $classebulletinService->getPoints1(),
+             2 => $classebulletinService->getPoints2(),
+             default => $classebulletinService->getPoints3(),
             };
         }
         match ($typeBulletin) {
-            1 => $classeBulletinServiceProvider->getBulletins1($tab),
-            2 => $classeBulletinServiceProvider->getBulletins2($tab),
-            default => $classeBulletinServiceProvider->getBulletins3($tab),
+            1 => $classebulletinService->getBulletins1($tab),
+            2 => $classebulletinService->getBulletins2($tab),
+            default => $classebulletinService->getBulletins3($tab),
         };
-       $statistiques=$classeBulletinServiceProvider->getStatistiques($typeBulletin,$tab);
+       $statistiques=$classebulletinService->getStatistiques($typeBulletin,$tab);
         $this->response($statistiques);
     }
 }

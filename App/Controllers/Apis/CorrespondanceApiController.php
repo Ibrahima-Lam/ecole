@@ -2,8 +2,8 @@
 
 namespace App\Controllers\apis;
 
-use App\Models\Repositories\CorrespondanceRepository;
-use App\Services\factories\UserFactory;
+use App\Repositories\CorrespondanceRepository;
+use App\Services\storages\UserStorage;
 use App\Controllers\src\ApiController;
 use Core\Services\Sql\SqlErreurMessage;
 
@@ -16,7 +16,7 @@ class CorrespondanceApiController extends ApiController
         $this->response($data);
     } public function htmlListe(): void
     {
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'idCorrespondance';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? '';

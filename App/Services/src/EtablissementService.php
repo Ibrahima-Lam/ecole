@@ -1,8 +1,8 @@
 <?php
 namespace App\Services\src;
 
-use App\Models\Repositories\EtablissementRepository;
-use App\Models\Entities\EtablissementEntity;
+use App\Repositories\EtablissementRepository;
+use App\Models\Etablissement;
 
 class EtablissementService
 {
@@ -27,7 +27,7 @@ class EtablissementService
         return $this->repository->findAll();
     }
 
-    public function getEtablissement(): EtablissementEntity
+    public function getEtablissement(): Etablissement
     {
         if ($this->etablissement) {
             return $this->etablissement;
@@ -39,7 +39,7 @@ class EtablissementService
             return $etablissement;
         }
         $this->check = false;
-        return new EtablissementEntity();
+        return new Etablissement();
     }
 
     public function existEtablissement(): bool
@@ -47,21 +47,21 @@ class EtablissementService
         return $this->check;
     }
 
-    public function findById(int $id): false|EtablissementEntity
+    public function findById(int $id): false|Etablissement
     {
         return $this->repository->findById($id);
     }
 
-    public function insert(EtablissementEntity $etablissementEntity): bool
+    public function insert(Etablissement $Etablissement): bool
     {
         $this->etablissement =null;
-        return $this->repository->insert($etablissementEntity);
+        return $this->repository->insert($Etablissement);
     }
 
-    public function update(EtablissementEntity $etablissementEntity): bool
+    public function update(Etablissement $Etablissement): bool
     {
         $this->etablissement =null;
-        return $this->repository->update($etablissementEntity);
+        return $this->repository->update($Etablissement);
     }
 
     public function delete(int $id): bool

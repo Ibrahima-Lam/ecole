@@ -2,15 +2,15 @@
 
 namespace App\Controllers\apis;
 
-use App\Models\Repositories\EleveRepository;
-use App\Models\Repositories\inscritRepository;
-use App\Models\Repositories\ProfesseurRepository;
-use App\Services\factories\NomFactory;
-use App\Services\factories\NoninscritFactory;
+use App\Repositories\EleveRepository;
+use App\Repositories\inscritRepository;
+use App\Repositories\ProfesseurRepository;
+use App\Services\storages\NomStorage;
+use App\Services\storages\NoninscritStorage;
 use App\Controllers\src\ApiController;
 use App\Controllers\interfaces\EleveControllerInterfaces;
 use Core\Services\Sql\SqlErreurMessage;
-use App\Services\factories\UserFactory;
+use App\Services\storages\UserStorage;
 
 class EleveApiController extends ApiController implements EleveControllerInterfaces
 {
@@ -24,7 +24,7 @@ class EleveApiController extends ApiController implements EleveControllerInterfa
     public function htmlListe($statutEleve=null): void
     {
         $noninscrit=$_REQUEST['noninscrit'] ?? null;
-        $admin=UserFactory::isAdmin();
+        $admin=UserStorage::isAdmin();
         $sort = $_REQUEST['sort'] ?? 'matricule';
         $order = $_REQUEST['order'] ?? 'asc';
         $search = $_REQUEST['search'] ?? null;
@@ -89,7 +89,7 @@ class EleveApiController extends ApiController implements EleveControllerInterfa
 
     public function autocomplete($ar = false): void
     {
-        $tab = NomFactory::getNoms();
+        $tab = NomStorage::getNoms();
         $checks = [];
         $model = new EleveRepository();
         $eleves = $model->findAll();
@@ -131,18 +131,18 @@ class EleveApiController extends ApiController implements EleveControllerInterfa
     {
         unset($_REQUEST['p']);
         if (!empty($_REQUEST))
-            NoninscritFactory::add($_REQUEST);
-        $this->response(NoninscritFactory::get());
+            NoninscritStorage::add($_REQUEST);
+        $this->response(NoninscritStorage::get());
     }
     public function noninscrit(): void
     {
-        $this->response(NoninscritFactory::get());
+        $this->response(NoninscritStorage::get());
     }
 
     public function clearNoninscrit(): void
     {
-        NoninscritFactory::clear();
-        $this->response(NoninscritFactory::get());
+        NoninscritStorage::clear();
+        $this->response(NoninscritStorage::get());
     }
 
 
