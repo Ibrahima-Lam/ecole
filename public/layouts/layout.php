@@ -114,12 +114,12 @@
                     <div class="element">
                         <div><?=__("Notes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
-                </a></li> <li><a href="#"><i class="fa fa-calendar"></i>
+                </a></li> <li><a href="?p=planning/liste"><i class="fa fa-calendar"></i>
                     <div class="element">
                         <div><?=__("Plannings") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                     </div>
                 </a></li>
-                <li><a href="#"><i class="fa fa-list-alt"></i>
+                <li><a href="?p=absenceClasse/liste"><i class="fa fa-list-alt"></i>
                    <div class="element">
                        <div><?=__("Absences") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
                    </div>

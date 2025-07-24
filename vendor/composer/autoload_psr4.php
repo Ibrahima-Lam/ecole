@@ -19,6 +19,7 @@ return array(
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
     'Providers\\' => array($baseDir . '/Providers'),
+    'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'PhpOffice\\PhpSpreadsheet\\' => array($vendorDir . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet'),
     'Pdfs\\' => array($baseDir . '/Pdfs'),
     'Pdf\\' => array($baseDir . '/Pdf'),

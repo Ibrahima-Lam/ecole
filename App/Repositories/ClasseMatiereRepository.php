@@ -12,6 +12,12 @@ class ClasseMatiereRepository extends Repository
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
+     public function findAllForApi(): array
+    {
+        $sql = "SELECT * FROM classe_matiere where codeAnnee ='2425' order by coefficientClasseMatiere desc,horaireClasseMatiere desc";
+        $result = $this->db->selectAll($sql, stdClass::class);
+        return $result;
+    }
   public function findAllByAnnee(?string $codeAnnee): array
     {
         $sql =$codeAnnee?

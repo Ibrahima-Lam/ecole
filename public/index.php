@@ -12,7 +12,6 @@ require_once './src/functions.php';
 $app=require_once '../Configs/app.php';
 
 
-
 $request=new Request();
 $response=new Response();
 

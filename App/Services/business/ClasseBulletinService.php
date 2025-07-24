@@ -3,6 +3,7 @@ namespace App\Services\business;
 use App\Repositories\ClasseMatiereRepository;
 use App\Repositories\inscritRepository;
 use App\Repositories\SalleClasseRepository;
+use App\Services\src\AbsenceService;
 use App\Services\src\AnneeScolaireService;
 use App\Entities\Bulletin;
 
@@ -15,7 +16,7 @@ class ClassebulletinService
     private $bulletins1=[];
 
     private $matieres=[];
-    public function __construct(private AnneeScolaireService $anneeScolaireService,private $codeSalleClasse=null) {
+    public function __construct(private AnneeScolaireService $anneeScolaireService,private AbsenceService $absenceService,private $codeSalleClasse=null) {
     $ripos=new SalleClasseRepository();
     $this->salleclasse=$codeSalleClasse?$ripos->findOneByCode($codeSalleClasse):null;
     $this->setMatieres();
@@ -44,7 +45,7 @@ class ClassebulletinService
     if(!empty($this->bulletins3))return $this->bulletins3;
     foreach ($this->getEleves() as $eleve) {
       
-        $bulletinService=new bulletinService($this->anneeScolaireService,$eleve->matricule);
+        $bulletinService=new bulletinService($this->anneeScolaireService,$this->absenceService,$eleve->matricule);
         $this->bulletins3[$eleve->matricule]=$bulletinService->getBulletin3($tab);
     }
     return $this->bulletins3;

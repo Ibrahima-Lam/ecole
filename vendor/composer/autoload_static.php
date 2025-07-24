@@ -42,6 +42,7 @@ class ComposerStaticInit5ce13f389270716aa74fac6c4293dda4
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
             'Providers\\' => 10,
+            'Predis\\' => 7,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
             'Pdfs\\' => 5,
             'Pdf\\' => 4,
@@ -132,6 +133,10 @@ class ComposerStaticInit5ce13f389270716aa74fac6c4293dda4
         'Providers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Providers',
+        ),
+        'Predis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/predis/predis/src',
         ),
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (

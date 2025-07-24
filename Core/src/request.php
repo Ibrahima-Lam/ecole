@@ -38,7 +38,7 @@ class Request
 
         switch ($zone) {
             case 'api':
-                $namespace = "App\Controllers\apis\\";
+                $namespace = "App\Controllers\Apis\\";
                 $class = ucfirst($class) . "ApiController";
                 break;
             case 'pdf':
@@ -46,7 +46,7 @@ class Request
                 $class = ucfirst($class) . "PdfController";
                 break;
             default:
-                $namespace = "App\Controllers\web\administration\\";
+                $namespace = "App\Controllers\Web\Administration\\";
                 $class = ucfirst($zone) . "Controller"; // zone devient class dans ce cas
                 $method = $args[1] ?? "index";
                 $remainingArgs = array_slice($args, 2);

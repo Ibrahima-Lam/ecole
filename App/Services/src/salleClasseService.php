@@ -16,6 +16,11 @@ class SalleClasseService
        $inscritRepository=new SalleClasseRepository();
        return $inscritRepository->findOneByCode($codeSalleClasse);
     }
+    public function getAllSalleClasseByAnnee()
+    {
+       $inscritRepository=new SalleClasseRepository();
+       return $inscritRepository->findAll($this->anneeScolaireService->getCodeAnnee());
+    }
 
     public function getMatiere($codeSalleClasse)
     {

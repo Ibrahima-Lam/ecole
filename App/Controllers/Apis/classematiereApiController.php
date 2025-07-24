@@ -20,6 +20,10 @@ class ClassematiereApiController extends ApiController {
         $data = $this->classeMatiereRepository->findAll();
         $this->response($data);
     }
+    public function listeForApi(): void {
+        $data = $this->classeMatiereRepository->findAllForApi();
+        $this->response($data);
+    }
 
     public function insert(): void {
        try {

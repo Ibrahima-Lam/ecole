@@ -134,7 +134,7 @@ class Bulletin
         return $this->absences;
     }
     public function getAbsencesToString():string{
-        return $this->absences===null ? "" : __format('%s h', $this->absences);
+        return $this->absences===null ? "" : __format('%sh', $this->absences);
     }
     
 }

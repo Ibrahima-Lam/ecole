@@ -927,6 +927,7 @@ td .btn {
 
 .form-group input,
 .form-group select,
+.form-group textarea,
 .field {
     font-size: 14px;
     width: 100%;

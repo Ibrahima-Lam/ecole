@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Repositories;
+
+use App\Entities\Professeur;
+use stdClass;
+
+
+
     
 class ProfesseurRepository extends Repository
 {
@@ -8,19 +14,19 @@ class ProfesseurRepository extends Repository
     public function findAll(): false|array
     {
         $sql="SELECT * FROM professeur p join specialite s on p.codeSpecialite=s.codeSpecialite ";
-        $result = $this->db->selectAll($sql, \stdClass::class);
+        $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
      public function findAllSpecialite(): false|array
     {
         $sql="SELECT * FROM specialite ";
-        $result = $this->db->selectAll($sql, \stdClass::class);
+        $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
-    public function findOneByMatricule(string $matricule): false|\stdClass
+    public function findOneByMatricule(string $matricule): false|stdClass
     {
         $sql = "select * from professeur p left join specialite s on p.codeSpecialite=s.codeSpecialite where matriculeProfesseur = '$matricule'";
-        $result = $this->db->selectOne($sql, \stdClass::class);
+        $result = $this->db->selectOne($sql, stdClass::class);
         return $result;
     }
 
@@ -84,6 +90,24 @@ class ProfesseurRepository extends Repository
         ]);
         return $result;
     }
-}
 
-?>
+    public function toModel(object $obj): Professeur
+    {
+        $model = new Professeur();
+        $model->matriculeProfesseur = $obj->matriculeProfesseur;
+        $model->nomProfesseur = $obj->nomProfesseur;
+        $model->ismeProfesseur = $obj->ismeProfesseur ?? null;
+        $model->sexeProfesseur = $obj->sexeProfesseur ?? null;
+        $model->adresseProfesseur = $obj->adresseProfesseur ?? null;
+        $model->nniProfesseur = $obj->nniProfesseur;
+        $model->telProfesseur = $obj->telProfesseur ?? null;
+        $model->emailProfesseur = $obj->emailProfesseur ?? null;
+        $model->codeSpecialite = $obj->codeSpecialite ?? null;
+        $model->dateDebutProfesseur = $obj->dateDebutProfesseur ?? null;
+        $model->dateArriveeProfesseur = $obj->dateArriveeProfesseur ?? null;
+        $model->imagePathProfesseur = $obj->imagePathProfesseur ?? null;
+        $model->statutProfesseur = $obj->statutProfesseur;
+        $model->cycleProfesseur = $obj->cycleProfesseur;
+        return $model;
+    }
+}

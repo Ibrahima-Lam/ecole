@@ -120,6 +120,13 @@ insert into salle(codeSalle,nomSalle) values('Salle20','Salle 20');
 insert into salle(codeSalle,nomSalle) values('Salle21','Salle 21');
 insert into salle(codeSalle,nomSalle) values('Salle22','Salle 22');
 insert into salle(codeSalle,nomSalle) values('Salle23','Salle 23');
+insert into salle(codeSalle,nomSalle) values('Salle24','Salle 24');
+insert into salle(codeSalle,nomSalle) values('Salle25','Salle 25');
+insert into salle(codeSalle,nomSalle) values('Salle26','Salle 26');
+insert into salle(codeSalle,nomSalle) values('Salle27','Salle 27');
+insert into salle(codeSalle,nomSalle) values('Salle28','Salle 28');
+insert into salle(codeSalle,nomSalle) values('Salle29','Salle 29');
+insert into salle(codeSalle,nomSalle) values('Salle30','Salle 30');
 
 create table salle_classe(
     codeSalleClasse varchar(10) not null,
@@ -478,6 +485,60 @@ create table absence(
     Constraint absence_unique Unique (matricule,codeAnnee,trimestreAbsence)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+create table horaire(
+    codeHoraire varchar(15) not null,
+    nomHoraire varchar(20) not null,
+    debutHoraire time not null,
+    finHoraire time not null,
+    Constraint horaire_pkey Primary Key (codeHoraire),
+    Constraint horaire_unique Unique (debutHoraire,finHoraire)
+
+);
+INSERT INTO horaire (codeHoraire, nomHoraire, debutHoraire, finHoraire) VALUES
+('08-10', '08h à 10h', '08:00:00', '10:00:00'),
+('10-12', '10h à 12h', '10:00:00', '12:00:00'),
+('12-14', '12h à 14h', '12:00:00', '14:00:00'),
+('15-17', '15h à 17h', '15:00:00', '17:00:00'),
+('17-19', '17h à 19h', '17:00:00', '19:00:00');
+
+INSERT INTO horaire (codeHoraire, nomHoraire, debutHoraire, finHoraire) VALUES
+('08-09', '08h à 09h', '08:00:00', '09:00:00'),
+('09-10', '09h à 10h', '09:00:00', '10:00:00'),
+('10-11', '10h à 11h', '10:00:00', '11:00:00'),
+('11-12', '11h à 12h', '11:00:00', '12:00:00'),
+('12-13', '12h à 13h', '12:00:00', '13:00:00'),
+('13-14', '13h à 14h', '13:00:00', '14:00:00'),
+('14-15', '14h à 15h', '14:00:00', '15:00:00'),
+('15-16', '15h à 16h', '15:00:00', '16:00:00'),
+('16-17', '16h à 17h', '16:00:00', '17:00:00'),
+('17-18', '17h à 18h', '17:00:00', '18:00:00'),
+('18-19', '18h à 19h', '18:00:00', '19:00:00');
+
+create table absence_classe(
+    idAbsenceClasse int(10) AUTO_INCREMENT,
+    absents varchar(200),
+    justifies varchar(200),
+    codeSalleClasse varchar(10) not null,
+    dateAbsenceClasse date not null,
+    codeHoraire varchar(10) not null,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    Constraint absence_classe_pkey Primary Key (idAbsenceClasse),
+    Constraint absence_classe_unique Unique (codeSalleClasse,dateAbsenceClasse,codeHoraire)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create view absence_classe_view as select
+  ac.idAbsenceClasse as idAbsenceClasse, ac.absents as absents, ac.justifies as justifies, ac.codeSalleClasse as codeSalleClasse, ac.dateAbsenceClasse as dateAbsenceClasse, ac.codeHoraire as codeHoraire, ac.createdAt as createdAt, ac.updatedAt as updatedAt,
+  sc.codeClasse as codeClasse,
+  case when sc.indiceSalleClasse is null then c.codeClasse else concat(c.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse,
+  h.nomHoraire as nomHoraire,
+  h.debutHoraire as debutHoraire,
+  h.finHoraire as finHoraire
+ from absence_classe ac join salle_classe sc on sc.codeSalleClasse=ac.codeSalleClasse
+join classe c on c.codeClasse=sc.codeClasse
+join horaire h on h.codeHoraire=ac.codeHoraire;
+
+
 DELIMITER //
 
 CREATE TRIGGER UpdateCodeExamen
@@ -577,3 +638,4 @@ create table etablissement(
     Constraint etablissement_pkey Primary Key (idEtablissement) 
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 alter table etablissement modify column telEtablissement varchar(15);
+

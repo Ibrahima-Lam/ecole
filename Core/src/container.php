@@ -106,21 +106,29 @@ class Container
 
         // Récupérer les paramètres du constructeur
         $parameters = $constructor->getParameters();
+        $dependencies = $this->resolveDependencies($parameters);
+
+        return $reflector->newInstanceArgs($dependencies);
+    }
+    protected function resolveDependencies(array $parameters)
+    {
         $dependencies = [];
 
-        // Résoudre chaque paramètre (type-hinté)
         foreach ($parameters as $parameter) {
             $type = $parameter->getType();
-            if ($type === null) {
-                throw new \Exception("Cannot resolve the dependency {$parameter->name}");
-            }
 
-            $dependencyClass = $type->getName();
-            $dependencies[] = $this->make($dependencyClass);
+            if ($type && !$type->isBuiltin()) {
+                // C'est une classe : on la résout récursivement
+                $dependencies[] = $this->make($type->getName());
+            } elseif ($parameter->isDefaultValueAvailable()) {
+                // Pas de type ou type primitif avec valeur par défaut
+                $dependencies[] = $parameter->getDefaultValue();
+            } else {
+                throw new \Exception("Impossible de résoudre la dépendance {$parameter->name}");
+            }
         }
 
-        // Créer une instance avec les dépendances injectées
-        return $reflector->newInstanceArgs($dependencies);
+        return $dependencies;
     }
 
     public function call($callable, array $parameters = [])

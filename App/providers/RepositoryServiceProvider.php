@@ -2,6 +2,8 @@
 namespace App\providers;
 
 
+use App\Repositories\absenceClasseRepository;
+use App\Repositories\absenceRepository;
 use App\Repositories\anneeScolaireRepository;
 use App\Repositories\ClasseMatiereRepository;
 use App\Repositories\ClasseRepository;
@@ -19,6 +21,7 @@ use App\Repositories\professeurMatiereRepository;
 use App\Repositories\professeurRepository;
 use App\Repositories\SalleClasseRepository;
 use App\Repositories\salleRepository;
+use App\Repositories\HoraireRepository;
 use App\Repositories\userRepository;
 use App\Services\business\ClassebulletinService;
 use App\Services\business\bulletinService;
@@ -31,8 +34,6 @@ class RepositoryServiceProvider {
         $this->app = $app;
     }
     public function register() {
-       $this->app->singleton(bulletinService::class, fn($cn)=> new bulletinService($cn->make(AnneeScolaireService::class)));
-       $this->app->singleton(ClassebulletinService::class, fn($cn)=> new ClassebulletinService($cn->make(AnneeScolaireService::class)));
        $this->app->singleton(AnneeScolaireRepository::class, fn($cn) => new AnneeScolaireRepository());
        $this->app->singleton(ClasseRepository::class, fn($cn) => new ClasseRepository());
        $this->app->singleton(EleveRepository::class, fn($cn) => new EleveRepository());
@@ -46,10 +47,15 @@ class RepositoryServiceProvider {
        $this->app->singleton(examenRepository::class, fn($cn) => new examenRepository());
        $this->app->singleton(inscritRepository::class, fn($cn) => new inscritRepository());
        $this->app->singleton(matiereRepository::class, fn($cn) => new matiereRepository());
+       $this->app->singleton(MatiereRepository::class, fn($cn) => new MatiereRepository());
        $this->app->singleton(noteRepository::class, fn($cn) => new noteRepository());
        $this->app->singleton(professeurMatiereRepository::class, fn($cn) => new professeurMatiereRepository());
        $this->app->singleton(professeurRepository::class, fn($cn) => new professeurRepository());
+       $this->app->singleton(ProfesseurRepository::class, fn($cn) => new ProfesseurRepository());
        $this->app->singleton(SalleClasseRepository::class, fn($cn) => new SalleClasseRepository());
        $this->app->singleton(salleRepository::class, fn($cn) => new salleRepository());
+       $this->app->singleton(HoraireRepository::class, fn($cn) => new HoraireRepository());
+       $this->app->singleton(absenceRepository::class, fn($cn) => new absenceRepository());
+       $this->app->singleton(absenceClasseRepository::class, fn($cn) => new absenceClasseRepository());
     }
 }

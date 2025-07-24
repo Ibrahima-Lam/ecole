@@ -707,3 +707,559 @@ UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement
 UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé Dow', villeEtablissement = 'Boghé', telEtablissement = '45 00 45', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';
 -- 2025-07-02 22:33:03
 UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé Dow', villeEtablissement = 'Boghé', telEtablissement = '45 00 45 00', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';
+-- 2025-07-04 16:44:55
+update note set note='10' where idNote='2219' ;
+-- 2025-07-04 18:15:06
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d216', '5', '1', '2425');
+-- 2025-07-04 18:35:14
+UPDATE absence SET matricule = '5d216', nombreAbsence = '5', trimestreAbsence = '1', codeAnnee = '2425' WHERE idAbsence = '8';
+-- 2025-07-04 18:35:28
+UPDATE absence SET matricule = '5d216', nombreAbsence = '15', trimestreAbsence = '1', codeAnnee = '2425' WHERE idAbsence = '8';
+-- 2025-07-04 18:35:40
+DELETE FROM absence WHERE idAbsence = '8';
+-- 2025-07-04 18:35:50
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d216', '15', '1', '2425');
+-- 2025-07-04 20:26:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d201', '5', '3', '2425');
+-- 2025-07-04 20:28:12
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d202', '12', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d203', '13', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d204', '14', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d205', '15', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d206', '16', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d207', '17', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d208', '18', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d209', '19', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d210', '20', '3', '2425');
+-- 2025-07-04 20:28:13
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d211', '21', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d212', '22', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d213', '23', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d214', '24', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d215', '25', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d216', '26', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d217', '27', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d218', '28', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d219', '29', '3', '2425');
+-- 2025-07-04 20:28:14
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d220', '30', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d221', '31', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d222', '32', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d223', '33', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d224', '34', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d225', '12', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d226', '13', '3', '2425');
+-- 2025-07-04 20:28:15
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d227', '14', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d228', '15', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d229', '16', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d230', '17', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d231', '18', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d232', '19', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d233', '20', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d234', '21', '3', '2425');
+-- 2025-07-04 20:28:16
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d235', '22', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d236', '23', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d237', '24', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d238', '25', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d239', '26', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d240', '27', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d241', '28', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d242', '29', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d243', '30', '3', '2425');
+-- 2025-07-04 20:28:17
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d244', '31', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d245', '32', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d246', '33', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d247', '34', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d248', '12', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d249', '13', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d250', '14', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d251', '15', '3', '2425');
+-- 2025-07-04 20:28:18
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d252', '16', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d253', '17', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d254', '18', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d255', '19', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d256', '20', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d257', '21', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d258', '22', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d259', '23', '3', '2425');
+-- 2025-07-04 20:28:19
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d260', '24', '3', '2425');
+-- 2025-07-04 20:28:20
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d261', '25', '3', '2425');
+-- 2025-07-04 20:28:20
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d262', '26', '3', '2425');
+-- 2025-07-04 20:28:20
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d263', '27', '3', '2425');
+-- 2025-07-04 20:28:20
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5d2064', '28', '3', '2425');
+-- 2025-07-04 21:22:38
+UPDATE absence SET matricule = '5d236', nombreAbsence = '48', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '46';
+-- 2025-07-06 13:38:43
+INSERT INTO absence_classe (absents, codeSalleclasse, codeMatiere, codeHoraire, dateAbsenceClasse, justifies, createdAt, updatedAt) VALUES ('', 'A24255LM', 'AR', '08-09', '2025-07-11', '', '2025-07-06 13:38:43', '2025-07-06 13:38:43');
+-- 2025-07-06 14:06:25
+INSERT INTO absence_classe (absents, codeSalleclasse, codeMatiere, codeHoraire, dateAbsenceClasse, justifies, createdAt, updatedAt) VALUES ('15', 'A24255LM', 'AR', '08-09', '2025-07-10', '', '2025-07-06 14:06:25', '2025-07-06 14:06:25');
+-- 2025-07-06 14:09:28
+UPDATE absence_classe SET absents = '15,13', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 14:09:28' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 14:09:50
+DELETE FROM absence_classe WHERE idAbsenceClasse = '';
+-- 2025-07-06 14:10:00
+DELETE FROM absence_classe WHERE idAbsenceClasse = '';
+-- 2025-07-06 14:12:09
+DELETE FROM absence_classe WHERE idAbsenceClasse = '10';
+-- 2025-07-06 14:35:32
+UPDATE absence_classe SET absents = '15,13', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 14:35:32' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 15:33:18
+UPDATE absence_classe SET absents = '13', codeSalleclasse = '', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 15:33:18' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 15:33:44
+UPDATE absence_classe SET absents = '', codeSalleclasse = '', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 15:33:44' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 15:57:07
+UPDATE absence_classe SET absents = '12,13', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 15:57:07' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:06:25
+UPDATE absence_classe SET absents = '12,13,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 16:06:25' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:06:49
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '', updatedAt = '2025-07-06 16:06:49' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:15:04
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = ',18', updatedAt = '2025-07-06 16:15:04' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:15:15
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 16:15:15' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:15:26
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18,1', updatedAt = '2025-07-06 16:15:26' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 16:16:35
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 16:16:35' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 17:19:45
+UPDATE absence_classe SET absents = '12,10,8', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 17:19:45' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 17:20:17
+UPDATE absence_classe SET absents = '12,10,8,11', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 17:20:17' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 17:20:25
+UPDATE absence_classe SET absents = '12,10,8,11', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 17:20:25' WHERE idAbsenceClasse = '8';
+-- 2025-07-06 17:26:49
+UPDATE absence_classe SET absents = '12,10,11', codeSalleclasse = 'A24255LM', codeMatiere = 'AR', codeHoraire = '08-10', dateAbsenceClasse = '2025-07-11', justifies = '18', updatedAt = '2025-07-06 17:26:49' WHERE idAbsenceClasse = '8';
+-- 2025-07-07 08:37:24
+INSERT INTO absence_classe (absents, codeSalleclasse, codeHoraire, dateAbsenceClasse, justifies, createdAt, updatedAt) VALUES ('12,20', 'A24255LM', '08-09', '', '', '2025-07-07 08:37:24', '2025-07-07 08:37:24');
+-- 2025-07-07 08:41:43
+INSERT INTO absence_classe (absents, codeSalleclasse, codeHoraire, dateAbsenceClasse, justifies, createdAt, updatedAt) VALUES ('12', 'A24255LM', '08-09', '2025-07-12', '', '2025-07-07 08:41:43', '2025-07-07 08:41:43');
+-- 2025-07-07 09:00:20
+UPDATE absence_classe SET absents = '12,10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '', updatedAt = '2025-07-07 09:00:20' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:00:28
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '', updatedAt = '2025-07-07 09:00:28' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:00:35
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = ',14', updatedAt = '2025-07-07 09:00:35' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:00:45
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '14', updatedAt = '2025-07-07 09:00:45' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:01:31
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '14;18', updatedAt = '2025-07-07 09:01:31' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:07:41
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '14,18', updatedAt = '2025-07-07 09:07:41' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:29:23
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '14', updatedAt = '2025-07-07 09:29:23' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:29:28
+UPDATE absence_classe SET absents = '10', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '', updatedAt = '2025-07-07 09:29:28' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:29:38
+UPDATE absence_classe SET absents = '10,11', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '', updatedAt = '2025-07-07 09:29:38' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:29:50
+UPDATE absence_classe SET absents = '10,11,12', codeSalleclasse = 'A24255LM', codeHoraire = '08-09', dateAbsenceClasse = '2025-07-12', justifies = '', updatedAt = '2025-07-07 09:29:50' WHERE idAbsenceClasse = '9';
+-- 2025-07-07 09:37:28
+INSERT INTO absence_classe (absents, codeSalleclasse, codeHoraire, dateAbsenceClasse, justifies, createdAt, updatedAt) VALUES ('12,15,14', 'A24255LM', '10-12', '2025-07-15', '', '2025-07-07 09:37:28', '2025-07-07 09:37:28');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM001', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM002', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM003', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM004', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM005', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM006', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM007', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM008', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM009', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM010', '1', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM011', '1', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM012', '2', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM013', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM014', '1', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM015', '1', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM016', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM017', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM018', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM019', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM020', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM021', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM022', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM023', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM024', '0', '3', '2425');
+-- 2025-07-07 11:32:09
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM025', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM026', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM027', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM028', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM029', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM030', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM031', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM032', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM033', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM034', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM035', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM036', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM037', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM038', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM039', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM040', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM041', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM042', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM043', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM044', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM045', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM046', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM047', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM048', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM049', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM050', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM051', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM052', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM053', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM054', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM055', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM056', '0', '3', '2425');
+-- 2025-07-07 11:32:10
+INSERT INTO absence (matricule, nombreAbsence, trimestreAbsence, codeAnnee) VALUES ('5LM057', '0', '3', '2425');
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM001', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '75';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM002', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '76';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM003', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '77';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM004', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '78';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM005', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '79';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM006', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '80';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM007', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '81';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM008', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '82';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM009', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '83';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM010', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '84';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM011', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '85';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM012', nombreAbsence = '2', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '86';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM013', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '87';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM014', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '88';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM015', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '89';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM016', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '90';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM017', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '91';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM018', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '92';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM019', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '93';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM020', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '94';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM021', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '95';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM022', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '96';
+-- 2025-07-07 11:33:45
+UPDATE absence SET matricule = '5LM023', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '97';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM024', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '98';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM025', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '99';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM026', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '100';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM027', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '101';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM028', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '102';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM029', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '103';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM030', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '104';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM031', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '105';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM032', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '106';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM033', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '107';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM034', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '108';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM035', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '109';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM036', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '110';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM037', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '111';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM038', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '112';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM039', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '113';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM040', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '114';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM041', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '115';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM042', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '116';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM043', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '117';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM044', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '118';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM045', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '119';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM046', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '120';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM047', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '121';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM048', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '122';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM049', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '123';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM050', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '124';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM051', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '125';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM052', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '126';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM053', nombreAbsence = '00', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '127';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM054', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '128';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM055', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '129';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM056', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '130';
+-- 2025-07-07 11:33:46
+UPDATE absence SET matricule = '5LM057', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '131';
+-- 2025-07-07 11:35:08
+UPDATE absence SET matricule = '5LM001', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '75';
+-- 2025-07-07 11:35:08
+UPDATE absence SET matricule = '5LM002', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '76';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM003', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '77';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM004', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '78';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM005', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '79';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM006', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '80';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM007', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '81';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM008', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '82';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM009', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '83';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM010', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '84';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM011', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '85';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM012', nombreAbsence = '2', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '86';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM013', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '87';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM014', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '88';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM015', nombreAbsence = '1', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '89';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM016', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '90';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM017', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '91';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM018', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '92';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM019', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '93';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM020', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '94';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM021', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '95';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM022', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '96';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM023', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '97';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM024', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '98';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM025', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '99';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM026', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '100';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM027', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '101';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM028', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '102';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM029', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '103';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM030', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '104';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM031', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '105';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM032', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '106';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM033', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '107';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM034', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '108';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM035', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '109';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM036', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '110';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM037', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '111';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM038', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '112';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM039', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '113';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM040', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '114';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM041', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '115';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM042', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '116';
+-- 2025-07-07 11:35:09
+UPDATE absence SET matricule = '5LM043', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '117';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM044', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '118';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM045', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '119';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM046', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '120';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM047', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '121';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM048', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '122';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM049', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '123';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM050', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '124';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM051', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '125';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM052', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '126';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM053', nombreAbsence = '00', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '127';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM054', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '128';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM055', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '129';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM056', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '130';
+-- 2025-07-07 11:35:10
+UPDATE absence SET matricule = '5LM057', nombreAbsence = '0', trimestreAbsence = '3', codeAnnee = '2425' WHERE idAbsence = '131';
+-- 2025-07-07 12:38:06
+insert into professeur(matriculeProfesseur,nomProfesseur,ismeProfesseur,sexeProfesseur,adresseProfesseur,nniProfesseur,codeSpecialite,dateDebutProfesseur,dateArriveeProfesseur,telProfesseur,emailProfesseur,statutProfesseur,cycleProfesseur) values('124864A','Djibril Ba','حبريل با ','M','thialgou','3158193186','mpc','2000-01-01','2000-01-01','4189623','yall@gmail.com','actif','1');
+-- 2025-07-10 17:33:15
+update note set note='14' where idNote='255' ;
+-- 2025-07-10 17:33:31
+update note set note='13' where idNote='126' ;

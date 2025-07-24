@@ -69,6 +69,9 @@ class salleClasseController extends WebController
             <a href='?p=salleclasse/statistique/$code/C2' >C2</a>
             <a href='?p=salleclasse/statistique/$code/C3' >C3</a>
             </li>";
+            $class = $active == 7 ? "active" : "";
+            $html .= "<li><a href='?p=absenceClasse/cumulAbsenceEleve/$code'class='$class'>".__("Les Absences")."</a></li>";
+          
             $html.='<hr>';
 
         }

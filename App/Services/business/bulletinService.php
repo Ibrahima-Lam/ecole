@@ -5,6 +5,7 @@ use App\Repositories\ClasseMatiereRepository;
 use App\Repositories\ExamenRepository;
 use App\Repositories\inscritRepository;
 use App\Repositories\NoteRepository;
+use App\Services\src\AbsenceService;
 use App\Services\src\AnneeScolaireService;
 use App\Entities\Bulletin;
 
@@ -22,7 +23,7 @@ class bulletinService extends InterrogationService
 
     protected $matricule;
     public $eleve;
-    public function __construct(private AnneeScolaireService $anneeScolaireService,$matricule=null,$matieres=[]) {
+    public function __construct(private AnneeScolaireService $anneeScolaireService,private AbsenceService $absenceService,$matricule=null,$matieres=[]) {
     $this->matricule=$matricule;
     $this->matieres=$matieres;
     if($matricule)$this->setData();
@@ -56,7 +57,6 @@ class bulletinService extends InterrogationService
                }
             }
         }
-       
     }
    
     }
@@ -90,6 +90,10 @@ class bulletinService extends InterrogationService
             $notes[$key]=$element;
         }
         $points=round($points,2);
+       $abs=$this->absenceService->findOneByMatriculeAndTrimestreAndAnnee($this->matricule,1);
+        if ($abs) {
+           $this->absences=$abs->nombreAbsence;
+        }
         $bulletin=new Bulletin($this->eleve,$notes,$points,$this->matieres,$this->points_tab1,$this->absences);
         $this->bulletin1=$bulletin;
         return $bulletin;
@@ -124,6 +128,10 @@ class bulletinService extends InterrogationService
             $notes[$key]=$element;
         }
         $points=round($points,2);
+        $abs=$this->absenceService->findOneByMatriculeAndTrimestreAndAnnee($this->matricule,2);
+        if ($abs) {
+           $this->absences=$abs->nombreAbsence;
+        }
         $bulletin=new Bulletin($this->eleve,$notes,$points,$this->matieres,$this->points_tab2,$this->absences);
         $this->bulletin2=$bulletin;
         return $bulletin;
@@ -160,6 +168,10 @@ class bulletinService extends InterrogationService
             $notes[$key]=$element;
         }
         $points=round($points,2);
+        $abs=$this->absenceService->findOneByMatriculeAndTrimestreAndAnnee($this->matricule,    3);
+        if ($abs) {
+           $this->absences=$abs->nombreAbsence;
+        }
         $bulletin=new Bulletin($this->eleve,$notes,$points,$this->matieres,$this->points_tab3,$this->absences);
         $this->bulletin3=$bulletin;
         return $bulletin;

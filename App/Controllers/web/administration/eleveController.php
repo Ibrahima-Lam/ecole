@@ -8,6 +8,7 @@ use App\Repositories\correspondanceRepository;
 use App\Repositories\ExamenRepository;
 use App\Repositories\NoteRepository;
 use App\Repositories\SalleClasseRepository;
+use App\Services\src\AbsenceService;
 use App\Services\storages\NoninscritStorage;
 use App\Services\business\bulletinService;
 use App\Services\business\ClassebulletinService;
@@ -82,6 +83,7 @@ class EleveController extends WebController implements EleveControllerInterfaces
         if ($matricule) {
             $class = $active == 1 ? "active" : "";
             $html .= "<li><a href='?p=eleve/profil/$matricule'class='$class'>" . __("Profil") . "</a></li>";
+            if($inscrit){
             $class = $active == 2 ? "active" : "";
             $html .= "<li><a href='?p=eleve/resultat/$matricule'class='$class'>" . __("Resultat") . "</a></li>";
             $class = $active == 3 ? "active" : "";
@@ -90,12 +92,13 @@ class EleveController extends WebController implements EleveControllerInterfaces
             $html .= "<li><a href='?p=eleve/bulletin2/$matricule'class='$class'>" . __("Bulletin C2") . "</a></li>";
             $class = $active == 5 ? "active" : "";
             $html .= "<li><a href='?p=eleve/bulletin3/$matricule'class='$class'>" . __("Bulletin C3") . "</a></li>";
+            $class = $active == 7 ? "active" : "";
+            $html .= "<li><a href='?p=inscrit/classe/$inscrit->codeSalleClasse'class='$class'>" . __("Collegues") . "</a></li>";
+            }
             $class = $active == 6 ? "active" : "";
             $html .= "<li><a href='?p=eleve/correspondant/$matricule'class='$class'>" . __("Correspondant") . "</a></li>";
-            if($inscrit){
-                $class = $active == 7 ? "active" : "";
-                $html .= "<li><a href='?p=inscrit/classe/$inscrit->codeSalleClasse'class='$class'>" . __("Collegues") . "</a></li>";
-            }
+            $class = $active == 8 ? "active" : "";
+            $html .= "<li><a href='?p=eleve/absence/$matricule'class='$class'>" . __("Absences") . "</a></li>";
             $html.='<hr>';
         }
         $class = $active == 10 ? "active" : "";
@@ -335,6 +338,11 @@ class EleveController extends WebController implements EleveControllerInterfaces
         $classes = $model->findAll($this->getCodeAnnee());
         $this->middleware("role")->render("eleve/inscrire", ["data" => $eleves, "classes" => $classes]);
 
+    }
+
+    function absence(AbsenceService $absenceService,$matricule) {
+        $absences = $absenceService->findAllByMatricule($matricule);
+        $this->render("eleve/absence", ["absences" => $absences,"subsidebar" => $this->subsidebar($matricule, 8)]);
     }
 
 }

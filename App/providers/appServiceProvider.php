@@ -2,6 +2,8 @@
 namespace App\providers;
 
 
+use App\Repositories\absenceRepository;
+use App\Services\src\AbsenceService;
 use App\Services\src\AnneeScolaireService;
 use App\Services\src\ClasseMatiereService;
 use App\Services\src\EleveService;
@@ -9,6 +11,12 @@ use App\Services\src\EtablissementService;
 use App\Services\src\ExamenService;
 use App\Services\src\SalleClasseService;
 use App\Services\src\UserService;
+use App\Services\src\MatiereService;
+use App\Services\src\ProfesseurService;
+use App\Services\src\HoraireService;
+use App\Services\src\absenceClasseService;
+use App\Controllers\web\absence\absenceClasseController;
+use App\Controllers\Apis\absenceClasseApiController;
 
 class AppServiceProvider {
     public $app;
@@ -23,6 +31,12 @@ class AppServiceProvider {
        $this->app->singleton(ExamenService::class, fn()=> new ExamenService($this->app->make(AnneeScolaireService::class),
        $this->app->make(SalleClasseService::class),$this->app->make(ClasseMatiereService::class)));
        $this->app->singleton(UserService::class, fn()=> new UserService());
+       $this->app->singleton(MatiereService::class, fn($cn) => new MatiereService($cn->make(\App\Repositories\MatiereRepository::class)));
+       $this->app->singleton(ProfesseurService::class, fn($cn) => new ProfesseurService($cn->make(\App\Repositories\ProfesseurRepository::class)));
+       $this->app->singleton(HoraireService::class, fn($cn) => new HoraireService($cn->make(\App\Repositories\HoraireRepository::class)));
        $this->app->singleton(EleveService::class, fn($cn)=> new EleveService($cn->make(AnneeScolaireService::class)));
+       $this->app->singleton(AbsenceService::class,fn() => new AbsenceService($this->app->make(AnneeScolaireService::class),$this->app->make(absenceRepository::class)));
+       $this->app->singleton(absenceClasseService::class, fn($cn) => new absenceClasseService($cn->make(\App\Repositories\absenceClasseRepository::class)));
+       $this->app->singleton(absenceClasseController::class, fn($cn) => new absenceClasseController($cn->make(\App\Services\src\absenceClasseService::class)));
     }
 }
