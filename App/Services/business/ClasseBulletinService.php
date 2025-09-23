@@ -6,6 +6,7 @@ use App\Repositories\SalleClasseRepository;
 use App\Services\src\AbsenceService;
 use App\Services\src\AnneeScolaireService;
 use App\Entities\Bulletin;
+use App\Entities\ClasseStatistique;
 
 class ClassebulletinService
 {
@@ -56,7 +57,7 @@ class ClassebulletinService
     }
     if(!empty($this->bulletins2))return $this->bulletins2;
     foreach ($this->getEleves() as $eleve) {
-        $bulletinService=new bulletinService($this->anneeScolaireService,$eleve->matricule);
+        $bulletinService=new bulletinService($this->anneeScolaireService,$this->absenceService,$eleve->matricule);
         $this->bulletins2[$eleve->matricule]=$bulletinService->getBulletin2($tab);
     }
     return $this->bulletins2;
@@ -67,7 +68,7 @@ class ClassebulletinService
     }
     if(!empty($this->bulletins1))return $this->bulletins1;
     foreach ($this->getEleves() as $eleve) {
-        $bulletinService=new bulletinService($this->anneeScolaireService,$eleve->matricule);
+        $bulletinService=new bulletinService($this->anneeScolaireService,$this->absenceService,$eleve->matricule);
         $this->bulletins1[$eleve->matricule]=$bulletinService->getBulletin1($tab);
     }
     return $this->bulletins1;

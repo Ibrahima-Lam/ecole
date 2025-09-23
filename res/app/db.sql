@@ -1263,3 +1263,7 @@ insert into professeur(matriculeProfesseur,nomProfesseur,ismeProfesseur,sexeProf
 update note set note='14' where idNote='255' ;
 -- 2025-07-10 17:33:31
 update note set note='13' where idNote='126' ;
+-- 2025-09-17 21:59:39
+insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni,statutEleve) values('3456346','Mohamed Thiam','محمد اتيام ','M','2000-01-01','Thialgou','thialgou','36341516353','actif');
+-- 2025-09-17 22:00:49
+insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','3456346','A24255LM','58','nouveau-passant','2025-09-17');

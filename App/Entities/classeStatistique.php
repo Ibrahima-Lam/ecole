@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\business;
+namespace App\Entities;
 
 class ClasseStatistique
 {
