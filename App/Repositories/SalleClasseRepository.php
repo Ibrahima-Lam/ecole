@@ -10,7 +10,7 @@ class SalleClasseRepository extends Repository
     public function findAll(?string $codeAnnee = null): array
     {
         $sql = $codeAnnee ? "select * from salle_classe_view where codeAnnee='$codeAnnee'" : "select * from salle_classe_view";
-
+        $sql .= " order by codeClasse,indiceSalleClasse";
         $result = $this->db->selectAll($sql, stdClass::class);
         return $result;
     }
@@ -51,10 +51,10 @@ class SalleClasseRepository extends Repository
             'codeAnnee' => $codeAnnee,
             'indiceSalleClasse' => $indiceSalleClasse
         ]);
-
     }
 
-    public function delete($codeSalleClasse){
+    public function delete($codeSalleClasse)
+    {
         return $this->db->exec("DELETE FROM salle_classe WHERE codeSalleClasse = '$codeSalleClasse'");
     }
 }

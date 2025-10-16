@@ -475,6 +475,33 @@ create table cours(
     Constraint cours_unique Unique (matricule,codeSalleClasse,codeMatiere,jourCours,heureDebutCours,heureFinCours),
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+
+create table planning(
+    idPlanning int(6) AUTO_INCREMENT,
+    matriculeProfesseur varchar(10),
+    codeSalleClasse varchar(10) not null,
+    codeMatiere varchar(10) not null,
+    jourPlanning enum('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi') not null,
+    codeHoraire varchar(15) not null,
+    codeAnnee varchar(10) not null,
+    Constraint planning_pkey Primary Key (idPlanning),
+    Constraint planning_prof_unique Unique (matriculeProfesseur,jourPlanning,codeHoraire,codeAnnee),
+    Constraint planning_salleclasse_unique Unique (codeSalleClasse,jourPlanning,codeHoraire)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+create view planning_view as select
+  p.idPlanning as idPlanning, p.matriculeProfesseur as matriculeProfesseur,p.codeSalleClasse as codeSalleClasse,p.codeMatiere as codeMatiere,p.jourPlanning as jourPlanning,p.codeHoraire as codeHoraire,p.codeAnnee as codeAnnee,
+  pr.nomProfesseur as nomProfesseur,pr.ismeProfesseur as ismeProfesseur,pr.sexeProfesseur as sexeProfesseur,pr.nniProfesseur as nniProfesseur,pr.telProfesseur as telProfesseur,pr.emailProfesseur as emailProfesseur,pr.imagePathProfesseur as imagePathProfesseur,
+  m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
+  sc.codeClasse as codeClasse,sc.indiceSalleClasse as indiceSalleClasse,
+  case when sc.indiceSalleClasse is null then sc.codeClasse else concat(sc.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse,
+  h.nomHoraire as nomHoraire,h.debutHoraire as debutHoraire,h.finHoraire as finHoraire
+   from planning p
+  left join professeur pr on pr.matriculeProfesseur=p.matriculeProfesseur
+   join matiere m on m.codeMatiere=p.codeMatiere
+   join salle_classe sc on sc.codeSalleClasse=p.codeSalleClasse
+   join horaire h on h.codeHoraire=p.codeHoraire;
+
 create table absence(
     idAbsence int(6) AUTO_INCREMENT,
     matricule varchar(10) not null,

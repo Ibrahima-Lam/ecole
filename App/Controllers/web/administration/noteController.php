@@ -70,16 +70,15 @@ class NoteController extends WebController
         $notes = $this->noteRepository->findAllByCodeExamen($codeExamen);
 
 
-        $paramettre = NoteParamettreFactory::getNoteParam();
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
         $cols = array_map('strtoupper', range('a', 'z'));
         $labels=[];
-        if($paramettre->matricule) $labels[]='Matricule';
-        if($paramettre->numero) $labels[]='Numero';
-        if($paramettre->nom) $labels[]='Nom';
-        if($paramettre->isme) $labels[]='Nom en Arabe';
+         $labels[]='Matricule';
+         $labels[]='Numero';
+       $labels[]='Nom';
+         $labels[]='Nom en Arabe';
         $labels[]='Note';
         $row = 5;
 
@@ -93,22 +92,22 @@ class NoteController extends WebController
         foreach ($labels as $key => $value) {
             $sheet->setCellValue($cols[$key].$row, $value);
         }
-        foreach ($notes as $key => $value) {
+         foreach ($notes as $key => $value) {
             $row++;
             $i=0;
-            if($paramettre->matricule) $sheet->setCellValue($cols[$i++].$row, $value->matricule);
-            if($paramettre->numero) $sheet->setCellValue($cols[$i++].$row, $value->numeroInscrit);
-            if($paramettre->nom) $sheet->setCellValue($cols[$i++].$row, $value->nom);
-            if($paramettre->isme) $sheet->setCellValue($cols[$i++].$row, $value->isme);
-
+             $sheet->setCellValue($cols[$i++].$row, $value->matricule);
+           $sheet->setCellValue($cols[$i++].$row, $value->numeroInscrit);
+             $sheet->setCellValue($cols[$i++].$row, $value->nom);
+            $sheet->setCellValue($cols[$i++].$row, $value->isme);
             $sheet->setCellValue($cols[$i++].$row, $value->note);
-        }
+        } 
 
         $writer = new Xlsx($spreadsheet);
     $filename = "Releve_{$examen->codeExamen}.xlsx";
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    
+     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); 
     header('Content-Disposition: attachment;filename="' . $filename . '"');
-    header('Cache-Control: max-age=0');
+     header('Cache-Control: max-age=0'); 
 
 // Sauvegarder le fichier
 $writer->save('php://output');

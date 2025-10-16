@@ -23,13 +23,14 @@ $title = __("Liste des Matieres");
                 <td><?= $matiere->codeMatiere ?></td>
                 <td><?= $matiere->nomMatiere ?></td>
                 <td>
-                <?php if($_admin):?>
-                     <div class="center">
+                    <div class="center">
+                           <a class="btn btn-success" title="<?=__("voir les notes pour cette matiere")?>" href="?p=note/releve/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="fa fa-eye"></i></a>
+
+                         <?php if($_admin):?>
                            <a class="btn btn-primary" title="<?=__("ajouter ou modifier les notes pour cette matiere depuis un formulaire")?>" href="?p=note/matiere_forms/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="fa fa-database"></i></a>
                            <a class="btn btn-info" title="<?=__("ajouter ou modifier les notes pour cette matiere depuis un fichier")?>" href="?p=note/matiere_file_form/<?= $salleclasse->codeSalleClasse ?>/<?= $matiere->codeMatiere ?>"><i class="fa fa-file"></i></a>
-                       
+                        <?php endif?>
                      </div>
-                <?php endif?>
             </td>
             </tr>
         <?php endforeach; ?>

@@ -1267,3 +1267,190 @@ update note set note='13' where idNote='126' ;
 insert into eleve(matricule,nom,isme,sexe,dateNaissance,lieuNaissance,adresse,nni,statutEleve) values('3456346','Mohamed Thiam','محمد اتيام ','M','2000-01-01','Thialgou','thialgou','36341516353','actif');
 -- 2025-09-17 22:00:49
 insert into inscrit(idInscrit,matricule,codeSalleClasse,numeroInscrit,typeInscrit,dateInscription) values('','3456346','A24255LM','58','nouveau-passant','2025-09-17');
+-- 2025-10-12 17:49:58
+update note set note='10' where idNote='710' ;
+-- 2025-10-12 17:50:18
+update note set note='9' where idNote='710' ;
+-- 2025-10-12 17:52:29
+insert into examen (codeExamen,codeClasseMatiere,codeSalleClasse,codeEvaluation,dateExamen,statutExamen,heureDebutExamen,heureFinExamen,trimestreExamen) values ('A24255D30A24255DMATH0C1','A24255DMATH','A24255D3','C1','','1','','','1');
+-- 2025-10-12 17:55:02
+insert into note(matricule,codeExamen,note) values('5d301','A24255D30A24255DMATH0C1','9.25');
+-- 2025-10-12 17:55:02
+insert into note(matricule,codeExamen,note) values('5d302','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:02
+insert into note(matricule,codeExamen,note) values('5d303','A24255D30A24255DMATH0C1','14.5');
+-- 2025-10-12 17:55:02
+insert into note(matricule,codeExamen,note) values('5d304','A24255D30A24255DMATH0C1','11.25');
+-- 2025-10-12 17:55:03
+insert into note(matricule,codeExamen,note) values('5d305','A24255D30A24255DMATH0C1','9');
+-- 2025-10-12 17:55:03
+insert into note(matricule,codeExamen,note) values('5d306','A24255D30A24255DMATH0C1','9');
+-- 2025-10-12 17:55:03
+insert into note(matricule,codeExamen,note) values('5d307','A24255D30A24255DMATH0C1','0');
+-- 2025-10-12 17:55:03
+insert into note(matricule,codeExamen,note) values('5d308','A24255D30A24255DMATH0C1','10');
+-- 2025-10-12 17:55:03
+insert into note(matricule,codeExamen,note) values('5d309','A24255D30A24255DMATH0C1','8.25');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d310','A24255D30A24255DMATH0C1','15.75');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d311','A24255D30A24255DMATH0C1','11');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d312','A24255D30A24255DMATH0C1','8.25');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d313','A24255D30A24255DMATH0C1','13.5');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d314','A24255D30A24255DMATH0C1','16.25');
+-- 2025-10-12 17:55:04
+insert into note(matricule,codeExamen,note) values('5d315','A24255D30A24255DMATH0C1','7.75');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d316','A24255D30A24255DMATH0C1','10');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d317','A24255D30A24255DMATH0C1','4.5');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d318','A24255D30A24255DMATH0C1','0');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d319','A24255D30A24255DMATH0C1','9.75');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d320','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:05
+insert into note(matricule,codeExamen,note) values('5d321','A24255D30A24255DMATH0C1','4.75');
+-- 2025-10-12 17:55:06
+insert into note(matricule,codeExamen,note) values('5d322','A24255D30A24255DMATH0C1','10.75');
+-- 2025-10-12 17:55:06
+insert into note(matricule,codeExamen,note) values('5d323','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:06
+insert into note(matricule,codeExamen,note) values('5d324','A24255D30A24255DMATH0C1','11.25');
+-- 2025-10-12 17:55:06
+insert into note(matricule,codeExamen,note) values('5d325','A24255D30A24255DMATH0C1','0');
+-- 2025-10-12 17:55:06
+insert into note(matricule,codeExamen,note) values('5d326','A24255D30A24255DMATH0C1','9.25');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d327','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d328','A24255D30A24255DMATH0C1','7');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d329','A24255D30A24255DMATH0C1','14');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d330','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d331','A24255D30A24255DMATH0C1','6');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d332','A24255D30A24255DMATH0C1','9');
+-- 2025-10-12 17:55:07
+insert into note(matricule,codeExamen,note) values('5d333','A24255D30A24255DMATH0C1','6.5');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d334','A24255D30A24255DMATH0C1','13');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d335','A24255D30A24255DMATH0C1','9.75');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d336','A24255D30A24255DMATH0C1','16.25');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d337','A24255D30A24255DMATH0C1','10.75');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d338','A24255D30A24255DMATH0C1','13');
+-- 2025-10-12 17:55:08
+insert into note(matricule,codeExamen,note) values('5d339','A24255D30A24255DMATH0C1','13');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d340','A24255D30A24255DMATH0C1','11');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d341','A24255D30A24255DMATH0C1','9.25');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d342','A24255D30A24255DMATH0C1','11.75');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d343','A24255D30A24255DMATH0C1','11.25');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d344','A24255D30A24255DMATH0C1','10');
+-- 2025-10-12 17:55:09
+insert into note(matricule,codeExamen,note) values('5d345','A24255D30A24255DMATH0C1','5');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d346','A24255D30A24255DMATH0C1','12.25');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d347','A24255D30A24255DMATH0C1','8.5');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d348','A24255D30A24255DMATH0C1','9');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d349','A24255D30A24255DMATH0C1','0');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d350','A24255D30A24255DMATH0C1','5.5');
+-- 2025-10-12 17:55:10
+insert into note(matricule,codeExamen,note) values('5d351','A24255D30A24255DMATH0C1','6.25');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d352','A24255D30A24255DMATH0C1','8');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d353','A24255D30A24255DMATH0C1','11');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d354','A24255D30A24255DMATH0C1','9.25');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d355','A24255D30A24255DMATH0C1','9');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d356','A24255D30A24255DMATH0C1','14');
+-- 2025-10-12 17:55:11
+insert into note(matricule,codeExamen,note) values('5d357','A24255D30A24255DMATH0C1','7.25');
+-- 2025-10-12 17:55:12
+insert into note(matricule,codeExamen,note) values('5d358','A24255D30A24255DMATH0C1','7.5');
+-- 2025-10-12 17:55:12
+insert into note(matricule,codeExamen,note) values('5d359','A24255D30A24255DMATH0C1','8.5');
+-- 2025-10-12 17:55:12
+insert into note(matricule,codeExamen,note) values('5d360','A24255D30A24255DMATH0C1','12.25');
+-- 2025-10-12 17:55:12
+insert into note(matricule,codeExamen,note) values('5d361','A24255D30A24255DMATH0C1','16.25');
+delete from note where codeExamen='A24255D30A24255DMATH0C1' 
+-- 2025-10-12 17:56:51
+update examen set dateExamen='2025-10-12',heureDebutExamen='00:00:00',heureFinExamen='00:00:00',statutExamen='1',trimestreExamen='1' where codeExamen='A24255D30A24255DMATH0C1';
+-- 2025-10-12 18:08:23
+UPDATE etablissement SET nomEtablissement = 'Lycee de Boghé', ismeEtablissement = 'ثانوية بوغي', adresseEtablissement = 'Boghé Dow', villeEtablissement = 'Boghé', telEtablissement = '45 00 45 00', emailEtablissement = 'LyceeBoghe@gmail.com', imagePathEtablissement = '' WHERE idEtablissement = '8';
+-- 2025-10-14 17:38:40
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('', 'A24251AS1', 'AR', 'Lundi', '08-09');
+-- 2025-10-14 17:41:22
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('', 'A24252AS2', 'AR', 'Lundi', '08-09');
+-- 2025-10-14 17:42:43
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('', 'A24255D3', 'AR', 'Lundi', '08-09');
+-- 2025-10-14 17:44:31
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('', 'A24255LM', 'AR', 'Lundi', '08-09');
+-- 2025-10-14 17:48:01
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('', 'A24255D1', 'AR', 'Lundi', '08-09');
+-- 2025-10-14 18:00:34
+delete from planning where idPlanning = '25';
+-- 2025-10-14 18:01:57
+delete from planning where idPlanning = '24';
+-- 2025-10-14 18:02:04
+delete from planning where idPlanning = '17';
+-- 2025-10-14 18:26:42
+update planning set matriculeProfesseur = '', codeSalleClasse = 'A24251AS1', codeMatiere = 'AR', jourPlanning = 'Lundi', codeHoraire = '08-09' where idPlanning = '8';
+-- 2025-10-14 18:26:52
+update planning set matriculeProfesseur = '124871D', codeSalleClasse = 'A24251AS1', codeMatiere = 'AR', jourPlanning = 'Lundi', codeHoraire = '08-09' where idPlanning = '8';
+-- 2025-10-14 18:27:55
+update planning set matriculeProfesseur = '6452225', codeSalleClasse = 'A24252AS2', codeMatiere = 'AR', jourPlanning = 'Lundi', codeHoraire = '08-09' where idPlanning = '11';
+-- 2025-10-14 18:28:50
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('124864A', 'A24251AS1', 'PC', 'Mardi', '08-09');
+-- 2025-10-15 17:32:19
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('124864A', 'A24251AS1', 'AR', 'Lundi', '08-10');
+-- 2025-10-15 17:32:30
+delete from planning where idPlanning = '30';
+-- 2025-10-15 17:57:19
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'AR', jourPlanning = 'Lundi', codeHoraire = '10-12' where idPlanning = '27';
+-- 2025-10-15 17:59:11
+update planning set matriculeProfesseur = '124871D', codeSalleClasse = 'A24251AS1', codeMatiere = 'MATH', jourPlanning = 'Mardi', codeHoraire = '08-09' where idPlanning = '11';
+-- 2025-10-15 18:09:08
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('6452225', 'A24252AS2', 'PC', 'Lundi', '08-09');
+-- 2025-10-15 18:09:38
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire) values ('124864A', 'A24252AS2', 'PC', 'Mardi', '08-09');
+-- 2025-10-15 18:12:11
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24252AS2', codeMatiere = 'PC', jourPlanning = 'Mardi', codeHoraire = '08-09' where idPlanning = '32';
+-- 2025-10-15 18:12:11
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24252AS2', codeMatiere = 'PC', jourPlanning = 'Mardi', codeHoraire = '08-09' where idPlanning = '32';
+-- 2025-10-15 18:13:23
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'AR', jourPlanning = 'Lundi', codeHoraire = '09-10' where idPlanning = '27';
+-- 2025-10-16 08:59:27
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire,codeAnnee) values ('124864A', 'A24251AS1', 'AR', 'Lundi', '08-09','2425');
+-- 2025-10-16 09:29:49
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'MATH', jourPlanning = 'Lundi', codeHoraire = '08-09',codeAnnee = '2425' where idPlanning = '8';
+-- 2025-10-16 09:32:12
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire,codeAnnee) values ('124864A', 'A24252AS2', 'MATH', 'Lundi', '10-12','2425');
+-- 2025-10-16 09:32:27
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'MATH', jourPlanning = 'Lundi', codeHoraire = '08-10',codeAnnee = '2425' where idPlanning = '8';
+-- 2025-10-16 09:33:15
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire,codeAnnee) values ('124871D', 'A24252AS2', 'AR', 'Lundi', '08-10','2425');
+-- 2025-10-16 09:33:43
+update planning set matriculeProfesseur = '124871D', codeSalleClasse = 'A24252AS2', codeMatiere = 'PC', jourPlanning = 'Lundi', codeHoraire = '08-10',codeAnnee = '2425' where idPlanning = '10';

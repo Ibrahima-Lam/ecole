@@ -30,7 +30,7 @@ $title = "Relevé de notes";
     </p>
     <p><strong><?=__("Classe")?>
     </strong>:
-    <span><?= $examen->pseudoSalleClasse ?></span>
+    <a class="link" href="?p=salleclasse/profil/<?= $examen->codeSalleClasse ?>"><?= $examen->pseudoSalleClasse ?></a>
     </p>
     <p><strong><?=__("Matière")?>
     </strong>:

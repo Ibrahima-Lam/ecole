@@ -1,6 +1,6 @@
 <?php
 $title = 'Les eleves'
-    ?>
+?>
 <?= $subsidebar ?>
 <script type="module" src="js/eleve/liste.js" defer></script>
 <h2 class="title text-center my-10"><?= __("Les Eleves") ?>
@@ -20,32 +20,38 @@ $title = 'Les eleves'
                 <th></th>
                 <th data-sort="matricule" class="sortable">
                     <div class="sort flex-start">
-                    <?= __("Matricule") ?>
-                </div>
+                        <?= __("Matricule") ?>
+                    </div>
                 </th>
-                <th data-sort="nom" class="sortable"><div class="sort flex-start">
-                    <?= __("Nom") ?>
-                </div>
+                <th data-sort="nom" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("Nom") ?>
+                    </div>
                 </th>
-                <th data-sort="sexe" class="sortable"><div class="sort flex-start">
-                    <?= __("Sexe") ?>
-                </div>
+                <th data-sort="sexe" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("Sexe") ?>
+                    </div>
                 </th>
-                <th data-sort="dateNaissance" class="sortable"><div class="sort flex-start">
-                    <?= __("Date de naissance") ?>
-                </div>
+                <th data-sort="dateNaissance" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("Date de naissance") ?>
+                    </div>
                 </th>
-                <th data-sort="lieuNaissance" class="sortable"><div class="sort flex-start">
-                    <?= __("Lieu de naissance") ?>
-                </div>
+                <th data-sort="lieuNaissance" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("Lieu de naissance") ?>
+                    </div>
                 </th>
-                <th data-sort="adresse" class="sortable"><div class="sort flex-start">
-                    <?= __("Adresse") ?>
-                </div>
+                <th data-sort="adresse" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("Adresse") ?>
+                    </div>
                 </th>
-                <th data-sort="nni" class="sortable"><div class="sort flex-start">
-                    <?= __("NNI") ?>
-                </div>
+                <th data-sort="nni" class="sortable">
+                    <div class="sort flex-start">
+                        <?= __("NNI") ?>
+                    </div>
                 </th>
                 <th><?= __("Actions") ?>
                 </th>
@@ -59,13 +65,13 @@ $title = 'Les eleves'
                 <tr data-matricule="<?= $eleve->matricule ?>">
                     <td>
                         <div class="center img-circle">
-                        <?php if(file_exists("profiles/eleve/".$eleve->imagePath)&&$eleve->imagePath): ?>
-                        <img src="profiles/eleve/<?= $eleve->imagePath ?>" >
-                        <?php else: ?>
-                         <div class="center">
-                            <i class="fa fa-user"></i>
-                         </div>
-                         <?php endif ?>
+                            <?php if (file_exists("profiles/eleve/" . $eleve->imagePath) && $eleve->imagePath): ?>
+                                <img src="profiles/eleve/<?= $eleve->imagePath ?>">
+                            <?php else: ?>
+                                <div class="center">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            <?php endif ?>
                         </div>
                     </td>
                     <td><?= $eleve->matricule ?></td>
@@ -91,7 +97,7 @@ $title = 'Les eleves'
                         </div>
                     </td>
                 </tr>
-                <?php
+            <?php
             endforeach;
             ?>
         </tbody>
@@ -110,7 +116,7 @@ $title = 'Les eleves'
 </div>
 
 <dialog id="dialog" class="dialog">
-    <div class="dialod-head">
+    <div class="dialog-head">
         <h3 class="text-center title"><?= __("Formulaire") ?>
         </h3>
     </div>
