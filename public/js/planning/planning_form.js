@@ -31,7 +31,7 @@ export default class PlanningForm {
             this.form.matriculeProfesseur.value = data.matriculeProfesseur
             this.form.codeSalleClasse.value = data.codeSalleClasse
             this.form.codeMatiere.value = data.codeMatiere
-            this.form.jourPlanning.value = data.jourPlanning
+            this.form.codeJour.value = data.codeJour
             this.form.codeHoraire.value = data.codeHoraire
         }
     }

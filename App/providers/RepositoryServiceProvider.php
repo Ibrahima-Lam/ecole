@@ -23,6 +23,7 @@ use App\Repositories\professeurRepository;
 use App\Repositories\SalleClasseRepository;
 use App\Repositories\salleRepository;
 use App\Repositories\HoraireRepository;
+use App\Repositories\jourRepository;
 use App\Repositories\userRepository;
 use App\Repositories\PlanningRepository;
 
@@ -60,5 +61,6 @@ class RepositoryServiceProvider
         $this->app->singleton(absenceRepository::class, fn($cn) => new absenceRepository());
         $this->app->singleton(absenceClasseRepository::class, fn($cn) => new absenceClasseRepository());
         $this->app->singleton(PlanningRepository::class, fn($cn) => new PlanningRepository());
+        $this->app->singleton(jourRepository::class, fn($cn) => new jourRepository());
     }
 }

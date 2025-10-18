@@ -475,32 +475,54 @@ create table cours(
     Constraint cours_unique Unique (matricule,codeSalleClasse,codeMatiere,jourCours,heureDebutCours,heureFinCours),
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
+create table jour(
+    codeJour varchar(10) not null,
+    nomJour varchar(20) not null,
+    indiceJour int(2) not null,
+    Constraint jour_pkey Primary Key (codeJour),
+    Constraint jour_unique Unique (nomJour),
+    Constraint indice_jour_unique Unique (indiceJour)
+)ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+INSERT INTO jour (codeJour, nomJour, indiceJour) VALUES
+('LUN', 'Lundi', 1),
+('MAR', 'Mardi', 2),
+('MER', 'Mercredi', 3),
+('JEU', 'Jeudi', 4),
+('VEN', 'Vendredi', 5),
+('SAM', 'Samedi', 6);
+
+
 
 create table planning(
     idPlanning int(6) AUTO_INCREMENT,
     matriculeProfesseur varchar(10),
     codeSalleClasse varchar(10) not null,
     codeMatiere varchar(10) not null,
-    jourPlanning enum('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi') not null,
+    codeJour varchar(10) not null,
     codeHoraire varchar(15) not null,
     codeAnnee varchar(10) not null,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     Constraint planning_pkey Primary Key (idPlanning),
-    Constraint planning_prof_unique Unique (matriculeProfesseur,jourPlanning,codeHoraire,codeAnnee),
-    Constraint planning_salleclasse_unique Unique (codeSalleClasse,jourPlanning,codeHoraire)
+    Constraint planning_prof_unique Unique (matriculeProfesseur,codeJour,codeHoraire,codeAnnee),
+    Constraint planning_salleclasse_unique Unique (codeSalleClasse,codeJour,codeHoraire)
 )ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 create view planning_view as select
-  p.idPlanning as idPlanning, p.matriculeProfesseur as matriculeProfesseur,p.codeSalleClasse as codeSalleClasse,p.codeMatiere as codeMatiere,p.jourPlanning as jourPlanning,p.codeHoraire as codeHoraire,p.codeAnnee as codeAnnee,
+  p.idPlanning as idPlanning, p.matriculeProfesseur as matriculeProfesseur,p.codeSalleClasse as codeSalleClasse,p.codeMatiere as codeMatiere,p.codeJour as codeJour,p.codeHoraire as codeHoraire,p.codeAnnee as codeAnnee,p.createdAt as createdAt,p.updatedAt as updatedAt,
   pr.nomProfesseur as nomProfesseur,pr.ismeProfesseur as ismeProfesseur,pr.sexeProfesseur as sexeProfesseur,pr.nniProfesseur as nniProfesseur,pr.telProfesseur as telProfesseur,pr.emailProfesseur as emailProfesseur,pr.imagePathProfesseur as imagePathProfesseur,
   m.nomMatiere as nomMatiere, m.langueMatiere as langueMatiere,m.ismeMatiere as ismeMatiere,
   sc.codeClasse as codeClasse,sc.indiceSalleClasse as indiceSalleClasse,
   case when sc.indiceSalleClasse is null then sc.codeClasse else concat(sc.codeClasse,sc.indiceSalleClasse) end as pseudoSalleClasse,
-  h.nomHoraire as nomHoraire,h.debutHoraire as debutHoraire,h.finHoraire as finHoraire
+  h.nomHoraire as nomHoraire,h.debutHoraire as debutHoraire,h.finHoraire as finHoraire,
+  j.nomJour as nomJour,j.indiceJour as indiceJour
    from planning p
   left join professeur pr on pr.matriculeProfesseur=p.matriculeProfesseur
    join matiere m on m.codeMatiere=p.codeMatiere
    join salle_classe sc on sc.codeSalleClasse=p.codeSalleClasse
-   join horaire h on h.codeHoraire=p.codeHoraire;
+   join horaire h on h.codeHoraire=p.codeHoraire
+   join jour j on j.codeJour=p.codeJour;
 
 create table absence(
     idAbsence int(6) AUTO_INCREMENT,

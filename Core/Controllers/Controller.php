@@ -12,8 +12,9 @@ use Core\Services\html\htmlService;
 
 class Controller
 {
-    public function __construct() {
-    
+    public function __construct()
+    {
+
     }
 
     protected function getCodeAnnee()
@@ -50,13 +51,13 @@ class Controller
 
     private function getSchoolName()
     {
-        $name=EtablissementService::getInstance()->getEtablissement()->getNomEtablissement();
+        $name = EtablissementService::getInstance()->getEtablissement()->getNomEtablissement();
         return $name ?: 'Etablissement';
     }
     private function getSchoolNameAr()
     {
-        $name=EtablissementService::getInstance()->getEtablissement()->getIsmeEtablissement();
-        return $name?: 'المدرسة';
+        $name = EtablissementService::getInstance()->getEtablissement()->getIsmeEtablissement();
+        return $name ?: 'المدرسة';
     }
 
     private function isDark()
@@ -65,7 +66,7 @@ class Controller
     }
     public function render(string $file, array $data = [])
     {
-       
+
 
         ob_start();
         extract($data);
@@ -91,12 +92,13 @@ class Controller
 
         $content = ob_get_clean();
         require_once 'layouts/layout.php';
+        exit();
     }
 
     public function renderPDF(string $file, array $data = [], array $options = [])
     {
-       
-        ob_start(); 
+
+        ob_start();
         extract($data);
         require "../App/pdfViews/$file.php";
         $content = ob_get_clean();
@@ -108,14 +110,14 @@ class Controller
             'useKashida' => 75,
             ...$options,
         ]);
-      
+
         $mpdf->WriteHTML($content);
-        $mpdf->Output($options['name'] ?? 'document.pdf', $options['dest']??\Mpdf\Output\Destination::INLINE);
+        $mpdf->Output($options['name'] ?? 'document.pdf', $options['dest'] ?? \Mpdf\Output\Destination::INLINE);
     }
 
     public function response(mixed $data)
     {
-     
+
         if (is_scalar($data))
             echo $data;
         else

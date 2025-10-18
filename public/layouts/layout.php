@@ -21,10 +21,10 @@
                 <li class="infos">
                     <div class="logo">
                         <img src="images/ecole.jpg" alt="logo">
-                       <div class="school-name">
-                         <h4 dir="ltr"><?=$_schoolName ?></h4>
-                         <h4 dir="rtl"><?=$_schoolNameAr ?></h4>
-                       </div>
+                        <div class="school-name">
+                            <h4 dir="ltr"><?= $_schoolName ?></h4>
+                            <h4 dir="rtl"><?= $_schoolNameAr ?></h4>
+                        </div>
                     </div>
                 </li>
                 <li class="dropdown" id="dropdown"><i class="fa fa-ellipsis-vertical"></i></li>
@@ -36,7 +36,7 @@
             <ul>
                 <li>
                     <div class="search-container">
-                        <input type="search" name="etablissement" id="search" placeholder="<?=__("Rechercher") ?> ...">
+                        <input type="search" name="etablissement" id="search" placeholder="<?= __("Rechercher") ?> ...">
                         <div class="search-result"></div>
                     </div>
                 </li>
@@ -53,8 +53,11 @@
                                     <option value="ar" <?= $_langue == 'ar' ? 'selected' : "" ?>>AR</option>
                                     <option value="en" <?= $_langue == 'en' ? 'selected' : "" ?>>EN</option>
                                 </Select></li>
-                            <li id="dark" title="<?=$_dark ? __("Mode clair") : __("Mode sombre")?>"><i class="fa <?= $_dark ? 'fa-sun' : 'fa-moon' ?>"></i></li>
-                            <li id="account" title="<?= __format("Utilisateur : %s",$_user?->nameUser) ?>"><i class="fa fa-user"></i></li>
+                            <li id="dark" title="<?= $_dark ? __("Mode clair") : __("Mode sombre") ?>"><i
+                                    class="fa <?= $_dark ? 'fa-sun' : 'fa-moon' ?>"></i></li>
+                            <li id="account" title="<?= __format("Utilisateur : %s", $_user?->nameUser) ?>"><i
+                                    class="fa fa-user"></i></li>
+                            <li id="accountable" title="<?= __("Comptabilité") ?>"><i class="fa fa-calculator"></i></li>
                         </ul>
                     </div>
                 </li>
@@ -67,87 +70,106 @@
         <ul>
             <li><a href="?p=home"><i class="fa fa-house"></i>
                     <div class="element">
-                        <div><?=__("Accueil") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Accueil") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=eleve/liste"><i class="fa fa-person"></i>
                     <div class="element">
-                        <div><?=__("Eleves") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Eleves") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=classe/liste"><i class="fa fa-list"></i>
                     <div class="element">
-                        <div><?=__("Classes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Classes") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=salleclasse/liste"><i class="fa fa-building"></i>
                     <div class="element">
-                        <div><?=__("Salles de Classes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Salles de Classes") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=professeur/liste"><i class="fa fa-user"></i>
                     <div class="element">
-                        <div><?=__("Professeurs") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Professeurs") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=matiere/liste"><i class="fa fa-book"></i>
                     <div class="element">
-                        <div><?=__("Matières") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Matières") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
-                </a></li> 
-                <li><a href="#"><i class="fa fa-chalkboard-teacher"></i>
+                </a></li>
+            <li><a href="#"><i class="fa fa-chalkboard-teacher"></i>
                     <div class="element">
-                        <div><?=__("Cours") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Cours") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=inscrit/liste"><i class="fa fa-user-plus"></i>
-                    <div class="element">   
-                        <div><?=__("Inscriptions") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                    <div class="element">
+                        <div><?= __("Inscriptions") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=examen/liste"><i class="fa fa-table"></i>
                     <div class="element">
-                        <div><?=__("Examens") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Examens") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=note/liste"><i class="fa fa-list"></i>
                     <div class="element">
-                        <div><?=__("Notes") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
-                    </div>
-                </a></li> <li><a href="?p=planning/index"><i class="fa fa-calendar"></i>
-                    <div class="element">
-                        <div><?=__("Plannings") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Notes") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
-                <li><a href="?p=absenceClasse/liste"><i class="fa fa-list-alt"></i>
-                   <div class="element">
-                       <div><?=__("Absences") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
-                   </div>
-               </a></li> 
-               <li><a href="?p=correspondant/liste"><i class="fa fa-people-group"></i>
-                   <div class="element">
-                       <div><?=__("Correspondants") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
-                   </div>
-               </a></li> 
-               <li><a href="?p=statistique/index"><i class="fa fa-dashboard"></i>
-                   <div class="element">
-                       <div><?=__("Statistiques") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
-                   </div>
-               </a></li>
-                 <li><a href="#"><i class="fa fa-edit"></i>
+            <li><a href="?p=planning/index"><i class="fa fa-calendar"></i>
                     <div class="element">
-                        <div><?=__("Avis") ?></div><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i>
+                        <div><?= __("Plannings") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
+                    </div>
+                </a></li>
+            <li><a href="?p=absenceClasse/liste"><i class="fa fa-list-alt"></i>
+                    <div class="element">
+                        <div><?= __("Absences") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
+                    </div>
+                </a></li>
+            <li><a href="?p=correspondant/liste"><i class="fa fa-people-group"></i>
+                    <div class="element">
+                        <div><?= __("Correspondants") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
+                    </div>
+                </a></li>
+            <li><a href="?p=statistique/index"><i class="fa fa-dashboard"></i>
+                    <div class="element">
+                        <div><?= __("Statistiques") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
+                    </div>
+                </a></li>
+            <li><a href="#"><i class="fa fa-edit"></i>
+                    <div class="element">
+                        <div><?= __("Avis") ?></div><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i>
                     </div>
                 </a></li>
             <li><a href="?p=paramettre/index"><i class="fa fa-gear"></i>
-                    <div class="element"><?=__("Paramètres") ?><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i></div>
+                    <div class="element"><?= __("Paramètres") ?><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i></div>
                 </a></li>
             <li><a href="?p=plus/home"><i class="fa fa-plus"></i>
-                    <div class="element"><?=__("Plus") ?><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i></div>
-                </a></li> 
-                
-                <li><a href="#"><i class="fa fa-question"></i>
-                    <div class="element"><?=__("Aide") ?><i class="fa <?=$_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right'?>"></i></div>
+                    <div class="element"><?= __("Plus") ?><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i></div>
+                </a></li>
+
+            <li><a href="#"><i class="fa fa-question"></i>
+                    <div class="element"><?= __("Aide") ?><i
+                            class="fa <?= $_langue == 'ar' ? 'fa-chevron-left' : 'fa-chevron-right' ?>"></i></div>
                 </a></li>
         </ul>
     </div>
@@ -159,7 +181,7 @@
             <p><?= __("Developpé par") ?> Ibrahima Abou lam </p>
             <p>Email: <a href="mailto:ibrahimaaboulam@gmail.com">ibrahimaaboulam@gmail.com</a></p>
             <p>Tel: <a href="tel:+22241916418">+222 41 91 64 18</a></p>
-        </div>   
+        </div>
     </div>
     <input type="hidden" id="_admin" value="<?= $_admin; ?>">
 

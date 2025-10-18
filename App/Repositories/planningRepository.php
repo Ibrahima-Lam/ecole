@@ -22,41 +22,49 @@ class PlanningRepository extends Repository
 
     function findBySalleClasse(string $codeSalleClasse): array
     {
-        return $this->db->selectAll("select * from planning_view where codeSalleClasse = '$codeSalleClasse' order by jourPlanning, debutHoraire", stdClass::class);
+        return $this->db->selectAll("select * from planning_view where codeSalleClasse = '$codeSalleClasse' order by codeJour, debutHoraire", stdClass::class);
     }
     function findByProf(string $matriculeProfesseur): array
     {
-        return $this->db->selectAll("select * from planning_view where matriculeProfesseur = '$matriculeProfesseur' order by jourPlanning, debutHoraire", stdClass::class);
+        return $this->db->selectAll("select * from planning_view where matriculeProfesseur = '$matriculeProfesseur' order by codeJour, debutHoraire", stdClass::class);
     }
 
-    function findOneByProfAndJourAndHoraire(string $matriculeProfesseur, string $jourPlanning, string $codeHoraire): false | stdClass
+    function findOneByProfAndJourAndHoraire(string $matriculeProfesseur, string $codeJour, string $codeHoraire): false | stdClass
     {
-        return $this->db->selectOne("select * from planning_view where matriculeProfesseur = '$matriculeProfesseur' and jourPlanning = '$jourPlanning' and codeHoraire = '$codeHoraire'", stdClass::class);
+        return $this->db->selectOne("select * from planning_view where matriculeProfesseur = '$matriculeProfesseur' and codeJour = '$codeJour' and codeHoraire = '$codeHoraire'", stdClass::class);
     }
 
-    function findOneBySalleClasseAndJourAndHoraire(string $codeSalleClasse, string $jourPlanning, string $codeHoraire): false | stdClass
+    function findOneBySalleClasseAndJourAndHoraire(string $codeSalleClasse, string $codeJour, string $codeHoraire): false | stdClass
     {
-        return $this->db->selectOne("select * from planning_view where codeSalleClasse = '$codeSalleClasse' and jourPlanning = '$jourPlanning' and codeHoraire = '$codeHoraire'", stdClass::class);
+        return $this->db->selectOne("select * from planning_view where codeSalleClasse = '$codeSalleClasse' and codeJour = '$codeJour' and codeHoraire = '$codeHoraire'", stdClass::class);
+    }
+    function findOneBySalleClasseAndIntervall(string $codeSalleClasse, string $debut, string $fin): false | stdClass
+    {
+        return $this->db->selectOne("select * from planning_view where codeSalleClasse = '$codeSalleClasse' and debutHoraire < '$fin' and finHoraire > '$debut'", stdClass::class);
+    }
+    function findOneByProfAndIntervall(string $matriculeProfesseur, string $debut, string $fin): false | stdClass
+    {
+        return $this->db->selectOne("select * from planning_view where matriculeProfesseur = '$matriculeProfesseur' and debutHoraire < '$fin' and finHoraire > '$debut'", stdClass::class);
     }
 
     function insert(stdClass $planning): bool
     {
-        return $this->db->prepare("insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire,codeAnnee) values (:matriculeProfesseur, :codeSalleClasse, :codeMatiere, :jourPlanning, :codeHoraire,:codeAnnee)")->execute([
+        return $this->db->prepare("insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, codeJour, codeHoraire,codeAnnee) values (:matriculeProfesseur, :codeSalleClasse, :codeMatiere, :codeJour, :codeHoraire,:codeAnnee)")->execute([
             'matriculeProfesseur' => $planning->matriculeProfesseur,
             'codeSalleClasse' => $planning->codeSalleClasse,
             'codeMatiere' => $planning->codeMatiere,
-            'jourPlanning' => $planning->jourPlanning,
+            'codeJour' => $planning->codeJour,
             'codeHoraire' => $planning->codeHoraire,
             'codeAnnee' => $planning->codeAnnee
         ]);
     }
     function update(stdClass $planning): bool
     {
-        return $this->db->prepare("update planning set matriculeProfesseur = :matriculeProfesseur, codeSalleClasse = :codeSalleClasse, codeMatiere = :codeMatiere, jourPlanning = :jourPlanning, codeHoraire = :codeHoraire,codeAnnee = :codeAnnee where idPlanning = :idPlanning")->execute([
+        return $this->db->prepare("update planning set matriculeProfesseur = :matriculeProfesseur, codeSalleClasse = :codeSalleClasse, codeMatiere = :codeMatiere, codeJour = :codeJour, codeHoraire = :codeHoraire,codeAnnee = :codeAnnee where idPlanning = :idPlanning")->execute([
             'matriculeProfesseur' => $planning->matriculeProfesseur,
             'codeSalleClasse' => $planning->codeSalleClasse,
             'codeMatiere' => $planning->codeMatiere,
-            'jourPlanning' => $planning->jourPlanning,
+            'codeJour' => $planning->codeJour,
             'codeHoraire' => $planning->codeHoraire,
             'idPlanning' => $planning->idPlanning,
             'codeAnnee' => $planning->codeAnnee
@@ -76,8 +84,8 @@ class PlanningRepository extends Repository
 
     function conflicts($prof, $codeSalleClasse, $jour, $debut, $fin, $codeAnnee, $id = null): array
     {
-        $profConflicts = $this->db->selectAll("select * from planning_view where ( matriculeProfesseur = '$prof') and jourPlanning = '$jour' and codeAnnee='$codeAnnee' and (debutHoraire < '$fin' and finHoraire > '$debut')" . ($id ? " and idPlanning != '$id'" : ""), stdClass::class);
-        $salleConflicts = $this->db->selectAll("select * from planning_view where (codeSalleClasse = '$codeSalleClasse') and jourPlanning = '$jour' and codeAnnee='$codeAnnee' and (debutHoraire < '$fin' and finHoraire > '$debut')" . ($id ? " and idPlanning != '$id'" : ""), stdClass::class);
+        $profConflicts = $this->db->selectAll("select * from planning_view where ( matriculeProfesseur = '$prof') and codeJour = '$jour' and codeAnnee='$codeAnnee' and (debutHoraire < '$fin' and finHoraire > '$debut')" . ($id ? " and idPlanning != '$id'" : ""), stdClass::class);
+        $salleConflicts = $this->db->selectAll("select * from planning_view where (codeSalleClasse = '$codeSalleClasse') and codeJour = '$jour' and codeAnnee='$codeAnnee' and (debutHoraire < '$fin' and finHoraire > '$debut')" . ($id ? " and idPlanning != '$id'" : ""), stdClass::class);
         return [
             ...array_map(function ($conflict) {
                 $conflict->type_prof = true;

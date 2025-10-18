@@ -1454,3 +1454,21 @@ update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS
 insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, jourPlanning, codeHoraire,codeAnnee) values ('124871D', 'A24252AS2', 'AR', 'Lundi', '08-10','2425');
 -- 2025-10-16 09:33:43
 update planning set matriculeProfesseur = '124871D', codeSalleClasse = 'A24252AS2', codeMatiere = 'PC', jourPlanning = 'Lundi', codeHoraire = '08-10',codeAnnee = '2425' where idPlanning = '10';
+-- 2025-10-17 12:50:08
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, codeJour, codeHoraire,codeAnnee) values ('124864A', 'A24251AS1', 'AR', 'LUN', '08-09','2425');
+-- 2025-10-17 12:54:36
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'AR', codeJour = 'MAR', codeHoraire = '08-09',codeAnnee = '2425' where idPlanning = '8';
+-- 2025-10-17 13:12:31
+update planning set matriculeProfesseur = '124864A', codeSalleClasse = 'A24251AS1', codeMatiere = 'MATH', codeJour = 'MAR', codeHoraire = '08-10',codeAnnee = '2425' where idPlanning = '8';
+-- 2025-10-17 13:14:53
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('MATH', '124864A');
+-- 2025-10-17 13:15:07
+INSERT INTO professeur_matiere (codeMatiere, matriculeProfesseur) VALUES ('PC', '124864A');
+-- 2025-10-17 13:37:15
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, codeJour, codeHoraire,codeAnnee) values ('124864A', 'A24251AS1', 'MATH', 'LUN', '10-12','2425');
+-- 2025-10-18 13:39:53
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, codeJour, codeHoraire,codeAnnee) values ('124871D', 'A24252AS2', 'PC', 'LUN', '08-09','2425');
+-- 2025-10-18 14:08:02
+insert into planning (matriculeProfesseur, codeSalleClasse, codeMatiere, codeJour, codeHoraire,codeAnnee) values ('124864A', 'A24251AS1', 'MATH', 'MER', '08-10','2425');
+-- 2025-10-18 15:33:47
+update planning set matriculeProfesseur = '124871D', codeSalleClasse = 'A24252AS2', codeMatiere = 'PC', codeJour = 'LUN', codeHoraire = '08-10',codeAnnee = '2425' where idPlanning = '10';

@@ -32,12 +32,12 @@ class PlanningApiController extends ApiController
             $data = new stdClass;
             $data->codeSalleClasse = $codeSalleClasse;
             $data->matriculeProfesseur = $matriculeProfesseur ?? null;
-            $data->jourPlanning = $jourPlanning;
+            $data->codeJour = $codeJour;
             $data->codeHoraire = $codeHoraire;
             $data->codeMatiere = $codeMatiere;
             $data->codeAnnee = $codeAnnee;
             $horaire = $horaireService->getById($codeHoraire);
-            $conflicts = $this->planningService->planningRepository->conflicts($matriculeProfesseur, $codeSalleClasse, $jourPlanning, $horaire->debutHoraire, $horaire->finHoraire, $codeAnnee);
+            $conflicts = $this->planningService->planningRepository->conflicts($matriculeProfesseur, $codeSalleClasse, $codeJour, $horaire->debutHoraire, $horaire->finHoraire, $codeAnnee);
             if (!empty($conflicts)) {
                 return   $this->response([
                     'response' => "error",
@@ -81,12 +81,12 @@ class PlanningApiController extends ApiController
             $data->idPlanning = $id;
             $data->codeSalleClasse = $codeSalleClasse;
             $data->matriculeProfesseur = $matriculeProfesseur ?? null;
-            $data->jourPlanning = $jourPlanning;
+            $data->codeJour = $codeJour;
             $data->codeHoraire = $codeHoraire;
             $data->codeMatiere = $codeMatiere;
             $data->codeAnnee = $codeAnnee;
             $horaire = $horaireService->getById($codeHoraire);
-            $conflicts = $this->planningService->planningRepository->conflicts($matriculeProfesseur, $codeSalleClasse, $jourPlanning, $horaire->debutHoraire, $horaire->finHoraire, $codeAnnee, $id);
+            $conflicts = $this->planningService->planningRepository->conflicts($matriculeProfesseur, $codeSalleClasse, $codeJour, $horaire->debutHoraire, $horaire->finHoraire, $codeAnnee, $id);
             if (!empty($conflicts)) {
                 return $this->response([
                     'data' => $conflicts,

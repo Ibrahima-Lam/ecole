@@ -611,6 +611,10 @@ td.left {
     border: 0.5px solid gray;
 }
 
+.planning-table tr:nth-child(odd) {
+    border-top: 2px solid gray;
+}
+
 .table-bordered tr td,
 .table-bordered tr th {
     border: 0.5px solid gray;
@@ -865,7 +869,8 @@ td .btn {
     color: white;
 }
 
-.dark #account i {
+.dark #account i,
+.dark #accountable i {
     color: white;
 }
 
